@@ -70,10 +70,10 @@ public class FrmCargando extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 20, 230));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/GorgeousComposedBluet-size_restricted.gif"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 410, 210));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 390, 210));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/GorgeousComposedBluet-size_restricted.gif"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -120, 420, 540));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -120, 420, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
