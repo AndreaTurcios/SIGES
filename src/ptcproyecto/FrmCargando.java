@@ -45,6 +45,7 @@ public class FrmCargando extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -54,7 +55,7 @@ public class FrmCargando extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Dubai Light", 1, 24)); // NOI18N
         jLabel2.setText("Cargando...");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 20, 230));
@@ -70,6 +71,9 @@ public class FrmCargando extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/GorgeousComposedBluet-size_restricted.gif"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 410, 210));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/GorgeousComposedBluet-size_restricted.gif"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -120, 420, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,6 +117,7 @@ public class FrmCargando extends javax.swing.JFrame {
     private javax.swing.JProgressBar barraprogreso1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
