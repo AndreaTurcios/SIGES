@@ -1,6 +1,7 @@
 package ptcproyecto;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
@@ -306,9 +307,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        Principal llamar = new Principal();
+        JOptionPane.showMessageDialog(null,"Ingreso exitoso");
+        FrmMain llamar = new FrmMain();
         llamar.setVisible(true);
         llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dispose();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     public static void main(String args[]) {

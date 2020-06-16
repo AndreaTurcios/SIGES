@@ -25,7 +25,7 @@ public class FrmCargando extends javax.swing.JFrame {
             }
             }
         };
-        t = new Timer(90,ac);
+        t = new Timer(10,ac);
         t.start();
     }
 
