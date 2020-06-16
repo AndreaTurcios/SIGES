@@ -29,6 +29,7 @@ public class Consultas extends javax.swing.JInternalFrame {
 
         JPConsultas = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        BtnCerrar = new javax.swing.JButton();
         jPIngresoConsultas = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -50,16 +51,25 @@ public class Consultas extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Cosultas");
+        jLabel4.setText("Consultas");
+
+        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
+        BtnCerrar.setToolTipText("");
+        BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPConsultasLayout = new javax.swing.GroupLayout(JPConsultas);
         JPConsultas.setLayout(JPConsultasLayout);
         JPConsultasLayout.setHorizontalGroup(
             JPConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPConsultasLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addContainerGap(250, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(729, Short.MAX_VALUE))
+                .addGap(327, 327, 327)
+                .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPConsultasLayout.setVerticalGroup(
             JPConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,6 +77,9 @@ public class Consultas extends javax.swing.JInternalFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(JPConsultasLayout.createSequentialGroup()
+                .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPIngresoConsultas.setBackground(new java.awt.Color(204, 204, 255));
@@ -75,19 +88,19 @@ public class Consultas extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Fecha:");
-        jPIngresoConsultas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 30, -1, -1));
+        jPIngresoConsultas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Hora:");
-        jPIngresoConsultas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 102, -1, -1));
-        jPIngresoConsultas.add(JTFHoraConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 123, 73, -1));
+        jPIngresoConsultas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        jPIngresoConsultas.add(JTFHoraConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 73, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Seleccione el tipo de cita:");
-        jPIngresoConsultas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 154, -1, -1));
+        jPIngresoConsultas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPIngresoConsultas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 182, -1, -1));
+        jPIngresoConsultas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         JPGestionConsultas.setBackground(new java.awt.Color(153, 204, 255));
         JPGestionConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -145,50 +158,50 @@ public class Consultas extends javax.swing.JInternalFrame {
             jPTablaDatosConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPTablaDatosConsultasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPTablaDatosConsultasLayout.setVerticalGroup(
             jPTablaDatosConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPTablaDatosConsultasLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(256, 256, 256)
+                .addComponent(jPTablaDatosConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(10, 17, Short.MAX_VALUE)
-                    .addComponent(JPGestionConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(24, 24, 24)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPTablaDatosConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE))
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(JPConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(JPGestionConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(24, 24, 24)
+                            .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(JPConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 15, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addComponent(jPTablaDatosConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 2, Short.MAX_VALUE)
                     .addComponent(JPConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(6, 6, 6)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(JPGestionConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(3, 3, 3)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPTablaDatosConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 9, Short.MAX_VALUE)))
         );
 
         pack();
@@ -203,21 +216,22 @@ public class Consultas extends javax.swing.JInternalFrame {
         jPIngresoConsultas.setVisible(false);
     }//GEN-LAST:event_JBMostrarConsultasActionPerformed
 
+    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_BtnCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JButton BtnCerrar1;
+    private javax.swing.JButton BtnCerrar2;
     private javax.swing.JButton JBGuardarConsultas;
     private javax.swing.JButton JBModificarConsultas;
     private javax.swing.JButton JBMostrarConsultas;
     private javax.swing.JPanel JPConsultas;
-    private javax.swing.JPanel JPForm;
-    private javax.swing.JPanel JPForm1;
     private javax.swing.JPanel JPGestionConsultas;
     private javax.swing.JTextField JTFHoraConsultas;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

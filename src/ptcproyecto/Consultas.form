@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
@@ -19,44 +19,47 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="850" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+              <Component id="jPTablaDatosConsultas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="10" pref="17" max="32767" attributes="0"/>
-                  <Component id="JPGestionConsultas" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPIngresoConsultas" min="-2" pref="580" max="-2" attributes="0"/>
-                      <Component id="jPTablaDatosConsultas" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="JPConsultas" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="JPGestionConsultas" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jPIngresoConsultas" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="JPConsultas" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="440" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="69" max="32767" attributes="0"/>
+              <Component id="jPTablaDatosConsultas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
                   <Component id="JPConsultas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="JPGestionConsultas" min="-2" pref="380" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPIngresoConsultas" min="-2" pref="380" max="-2" attributes="0"/>
-                              <Component id="jPTablaDatosConsultas" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jPIngresoConsultas" min="-2" pref="365" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -77,9 +80,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace pref="250" max="32767" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="729" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
+                  <Component id="BtnCerrar" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -89,6 +93,10 @@
                   <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="BtnCerrar" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -102,8 +110,19 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cosultas"/>
+            <Property name="text" type="java.lang.String" value="Consultas"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="BtnCerrar">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/1487086345-cross_81577.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCerrarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -134,7 +153,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="16" y="30" width="-1" height="-1"/>
+              <AbsoluteConstraints x="60" y="40" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -147,14 +166,14 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="16" y="102" width="-1" height="-1"/>
+              <AbsoluteConstraints x="60" y="90" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="JTFHoraConsultas">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="16" y="123" width="73" height="-1"/>
+              <AbsoluteConstraints x="60" y="120" width="73" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -167,7 +186,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="16" y="154" width="-1" height="-1"/>
+              <AbsoluteConstraints x="60" y="160" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -187,7 +206,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="16" y="182" width="-1" height="-1"/>
+              <AbsoluteConstraints x="60" y="190" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -318,17 +337,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="553" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="424" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="337" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
-              </Group>
+              <Component id="jScrollPane1" min="-2" pref="337" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

@@ -29,6 +29,7 @@ public class Citas extends javax.swing.JInternalFrame {
 
         JPCitas = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        BtnCerrar1 = new javax.swing.JButton();
         JPDatosCitas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaCitas = new javax.swing.JTable();
@@ -51,21 +52,33 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Citas");
 
+        BtnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
+        BtnCerrar1.setToolTipText("");
+        BtnCerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPCitasLayout = new javax.swing.GroupLayout(JPCitas);
         JPCitas.setLayout(JPCitasLayout);
         JPCitasLayout.setHorizontalGroup(
             JPCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPCitasLayout.createSequentialGroup()
-                .addGap(384, 384, 384)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(302, 302, 302)
+                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPCitasLayout.setVerticalGroup(
             JPCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPCitasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(JPCitasLayout.createSequentialGroup()
+                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(JPCitasLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         JPDatosCitas.setBackground(new java.awt.Color(204, 204, 255));
@@ -131,10 +144,10 @@ public class Citas extends javax.swing.JInternalFrame {
             JPDatosCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPDatosCitasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                .addGap(54, 54, 54)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(JPIngresoCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
         JPDatosCitasLayout.setVerticalGroup(
             JPDatosCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +231,7 @@ public class Citas extends javax.swing.JInternalFrame {
                         .addComponent(JPGestionCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(JPDatosCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,8 +257,13 @@ public class Citas extends javax.swing.JInternalFrame {
         JPIngresoCitas.setVisible(false);
     }//GEN-LAST:event_JBMostrarActionPerformed
 
+    private void BtnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar1ActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_BtnCerrar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrar1;
     private javax.swing.JButton JBGuardar;
     private javax.swing.JButton JBModificar;
     private javax.swing.JButton JBMostrar;

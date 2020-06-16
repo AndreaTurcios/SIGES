@@ -28,19 +28,21 @@ public class frmProductos extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList3 = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollBar1 = new javax.swing.JScrollBar();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -49,6 +51,9 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -58,50 +63,52 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(248, 127, 246));
-        jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Modificar");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 390, 160, 50);
+        jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(10, 350, 160, 23);
 
-        jLabel2.setBackground(new java.awt.Color(248, 127, 246));
-        jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 300, 160, 90);
+        jButton2.setText("Ingresar");
+        jPanel1.add(jButton2);
+        jButton2.setBounds(10, 110, 160, 23);
 
-        jLabel3.setBackground(new java.awt.Color(248, 127, 246));
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Mostrar");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 250, 160, 50);
+        jButton3.setText("Mostrar");
+        jPanel1.add(jButton3);
+        jButton3.setBounds(10, 230, 160, 23);
 
-        jLabel4.setBackground(new java.awt.Color(248, 127, 246));
-        jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Insertar");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 110, 160, 50);
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
 
-        jLabel5.setBackground(new java.awt.Color(248, 127, 246));
-        jLabel5.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 10, 160, 100);
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 150, 160, 80);
 
-        jLabel6.setBackground(new java.awt.Color(248, 127, 246));
-        jLabel6.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(10, 160, 160, 90);
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList2);
+
+        jPanel1.add(jScrollPane3);
+        jScrollPane3.setBounds(10, 30, 160, 80);
+
+        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(jList3);
+
+        jPanel1.add(jScrollPane4);
+        jScrollPane4.setBounds(10, 270, 160, 80);
 
         jPanel2.setBackground(new java.awt.Color(70, 63, 58));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 222, 222), 3));
@@ -121,21 +128,19 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 270, 500, 170);
+        jScrollPane1.setBounds(20, 290, 500, 150);
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 243, 238), 3));
         jPanel4.setLayout(null);
         jPanel4.add(jScrollBar1);
-        jScrollBar1.setBounds(480, 10, 17, 210);
+        jScrollBar1.setBounds(480, 10, 17, 250);
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         jLabel9.setText("Precio del producto:");
         jPanel4.add(jLabel9);
         jLabel9.setBounds(10, 140, 240, 25);
-        jPanel4.add(jTextField1);
-        jTextField1.setBounds(250, 180, 210, 25);
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
@@ -167,9 +172,9 @@ public class frmProductos extends javax.swing.JInternalFrame {
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
-        jLabel13.setText("Fecha(Expiración) del producto:");
+        jLabel13.setText("Tipo de producto");
         jPanel4.add(jLabel13);
-        jLabel13.setBounds(10, 180, 240, 25);
+        jLabel13.setBounds(10, 220, 240, 25);
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
@@ -181,8 +186,20 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jPanel4.add(jTextField5);
         jTextField5.setBounds(250, 140, 210, 25);
 
+        jLabel15.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        jLabel15.setText("Fecha(Expiración) del producto:");
+        jPanel4.add(jLabel15);
+        jLabel15.setBounds(10, 180, 240, 25);
+        jPanel4.add(jTextField6);
+        jTextField6.setBounds(250, 180, 210, 25);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comida", "Shampoo", "Medicinas" }));
+        jPanel4.add(jComboBox1);
+        jComboBox1.setBounds(250, 220, 210, 20);
+
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(20, 20, 500, 230);
+        jPanel4.setBounds(20, 20, 500, 260);
 
         jPanel3.setBackground(new java.awt.Color(120, 127, 246));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -252,33 +269,42 @@ public class frmProductos extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
