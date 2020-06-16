@@ -5,6 +5,8 @@
  */
 package ptcproyecto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 15-CW0001la
