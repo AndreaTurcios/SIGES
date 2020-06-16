@@ -52,9 +52,9 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
         JPFormLayout.setHorizontalGroup(
             JPFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPFormLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(294, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 553, Short.MAX_VALUE)
+                .addGap(269, 269, 269)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPFormLayout.setVerticalGroup(

@@ -5,10 +5,14 @@
  */
 package ptcproyecto;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class primeruso_empleado extends javax.swing.JFrame {
 
     public primeruso_empleado() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -41,6 +45,7 @@ public class primeruso_empleado extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -256,7 +261,11 @@ public class primeruso_empleado extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+        Primer_Uso_Tipo_Cita_UC3 llamar = new Primer_Uso_Tipo_Cita_UC3();
+        llamar.setVisible(true);
+        llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -52,10 +52,9 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         BtnCerrar = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(74, 222, 222));
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.setLayout(null);
 
@@ -124,7 +123,7 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(20, 270, 500, 170);
 
-        jPanel4.setBackground(new java.awt.Color(74, 222, 222));
+        jPanel4.setBackground(new java.awt.Color(153, 153, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 243, 238), 3));
         jPanel4.setLayout(null);
         jPanel4.add(jScrollBar1);
@@ -197,14 +196,7 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("PRODUCTOS");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(20, 10, 290, 40);
-
-        jLabel10.setBackground(new java.awt.Color(248, 127, 246));
-        jLabel10.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(670, 10, 40, 40);
+        jLabel8.setBounds(300, 10, 290, 40);
 
         BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar.setToolTipText("");
@@ -214,7 +206,7 @@ public class frmProductos extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(BtnCerrar);
-        BtnCerrar.setBounds(675, 10, 30, 41);
+        BtnCerrar.setBounds(675, 10, 30, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,7 +256,6 @@ public class frmProductos extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

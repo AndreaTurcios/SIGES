@@ -5,6 +5,9 @@
  */
 package ptcproyecto;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nanos
@@ -17,9 +20,6 @@ public class Primer_Uso_Tipo_Cita_UC3 extends javax.swing.JFrame {
     public Primer_Uso_Tipo_Cita_UC3() {
         initComponents();
         this.setLocationRelativeTo(null);
-        rsscalelabel.RSScaleLabel.setScaleLabel(btnCerrar_UC1, "Recursos_UC1/Imagenes_UC1/delete.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(btnContinuar_UC1, "Recursos_UC1/Imagenes_UC1/forward.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(btnOmitir_UC1, "Recursos_UC1/Imagenes_UC1/more.png");
     }
 
     /**
@@ -33,7 +33,6 @@ public class Primer_Uso_Tipo_Cita_UC3 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        btnCerrar_UC1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -42,10 +41,8 @@ public class Primer_Uso_Tipo_Cita_UC3 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        btnContinuar_UC2 = new javax.swing.JLabel();
-        btnContinuar_UC1 = new javax.swing.JLabel();
-        btnOmitir_UC2 = new javax.swing.JLabel();
-        btnOmitir_UC1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -59,12 +56,6 @@ public class Primer_Uso_Tipo_Cita_UC3 extends javax.swing.JFrame {
         jLabel4.setText("TIPO CITA - PRIMER USO");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(10, 10, 620, 40);
-
-        btnCerrar_UC1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnCerrar_UC1.setToolTipText("");
-        btnCerrar_UC1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel1.add(btnCerrar_UC1);
-        btnCerrar_UC1.setBounds(650, 10, 50, 40);
 
         jPanel2.setBackground(new java.awt.Color(70, 63, 58));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(7, 135, 255), 4));
@@ -117,38 +108,18 @@ public class Primer_Uso_Tipo_Cita_UC3 extends javax.swing.JFrame {
         jPanel2.add(jSeparator1);
         jSeparator1.setBounds(20, 230, 680, 10);
 
-        btnContinuar_UC2.setBackground(new java.awt.Color(255, 255, 255));
-        btnContinuar_UC2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        btnContinuar_UC2.setForeground(new java.awt.Color(74, 222, 222));
-        btnContinuar_UC2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnContinuar_UC2.setText("Continuar");
-        btnContinuar_UC2.setToolTipText("");
-        btnContinuar_UC2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 243, 238), 3));
-        jPanel2.add(btnContinuar_UC2);
-        btnContinuar_UC2.setBounds(440, 260, 210, 40);
+        jButton1.setText("Omitir");
+        jPanel2.add(jButton1);
+        jButton1.setBounds(140, 270, 150, 23);
 
-        btnContinuar_UC1.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
-        btnContinuar_UC1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnContinuar_UC1.setToolTipText("");
-        btnContinuar_UC1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 243, 238), 3));
-        jPanel2.add(btnContinuar_UC1);
-        btnContinuar_UC1.setBounds(390, 260, 50, 40);
-
-        btnOmitir_UC2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        btnOmitir_UC2.setForeground(new java.awt.Color(74, 222, 222));
-        btnOmitir_UC2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnOmitir_UC2.setText("Omitir");
-        btnOmitir_UC2.setToolTipText("");
-        btnOmitir_UC2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 243, 238), 3));
-        jPanel2.add(btnOmitir_UC2);
-        btnOmitir_UC2.setBounds(110, 260, 210, 40);
-
-        btnOmitir_UC1.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
-        btnOmitir_UC1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnOmitir_UC1.setToolTipText("");
-        btnOmitir_UC1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 243, 238), 3));
-        jPanel2.add(btnOmitir_UC1);
-        btnOmitir_UC1.setBounds(60, 260, 50, 40);
+        jButton2.setText("Continuar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(470, 270, 150, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,6 +157,14 @@ public class Primer_Uso_Tipo_Cita_UC3 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+        Primer_Uso_Tipo_Consulta_UC2 llamar = new Primer_Uso_Tipo_Consulta_UC2();
+        llamar.setVisible(true);
+        llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -222,11 +201,8 @@ public class Primer_Uso_Tipo_Cita_UC3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnCerrar_UC1;
-    private javax.swing.JLabel btnContinuar_UC1;
-    private javax.swing.JLabel btnContinuar_UC2;
-    private javax.swing.JLabel btnOmitir_UC1;
-    private javax.swing.JLabel btnOmitir_UC2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
