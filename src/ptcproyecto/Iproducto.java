@@ -61,7 +61,7 @@ public class Iproducto extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Ubuntu Mono", 0, 24)); // NOI18N
         jLabel6.setText("Primer uso tipo producto");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/Producto.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Producto.png"))); // NOI18N
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 

@@ -51,7 +51,7 @@ public class P_Preguntas extends javax.swing.JFrame {
         panel1.setBackground(new java.awt.Color(204, 204, 255));
         panel1.setForeground(new java.awt.Color(153, 204, 255));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/Pregunta.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pregunta.png"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         jLabel7.setText("Olvido su contraseña , estas preguntas seran utilizadas para verificar si udentidad");
@@ -86,7 +86,7 @@ public class P_Preguntas extends javax.swing.JFrame {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/Restaurar.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Restaurar.png"))); // NOI18N
         jButton1.setText("Restaurar");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);

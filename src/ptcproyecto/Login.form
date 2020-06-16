@@ -178,7 +178,7 @@
               <Color blue="bb" green="bb" red="c8" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/ptcproyecto/usuariooicono.png"/>
+              <Image iconType="3" name="/usuariooicono.png"/>
             </Property>
             <Property name="debugGraphicsOptions" type="int" value="-1"/>
           </Properties>
@@ -274,7 +274,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ptcproyecto/pass.png"/>
+                  <Image iconType="3" name="/pass.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -415,7 +415,7 @@
                   <Color blue="bb" green="bb" red="c8" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ptcproyecto/4014703-driver-mobile-phone-repair-screw-service-wrench_112878.png"/>
+                  <Image iconType="3" name="/4014703-driver-mobile-phone-repair-screw-service-wrench_112878.png"/>
                 </Property>
                 <Property name="debugGraphicsOptions" type="int" value="-1"/>
               </Properties>
@@ -433,7 +433,7 @@
         <Component class="javax.swing.JButton" name="BtnCerrar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/ptcproyecto/1487086345-cross_81577.png"/>
+              <Image iconType="3" name="/1487086345-cross_81577.png"/>
             </Property>
           </Properties>
           <Events>

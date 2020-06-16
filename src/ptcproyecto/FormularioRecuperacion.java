@@ -45,7 +45,7 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
-        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/1487086345-cross_81577.png"))); // NOI18N
+        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarActionPerformed(evt);

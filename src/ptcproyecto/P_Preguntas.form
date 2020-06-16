@@ -168,7 +168,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/ptcproyecto/Pregunta.png"/>
+              <Image iconType="3" name="/Pregunta.png"/>
             </Property>
           </Properties>
         </Component>
@@ -297,7 +297,7 @@
               <Font name="Ubuntu Mono" size="14" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/ptcproyecto/Restaurar.png"/>
+              <Image iconType="3" name="/Restaurar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Restaurar"/>
           </Properties>

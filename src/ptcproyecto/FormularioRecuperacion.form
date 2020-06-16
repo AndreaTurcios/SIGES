@@ -93,7 +93,7 @@
             <Component class="javax.swing.JButton" name="BtnCerrar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ptcproyecto/1487086345-cross_81577.png"/>
+                  <Image iconType="3" name="/1487086345-cross_81577.png"/>
                 </Property>
               </Properties>
               <Events>

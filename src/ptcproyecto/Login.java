@@ -81,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel7.setForeground(new java.awt.Color(200, 187, 187));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/usuariooicono.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/usuariooicono.png"))); // NOI18N
         jLabel7.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -138,7 +138,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Olvidé mi contraseña");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/pass.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pass.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -216,7 +216,7 @@ public class Login extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(75, 165, 195));
 
         jLabel6.setForeground(new java.awt.Color(200, 187, 187));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/4014703-driver-mobile-phone-repair-screw-service-wrench_112878.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4014703-driver-mobile-phone-repair-screw-service-wrench_112878.png"))); // NOI18N
         jLabel6.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -243,7 +243,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ptcproyecto/1487086345-cross_81577.png"))); // NOI18N
+        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarActionPerformed(evt);
