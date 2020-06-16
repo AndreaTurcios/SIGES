@@ -5,6 +5,8 @@
  */
 package ptcproyecto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 15-CW0001la
@@ -232,7 +234,7 @@ public class Citas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarActionPerformed
-
+        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
     }//GEN-LAST:event_JBGuardarActionPerformed
 
     private void JBMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMostrarActionPerformed

@@ -5,6 +5,8 @@
  */
 package ptcproyecto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 15-CW0001la
@@ -176,7 +178,7 @@ public class Consultas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBGuardarConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarConsultasActionPerformed
-
+        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
     }//GEN-LAST:event_JBGuardarConsultasActionPerformed
 
     private void JBMostrarConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMostrarConsultasActionPerformed
