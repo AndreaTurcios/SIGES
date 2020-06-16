@@ -65,14 +65,14 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jLabel1.setText("Modificar");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 440, 160, 50);
+        jLabel1.setBounds(10, 390, 160, 50);
 
         jLabel2.setBackground(new java.awt.Color(248, 127, 246));
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 350, 160, 90);
+        jLabel2.setBounds(10, 300, 160, 90);
 
         jLabel3.setBackground(new java.awt.Color(248, 127, 246));
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
@@ -80,7 +80,7 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jLabel3.setText("Mostrar");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 290, 160, 50);
+        jLabel3.setBounds(10, 250, 160, 50);
 
         jLabel4.setBackground(new java.awt.Color(248, 127, 246));
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
@@ -88,21 +88,21 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jLabel4.setText("Insertar");
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 120, 160, 50);
+        jLabel4.setBounds(10, 110, 160, 50);
 
         jLabel5.setBackground(new java.awt.Color(248, 127, 246));
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 10, 160, 110);
+        jLabel5.setBounds(10, 10, 160, 100);
 
         jLabel6.setBackground(new java.awt.Color(248, 127, 246));
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(10, 180, 160, 110);
+        jLabel6.setBounds(10, 160, 160, 90);
 
         jPanel2.setBackground(new java.awt.Color(70, 63, 58));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 222, 222), 3));
@@ -122,13 +122,13 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 270, 500, 190);
+        jScrollPane1.setBounds(20, 270, 500, 170);
 
         jPanel4.setBackground(new java.awt.Color(74, 222, 222));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 243, 238), 3));
         jPanel4.setLayout(null);
         jPanel4.add(jScrollBar1);
-        jScrollBar1.setBounds(470, 8, 17, 210);
+        jScrollBar1.setBounds(480, 10, 17, 210);
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
@@ -234,15 +234,15 @@ public class frmProductos extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGap(0, 521, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 1, Short.MAX_VALUE)))
         );
 
         pack();
