@@ -7,14 +7,14 @@ package ptcproyecto;
 
 /**
  *
- * @author Nanos
+ * @author 15-CW0001la
  */
-public class Productos_UC1 extends javax.swing.JFrame {
+public class frmProductos extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Productos_UC1
+     * Creates new form frmProductos
      */
-    public Productos_UC1() {
+    public frmProductos() {
         initComponents();
     }
 
@@ -53,9 +53,7 @@ public class Productos_UC1 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        BtnCerrar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(74, 222, 222));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
@@ -67,14 +65,14 @@ public class Productos_UC1 extends javax.swing.JFrame {
         jLabel1.setText("Modificar");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 460, 160, 50);
+        jLabel1.setBounds(10, 440, 160, 50);
 
         jLabel2.setBackground(new java.awt.Color(248, 127, 246));
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 63, 58), 3));
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 350, 160, 110);
+        jLabel2.setBounds(10, 350, 160, 90);
 
         jLabel3.setBackground(new java.awt.Color(248, 127, 246));
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
@@ -106,9 +104,6 @@ public class Productos_UC1 extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(10, 180, 160, 110);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(540, 60, 180, 520);
-
         jPanel2.setBackground(new java.awt.Color(70, 63, 58));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 222, 222), 3));
         jPanel2.setLayout(null);
@@ -127,13 +122,13 @@ public class Productos_UC1 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 270, 500, 234);
+        jScrollPane1.setBounds(20, 270, 500, 190);
 
         jPanel4.setBackground(new java.awt.Color(74, 222, 222));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 243, 238), 3));
         jPanel4.setLayout(null);
         jPanel4.add(jScrollBar1);
-        jScrollBar1.setBounds(470, 8, 21, 210);
+        jScrollBar1.setBounds(470, 8, 17, 210);
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
@@ -190,22 +185,19 @@ public class Productos_UC1 extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(20, 20, 500, 230);
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 60, 540, 520);
-
         jPanel3.setBackground(new java.awt.Color(120, 127, 246));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel3.setLayout(null);
 
         jLabel7.setText("jLabel7");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(270, 150, 41, 16);
+        jLabel7.setBounds(270, 150, 34, 14);
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("PRODUCTOS");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(10, 10, 290, 40);
+        jLabel8.setBounds(20, 10, 290, 40);
 
         jLabel10.setBackground(new java.awt.Color(248, 127, 246));
         jLabel10.setFont(new java.awt.Font("Lucida Sans", 1, 13)); // NOI18N
@@ -214,8 +206,44 @@ public class Productos_UC1 extends javax.swing.JFrame {
         jPanel3.add(jLabel10);
         jLabel10.setBounds(670, 10, 40, 40);
 
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 0, 720, 60);
+        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
+        BtnCerrar.setToolTipText("");
+        BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(BtnCerrar);
+        BtnCerrar.setBounds(675, 10, 30, 41);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 556, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -228,42 +256,13 @@ public class Productos_UC1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Productos_UC1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Productos_UC1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Productos_UC1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Productos_UC1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_BtnCerrarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Productos_UC1().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
