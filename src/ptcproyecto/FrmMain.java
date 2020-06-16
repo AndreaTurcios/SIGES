@@ -303,24 +303,39 @@ public class FrmMain extends javax.swing.JFrame {
         jButton3.setEnabled(false);
         jButton2.setEnabled(true);
         jButton1f.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         frmAgenda fich= new frmAgenda();
         panelArriba.add(fich);
         fich.show();
+        jButton3.setEnabled(true);
         jButton2.setEnabled(false);
         jButton1f.setEnabled(true);
-        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1fActionPerformed
         frmFichaClinica fich= new frmFichaClinica();
         panelArriba.add(fich);
         fich.show();
-        jButton1f.setEnabled(false);
-        jButton2.setEnabled(true);
         jButton3.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton1f.setEnabled(false);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
     }//GEN-LAST:event_jButton1fActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -328,6 +343,15 @@ public class FrmMain extends javax.swing.JFrame {
         llamar.setVisible(true);
         llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         dispose();
+        jButton1.setEnabled(false);
+        jButton3.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton1f.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
