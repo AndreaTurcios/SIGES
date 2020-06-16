@@ -2,6 +2,7 @@ package ptcproyecto;
 
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class FormularioRecuperacion extends javax.swing.JFrame {
 
@@ -10,6 +11,9 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         this.setMinimumSize(new Dimension(850,480));
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        jTextField2.setEnabled(false);
+        jTextField3.setEnabled(false);
+        jButton2.setEnabled(false);
     }
 
 
@@ -94,6 +98,11 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(153, 204, 255));
         jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton1.setText("Verificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Introduzca su nueva contraseña:");
@@ -104,6 +113,11 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(153, 204, 255));
         jButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton2.setText("Guardar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(153, 204, 255));
         jButton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -240,6 +254,17 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(null,"Datos verificados correctamente");
+        jTextField2.setEnabled(true);
+        jTextField3.setEnabled(true);
+        jButton2.setEnabled(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         JOptionPane.showMessageDialog(null,"Datos guardados correctamente");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
