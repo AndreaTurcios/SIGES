@@ -238,6 +238,7 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         Login llamar = new Login();
         llamar.setVisible(true);
         llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
