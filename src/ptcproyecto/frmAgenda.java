@@ -5,6 +5,8 @@
  */
 package ptcproyecto;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author 15-CW0001la
@@ -16,6 +18,7 @@ public class frmAgenda extends javax.swing.JInternalFrame {
      */
     public frmAgenda() {
         initComponents();
+        this.setPreferredSize(new Dimension(760,714));
     }
 
     /**
@@ -30,25 +33,29 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         JPForm = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BtnCerrar = new javax.swing.JButton();
-        JPMenuAgenda = new javax.swing.JPanel();
-        JBConcretadas = new javax.swing.JButton();
         JPTablaProgramadas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         JPTablaConcretadas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        JBConcretadas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        JBConcretadas1 = new javax.swing.JButton();
 
-        JPForm.setBackground(new java.awt.Color(153, 204, 255));
+        setBackground(new java.awt.Color(204, 204, 204));
+        setPreferredSize(new java.awt.Dimension(760, 714));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JPForm.setBackground(new java.awt.Color(157, 34, 202));
         JPForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agenda");
-        JPForm.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        JPForm.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar.setToolTipText("");
@@ -57,26 +64,12 @@ public class frmAgenda extends javax.swing.JInternalFrame {
                 BtnCerrarActionPerformed(evt);
             }
         });
-        JPForm.add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 27, 25));
+        JPForm.add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 27, 25));
 
-        JPMenuAgenda.setBackground(new java.awt.Color(153, 204, 255));
-        JPMenuAgenda.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Selección de citas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
-        JPMenuAgenda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(JPForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 44));
 
-        JBConcretadas.setBackground(new java.awt.Color(153, 153, 255));
-        JBConcretadas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        JBConcretadas.setForeground(new java.awt.Color(255, 255, 255));
-        JBConcretadas.setText("Mostrar");
-        JBConcretadas.setPreferredSize(new java.awt.Dimension(90, 60));
-        JBConcretadas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBConcretadasActionPerformed(evt);
-            }
-        });
-        JPMenuAgenda.add(JBConcretadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 19, 534, 47));
-
-        JPTablaProgramadas.setBackground(new java.awt.Color(204, 204, 255));
-        JPTablaProgramadas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas programadas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
+        JPTablaProgramadas.setBackground(new java.awt.Color(255, 255, 255));
+        JPTablaProgramadas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,17 +85,22 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         JPTablaProgramadas.setLayout(JPTablaProgramadasLayout);
         JPTablaProgramadasLayout.setHorizontalGroup(
             JPTablaProgramadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPTablaProgramadasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                .addContainerGap())
         );
         JPTablaProgramadasLayout.setVerticalGroup(
             JPTablaProgramadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPTablaProgramadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
-        JPTablaConcretadas.setBackground(new java.awt.Color(204, 204, 255));
+        getContentPane().add(JPTablaProgramadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 480));
+
+        JPTablaConcretadas.setBackground(new java.awt.Color(255, 255, 255));
         JPTablaConcretadas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -115,22 +113,43 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        JBConcretadas.setBackground(new java.awt.Color(0, 136, 130));
+        JBConcretadas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        JBConcretadas.setForeground(new java.awt.Color(255, 255, 255));
+        JBConcretadas.setText("Mostrar");
+        JBConcretadas.setPreferredSize(new java.awt.Dimension(90, 60));
+
         javax.swing.GroupLayout JPTablaConcretadasLayout = new javax.swing.GroupLayout(JPTablaConcretadas);
         JPTablaConcretadas.setLayout(JPTablaConcretadasLayout);
         JPTablaConcretadasLayout.setHorizontalGroup(
             JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPTablaConcretadasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(JBConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         JPTablaConcretadasLayout.setVerticalGroup(
             JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
+            .addGroup(JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(JBConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas borradas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
+        getContentPane().add(JPTablaConcretadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, 480));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,56 +165,30 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(JPMenuAgenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(JPTablaProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JPTablaConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(JPForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JPMenuAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(JPTablaProgramadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JPTablaConcretadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, -1, -1));
+
+        JBConcretadas1.setBackground(new java.awt.Color(0, 136, 130));
+        JBConcretadas1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        JBConcretadas1.setForeground(new java.awt.Color(255, 255, 255));
+        JBConcretadas1.setText("Mostrar");
+        JBConcretadas1.setPreferredSize(new java.awt.Dimension(90, 60));
+        getContentPane().add(JBConcretadas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, 534, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JBConcretadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBConcretadasActionPerformed
-
-    }//GEN-LAST:event_JBConcretadasActionPerformed
 
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
@@ -205,8 +198,8 @@ public class frmAgenda extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JButton JBConcretadas;
+    private javax.swing.JButton JBConcretadas1;
     private javax.swing.JPanel JPForm;
-    private javax.swing.JPanel JPMenuAgenda;
     private javax.swing.JPanel JPTablaConcretadas;
     private javax.swing.JPanel JPTablaProgramadas;
     private javax.swing.JLabel jLabel1;
