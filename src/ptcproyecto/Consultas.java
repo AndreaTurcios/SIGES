@@ -34,6 +34,9 @@ public class Consultas extends javax.swing.JInternalFrame {
         JPConsultas = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         BtnCerrar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        BtnCerrar1 = new javax.swing.JButton();
         JPGestionConsultas = new javax.swing.JPanel();
         JBGuardarConsultas = new javax.swing.JButton();
         JBMostrarConsultas = new javax.swing.JButton();
@@ -73,7 +76,43 @@ public class Consultas extends javax.swing.JInternalFrame {
         });
         JPConsultas.add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 27, 25));
 
-        getContentPane().add(JPConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 52));
+        jPanel1.setBackground(new java.awt.Color(204, 102, 255));
+
+        jTextField1.setBackground(new java.awt.Color(204, 102, 255));
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+
+        BtnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Buscar.jpeg"))); // NOI18N
+        BtnCerrar1.setToolTipText("");
+        BtnCerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrar1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        JPConsultas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 240, -1));
+
+        getContentPane().add(JPConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 50));
 
         JPGestionConsultas.setBackground(new java.awt.Color(255, 255, 255));
         JPGestionConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -174,9 +213,14 @@ public class Consultas extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
+    private void BtnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar1ActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_BtnCerrar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
+    private javax.swing.JButton BtnCerrar1;
     private javax.swing.JButton JBGuardarConsultas;
     private javax.swing.JButton JBModificarConsultas;
     private javax.swing.JButton JBMostrarConsultas;
@@ -190,10 +234,12 @@ public class Consultas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPIngresoConsultas;
     private javax.swing.JPanel jPTablaDatosConsultas;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private rojeru_san.componentes.RSDateChooser rSDateChooser1;
     // End of variables declaration//GEN-END:variables
 }

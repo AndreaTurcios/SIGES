@@ -111,7 +111,7 @@ public class Citas extends javax.swing.JInternalFrame {
         });
         JPCitas.add(BtnCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 27, 25));
 
-        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 51));
+        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 50));
 
         JPDatosCitas.setBackground(new java.awt.Color(255, 255, 255));
         JPDatosCitas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
