@@ -46,6 +46,9 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         JBConcretadas1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
+        setBorder(null);
+        setAutoscrolls(true);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(760, 714));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,7 +69,7 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         });
         JPForm.add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 27, 25));
 
-        getContentPane().add(JPForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 44));
+        getContentPane().add(JPForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 44));
 
         JPTablaProgramadas.setBackground(new java.awt.Color(255, 255, 255));
         JPTablaProgramadas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -98,7 +101,7 @@ public class frmAgenda extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(JPTablaProgramadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 480));
+        getContentPane().add(JPTablaProgramadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 480));
 
         JPTablaConcretadas.setBackground(new java.awt.Color(255, 255, 255));
         JPTablaConcretadas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -146,7 +149,7 @@ public class frmAgenda extends javax.swing.JInternalFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(JPTablaConcretadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, 480));
+        getContentPane().add(JPTablaConcretadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, 480));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -178,7 +181,7 @@ public class frmAgenda extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
 
         JBConcretadas1.setBackground(new java.awt.Color(0, 136, 130));
         JBConcretadas1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
