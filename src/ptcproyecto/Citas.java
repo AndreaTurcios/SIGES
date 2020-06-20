@@ -184,6 +184,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel4.setText("Seleccione el tipo de cita:");
 
         rSDateChooser1.setColorBackground(new java.awt.Color(0, 136, 130));
+        rSDateChooser1.setColorButtonHover(new java.awt.Color(157, 34, 202));
 
         javax.swing.GroupLayout JPIngresoCitasLayout = new javax.swing.GroupLayout(JPIngresoCitas);
         JPIngresoCitas.setLayout(JPIngresoCitasLayout);

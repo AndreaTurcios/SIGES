@@ -150,6 +150,7 @@ public class Consultas extends javax.swing.JInternalFrame {
         jPIngresoConsultas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         rSDateChooser1.setColorBackground(new java.awt.Color(0, 136, 130));
+        rSDateChooser1.setColorButtonHover(new java.awt.Color(157, 34, 202));
         jPIngresoConsultas.add(rSDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
