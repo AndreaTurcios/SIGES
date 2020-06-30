@@ -45,6 +45,8 @@ public class Dueños extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
+        setOpaque(true);
+
         JPForm.setBackground(new java.awt.Color(153, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
