@@ -5,6 +5,7 @@
  */
 package ptcproyecto;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
@@ -304,7 +305,25 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        frmProductos fich= new frmProductos();
+        jButton1f.setBackground(Color.WHITE);
+        jButton1f.setForeground(Color.BLACK);
+        jButton2.setBackground(Color.WHITE);
+        jButton2.setForeground(Color.BLACK);
+        jButton3.setBackground(Color.BLACK);
+        jButton3.setForeground(Color.WHITE);
+        jButton7.setBackground(Color.WHITE);
+        jButton7.setForeground(Color.BLACK);
+        jButton8.setBackground(Color.WHITE);
+        jButton8.setForeground(Color.BLACK);
+        jButton4.setBackground(Color.WHITE);
+        jButton4.setForeground(Color.BLACK);
+        jButton5.setBackground(Color.WHITE);
+        jButton5.setForeground(Color.BLACK);
+        jButton9.setBackground(Color.WHITE);
+        jButton9.setForeground(Color.BLACK);
+        jButton10.setBackground(Color.WHITE);
+        jButton10.setForeground(Color.BLACK);
+        FrmProductos_UC2 fich= new FrmProductos_UC2();
         panelArriba.add(fich);
         fich.show();
         jButton3.setEnabled(false);
@@ -313,6 +332,24 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jButton1f.setBackground(Color.WHITE);
+        jButton1f.setForeground(Color.BLACK);
+        jButton2.setBackground(Color.BLACK);
+        jButton2.setForeground(Color.WHITE);
+        jButton3.setBackground(Color.WHITE);
+        jButton3.setForeground(Color.BLACK);
+        jButton7.setBackground(Color.WHITE);
+        jButton7.setForeground(Color.BLACK);
+        jButton8.setBackground(Color.WHITE);
+        jButton8.setForeground(Color.BLACK);
+        jButton4.setBackground(Color.WHITE);
+        jButton4.setForeground(Color.BLACK);
+        jButton5.setBackground(Color.WHITE);
+        jButton5.setForeground(Color.BLACK);
+        jButton9.setBackground(Color.WHITE);
+        jButton9.setForeground(Color.BLACK);
+        jButton10.setBackground(Color.WHITE);
+        jButton10.setForeground(Color.BLACK);
         frmAgenda fich= new frmAgenda();
         panelArriba.add(fich);
         fich.show();
@@ -322,6 +359,24 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1fActionPerformed
+        jButton1f.setBackground(Color.BLACK);
+        jButton1f.setForeground(Color.WHITE);
+        jButton2.setBackground(Color.WHITE);
+        jButton2.setForeground(Color.BLACK);
+        jButton3.setBackground(Color.WHITE);
+        jButton3.setForeground(Color.BLACK);
+        jButton7.setBackground(Color.WHITE);
+        jButton7.setForeground(Color.BLACK);
+        jButton8.setBackground(Color.WHITE);
+        jButton8.setForeground(Color.BLACK);
+        jButton4.setBackground(Color.WHITE);
+        jButton4.setForeground(Color.BLACK);
+        jButton5.setBackground(Color.WHITE);
+        jButton5.setForeground(Color.BLACK);
+        jButton9.setBackground(Color.WHITE);
+        jButton9.setForeground(Color.BLACK);
+        jButton10.setBackground(Color.WHITE);
+        jButton10.setForeground(Color.BLACK);
         frmFichaClinica fich= new frmFichaClinica();
         panelArriba.add(fich);
         fich.show();
@@ -338,6 +393,24 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        jButton1f.setBackground(Color.WHITE);
+        jButton1f.setForeground(Color.BLACK);
+        jButton2.setBackground(Color.WHITE);
+        jButton2.setForeground(Color.BLACK);
+        jButton3.setBackground(Color.WHITE);
+        jButton3.setForeground(Color.BLACK);
+        jButton7.setBackground(Color.WHITE);
+        jButton7.setForeground(Color.BLACK);
+        jButton8.setBackground(Color.WHITE);
+        jButton8.setForeground(Color.BLACK);
+        jButton4.setBackground(Color.BLACK);
+        jButton4.setForeground(Color.WHITE);
+        jButton5.setBackground(Color.WHITE);
+        jButton5.setForeground(Color.BLACK);
+        jButton9.setBackground(Color.WHITE);
+        jButton9.setForeground(Color.BLACK);
+        jButton10.setBackground(Color.WHITE);
+        jButton10.setForeground(Color.BLACK);
         frmEmpleados fich= new frmEmpleados();
         panelArriba.add(fich);
         fich.show();
@@ -347,6 +420,24 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        jButton1f.setBackground(Color.WHITE);
+        jButton1f.setForeground(Color.BLACK);
+        jButton2.setBackground(Color.WHITE);
+        jButton2.setForeground(Color.BLACK);
+        jButton3.setBackground(Color.WHITE);
+        jButton3.setForeground(Color.BLACK);
+        jButton7.setBackground(Color.WHITE);
+        jButton7.setForeground(Color.BLACK);
+        jButton8.setBackground(Color.WHITE);
+        jButton8.setForeground(Color.BLACK);
+        jButton4.setBackground(Color.WHITE);
+        jButton4.setForeground(Color.BLACK);
+        jButton5.setBackground(Color.BLACK);
+        jButton5.setForeground(Color.WHITE);
+        jButton9.setBackground(Color.WHITE);
+        jButton9.setForeground(Color.BLACK);
+        jButton10.setBackground(Color.WHITE);
+        jButton10.setForeground(Color.BLACK);
         Dueños fich= new Dueños();
         panelArriba.add(fich);
         fich.show();
@@ -356,7 +447,25 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-Citas fich= new Citas();
+        jButton1f.setBackground(Color.WHITE);
+        jButton1f.setForeground(Color.BLACK);
+        jButton2.setBackground(Color.WHITE);
+        jButton2.setForeground(Color.BLACK);
+        jButton3.setBackground(Color.WHITE);
+        jButton3.setForeground(Color.BLACK);
+        jButton7.setBackground(Color.BLACK);
+        jButton7.setForeground(Color.WHITE);
+        jButton8.setBackground(Color.WHITE);
+        jButton8.setForeground(Color.BLACK);
+        jButton4.setBackground(Color.WHITE);
+        jButton4.setForeground(Color.BLACK);
+        jButton5.setBackground(Color.WHITE);
+        jButton5.setForeground(Color.BLACK);
+        jButton9.setBackground(Color.WHITE);
+        jButton9.setForeground(Color.BLACK);
+        jButton10.setBackground(Color.WHITE);
+        jButton10.setForeground(Color.BLACK);
+        Citas fich= new Citas();
         panelArriba.add(fich);
         fich.show();
         jButton1f.setEnabled(false);
@@ -365,6 +474,24 @@ Citas fich= new Citas();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        jButton1f.setBackground(Color.WHITE);
+        jButton1f.setForeground(Color.BLACK);
+        jButton2.setBackground(Color.WHITE);
+        jButton2.setForeground(Color.BLACK);
+        jButton3.setBackground(Color.WHITE);
+        jButton3.setForeground(Color.BLACK);
+        jButton7.setBackground(Color.WHITE);
+        jButton7.setForeground(Color.BLACK);
+        jButton8.setBackground(Color.BLACK);
+        jButton8.setForeground(Color.WHITE);
+        jButton4.setBackground(Color.WHITE);
+        jButton4.setForeground(Color.BLACK);
+        jButton5.setBackground(Color.WHITE);
+        jButton5.setForeground(Color.BLACK);
+        jButton9.setBackground(Color.WHITE);
+        jButton9.setForeground(Color.BLACK);
+        jButton10.setBackground(Color.WHITE);
+        jButton10.setForeground(Color.BLACK);
         Consultas fich= new Consultas();
         panelArriba.add(fich);
         fich.show();
@@ -374,11 +501,46 @@ Citas fich= new Citas();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        jButton1f.setBackground(Color.WHITE);
+        jButton1f.setForeground(Color.BLACK);
+        jButton2.setBackground(Color.WHITE);
+        jButton2.setForeground(Color.BLACK);
+        jButton3.setBackground(Color.WHITE);
+        jButton3.setForeground(Color.BLACK);
+        jButton7.setBackground(Color.WHITE);
+        jButton7.setForeground(Color.BLACK);
+        jButton8.setBackground(Color.WHITE);
+        jButton8.setForeground(Color.BLACK);
+        jButton4.setBackground(Color.WHITE);
+        jButton4.setForeground(Color.BLACK);
+        jButton5.setBackground(Color.WHITE);
+        jButton5.setForeground(Color.BLACK);
+        jButton9.setBackground(Color.BLACK);
+        jButton9.setForeground(Color.WHITE);
+        jButton10.setBackground(Color.WHITE);
+        jButton10.setForeground(Color.BLACK);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        
+        jButton1f.setBackground(Color.WHITE);
+        jButton1f.setForeground(Color.BLACK);
+        jButton2.setBackground(Color.WHITE);
+        jButton2.setForeground(Color.BLACK);
+        jButton3.setBackground(Color.WHITE);
+        jButton3.setForeground(Color.BLACK);
+        jButton7.setBackground(Color.WHITE);
+        jButton7.setForeground(Color.BLACK);
+        jButton8.setBackground(Color.WHITE);
+        jButton8.setForeground(Color.BLACK);
+        jButton4.setBackground(Color.WHITE);
+        jButton4.setForeground(Color.BLACK);
+        jButton5.setBackground(Color.WHITE);
+        jButton5.setForeground(Color.BLACK);
+        jButton9.setBackground(Color.WHITE);
+        jButton9.setForeground(Color.BLACK);
+        jButton10.setBackground(Color.BLACK);
+        jButton10.setForeground(Color.WHITE);
     }//GEN-LAST:event_jButton10ActionPerformed
     
     /**
