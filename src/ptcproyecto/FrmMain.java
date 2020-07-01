@@ -7,6 +7,7 @@ package ptcproyecto;
 
 import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -301,7 +302,15 @@ public class FrmMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        System.exit(0);
+        int Pregunta_UC1 = JOptionPane.showConfirmDialog(null,"Desea cerra el sistema", "Salida del sistema", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (Pregunta_UC1 == JOptionPane.YES_OPTION) 
+        {
+            System.exit(0);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Se ha abortado el cierre del sistema", "Salir del sistema", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -386,10 +395,18 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1fActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Login llamar = new Login();
-        llamar.setVisible(true);
-        llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dispose();
+        int Pregunta_UC1 = JOptionPane.showConfirmDialog(null,"Desea cerra la sesión iniciada", "Cerrar Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (Pregunta_UC1 == JOptionPane.YES_OPTION) 
+        {
+            Login llamar = new Login();
+            llamar.setVisible(true);
+            llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            dispose();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Se ha abortado el cierre de sesión", "Cerrar Sesión", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
