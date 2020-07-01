@@ -165,9 +165,6 @@ public class Primeruso_producto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
-        Primer_Uso_Tipo_Cita_UC3 llamar = new Primer_Uso_Tipo_Cita_UC3();
-        llamar.setVisible(true);
-        llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
