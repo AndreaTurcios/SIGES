@@ -306,7 +306,7 @@ public class primer_usuario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
-        usuarios llamar = new usuarios();
+        primer_usuario llamar = new primer_usuario();
         llamar.setVisible(true);
         llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         dispose();
