@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author 15-CW0001la
  */
-public class Consultas extends javax.swing.JInternalFrame {
+public class frmConsultas extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Consultas
+     * Creates new form frmConsultas
      */
-    public Consultas() {
+    public frmConsultas() {
         initComponents();
         this.setPreferredSize(new Dimension(760,714));
     }
@@ -51,12 +51,7 @@ public class Consultas extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         JTFHoraCitas = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        rSDateChooser1 = new rojeru_san.componentes.RSDateChooser();
         jLabel2 = new javax.swing.JLabel();
-
-        setBorder(null);
-        setPreferredSize(new java.awt.Dimension(760, 655));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JPConsultas.setBackground(new java.awt.Color(157, 34, 202));
         JPConsultas.setForeground(new java.awt.Color(153, 204, 255));
@@ -112,8 +107,6 @@ public class Consultas extends javax.swing.JInternalFrame {
 
         JPConsultas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 240, -1));
 
-        getContentPane().add(JPConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 50));
-
         JPGestionConsultas.setBackground(new java.awt.Color(255, 255, 255));
         JPGestionConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
         JPGestionConsultas.setPreferredSize(new java.awt.Dimension(222, 330));
@@ -152,8 +145,6 @@ public class Consultas extends javax.swing.JInternalFrame {
         JPGestionConsultas.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 137, 210, 10));
         JPGestionConsultas.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 236, 210, 10));
 
-        getContentPane().add(JPGestionConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 330));
-
         jPTablaDatosConsultas.setBackground(new java.awt.Color(255, 255, 255));
         jPTablaDatosConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
         jPTablaDatosConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -168,9 +159,7 @@ public class Consultas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPTablaDatosConsultas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 710, 160));
-
-        getContentPane().add(jPTablaDatosConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 730, 210));
+        jPTablaDatosConsultas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 700, 170));
 
         jPIngresoConsultas.setBackground(new java.awt.Color(255, 255, 255));
         jPIngresoConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -188,26 +177,48 @@ public class Consultas extends javax.swing.JInternalFrame {
         jLabel3.setText("Hora:");
         jPIngresoConsultas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        rSDateChooser1.setColorBackground(new java.awt.Color(0, 136, 130));
-        rSDateChooser1.setColorButtonHover(new java.awt.Color(157, 34, 202));
-        jPIngresoConsultas.add(rSDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
-
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Fecha:");
         jPIngresoConsultas.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        getContentPane().add(jPIngresoConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 500, 330));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(JPConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(JPGestionConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(8, 8, 8)
+                                    .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPTablaDatosConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(JPConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(JPGestionConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(10, 10, 10)
+                    .addComponent(jPTablaDatosConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JBGuardarConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarConsultasActionPerformed
-        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
-    }//GEN-LAST:event_JBGuardarConsultasActionPerformed
-
-    private void JBMostrarConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMostrarConsultasActionPerformed
-
-    }//GEN-LAST:event_JBMostrarConsultasActionPerformed
 
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
@@ -216,6 +227,14 @@ public class Consultas extends javax.swing.JInternalFrame {
     private void BtnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar1ActionPerformed
         this.dispose ();
     }//GEN-LAST:event_BtnCerrar1ActionPerformed
+
+    private void JBGuardarConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarConsultasActionPerformed
+        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+    }//GEN-LAST:event_JBGuardarConsultasActionPerformed
+
+    private void JBMostrarConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMostrarConsultasActionPerformed
+
+    }//GEN-LAST:event_JBMostrarConsultasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -240,6 +259,5 @@ public class Consultas extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private rojeru_san.componentes.RSDateChooser rSDateChooser1;
     // End of variables declaration//GEN-END:variables
 }

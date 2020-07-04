@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ptcproyecto;
 
 import java.awt.Color;
@@ -509,9 +504,9 @@ public class FrmMain extends javax.swing.JFrame {
         jButton9.setForeground(Color.BLACK);
         jButton10.setBackground(Color.WHITE);
         jButton10.setForeground(Color.BLACK);
-        Consultas fich= new Consultas();
-        panelArriba.add(fich);
-        fich.show();
+        //Consultas fich= new Consultas();
+//        panelArriba.add(fich);
+//        fich.show();
         jButton1f.setEnabled(false);
         jButton2.setEnabled(true);
         jButton3.setEnabled(true);

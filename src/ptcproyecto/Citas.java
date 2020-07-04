@@ -52,7 +52,6 @@ public class Citas extends javax.swing.JInternalFrame {
         JTFHoraCitas = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        rSDateChooser1 = new rojeru_san.componentes.RSDateChooser();
 
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(760, 714));
@@ -222,8 +221,6 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Seleccione el tipo de cita:");
 
-        rSDateChooser1.setColorBackground(new java.awt.Color(0, 136, 130));
-
         javax.swing.GroupLayout JPIngresoCitasLayout = new javax.swing.GroupLayout(JPIngresoCitas);
         JPIngresoCitas.setLayout(JPIngresoCitasLayout);
         JPIngresoCitasLayout.setHorizontalGroup(
@@ -233,20 +230,17 @@ public class Citas extends javax.swing.JInternalFrame {
                 .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(rSDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JTFHoraCitas, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
         JPIngresoCitasLayout.setVerticalGroup(
             JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPIngresoCitasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(rSDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(JTFHoraCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,7 +248,7 @@ public class Citas extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 480, 330));
@@ -301,6 +295,5 @@ public class Citas extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTablaCitas;
     private javax.swing.JTextField jTextField1;
-    private rojeru_san.componentes.RSDateChooser rSDateChooser1;
     // End of variables declaration//GEN-END:variables
 }
