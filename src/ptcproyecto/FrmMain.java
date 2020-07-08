@@ -327,9 +327,9 @@ public class FrmMain extends javax.swing.JFrame {
         jButton9.setForeground(Color.BLACK);
         jButton10.setBackground(Color.WHITE);
         jButton10.setForeground(Color.BLACK);
-        FrmProductos_UC2 fich= new FrmProductos_UC2();
-        panelArriba.add(fich);
-        fich.show();
+//        FrmProductos_UC2 fich= new FrmProductos_UC2();
+//        panelArriba.add(fich);
+//        fich.show();
         jButton3.setEnabled(false);
         jButton2.setEnabled(true);
         jButton1f.setEnabled(true);
