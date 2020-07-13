@@ -54,10 +54,11 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tfHora = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbTipoCita = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         tfFecha = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(760, 714));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,7 +69,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Citas");
-        JPCitas.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        JPCitas.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(204, 102, 255));
 
@@ -89,10 +90,10 @@ public class Citas extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +105,7 @@ public class Citas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        JPCitas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 240, 50));
+        JPCitas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 230, 50));
 
         BtnCerrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar2.setToolTipText("");
@@ -113,9 +114,9 @@ public class Citas extends javax.swing.JInternalFrame {
                 BtnCerrar2ActionPerformed(evt);
             }
         });
-        JPCitas.add(BtnCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 27, 25));
+        JPCitas.add(BtnCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 27, 25));
 
-        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 50));
+        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 50));
 
         JPDatosCitas.setBackground(new java.awt.Color(255, 255, 255));
         JPDatosCitas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -221,7 +222,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Hora:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTipoCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Seleccione el tipo de cita:");
@@ -235,12 +236,12 @@ public class Citas extends javax.swing.JInternalFrame {
                 .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(tfFecha, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tfHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)))
-                .addContainerGap(319, Short.MAX_VALUE))
+                        .addComponent(tfHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))
+                    .addComponent(cbTipoCita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
         JPIngresoCitasLayout.setVerticalGroup(
             JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,12 +256,12 @@ public class Citas extends javax.swing.JInternalFrame {
                 .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbTipoCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 480, 330));
+        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 460, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -272,7 +273,7 @@ public class Citas extends javax.swing.JInternalFrame {
         if (obj.guardarCita()) {
             JOptionPane.showMessageDialog(this, "Datos ingresados correctamente");
         }else{
-        JOptionPane.showMessageDialog(null,"Error al guardar datos");
+            JOptionPane.showMessageDialog(null,"Error al guardar datos");
         } 
     }//GEN-LAST:event_JBGuardarActionPerformed
 
@@ -299,7 +300,7 @@ public class Citas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel JPDatosCitas;
     private javax.swing.JPanel JPGestionCitas;
     private javax.swing.JPanel JPIngresoCitas;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbTipoCita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -10,6 +10,7 @@ public class MtoProyectos {
     private Connection cn;
     private Date cita_fecha;
     private Time cita_hora;
+    private Integer ID_tipoCita;
     
     public MtoProyectos() {
         //estableciendo la conexion
@@ -33,10 +34,11 @@ public class MtoProyectos {
     public boolean guardarCita(){
         boolean resp = false;
         try{//realizando consulta insert
-            String sql = "INSERT INTO Citas (cita_fecha, cita_hora)"+"VALUES(?,?)";
+            String sql = "INSERT INTO Citas (cita_fecha, cita_hora, ID_tipoCita)"+"VALUES(?,?,?)";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setDate(1, cita_fecha );
             cmd.setTime(2, cita_hora);
+            cmd.setInt(3, ID_tipoCita);
             if (!cmd.execute()) {
                 resp=true;
             }

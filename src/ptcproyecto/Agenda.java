@@ -5,20 +5,17 @@
  */
 package ptcproyecto;
 
-import java.awt.Dimension;
-
 /**
  *
  * @author 15-CW0001la
  */
-public class frmAgenda extends javax.swing.JInternalFrame {
+public class Agenda extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form frmAgenda
+     * Creates new form Agenda
      */
-    public frmAgenda() {
+    public Agenda() {
         initComponents();
-        this.setPreferredSize(new Dimension(760,714));
     }
 
     /**
@@ -45,13 +42,6 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         jTable3 = new javax.swing.JTable();
         JBConcretadas1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 204));
-        setBorder(null);
-        setAutoscrolls(true);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(760, 714));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         JPForm.setBackground(new java.awt.Color(157, 34, 202));
         JPForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -67,9 +57,7 @@ public class frmAgenda extends javax.swing.JInternalFrame {
                 BtnCerrarActionPerformed(evt);
             }
         });
-        JPForm.add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 27, 25));
-
-        getContentPane().add(JPForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 44));
+        JPForm.add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 30, 25));
 
         JPTablaProgramadas.setBackground(new java.awt.Color(255, 255, 255));
         JPTablaProgramadas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -88,20 +76,18 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         JPTablaProgramadas.setLayout(JPTablaProgramadasLayout);
         JPTablaProgramadasLayout.setHorizontalGroup(
             JPTablaProgramadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPTablaProgramadasLayout.createSequentialGroup()
+            .addGroup(JPTablaProgramadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPTablaProgramadasLayout.setVerticalGroup(
             JPTablaProgramadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPTablaProgramadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        getContentPane().add(JPTablaProgramadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 480));
 
         JPTablaConcretadas.setBackground(new java.awt.Color(255, 255, 255));
         JPTablaConcretadas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -126,30 +112,28 @@ public class frmAgenda extends javax.swing.JInternalFrame {
         JPTablaConcretadas.setLayout(JPTablaConcretadasLayout);
         JPTablaConcretadasLayout.setHorizontalGroup(
             JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPTablaConcretadasLayout.createSequentialGroup()
+            .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 61, Short.MAX_VALUE)
                     .addComponent(JBConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 61, Short.MAX_VALUE)))
         );
         JPTablaConcretadasLayout.setVerticalGroup(
             JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 197, Short.MAX_VALUE)
                     .addComponent(JBConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 197, Short.MAX_VALUE)))
         );
-
-        getContentPane().add(JPTablaConcretadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, 480));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas concretas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -170,7 +154,7 @@ public class frmAgenda extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -181,14 +165,45 @@ public class frmAgenda extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
-
         JBConcretadas1.setBackground(new java.awt.Color(0, 136, 130));
         JBConcretadas1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         JBConcretadas1.setForeground(new java.awt.Color(255, 255, 255));
         JBConcretadas1.setText("Mostrar");
         JBConcretadas1.setPreferredSize(new java.awt.Dimension(90, 60));
-        getContentPane().add(JBConcretadas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, 534, 50));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(JBConcretadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JPTablaProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JPTablaConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JPForm, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(JPForm, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JPTablaProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JPTablaConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JBConcretadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
