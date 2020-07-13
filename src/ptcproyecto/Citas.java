@@ -91,21 +91,21 @@ public class Citas extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        JPCitas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 230, 50));
+        JPCitas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 270, 50));
 
         BtnCerrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar2.setToolTipText("");
@@ -114,9 +114,9 @@ public class Citas extends javax.swing.JInternalFrame {
                 BtnCerrar2ActionPerformed(evt);
             }
         });
-        JPCitas.add(BtnCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 27, 25));
+        JPCitas.add(BtnCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 27, 25));
 
-        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 50));
+        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
 
         JPDatosCitas.setBackground(new java.awt.Color(255, 255, 255));
         JPDatosCitas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -137,8 +137,8 @@ public class Citas extends javax.swing.JInternalFrame {
             JPDatosCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPDatosCitasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         JPDatosCitasLayout.setVerticalGroup(
             JPDatosCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,7 +148,7 @@ public class Citas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(JPDatosCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 417, 720, 190));
+        getContentPane().add(JPDatosCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 417, 680, 190));
 
         JPGestionCitas.setBackground(new java.awt.Color(255, 255, 255));
         JPGestionCitas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de citas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -198,9 +198,9 @@ public class Citas extends javax.swing.JInternalFrame {
         JPGestionCitasLayout.setVerticalGroup(
             JPGestionCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPGestionCitasLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(22, 22, 22)
                 .addComponent(JBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JBMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,36 +232,46 @@ public class Citas extends javax.swing.JInternalFrame {
         JPIngresoCitasLayout.setHorizontalGroup(
             JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPIngresoCitasLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(tfFecha, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tfHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))
-                    .addComponent(cbTipoCita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(299, Short.MAX_VALUE))
+                    .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                                .addGap(203, 203, 203)
+                                .addComponent(jLabel2))
+                            .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                                .addGap(184, 184, 184)
+                                .addComponent(tfFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                                .addGap(209, 209, 209)
+                                .addComponent(jLabel3))))
+                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jLabel4))
+                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(cbTipoCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         JPIngresoCitasLayout.setVerticalGroup(
             JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPIngresoCitasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tfFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbTipoCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 460, 330));
+        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 440, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -286,7 +296,7 @@ public class Citas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnCerrar1ActionPerformed
 
     private void BtnCerrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar2ActionPerformed
-        // TODO add your handling code here:
+        this.dispose ();
     }//GEN-LAST:event_BtnCerrar2ActionPerformed
 
 

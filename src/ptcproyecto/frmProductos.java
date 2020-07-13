@@ -28,18 +28,16 @@ public class frmProductos extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        btnCerrar_UC1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        BtnCerrar = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -50,17 +48,22 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 165, 165), 3));
         jPanel2.setLayout(null);
 
-        btnCerrar_UC1.setBackground(new java.awt.Color(255, 255, 255));
-        btnCerrar_UC1.setToolTipText("");
-        jPanel2.add(btnCerrar_UC1);
-        btnCerrar_UC1.setBounds(650, 20, 50, 50);
-
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("PRODUCTOS");
         jPanel2.add(jLabel1);
         jLabel1.setBounds(30, 20, 170, 30);
+
+        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
+        BtnCerrar.setToolTipText("");
+        BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnCerrar);
+        BtnCerrar.setBounds(580, 0, 30, 30);
 
         jPanel8.setBackground(new java.awt.Color(238, 238, 238));
         jPanel8.setLayout(null);
@@ -73,35 +76,25 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jPanel8.add(jLabel2);
         jLabel2.setBounds(20, 310, 220, 17);
 
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        jLabel3.setText("el producto:");
-        jPanel8.add(jLabel3);
-        jLabel3.setBounds(10, 50, 430, 17);
-
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         jLabel4.setText("Ingrese el codigo del producto:");
         jPanel8.add(jLabel4);
-        jLabel4.setBounds(20, 150, 220, 17);
+        jLabel4.setBounds(10, 90, 220, 17);
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        jLabel5.setText("Ingrese la fecha(entrada)");
+        jLabel5.setText("Ingrese la fecha(entrada) del producto:");
         jPanel8.add(jLabel5);
-        jLabel5.setBounds(20, 190, 220, 17);
+        jLabel5.setBounds(10, 140, 280, 20);
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         jLabel6.setText("Ingrese el costo del producto:");
         jLabel6.setToolTipText("");
         jPanel8.add(jLabel6);
-        jLabel6.setBounds(20, 260, 220, 17);
+        jLabel6.setBounds(10, 180, 220, 17);
         jPanel8.add(jTextField2);
-        jTextField2.setBounds(250, 120, 190, 25);
+        jTextField2.setBounds(310, 50, 190, 25);
         jPanel8.add(jTextField3);
-        jTextField3.setBounds(250, 160, 190, 25);
-
-        jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        jLabel7.setText("del producto:");
-        jPanel8.add(jLabel7);
-        jLabel7.setBounds(20, 220, 100, 17);
+        jTextField3.setBounds(310, 90, 190, 25);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,9 +102,9 @@ public class frmProductos extends javax.swing.JInternalFrame {
             }
         });
         jPanel8.add(jTextField4);
-        jTextField4.setBounds(250, 210, 190, 25);
+        jTextField4.setBounds(310, 130, 190, 25);
         jPanel8.add(jTextField5);
-        jTextField5.setBounds(250, 270, 190, 25);
+        jTextField5.setBounds(310, 170, 190, 25);
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         jLabel8.setText("del producto:");
@@ -121,36 +114,33 @@ public class frmProductos extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         jLabel9.setText("Insertar nombre del producto:");
         jPanel8.add(jLabel9);
-        jLabel9.setBounds(20, 120, 220, 17);
+        jLabel9.setBounds(10, 50, 220, 17);
 
         jLabel13.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        jLabel13.setText("Ingrese los siguientes datos que se le solicitan para ingresar");
+        jLabel13.setText("Ingrese los siguientes datos que se le solicitan para ingresar el producto:");
         jPanel8.add(jLabel13);
-        jLabel13.setBounds(10, 30, 430, 17);
+        jLabel13.setBounds(20, 10, 530, 17);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 310, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -160,17 +150,19 @@ public class frmProductos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_BtnCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrar_UC1;
+    private javax.swing.JButton BtnCerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;

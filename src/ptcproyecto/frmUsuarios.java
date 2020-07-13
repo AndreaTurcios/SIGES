@@ -30,6 +30,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jPanel13 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
+        BtnCerrar2 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jTextField23 = new javax.swing.JTextField();
@@ -58,6 +59,14 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AGREGARU (2).png"))); // NOI18N
 
+        BtnCerrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
+        BtnCerrar2.setToolTipText("");
+        BtnCerrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrar2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
@@ -67,7 +76,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 .addComponent(jLabel37)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel32)
-                .addGap(270, 270, 270))
+                .addGap(238, 238, 238)
+                .addComponent(BtnCerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,6 +89,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                         .addGap(8, 8, 8)
                         .addComponent(jLabel32)))
                 .addGap(560, 560, 560))
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addComponent(BtnCerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 204));
@@ -270,8 +283,13 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4jButton1ActionPerformed
 
+    private void BtnCerrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar2ActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_BtnCerrar2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrar2;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel32;
