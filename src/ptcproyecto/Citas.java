@@ -5,7 +5,11 @@
  */
 package ptcproyecto;
 
+import Clases.MtoProyectos;
 import java.awt.Dimension;
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,9 +53,10 @@ public class Citas extends javax.swing.JInternalFrame {
         JPIngresoCitas = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        JTFHoraCitas = new javax.swing.JTextField();
+        tfHora = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        tfFecha = new javax.swing.JTextField();
 
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(760, 714));
@@ -230,9 +235,11 @@ public class Citas extends javax.swing.JInternalFrame {
                 .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(JTFHoraCitas, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(tfFecha, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(tfHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)))
                 .addContainerGap(319, Short.MAX_VALUE))
         );
         JPIngresoCitasLayout.setVerticalGroup(
@@ -240,10 +247,12 @@ public class Citas extends javax.swing.JInternalFrame {
             .addGroup(JPIngresoCitasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(52, 52, 52)
+                .addGap(18, 18, 18)
+                .addComponent(tfFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(JTFHoraCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
@@ -257,7 +266,14 @@ public class Citas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarActionPerformed
-        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+        MtoProyectos obj = new MtoProyectos();
+        obj.setCita_fecha(Date.valueOf(tfFecha.getText()));
+        obj.setCita_hora(Time.valueOf(tfHora.getText()));
+        if (obj.guardarCita()) {
+            JOptionPane.showMessageDialog(this, "Datos ingresados correctamente");
+        }else{
+        JOptionPane.showMessageDialog(null,"Error al guardar datos");
+        } 
     }//GEN-LAST:event_JBGuardarActionPerformed
 
     private void JBMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMostrarActionPerformed
@@ -283,7 +299,6 @@ public class Citas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel JPDatosCitas;
     private javax.swing.JPanel JPGestionCitas;
     private javax.swing.JPanel JPIngresoCitas;
-    private javax.swing.JTextField JTFHoraCitas;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -295,5 +310,7 @@ public class Citas extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTablaCitas;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField tfFecha;
+    private javax.swing.JTextField tfHora;
     // End of variables declaration//GEN-END:variables
 }

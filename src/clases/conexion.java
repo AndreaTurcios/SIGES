@@ -1,25 +1,22 @@
 package Clases;
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import javax.swing.JOptionPane;
 public class conexion {
-    private static Connection con;  
     private static String Usuario = "sa";
     private static String BaseDatos= "SIGES";
     private static String Contraseña = "2020";
-    
-    public static Connection getConnection()
-    {
+    public static Connection conectar(){
+        Connection cn=null;
         try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            con=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName="+BaseDatos, Usuario, Contraseña);
+            cn=DriverManager.getConnection("jdbc:sqlserver://LAPTOP-1ABIBEI5\\SQLEXPRESS;"+"databaseName="+BaseDatos, Usuario, Contraseña);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            con= null;
-            System.out.println(e);
+            System.out.println(ex.getMessage());
         }
-        return con;
+        return cn;
     }
 }
