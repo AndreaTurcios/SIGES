@@ -2,6 +2,7 @@ package Clases;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 
@@ -48,6 +49,54 @@ public class MtoProyectos {
             System.out.println(ex.toString());
         }
         return resp;
+    }
+    
+    //Metodos, Sentencias y otros - Edwin//
+    //Dejo esta seccion separado porque puede que las sentencia y/o metodos a continuacion no puedan servir//
+    
+    public static PreparedStatement sentencia_preparada;
+    public static ResultSet resultado;
+    public static String sql;
+    public static int resultado_numero = 0;
+    
+    public int Guardar_Usuario_UC1 (String nombre, String apellido_1, String apellido_2, String telefono, String domicilio, String foto,  String correo, String contraseña) throws SQLException 
+    {
+        int resultado = 0;
+        Connection conexion_UC1 = null;
+        String Sentencia_Guardar = ("INSERT INTO Usuarios (nombre_usuario, usuario_apMaterno, usuario_apPaterno, usuario_telefono, usuario_domicilio, usuario_correo, foto_usuario, usuario_contraseña) VALUES (?,?,?,?,?,?,?,?)");
+        try 
+        {
+            conexion_UC1 = conexion.conectar();
+            sentencia_preparada = conexion.;
+            sentencia_preparada.setString(1, nombre);
+            sentencia_preparada.setString(2, apellido_1);
+            sentencia_preparada.setString(3, apellido_2);
+            sentencia_preparada.setString(4, telefono);
+            sentencia_preparada.setString(5, domicilio);
+            sentencia_preparada.setString(6, correo);
+            sentencia_preparada.setString(7, foto);
+            sentencia_preparada.setString(8, contraseña);
+        }catch(Exception a)
+        {
+            
+        }
+    }
+    
+    public static String BuscarUsuarioRegistrado (String usuario, String contraseña)
+    { 
+        String busqueda_usuario = null;
+        Connection conexion_UC1 = null;
+        try 
+        {
+            conexion_UC1= conexion.conectar();
+            //String Sentencia_Buscar_Usuario = ("SELECT nombre_usuario,usuario_apMaterno,usuario_apMaterno,usuario_apPaterno,usuario_telefono, usuario_domicilio, usuario_correo, foto_usuario, ID_tipoUsuario, ID_consulta");//
+            String Sentencia_Buscar_Usuario = ("SELECT nombre_usuario, contraseña_usuario, recuperacion_usuario FROM usuarios WHERE correo = '" + usuario + "'&& contraseña = '" + contraseña + "' ");
+            Resultado = 
+        }
+        catch (Exception a) 
+        {
+            
+        }
     }
 
     
