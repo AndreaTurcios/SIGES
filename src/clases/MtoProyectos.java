@@ -160,6 +160,7 @@ public class MtoProyectos {
             {
                 busqueda_usuario = "usuario no encontrado";
             }
+            
         }
         catch (Exception a)
         {
