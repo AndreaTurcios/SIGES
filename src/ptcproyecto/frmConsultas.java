@@ -38,20 +38,27 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         BtnCerrar1 = new javax.swing.JButton();
         JPGestionConsultas = new javax.swing.JPanel();
-        JBGuardarConsultas = new javax.swing.JButton();
-        JBMostrarConsultas = new javax.swing.JButton();
-        JBModificarConsultas = new javax.swing.JButton();
+        btnGuardar_Consulta = new javax.swing.JButton();
+        btnMostrar_Consulta = new javax.swing.JButton();
+        btnModificar_Consulta = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jPTablaDatosConsultas = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbConsultas = new javax.swing.JTable();
         jPIngresoConsultas = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        CmbTurno = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        JTFHoraCitas = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        DteFecha_Consulta = new rojeru_san.componentes.RSDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        CmbTipo_Cita = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        Spinner_Segundo = new javax.swing.JSpinner();
+        Spinner_Hora = new javax.swing.JSpinner();
+        Spinner_Minuto = new javax.swing.JSpinner();
 
         JPConsultas.setBackground(new java.awt.Color(157, 34, 202));
         JPConsultas.setForeground(new java.awt.Color(153, 204, 255));
@@ -112,36 +119,36 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         JPGestionConsultas.setPreferredSize(new java.awt.Dimension(222, 330));
         JPGestionConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JBGuardarConsultas.setBackground(new java.awt.Color(0, 136, 130));
-        JBGuardarConsultas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        JBGuardarConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        JBGuardarConsultas.setText("Guardar");
-        JBGuardarConsultas.setPreferredSize(new java.awt.Dimension(90, 60));
-        JBGuardarConsultas.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
+        btnGuardar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnGuardar_Consulta.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar_Consulta.setText("Guardar");
+        btnGuardar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnGuardar_Consulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBGuardarConsultasActionPerformed(evt);
+                btnGuardar_ConsultaActionPerformed(evt);
             }
         });
-        JPGestionConsultas.add(JBGuardarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 66, 190, 48));
+        JPGestionConsultas.add(btnGuardar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 66, 190, 48));
 
-        JBMostrarConsultas.setBackground(new java.awt.Color(0, 136, 130));
-        JBMostrarConsultas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        JBMostrarConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        JBMostrarConsultas.setText("Mostrar");
-        JBMostrarConsultas.setPreferredSize(new java.awt.Dimension(90, 60));
-        JBMostrarConsultas.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
+        btnMostrar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnMostrar_Consulta.setForeground(new java.awt.Color(255, 255, 255));
+        btnMostrar_Consulta.setText("Mostrar");
+        btnMostrar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnMostrar_Consulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBMostrarConsultasActionPerformed(evt);
+                btnMostrar_ConsultaActionPerformed(evt);
             }
         });
-        JPGestionConsultas.add(JBMostrarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 165, 190, 53));
+        JPGestionConsultas.add(btnMostrar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 165, 190, 53));
 
-        JBModificarConsultas.setBackground(new java.awt.Color(0, 136, 130));
-        JBModificarConsultas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        JBModificarConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        JBModificarConsultas.setText("Modificar");
-        JBModificarConsultas.setPreferredSize(new java.awt.Dimension(90, 60));
-        JPGestionConsultas.add(JBModificarConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 252, 190, -1));
+        btnModificar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
+        btnModificar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnModificar_Consulta.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar_Consulta.setText("Modificar");
+        btnModificar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
+        JPGestionConsultas.add(btnModificar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 252, 190, -1));
         JPGestionConsultas.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 137, 210, 10));
         JPGestionConsultas.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 236, 210, 10));
 
@@ -149,37 +156,64 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         jPTablaDatosConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
         jPTablaDatosConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-
+                "consulta_fecha", "consulta_hora", "tipoConsulta", "DUI"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tbConsultas);
 
-        jPTablaDatosConsultas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 700, 170));
+        jPTablaDatosConsultas.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 710, 170));
 
         jPIngresoConsultas.setBackground(new java.awt.Color(255, 255, 255));
         jPIngresoConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
         jPIngresoConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPIngresoConsultas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 70, -1));
+        CmbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
+        jPIngresoConsultas.add(CmbTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 70, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Seleccione el tipo de cita:");
-        jPIngresoConsultas.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
-        jPIngresoConsultas.add(JTFHoraCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 70, -1));
+        jPIngresoConsultas.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Hora:");
-        jPIngresoConsultas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        jPIngresoConsultas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Fecha:");
-        jPIngresoConsultas.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPIngresoConsultas.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        jPIngresoConsultas.add(DteFecha_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 300, -1));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setText("Minuto:");
+        jPIngresoConsultas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, 20));
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText("Turno:");
+        jPIngresoConsultas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, 20));
+
+        CmbTipo_Cita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPIngresoConsultas.add(CmbTipo_Cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 370, -1));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel8.setText("Segundo:");
+        jPIngresoConsultas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, 20));
+
+        Spinner_Segundo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        jPIngresoConsultas.add(Spinner_Segundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 70, -1));
+
+        Spinner_Hora.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        jPIngresoConsultas.add(Spinner_Hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 70, -1));
+
+        Spinner_Minuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        jPIngresoConsultas.add(Spinner_Minuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -203,7 +237,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGap(0, 624, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -228,36 +262,43 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_BtnCerrar1ActionPerformed
 
-    private void JBGuardarConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarConsultasActionPerformed
+    private void btnGuardar_ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar_ConsultaActionPerformed
         JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
-    }//GEN-LAST:event_JBGuardarConsultasActionPerformed
+    }//GEN-LAST:event_btnGuardar_ConsultaActionPerformed
 
-    private void JBMostrarConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMostrarConsultasActionPerformed
+    private void btnMostrar_ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_ConsultaActionPerformed
 
-    }//GEN-LAST:event_JBMostrarConsultasActionPerformed
+    }//GEN-LAST:event_btnMostrar_ConsultaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JButton BtnCerrar1;
-    private javax.swing.JButton JBGuardarConsultas;
-    private javax.swing.JButton JBModificarConsultas;
-    private javax.swing.JButton JBMostrarConsultas;
+    public javax.swing.JComboBox<String> CmbTipo_Cita;
+    public javax.swing.JComboBox<String> CmbTurno;
+    public rojeru_san.componentes.RSDateChooser DteFecha_Consulta;
     private javax.swing.JPanel JPConsultas;
     private javax.swing.JPanel JPGestionConsultas;
-    private javax.swing.JTextField JTFHoraCitas;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JSpinner Spinner_Hora;
+    public javax.swing.JSpinner Spinner_Minuto;
+    public javax.swing.JSpinner Spinner_Segundo;
+    private javax.swing.JButton btnGuardar_Consulta;
+    private javax.swing.JButton btnModificar_Consulta;
+    private javax.swing.JButton btnMostrar_Consulta;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPIngresoConsultas;
     private javax.swing.JPanel jPTablaDatosConsultas;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tbConsultas;
     // End of variables declaration//GEN-END:variables
 }
