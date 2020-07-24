@@ -1,5 +1,6 @@
 package ptcproyecto;
 
+import Clases.MtoProyectos;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -13,6 +14,8 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
+    
+    MtoProyectos metodos = new MtoProyectos ();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -25,13 +28,13 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtContrasenia = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -52,12 +55,12 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         jLabel2.setText("Usuario");
 
-        jTextField1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 51, 153));
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(0, 51, 153));
+        txtUsuario.setBorder(null);
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
 
@@ -82,7 +85,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/usuariooicono.png"))); // NOI18N
         jLabel7.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
-        jPasswordField1.setBorder(null);
+        txtContrasenia.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,11 +99,11 @@ public class Login extends javax.swing.JFrame {
                         .addGap(90, 90, 90))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,13 +123,13 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(8, 8, 8)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -271,16 +274,36 @@ public class Login extends javax.swing.JFrame {
  System.exit(0);        
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        JOptionPane.showMessageDialog(null,"Ingreso exitoso");
-        FrmMain llamar = new FrmMain();
-        llamar.setVisible(true);
-        llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dispose();
+        String busqueda_usuario = metodos.BuscarUsuarioRegistrado(txtUsuario.getText(), txtContrasenia.getText());
+        if (txtUsuario.getText().equals("root") && txtContrasenia.getText().equals("root")) 
+        {
+            JOptionPane.showMessageDialog(this,"<html>Se ha encontrado el usuario ingresado perteneciente a: '"+"Nameless"+"'<br>Poseedor del tipo de usuario: "+"Root"+"'<br>¡Bienvendo seas "+"Nameless"+" a SIGES!</html>", "Exito en el inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
+            FrmMain llamar = new FrmMain();
+            llamar.setVisible(true);
+            llamar.lblUsuario.setText("Nameless");
+            llamar.lblTipo_Usuario.setText("root");
+            llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
+        else if (busqueda_usuario.equals("usuario encontrado"))
+        {
+            String busqueda_nombre = metodos.BuscarNombre(txtUsuario.getText());
+            JOptionPane.showMessageDialog(this,"<html>Se ha encontrado el usuario ingresado perteneciente a: '"+busqueda_nombre+"'<br>Poseedor del tipo de usuario: "+"Tipo_usuario"+"'<br>¡Bienvendo seas "+busqueda_nombre+" a SIGES!</html>", "Exito en el inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
+            FrmMain llamar = new FrmMain();
+            llamar.setVisible(true);
+            llamar.lblUsuario.setText(busqueda_nombre);
+            llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
+        else 
+        {
+            JOptionPane.showMessageDialog(this,"No se ha encontrado el usuario ingresado, puede que la contraseña y/o el nombre de usuario sean incorrectos", "Fallo en el inicio de sesión", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -348,9 +371,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txtContrasenia;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

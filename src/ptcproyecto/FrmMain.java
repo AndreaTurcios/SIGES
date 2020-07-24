@@ -29,8 +29,8 @@ public class FrmMain extends javax.swing.JFrame {
         panelMenu = new javax.swing.JPanel();
         panelArriba = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        lblTipo_Usuario = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -94,13 +94,13 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono1_1.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Admin_User");
+        lblUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setText("Admin_User");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Administrador");
+        lblTipo_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTipo_Usuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblTipo_Usuario.setText("Administrador");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 255, 51));
@@ -233,8 +233,8 @@ public class FrmMain extends javax.swing.JFrame {
                                         .addGap(16, 16, 16)))
                                 .addGap(10, 10, 10)
                                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
+                                    .addComponent(lblUsuario)
+                                    .addComponent(lblTipo_Usuario)
                                     .addComponent(jLabel4)))
                             .addGroup(panelMenuLayout.createSequentialGroup()
                                 .addContainerGap()
@@ -267,9 +267,9 @@ public class FrmMain extends javax.swing.JFrame {
                         .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelMenuLayout.createSequentialGroup()
                                 .addGap(33, 33, 33)
-                                .addComponent(jLabel2)
+                                .addComponent(lblUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
+                                .addComponent(lblTipo_Usuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4))
                             .addGroup(panelMenuLayout.createSequentialGroup()
@@ -532,14 +532,14 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel lblTipo_Usuario;
+    public javax.swing.JLabel lblUsuario;
     private javax.swing.JPanel panelAbajo;
     private javax.swing.JPanel panelArriba;
     private javax.swing.JPanel panelBarra;
