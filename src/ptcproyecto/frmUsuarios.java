@@ -5,6 +5,7 @@
  */
 package ptcproyecto;
 
+import clases.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -380,29 +381,34 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfApellidojTextField4ActionPerformed
 
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
-    MtoProyectos obj = MtoProyectos();
-        obj.setNombre(jtfNombre.getText());
-        obj.setApellido(jtfApellido.getText());
-        obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
-        obj.setEmail(jtfEmail.getText());
-        obj.setDireccion(jtfDireccion.getText());
+    Usuario obj = new Usuario();
+        obj.setnombre_usuario(jtfNombre.getText());
+        obj.setapPaterno(jtfApellido.getText());
+        obj.settelefono(Integer.parseInt(jtfTelefono.getText ()));
+        obj.setcorreo(jtfEmail.getText());
+        obj.setdomicilio(jtfDireccion.getText());
         obj.setUsuario(jtfUsuario.getText());
         obj.setContraseña(jtfContraseña.getText());
         obj.setRcontraseña(jtfRcontraseña.getText());
-        obj.setcargoE(JCBcargoE.getSelectedItem());
+        obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
+        if (obj.guardar()) {
+            JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
+        }else{
+            JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+        }
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
     private void jtbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbModificarActionPerformed
-        MtoProyectos obj = MtoProyectos();
-        obj.setNombre(jtfNombre.getText());
-        obj.setApellido(jtfApellido.getText());
-        obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
-        obj.setEmail(jtfEmail.getText());
-        obj.setDireccion(jtfDireccion.getText());
+       Usuario obj = new Usuario();
+        obj.setnombre_usuario(jtfNombre.getText());
+        obj.setapPaterno(jtfApellido.getText());
+        obj.settelefono(Integer.parseInt(jtfTelefono.getText ()));
+        obj.setcorreo(jtfEmail.getText());
+        obj.setdomicilio(jtfDireccion.getText());
         obj.setUsuario(jtfUsuario.getText());
         obj.setContraseña(jtfContraseña.getText());
         obj.setRcontraseña(jtfRcontraseña.getText());
-        obj.setcargoE(JCBcargoE.getSelectedItem());
+        obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
         
         if (obj.modificar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
@@ -412,17 +418,17 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtbModificarActionPerformed
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
-        MtoProyectos obj = MtoProyectos();
-        if (obj.consultar()) {
-        obj.setNombre(jtfNombre.getText());
-        obj.setApellido(jtfApellido.getText());
-        obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
-        obj.setEmail(jtfEmail.getText());
-        obj.setDireccion(jtfDireccion.getText());
+        Usuario obj = new Usuario();
+        if (obj.Consultar()) {
+        obj.setnombre_usuario(jtfNombre.getText());
+        obj.setapPaterno(jtfApellido.getText());
+        obj.settelefono(Integer.parseInt(jtfTelefono.getText ()));
+        obj.setcorreo(jtfEmail.getText());
+        obj.setdomicilio(jtfDireccion.getText());
         obj.setUsuario(jtfUsuario.getText());
         obj.setContraseña(jtfContraseña.getText());
         obj.setRcontraseña(jtfRcontraseña.getText());
-        obj.setcargoE(JCBcargoE.getSelectedItem());
+        obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
         }else{
             JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
         }
