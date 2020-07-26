@@ -42,7 +42,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jtfTelefono = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jtfDireccion = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jtfRcontraseña = new javax.swing.JTextField();
@@ -128,15 +127,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jLabel36.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         jLabel36.setText("Direccion:");
         jLabel36.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-
-        jButton4.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Guardar.png"))); // NOI18N
-        jButton4.setText("Guardar ");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4jButton1ActionPerformed(evt);
-            }
-        });
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -291,10 +281,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                         .addComponent(jtbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(340, 340, 340)
-                .addComponent(jButton4)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,9 +319,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(11, 11, 11)
-                .addComponent(jButton4)
-                .addGap(440, 440, 440))
+                .addGap(492, 492, 492))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -363,10 +347,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private void jtfNombrejTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNombrejTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfNombrejTextField4ActionPerformed
-
-    private void jButton4jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4jButton1ActionPerformed
 
     private void BtnCerrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar2ActionPerformed
         this.dispose ();
@@ -438,7 +418,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar2;
     private javax.swing.JComboBox<String> JCBcargoE;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
