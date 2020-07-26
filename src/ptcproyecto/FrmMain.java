@@ -338,7 +338,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel7.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
         jLabel9.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.WHITE);
         jLabel12.setForeground(Color.WHITE);
         jLabel13.setForeground(Color.WHITE);
@@ -352,7 +351,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel7.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
         jLabel9.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.WHITE);
         jLabel12.setForeground(Color.WHITE);
         jLabel13.setForeground(Color.WHITE);
@@ -367,7 +365,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel7.setForeground(Color.BLACK);
         jLabel8.setForeground(Color.WHITE);
         jLabel9.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.WHITE);
         jLabel12.setForeground(Color.WHITE);
         jLabel13.setForeground(Color.WHITE);
@@ -382,7 +379,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel7.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.BLACK);
         jLabel9.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.WHITE);
         jLabel12.setForeground(Color.WHITE);
         jLabel13.setForeground(Color.WHITE);
@@ -397,7 +393,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel7.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
         jLabel9.setForeground(Color.BLACK);
-        jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.WHITE);
         jLabel12.setForeground(Color.WHITE);
         jLabel13.setForeground(Color.WHITE);
@@ -412,7 +407,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel7.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
         jLabel9.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.BLACK);
         jLabel12.setForeground(Color.WHITE);
         jLabel13.setForeground(Color.WHITE);
@@ -427,7 +421,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel7.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
         jLabel9.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.WHITE);
         jLabel12.setForeground(Color.BLACK);
         jLabel13.setForeground(Color.WHITE);
@@ -443,7 +436,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel7.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
         jLabel9.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.WHITE);
         jLabel12.setForeground(Color.WHITE);
         jLabel13.setForeground(Color.BLACK);
