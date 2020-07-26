@@ -195,6 +195,7 @@ public class Citas extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 430, 180));
 
+        JbtGuardar.setBackground(new java.awt.Color(0, 153, 153));
         JbtGuardar.setText("Guardar");
         JbtGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +204,7 @@ public class Citas extends javax.swing.JInternalFrame {
         });
         getContentPane().add(JbtGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 130, 40));
 
+        JbtnConsultar.setBackground(new java.awt.Color(0, 153, 153));
         JbtnConsultar.setText("Mostrar");
         JbtnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +213,7 @@ public class Citas extends javax.swing.JInternalFrame {
         });
         getContentPane().add(JbtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 163, 130, 40));
 
+        JbtnModificar.setBackground(new java.awt.Color(0, 153, 153));
         JbtnModificar.setText("Modificar");
         JbtnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
