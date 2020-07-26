@@ -254,42 +254,15 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
     private void JbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtGuardarActionPerformed
-        Cita obj = new Cita();
-        obj.setcita_hora(Integer.parseInt(tfHora.getText ()));
-        obj.setcita_fecha(Integer.parseInt(tfFecha.getText ()));
-        obj.setID_tipoCita((Integer) cbTipoCita.getSelectedItem());
-        obj.setDUI((Integer)jcbDUI.getSelectedItem ());
-        if (obj.guardar()) {
-            JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los datos");
-        }
+
     }//GEN-LAST:event_JbtGuardarActionPerformed
 
     private void JbtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnModificarActionPerformed
-        Cita obj = new Cita();
-        obj.setcita_hora(Integer.parseInt(tfHora.getText ()));
-        obj.setcita_fecha(Integer.parseInt(tfFecha.getText ()));
-        obj.setID_tipoCita((Integer) cbTipoCita.getSelectedItem());
-        obj.setDUI((Integer)jcbDUI.getSelectedItem ());
-        if (obj.Modificar()) {
-            JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los modificados");
-        }
+
     }//GEN-LAST:event_JbtnModificarActionPerformed
 
     private void JbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnConsultarActionPerformed
-        Cita obj = new Cita();
-        if (obj.Consultar()) {
-            obj.setcita_hora(Integer.parseInt(tfHora.getText ()));
-            obj.setcita_fecha(Integer.parseInt(tfFecha.getText ()));
-            obj.setID_tipoCita((Integer) cbTipoCita.getSelectedItem());
-            obj.setDUI((Integer)jcbDUI.getSelectedItem ());
 
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los consultas");
-        }
     }//GEN-LAST:event_JbtnConsultarActionPerformed
 
 
