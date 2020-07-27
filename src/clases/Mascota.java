@@ -3,6 +3,7 @@ package clases;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Time;
 
 public class Mascota {
@@ -87,18 +88,36 @@ public class Mascota {
        Clases.conexion con = new Clases.conexion();
        cn = con.conectar();
        }
-    public boolean guardarMascota(){
-        boolean resp = false;
-        try{//realizando consulta insert
-            String sql = "INSERT INTO Mascota (ID_mascota, nombre_mascota, mascota_genero, mascota_razon, mascota_medicinas, mascota_horarioReserva, ID_tipoMascota)"+"VALUES(?,?,?,?,?,?,?)";
+    //creando el metodo para modificar
+    public boolean modificarMascota(){
+    boolean resp = false;
+    try{//realizando consulta update
+    String sql="UPDATE Mascota SET nombre_mascota=?, mascota_genero=?, " 
+            + "mascota_razon=?, mascota_medicinas=?, WHERE mascota_horarioReserva=?";
+    PreparedStatement cmd = cn.prepareStatement(sql);
+    //llenar los parametros como se encuentran en las clases
+    cmd.setString(1, nombre_mascota);
+    cmd.setString(2, mascota_genero);
+    cmd.setString(3, mascota_razon);
+    cmd.setString(4, mascota_medicinas);
+    cmd.setString(5, mascota_horarioReserva);
+    
+        if (!cmd.execute()) {
+            resp=true;
+        }
+    cmd.close();
+    cn.close();
+    }catch(Exception ex){
+        System.out.println(ex.toString());
+    }
+    return resp;
+    }
+    public boolean EliminarMascota(){
+    boolean resp=false;
+    try{//realizando consulta insert
+            String sql = "DELETE FROM Mascota WHERE ID_mascota=?;";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setInt(1, ID_mascota );
-            cmd.setString(2, nombre_mascota );
-            cmd.setString(3, mascota_genero );
-            cmd.setString(4, mascota_razon );
-            cmd.setString(5, mascota_medicinas );
-            cmd.setString(6, mascota_horarioReserva );
-            cmd.setInt(7, ID_tipoMascota );
             if (!cmd.execute()) {
                 resp=true;
             }
@@ -108,5 +127,53 @@ public class Mascota {
             System.out.println(ex.toString());
         }
         return resp;
+    }
+    public boolean guardarMascota(){
+        boolean resp = false;
+        try{//realizando consulta insert
+            String sql = "INSERT INTO Mascota (nombre_mascota=?, mascota_genero=?, " 
+            + "mascota_razon=?, mascota_medicinas=?, mascota_horarioReserva=?"+"VALUES(?,?,?,?,?,?,?)";
+            PreparedStatement cmd= cn.prepareStatement(sql);
+            cmd.setString(1, nombre_mascota );
+            cmd.setString(2, mascota_genero );
+            cmd.setString(3, mascota_razon );
+            cmd.setString(4, mascota_medicinas );
+            cmd.setString(5, mascota_horarioReserva );
+            cmd.setInt(6, ID_tipoMascota );
+            if (!cmd.execute()) {
+                resp=true;
+            }
+            cmd.close();
+            cn.close();
+        }catch(Exception ex){
+            System.out.println(ex.toString());
+        }
+        return resp;
+        
+    }
+    public boolean consultarMascota(){
+        boolean resp = false;
+        try{//realizando consulta insert
+            String sql = "SELECT nombre_mascota=?, mascota_genero=?, " 
+            + "mascota_razon=?, mascota_medicinas=?, mascota_horarioReserva=? FROM Mascota WHERE ID_mascota=?";
+            PreparedStatement cmd= cn.prepareStatement(sql);
+            cmd.setInt(1, ID_mascota );
+            ResultSet rs= cmd.executeQuery();
+            if (rs.next()) {
+                resp=true;
+            nombre_mascota = rs.getString(1);
+            mascota_genero = rs.getString(2);
+            mascota_razon = rs.getString(3);
+            mascota_medicinas = rs.getString(4);
+            mascota_horarioReserva = rs.getString(5);
+            ID_tipoMascota = rs.getInt(6);
+            }
+            cmd.close();
+            cn.close();
+        }catch(Exception ex){
+            System.out.println(ex.toString());
+        }
+        return resp;
+        
     }
 }
