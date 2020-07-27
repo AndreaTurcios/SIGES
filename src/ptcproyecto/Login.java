@@ -1,6 +1,5 @@
 package ptcproyecto;
 
-import Clases.MtoProyectos;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -15,7 +14,7 @@ public class Login extends javax.swing.JFrame {
         
     }
     
-    MtoProyectos metodos = new MtoProyectos ();
+    Clases.Login metodos = new Clases.Login ();
 
     /**
      * This method is called from within the constructor to initialize the form.

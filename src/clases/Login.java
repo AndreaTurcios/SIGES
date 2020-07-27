@@ -10,16 +10,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import ptcproyecto.FrmMain;
-import ptcproyecto.Login;
 
-public class MtoProyectos {
+
+public class Login {
     //declaracion de los atributos
     private Connection cn;
     private Date cita_fecha;
     private Time cita_hora;
     private Integer ID_tipoCita;
     
-    public MtoProyectos() {
+    public Login() {
         //estableciendo la conexion
        conexion con = new conexion();
        cn = con.conectar();
