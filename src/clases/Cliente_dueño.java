@@ -118,7 +118,7 @@ public class Cliente_dueño {
     boolean resp = false;
     try{//realizando consulta update
     String sql="UPDATE Cliente_dueño SET ID_DUI=?,dueño_nombre=?, dueño_apellidos=?, " 
-            + "dueño_telefono=?, dueño_domicilio=?, WHERE Cliente=?";
+            + "dueño_telefono=?, dueño_domicilio=?, dueño_correo=?,Fecha_e_DUI=?,nacionalidad=? WHERE ID_Mascota=?";
     PreparedStatement cmd = cn.prepareStatement(sql);
     //llenar los parametros como se encuentran en las clases
     cmd.setInt(1, ID_DUI);
@@ -126,6 +126,12 @@ public class Cliente_dueño {
     cmd.setString(3, dueño_apellidos);
     cmd.setInt(4, dueño_telefono);
     cmd.setString(5, dueño_domicilio);
+    cmd.setString(6, dueño_correo);
+    cmd.setDate(7, Fecha_e_DUI);
+    cmd.setString(8, nacionalidad);
+    cmd.setInt(9, codigo_zona);
+    cmd.setInt(10, ID_tipoCliente);
+    cmd.setInt(11, ID_Mascota);
     
         if (!cmd.execute()) {
             resp=true;

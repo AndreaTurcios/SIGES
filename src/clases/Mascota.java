@@ -93,7 +93,7 @@ public class Mascota {
     boolean resp = false;
     try{//realizando consulta update
     String sql="UPDATE Mascota SET nombre_mascota=?, mascota_genero=?, " 
-            + "mascota_razon=?, mascota_medicinas=?, WHERE mascota_horarioReserva=?";
+            + "mascota_razon=?, mascota_medicinas=? WHERE mascota_horarioReserva=?";
     PreparedStatement cmd = cn.prepareStatement(sql);
     //llenar los parametros como se encuentran en las clases
     cmd.setString(1, nombre_mascota);
