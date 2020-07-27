@@ -188,7 +188,7 @@ public class Cliente_dueño {
         return resp;
         
     }
-    public boolean consultarMascota(){
+    public boolean consultarCliente(){
         boolean resp = false;
         try{//realizando consulta insert
             String sql = "SELECT ID_DUI=?,dueño_nombre=?, dueño_apellidos=?, " 
