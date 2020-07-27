@@ -31,7 +31,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         BtnCerrar = new javax.swing.JButton();
 
-        JPForm.setBackground(new java.awt.Color(153, 204, 255));
+        JPForm.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,7 +80,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JPForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
 
         pack();
