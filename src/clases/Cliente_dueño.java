@@ -191,8 +191,8 @@ public class Cliente_dueño {
     public boolean consultarMascota(){
         boolean resp = false;
         try{//realizando consulta insert
-            String sql = "SELECT nombre_mascota=?, mascota_genero=?, " 
-            + "mascota_razon=?, mascota_medicinas=?, mascota_horarioReserva=? FROM Mascota WHERE ID_mascota=?";
+            String sql = "SELECT ID_DUI=?,dueño_nombre=?, dueño_apellidos=?, " 
+            + "dueño_telefono=?, dueño_domicilio=?, dueño_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=? FROM Cliente_dueño WHERE ID_DUI=?";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setInt(1, ID_DUI );
             ResultSet rs= cmd.executeQuery();
