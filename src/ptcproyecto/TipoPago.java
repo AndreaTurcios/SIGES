@@ -62,7 +62,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnMostrar_Tipo_Pago);
-        btnMostrar_Tipo_Pago.setBounds(10, 220, 200, 60);
+        btnMostrar_Tipo_Pago.setBounds(10, 220, 160, 60);
 
         btnGuardar_Tipo_Pago.setBackground(new java.awt.Color(0, 136, 130));
         btnGuardar_Tipo_Pago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -74,7 +74,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnGuardar_Tipo_Pago);
-        btnGuardar_Tipo_Pago.setBounds(10, 20, 200, 60);
+        btnGuardar_Tipo_Pago.setBounds(10, 20, 160, 60);
 
         btnModificar_Tipo_Pago.setBackground(new java.awt.Color(0, 136, 130));
         btnModificar_Tipo_Pago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -86,14 +86,14 @@ public class TipoPago extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnModificar_Tipo_Pago);
-        btnModificar_Tipo_Pago.setBounds(10, 120, 200, 60);
+        btnModificar_Tipo_Pago.setBounds(10, 120, 160, 60);
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(10, 200, 200, 20);
         jPanel1.add(jSeparator2);
         jSeparator2.setBounds(10, 100, 200, 20);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 70, 220, 290);
+        jPanel1.setBounds(10, 70, 180, 290);
 
         jPanel3.setBackground(new java.awt.Color(157, 34, 202));
         jPanel3.setLayout(null);
@@ -101,7 +101,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(204, 102, 255));
         jPanel4.setLayout(null);
         jPanel3.add(jPanel4);
-        jPanel4.setBounds(480, 0, 250, 60);
+        jPanel4.setBounds(320, 0, 270, 60);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,7 +111,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jLabel2.setBounds(10, 7, 200, 40);
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 0, 730, 60);
+        jPanel3.setBounds(0, 0, 590, 60);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -131,16 +131,16 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel5.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 20, 690, 120);
+        jScrollPane1.setBounds(10, 20, 550, 120);
 
         getContentPane().add(jPanel5);
-        jPanel5.setBounds(10, 370, 710, 150);
+        jPanel5.setBounds(10, 370, 580, 150);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel2.setLayout(null);
         jPanel2.add(txtNombre_Tipo_Pago);
-        txtNombre_Tipo_Pago.setBounds(170, 60, 290, 22);
+        txtNombre_Tipo_Pago.setBounds(40, 60, 290, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nombre del tipo de pago:");
@@ -148,7 +148,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jLabel3.setBounds(20, 30, 160, 17);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(240, 70, 480, 290);
+        jPanel2.setBounds(200, 70, 390, 290);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

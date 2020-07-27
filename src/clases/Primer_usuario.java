@@ -1,287 +1,140 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clases;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class Primer_usuario {
-  private Connection cn;
+    private Connection cn;
     private Integer ID_usuario;
-    private String Usuario;
-    private String Contrasenia;
-    private String nombre_usuario;
-    private String apellidos_usuario;
-    private Integer telefono;
-    private String domicilio;
-    private String correo;
-    private Integer Pregunta;
-    private String Respuesta;
-    private Integer Tipo_usuario;
+    private String nombre_empleado;
+    private String empleado_apellidos;
+    private String empleado_telefono;
+    private String empleado_correo;
+    private String empleado_domicilio;
+    private Integer ID_tipoUsuarios;
+    private String  nombre_usuario;
+    private String  contrasenia_usuario;
+
    
-    public boolean guardar() {
-        boolean resp = false;
-        try {String sql = "INSERT INTO Usuarios(nombre_usuario, contrasenia_usuario"
-                + " nombre_empleado, empleado_apellidos, empleado_telefono "
-                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        
-        PreparedStatement cmd = getCn().prepareStatement(sql);
-        
-        cmd.setString(1, getNombre_usuario());
-        cmd.setString(2, getApellidos_usuario());
-        cmd.setInt(3, getTelefono());
-        cmd.setString(4, getCorreo());
-        cmd.setString(5, getDomicilio());
-        cmd.setString(6, getUsuario());
-        cmd.setString(7, getContrasenia());
-        cmd.setInt(8, getTipo_usuario());
-        
-        if (!cmd.execute()) {
-            resp = true;
-        }
-        cmd.close();
-            getCn().close();
-        }catch(Exception e) {
-            System.out.println(e.toString());
-        }
-        return resp;
-    }
-    
-     
-    
-    public boolean modificar() {
-         boolean resp = false;
-        try {String sql = "UPDATE SET Usuarios , nombre_usuario = ?, contrasenia_usuario = = ?"
-                + " nombre_empleado = ?, apellidos_usuario = ?, empleado_telefono = ? "
-                + "empleado_domicilio = ?, empleado_correo = ?, ID_tipoUsuarios = ? ,ID_usuario = ?";
-        
-        PreparedStatement cmd = getCn().prepareStatement(sql);
-       
-        cmd.setString(1, getNombre_usuario());
-        cmd.setString(2, getApellidos_usuario());
-        cmd.setInt(3, getTelefono());
-        cmd.setString(4, getCorreo());
-        cmd.setString(5, getDomicilio());
-        cmd.setString(6, getUsuario());
-        cmd.setString(7, getContrasenia());
-        cmd.setInt(8, getTipo_usuario());
-        cmd.setInt(9, getID_usuario());
-        
-        if (!cmd.execute()) {
-            resp = true;
-        }
-        cmd.close();
-            getCn().close();
-        }catch(Exception e) {
-            System.out.println(e.toString());
-        }
-        return resp;
-    }
-
-    
-    public boolean Consultar() {
-        boolean resp = false;
-        try {String sql = "SELECT ID_usuario ,nombre_usuario, contrasenia_usuario"
-                + " nombre_empleado, apellidos_empleado, empleado_telefono "
-                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios FROM Usuarios WHERE ID_usuario = ? ";
-        
-        PreparedStatement cmd = getCn().prepareStatement(sql);
-        cmd.setInt(1, getID_usuario());
-        
-        ResultSet rs = cmd.executeQuery();
-        
-        if (rs.next()) {
-            resp = true;
-            cmd.setInt(1, getID_usuario());
-            cmd.setString(2, getNombre_usuario());
-            cmd.setString(3, getApellidos_usuario());
-            cmd.setInt(4, getTelefono());
-            cmd.setString(5, getCorreo());
-            cmd.setString(6, getDomicilio());
-            cmd.setString(7, getUsuario());
-            cmd.setString(8, getContrasenia());
-            cmd.setInt(9, getTipo_usuario());
-        }
-        cmd.close();
-            getCn().close();
-        }catch(Exception e) {
-            System.out.println(e.toString());
-        }
-        return resp;
-        }
-
-    /**
-     * @return the cn
-     */
-    public Connection getCn() {
+    public Connection getcn(){
         return cn;
     }
-
-    /**
-     * @param cn the cn to set
-     */
-    public void setCn(Connection cn) {
+    
+    public void setcn(Connection cn){
         this.cn = cn;
     }
-
-    /**
-     * @return the ID_usuario
-     */
-    public Integer getID_usuario() {
+    
+    public Integer getID_usuario(){
         return ID_usuario;
     }
-
-    /**
-     * @param ID_usuario the ID_usuario to set
-     */
-    public void setID_usuario(Integer ID_usuario) {
+    
+    public void setID_usuario(Integer ID_usuario){
         this.ID_usuario = ID_usuario;
     }
-
-    /**
-     * @return the Usuario
-     */
-    public String getUsuario() {
-        return Usuario;
+    
+    public String getnombre_empleado(){
+        return nombre_empleado;
     }
-
-    /**
-     * @param Usuario the Usuario to set
-     */
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
+    
+    public void setnombre_empleado(String nombre_empleado){
+        this.nombre_empleado = nombre_empleado;
     }
-
-    /**
-     * @return the Contrasenia
-     */
-    public String getContrasenia() {
-        return Contrasenia;
+    
+    public String getempleado_apellidos(){
+        return empleado_apellidos;
     }
-
-    /**
-     * @param Contrasenia the Contrasenia to set
-     */
-    public void setContrasenia(String Contrasenia) {
-        this.Contrasenia = Contrasenia;
+    
+    public void setempleado_apellidos(String empleado_apellidos){
+        this.empleado_apellidos = empleado_apellidos;
     }
-
-    /**
-     * @return the nombre_usuario
-     */
-    public String getNombre_usuario() {
+    
+    public String getempleado_telefono(){
+        return empleado_telefono;
+    }
+    
+    public void setempleado_telefono(String empleado_telefono){
+        this.empleado_telefono = empleado_telefono;
+    }
+    
+    public String getempleado_correo(){
+        return empleado_correo;
+    }
+    
+    public void setnempleado_correo(String empleado_correo){
+        this.empleado_correo = empleado_correo;
+    }
+    
+    public String getempleado_domicilio(){
+        return empleado_domicilio;
+    }
+    
+    public void setempleado_domicilio(String empleado_domicilio){
+        this.empleado_domicilio = empleado_domicilio;
+    }
+    
+    public Integer getID_tipoUsuarios(){
+        return ID_tipoUsuarios;
+    }
+    
+    public void setID_tipoUsuarios(Integer ID_tipoUsuarios){
+        this.ID_tipoUsuarios = ID_tipoUsuarios;
+    }
+    
+    public String getnombre_usuario(){
         return nombre_usuario;
     }
-
-    /**
-     * @param nombre_usuario the nombre_usuario to set
-     */
-    public void setNombre_usuario(String nombre_usuario) {
+    
+    public void setnombre_usuario(String nombre_usuario){
         this.nombre_usuario = nombre_usuario;
     }
-
-    /**
-     * @return the apellidos_usuario
-     */
-    public String getApellidos_usuario() {
-        return apellidos_usuario;
+    
+    public String getcontrasenia_usuario(){
+        return contrasenia_usuario;
+    }
+    
+    public void setcontrasenia_usuario(String contrasenia_usuario){
+        this.contrasenia_usuario = contrasenia_usuario;
     }
 
-    /**
-     * @param apellidos_usuario the apellidos_usuario to set
-     */
-    public void setApellidos_usuario(String apellidos_usuario) {
-        this.apellidos_usuario = apellidos_usuario;
+    public boolean guardar() {
+        boolean resp = false;
+        try {String sql = "INSERT INTO Usuarios(ID_usuario, nombre_usuario, contrasenia_usuario"
+                + " nombre_empleado, empleado_apPaterno, empleadoapMaterno, empleado_telefono "
+                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        PreparedStatement cmd = cn.prepareStatement(sql);
+        
+        cmd.setInt(1, ID_usuario);
+        cmd.setString(2, nombre_usuario);
+        cmd.setString(3,empleado_apellidos );
+        cmd.setString(4,empleado_telefono);
+        cmd.setString(5, empleado_correo);
+        cmd.setString(2, empleado_domicilio);
+        cmd.setInt(6, ID_tipoUsuarios);
+        cmd.setString(7, nombre_usuario);
+        cmd.setString(8, contrasenia_usuario);
+        
+        if (!cmd.execute()) {
+            resp = true;
+        }
+        cmd.close();
+        cn.close();
+        }catch(Exception e) {
+            System.out.println(e.toString());
+        }
+        return resp;
     }
 
-    /**
-     * @return the telefono
-     */
-    public Integer getTelefono() {
-        return telefono;
+    public boolean modificar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * @param telefono the telefono to set
-     */
-    public void setTelefono(Integer telefono) {
-        this.telefono = telefono;
+    public boolean Consultar() {
+        return false;
+        
+        
     }
-
-    /**
-     * @return the domicilio
-     */
-    public String getDomicilio() {
-        return domicilio;
-    }
-
-    /**
-     * @param domicilio the domicilio to set
-     */
-    public void setDomicilio(String domicilio) {
-        this.domicilio = domicilio;
-    }
-
-    /**
-     * @return the correo
-     */
-    public String getCorreo() {
-        return correo;
-    }
-
-    /**
-     * @param correo the correo to set
-     */
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    /**
-     * @return the Pregunta
-     */
-    public Integer getPregunta() {
-        return Pregunta;
-    }
-
-    /**
-     * @param Pregunta the Pregunta to set
-     */
-    public void setPregunta(Integer Pregunta) {
-        this.Pregunta = Pregunta;
-    }
-
-    /**
-     * @return the Respuesta
-     */
-    public String getRespuesta() {
-        return Respuesta;
-    }
-
-    /**
-     * @param Respuesta the Respuesta to set
-     */
-    public void setRespuesta(String Respuesta) {
-        this.Respuesta = Respuesta;
-    }
-
-    /**
-     * @return the Tipo_usuario
-     */
-    public Integer getTipo_usuario() {
-        return Tipo_usuario;
-    }
-
-    /**
-     * @param Tipo_usuario the Tipo_usuario to set
-     */
-    public void setTipo_usuario(Integer Tipo_usuario) {
-        this.Tipo_usuario = Tipo_usuario;
-    }
-
-
-     
-    }
+    
+}
