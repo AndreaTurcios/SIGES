@@ -70,8 +70,8 @@ public class Cita {
     }
      
     public Cita () {
-        conexion u = new conexion();
-        cn = u.conectar();
+//        conexion u = new conexion();
+//        cn = u.conectar();
     }
 
     public boolean guardar() {

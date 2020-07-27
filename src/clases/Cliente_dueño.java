@@ -108,8 +108,8 @@ public class Cliente_dueño {
     }
 
     public Integer getID_Mascota() {
-        return ID_Mascota;
-    }
+        return ID_Mascota; 
+    } 
 
     public void setID_Mascota(Integer ID_Mascota) {
         this.ID_Mascota = ID_Mascota;
@@ -118,7 +118,7 @@ public class Cliente_dueño {
     boolean resp = false;
     try{//realizando consulta update
     String sql="UPDATE Cliente_dueño SET ID_DUI=?,dueño_nombre=?, dueño_apellidos=?, " 
-            + "dueño_telefono=?, dueño_domicilio=?, dueño_correo=?,Fecha_e_DUI=?,nacionalidad=? WHERE ID_Mascota=?";
+            + "dueño_telefono=?, dueño_domicilio=?, dueño_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=? WHERE ID_Mascota=?";
     PreparedStatement cmd = cn.prepareStatement(sql);
     //llenar los parametros como se encuentran en las clases
     cmd.setInt(1, ID_DUI);
@@ -142,5 +142,22 @@ public class Cliente_dueño {
         System.out.println(ex.toString());
     }
     return resp;
+    }
+    
+    public boolean EliminarCliente(){
+    boolean resp=false;
+    try{//realizando consulta insert
+            String sql = "DELETE FROM Cliente_dueño WHERE ID_mascota=?;";
+            PreparedStatement cmd= cn.prepareStatement(sql);
+            cmd.setInt(1, ID_DUI );
+            if (!cmd.execute()) {
+                resp=true;
+            }
+            cmd.close();
+            cn.close();
+        }catch(Exception ex){
+            System.out.println(ex.toString());
+        }
+        return resp;
     }
 }

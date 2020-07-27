@@ -2,13 +2,16 @@ package ptcproyecto;
 
 import javax.swing.JOptionPane;
 import clases.Mascota;
+import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
 
 public class Mascotas extends javax.swing.JInternalFrame {
 
     public Mascotas() {
         initComponents();
+        DefaultTableModel modelo = new DefaultTableModel();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -32,9 +35,9 @@ public class Mascotas extends javax.swing.JInternalFrame {
         btnModificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        rbF = new javax.swing.JRadioButton();
+        rbM = new javax.swing.JRadioButton();
+        tipo_mascota = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -122,17 +125,26 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTable1AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jRadioButton1.setBackground(new java.awt.Color(153, 204, 255));
-        GeneroBtnG.add(jRadioButton1);
-        jRadioButton1.setText("F");
+        rbF.setBackground(new java.awt.Color(153, 204, 255));
+        GeneroBtnG.add(rbF);
+        rbF.setText("F");
 
-        jRadioButton2.setBackground(new java.awt.Color(153, 204, 255));
-        GeneroBtnG.add(jRadioButton2);
-        jRadioButton2.setText("M");
+        rbM.setBackground(new java.awt.Color(153, 204, 255));
+        GeneroBtnG.add(rbM);
+        rbM.setText("M");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguna", "Gatos", "Perros" }));
+        tipo_mascota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguna", "Gatos", "Perros" }));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Tipo mascota:");
@@ -198,9 +210,9 @@ public class Mascotas extends javax.swing.JInternalFrame {
                                     .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGap(116, 116, 116)
-                                    .addComponent(jRadioButton1)
+                                    .addComponent(rbF)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jRadioButton2)
+                                    .addComponent(rbM)
                                     .addGap(45, 45, 45))))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +229,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tfHorarios)
-                            .addComponent(jComboBox1, 0, 258, Short.MAX_VALUE))))
+                            .addComponent(tipo_mascota, 0, 258, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLimpiar)
                 .addGap(19, 19, 19))
@@ -234,8 +246,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(rbF)
+                    .addComponent(rbM))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -252,7 +264,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tipo_mascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -302,23 +314,32 @@ public class Mascotas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
-
+    
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        
         Mascota obj = new Mascota();
         obj.setNombre_mascota(tfNombre.getText());
         obj.setMascota_razon(tfRazon.getText());
         obj.setMascota_medicinas(tfMedicinas.getText());
         obj.setMascota_horarioReserva(tfHorarios.getText());
+        obj.setID_tipoMascota(tipo_mascota.getSelectedIndex()); 
+        if (rbF.isSelected()) {
+            obj.setMascota_genero("F");
+        }else{ 
+           if (rbM.isSelected()) {
+            obj.setMascota_genero("M"); 
+        } else{ JOptionPane.showMessageDialog(this,"Debe seleccionar el genero de la mascota"); }  
+         
         if (obj.guardarMascota()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
-        
+      }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -327,11 +348,19 @@ public class Mascotas extends javax.swing.JInternalFrame {
     obj.setMascota_razon(tfRazon.getText());
     obj.setMascota_medicinas(tfMedicinas.getText());
     obj.setMascota_horarioReserva(tfHorarios.getText());
-        if (obj.modificarMascota()) {
+        if (rbF.isSelected()) {
+            obj.setMascota_genero("F");
+        }else{ 
+           if (rbM.isSelected()) {
+            obj.setMascota_genero("M"); 
+        } else{ JOptionPane.showMessageDialog(this,"Debe seleccionar el genero de la mascota"); }  
+          
+           if (obj.modificarMascota()) {
             JOptionPane.showMessageDialog(this,"Datos modificados"); 
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al modificar la informacion"); 
-        }
+          }  
+           }  
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -339,6 +368,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         tfRazon.setText("");
         tfMedicinas.setText("");
         tfHorarios.setText("");
+        GeneroBtnG.clearSelection();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
@@ -370,6 +400,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
       }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1AncestorAdded
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.ButtonGroup GeneroBtnG;
@@ -380,7 +414,6 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -390,13 +423,14 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JRadioButton rbF;
+    private javax.swing.JRadioButton rbM;
     private javax.swing.JTextField tfHorarios;
     private javax.swing.JTextField tfMedicinas;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfRazon;
+    private javax.swing.JComboBox<String> tipo_mascota;
     // End of variables declaration//GEN-END:variables
 }

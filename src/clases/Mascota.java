@@ -13,7 +13,9 @@ public class Mascota {
     private String mascota_genero;
     private String mascota_razon;
     private String mascota_medicinas;
+    private String mascota_horarioReserva;
     private Integer ID_tipoMascota;
+    
 
     public Integer getID_tipoMascota() {
         return ID_tipoMascota;
@@ -80,7 +82,6 @@ public class Mascota {
     }
 
     
-    private String mascota_horarioReserva;
     
     
     public Mascota() {
@@ -93,7 +94,7 @@ public class Mascota {
     boolean resp = false;
     try{//realizando consulta update
     String sql="UPDATE Mascota SET nombre_mascota=?, mascota_genero=?, " 
-            + "mascota_razon=?, mascota_medicinas=? WHERE mascota_horarioReserva=?";
+            + "mascota_razon=?, mascota_medicinas=?,mascota_horarioReserva=? WHERE ID_tipoMascota=?";
     PreparedStatement cmd = cn.prepareStatement(sql);
     //llenar los parametros como se encuentran en las clases
     cmd.setString(1, nombre_mascota);
@@ -101,7 +102,8 @@ public class Mascota {
     cmd.setString(3, mascota_razon);
     cmd.setString(4, mascota_medicinas);
     cmd.setString(5, mascota_horarioReserva);
-    
+    cmd.setInt(6, ID_tipoMascota);
+        
         if (!cmd.execute()) {
             resp=true;
         }
@@ -151,6 +153,7 @@ public class Mascota {
         return resp;
         
     }
+    
     public boolean consultarMascota(){
         boolean resp = false;
         try{//realizando consulta insert
