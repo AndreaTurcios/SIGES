@@ -160,4 +160,61 @@ public class Cliente_dueño {
         }
         return resp;
     }
+    public boolean guardarCliente(){
+        boolean resp = false;
+        try{//realizando consulta insert
+            String sql = "INSERT INTO Cliente_dueño (ID_DUI=?,dueño_nombre=?, dueño_apellidos=?, " 
+            + "dueño_telefono=?, dueño_domicilio=?, dueño_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=?,ID_Mascota=?)"+"VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement cmd= cn.prepareStatement(sql);
+            cmd.setInt(1, ID_DUI);
+            cmd.setString(2, dueño_nombre);
+            cmd.setString(3, dueño_apellidos);
+            cmd.setInt(4, dueño_telefono);
+            cmd.setString(5, dueño_domicilio);
+            cmd.setString(6, dueño_correo);
+            cmd.setDate(7, Fecha_e_DUI);
+            cmd.setString(8, nacionalidad);
+            cmd.setInt(9, codigo_zona);
+            cmd.setInt(10, ID_tipoCliente);
+            cmd.setInt(11, ID_Mascota);
+            if (!cmd.execute()) {
+                resp=true;
+            }
+            cmd.close();
+            cn.close();
+        }catch(Exception ex){
+            System.out.println(ex.toString());
+        }
+        return resp;
+        
+    }
+    public boolean consultarMascota(){
+        boolean resp = false;
+        try{//realizando consulta insert
+            String sql = "SELECT nombre_mascota=?, mascota_genero=?, " 
+            + "mascota_razon=?, mascota_medicinas=?, mascota_horarioReserva=? FROM Mascota WHERE ID_mascota=?";
+            PreparedStatement cmd= cn.prepareStatement(sql);
+            cmd.setInt(1, ID_DUI );
+            ResultSet rs= cmd.executeQuery();
+            if (rs.next()) {
+                resp=true;
+            dueño_nombre = rs.getString(1);
+            dueño_apellidos = rs.getString(2);
+            dueño_telefono = rs.getInt(3);
+            dueño_domicilio = rs.getString(4);
+            dueño_correo = rs.getString(5);
+            Fecha_e_DUI = rs.getDate(6);
+            nacionalidad = rs.getString(7);
+            codigo_zona = rs.getInt(8);
+            ID_tipoCliente = rs.getInt(9);
+            ID_Mascota = rs.getInt(10);
+            }
+            cmd.close();
+            cn.close();
+        }catch(Exception ex){
+            System.out.println(ex.toString());
+        }
+        return resp;
+        
+    }
 }
