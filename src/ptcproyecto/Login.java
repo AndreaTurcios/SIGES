@@ -9,45 +9,45 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     
-//    conexion cc =new conexion();
+    conexion cc =new conexion();
 //    //Connection con = cc.conexion();
-//    Connection con = cc.conectar();
+    Connection con = cc.conectar();
 
     public void ValidarUsuario () 
     {
-//        int resultado = 0;
-//        String pass = String.valueOf(txtContrasenia.getPassword());
-//        String usuario = txtUsuario.getText();
-//        String SQL = "select * from Usuarios where nombre_usuario = '" + usuario + "' && contrasenia_usuario = '" + pass + "'";
-//        //String SQL = "select * from Usuarios where nombre_usuario = '" + "Alejandro" + "' && contrasenia_usuario = '" + "gatitos" + "'";
-//        try
-//        {
-//            System.out.println("asdf"+SQL);
-//            System.out.println("Conexion" + con);
-//            Statement st = con.createStatement();
-//            System.out.println("STADO"+st);
-//            ResultSet rs = st.executeQuery(SQL);
-//            System.out.println("rs"+ rs);
-//            if (rs.next()) 
-//            {
-//                resultado = 1;
-//                if (resultado == 1) 
-//                {
-//                    FrmMain form = new FrmMain();
-//                    form.setVisible(true);
-//                    this.dispose();
-//                    JOptionPane.showMessageDialog(this,"<html>Se ha encontrado el usuario ingresado<br>¡Bienvendo seas a SIGES!</html>", "Exito en el inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(this,"No se ha encontrado el usuario ingresado, puede que la contraseña y/o el nombre de usuario sean incorrectos", "Fallo en el inicio de sesión", JOptionPane.WARNING_MESSAGE);
-//                }
-//            }
-//        }
-//        catch(Exception a) 
-//        {
-//            JOptionPane.showMessageDialog(this,"Se ha encontrado un fallo en el inicio de sesion, por favor contacte con un administrado cercano. ERROR: '"+a+"'", "Fallo en el sistema", JOptionPane.ERROR_MESSAGE);
-//        }
+        int resultado = 0;
+        String pass = String.valueOf(txtContrasenia.getPassword());
+        String usuario = txtUsuario.getText();
+        String SQL = "select * from Usuarios where nombre_usuario = '" + usuario + "' && contrasenia_usuario = '" + pass + "'";
+        //String SQL = "select * from Usuarios where nombre_usuario = '" + "Alejandro" + "' && contrasenia_usuario = '" + "gatitos" + "'";
+        try
+        {
+            System.out.println("asdf"+SQL);
+            System.out.println("Conexion" + con);
+            Statement st = con.createStatement();
+            System.out.println("STADO"+st);
+            ResultSet rs = st.executeQuery(SQL);
+            System.out.println("rs"+ rs);
+            if (rs.next()) 
+            {
+                resultado = 1;
+                if (resultado == 1) 
+                {
+                    FrmMain form = new FrmMain();
+                    form.setVisible(true);
+                    this.dispose();
+                    JOptionPane.showMessageDialog(this,"<html>Se ha encontrado el usuario ingresado<br>¡Bienvendo seas a SIGES!</html>", "Exito en el inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this,"No se ha encontrado el usuario ingresado, puede que la contraseña y/o el nombre de usuario sean incorrectos", "Fallo en el inicio de sesión", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+        catch(Exception a) 
+        {
+            JOptionPane.showMessageDialog(this,"Se ha encontrado un fallo en el inicio de sesion, por favor contacte con un administrado cercano. ERROR: '"+a+"'", "Fallo en el sistema", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public Login() {
@@ -320,10 +320,8 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
-           FrmMain llamar = new FrmMain();
-           llamar.setVisible(true);
-            this.dispose();
-//          ValidarUsuario();
+           
+          ValidarUsuario();
 //        String busqueda_usuario = metodos.BuscarUsuarioRegistrado(txtUsuario.getText(), txtContrasenia.getText());
 //        if (txtUsuario.getText().equals("root") && txtContrasenia.getText().equals("root")) 
 //        {

@@ -1,5 +1,5 @@
 
-package control_productos;
+package ptcproyecto;
 
 import clases.CargarTipoProducto;
 import clases.MtoProductos;
