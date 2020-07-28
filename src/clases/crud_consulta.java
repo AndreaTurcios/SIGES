@@ -133,7 +133,7 @@ public class crud_consulta
          boolean Modificar = false;
         try 
         {
-            String sql = "UPDATE SET Consulta, ID_consulta  = ?, consulta_fecha  = ?, consulta_hora  = ?, ID_tipoConsulta  = ?, ID_DUI  = ?";         
+            String sql = "UPDATE SET Consulta, ID_consulta  = ?, consulta_fecha  = ?, consulta_hora  = ?, ID_tipoConsulta  = ?, ID_DUI  = ?";
             PreparedStatement cmd = cn.prepareStatement(sql);        
             cmd.setInt(1, ID_consulta);
             cmd.setInt(2, consulta_fecha);
