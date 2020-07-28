@@ -6,20 +6,13 @@
 package clases;
 
 import clases.MtoProductos;
-import control_productos.FrmProductos;
+import ptcproyecto.frmProductos;
 
-/**
- *
- * @author Estrada
- */
+
 public class Control_Productos {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        FrmProductos abrir = new FrmProductos();
-        abrir.setVisible(true);
+//        FrmProductos abrir = new FrmProductos();
+//        abrir.setVisible(true);
     }
     
 }
