@@ -18,8 +18,8 @@ public class conexion1 {
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
-            cn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J7LU3FU\\SQLEXPRESS;"
-                    + "databaseName=SIGES;integratedSecurity=true;");
+            cn = DriverManager.getConnection("jdbc:sqlserver://LAPTOP-1ABIBEI5\\SQLEXPRESS;"
+                    + "databaseName=SIGES;user=SIGES,");
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());

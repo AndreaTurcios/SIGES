@@ -369,9 +369,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel13.setForeground(Color.WHITE);
         jLabel6.setForeground(Color.WHITE);
-        frmProductos fich= new frmProductos();
-        panelArriba.add(fich);
-        fich.show();
+//        frmProductos fich= new frmProductos();
+//        panelArriba.add(fich);
+//        fich.show();
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked

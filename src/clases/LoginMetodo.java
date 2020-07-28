@@ -10,16 +10,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import ptcproyecto.FrmMain;
+import clases.conexion;
 
 
-public class Login {
+public class LoginMetodo {
     //declaracion de los atributos
     private Connection cn;
     private Date cita_fecha;
     private Time cita_hora;
     private Integer ID_tipoCita;
     
-    public Login() {
+    public LoginMetodo() {
         //estableciendo la conexion
        conexion con = new conexion();
        cn = con.conectar();
@@ -217,5 +218,26 @@ public class Login {
 //        }
 //        
 //    }
-    
+    public boolean login(String usuario, String clave) {
+        boolean retorno = false;
+        try {
+            String consulta;
+            consulta = "Select * from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
+
+            PreparedStatement Prepared;
+            conexion con = new conexion();
+
+            Prepared = con.conectar().prepareStatement(consulta);
+            Prepared.setString(1, usuario);
+            Prepared.setString(2, clave);
+
+            ResultSet Resultado = Prepared.executeQuery();
+        if (Resultado.next()) {
+                  retorno = true;
+              }
+          } catch (Exception ex) {
+          JOptionPane.showMessageDialog(null, "Error"+ex);
+          }   
+          return retorno;
+      }
 }
