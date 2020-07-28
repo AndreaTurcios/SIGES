@@ -19,10 +19,15 @@ public class Login extends javax.swing.JFrame {
         String pass = String.valueOf(txtContrasenia.getPassword());
         String usuario = txtUsuario.getText();
         String SQL = "select * from Usuarios where nombre_usuario = '" + usuario + "' && contrasenia_usuario = '" + pass + "'";
+        //String SQL = "select * from Usuarios where nombre_usuario = '" + "Alejandro" + "' && contrasenia_usuario = '" + "gatitos" + "'";
         try
         {
+            System.out.println("asdf"+SQL);
+            System.out.println("Conextion" + con);
             Statement st = con.createStatement();
+            System.out.println("STADO"+st);
             ResultSet rs = st.executeQuery(SQL);
+            System.out.println("rs"+ rs);
             if (rs.next()) 
             {
                 resultado = 1;
