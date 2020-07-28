@@ -1,6 +1,6 @@
 package ptcproyecto;
 
-import Clases.conexion;
+import clases.conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -52,7 +52,7 @@ public class Login extends javax.swing.JFrame {
         
     }
     
-    Clases.Login metodos = new Clases.Login ();
+    clases.Login metodos = new clases.Login ();
 
     /**
      * This method is called from within the constructor to initialize the form.

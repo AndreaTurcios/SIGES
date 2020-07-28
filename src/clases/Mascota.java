@@ -86,7 +86,7 @@ public class Mascota {
     
     public Mascota() {
         //estableciendo la conexion
-       Clases.conexion con = new Clases.conexion();
+       clases.conexion con = new clases.conexion();
        cn = con.conectar();
        }
     //creando el metodo para modificar
