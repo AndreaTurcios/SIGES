@@ -12,7 +12,7 @@ public class conexion {
         try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn=DriverManager.getConnection("jdbc:sqlserver:LAPTOP-1ABIBEI5\\SQLEXPRESS;"+"databaseName="+BaseDatos, Usuario, Contraseña);
+            cn=DriverManager.getConnection("jdbc:sqlserver:DESKTOP-V6LBS8T\\UNLIMITED_084;"+"databaseName="+BaseDatos, Usuario, Contraseña);
         }
         catch (Exception ex)
         {
@@ -20,8 +20,8 @@ public class conexion {
         }
         return cn;
     }
-    Connection conectar=null;
-   /* public Connection conexion()
+    /*Connection conectar=null;
+    public Connection conexion()
     { 
         try
         {
