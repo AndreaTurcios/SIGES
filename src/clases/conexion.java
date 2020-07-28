@@ -21,7 +21,7 @@ public class conexion {
         return cn;
     }
     Connection conectar=null;
-    public Connection conexion()
+   /* public Connection conexion()
     { 
         try
         {
@@ -33,5 +33,5 @@ public class conexion {
             System.out.println(ex.getMessage());
         }
         return conectar;
-    }
+    }*/
 }
