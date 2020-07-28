@@ -148,9 +148,6 @@ public class Usuario {
         cn = u.conectar();
     }
     
-    
-     
-    
     public boolean modificar() {
          boolean resp = false;
         try {String sql = "UPDATE SET Usuarios , nombre_usuario = ?, contrasenia_usuario = = ?"
