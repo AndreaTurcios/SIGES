@@ -1,6 +1,6 @@
 package ptcproyecto;
 
-import clases.Cliente_dueño;
+import clases.Cliente_duenio;
 import javax.swing.JOptionPane;
 
 /**
@@ -298,15 +298,15 @@ public class Dueños extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cliente_dueño obj = new Cliente_dueño();
+        Cliente_duenio obj = new Cliente_duenio();
         int DUI= Integer.parseInt(tfDUI.getText());
         obj.setID_DUI(DUI);
-        obj.setDueño_nombre(tfDUeñonombre.getText());
-        obj.setDueño_apellidos(tfApellidos.getText());
+        obj.setDuenio_nombre(tfDUeñonombre.getText());
+        obj.setDuenio_apellidos(tfApellidos.getText());
         int Telefono= Integer.parseInt(tfTelefono.getText());
-        obj.setDueño_telefono(Telefono);
-        obj.setDueño_domicilio(tfDomicilio.getText());
-        obj.setDueño_correo(tfCorreo.getText());
+        obj.setDuenio_telefono(Telefono);
+        obj.setDuenio_domicilio(tfDomicilio.getText());
+        obj.setDuenio_correo(tfCorreo.getText());
 //        String fecha = calendar.getDatoFecha();
 //        obj.setFecha_e_DUI(fecha);
 //        obj.setNacionalidad(tfNacionalidad.getText());

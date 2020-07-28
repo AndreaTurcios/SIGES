@@ -5,19 +5,59 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Time;
 
-public class Cliente_dueño {
+public class Cliente_duenio {
     private Connection cn;
     private Integer ID_DUI;
-    private String dueño_nombre;
-    private String dueño_apellidos;
-    private Integer dueño_telefono;
-    private String dueño_domicilio;
-    private String dueño_correo;
+    private String duenio_nombre;
+    private String duenio_apellidos;
+    private Integer duenio_telefono;
+    private String duenio_domicilio;
+    private String duenio_correo;
     private Date Fecha_e_DUI;
     private String nacionalidad;
     private Integer codigo_zona;
     private Integer ID_tipoCliente;
     private Integer ID_Mascota;
+
+    public String getDuenio_nombre() {
+        return duenio_nombre;
+    }
+
+    public void setDuenio_nombre(String duenio_nombre) {
+        this.duenio_nombre = duenio_nombre;
+    }
+
+    public String getDuenio_apellidos() {
+        return duenio_apellidos;
+    }
+
+    public void setDuenio_apellidos(String duenio_apellidos) {
+        this.duenio_apellidos = duenio_apellidos;
+    }
+
+    public Integer getDuenio_telefono() {
+        return duenio_telefono;
+    }
+
+    public void setDuenio_telefono(Integer duenio_telefono) {
+        this.duenio_telefono = duenio_telefono;
+    }
+
+    public String getDuenio_domicilio() {
+        return duenio_domicilio;
+    }
+
+    public void setDuenio_domicilio(String duenio_domicilio) {
+        this.duenio_domicilio = duenio_domicilio;
+    }
+
+    public String getDuenio_correo() {
+        return duenio_correo;
+    }
+
+    public void setDuenio_correo(String duenio_correo) {
+        this.duenio_correo = duenio_correo;
+    }
 
     public Connection getCn() {
         return cn;
@@ -33,46 +73,6 @@ public class Cliente_dueño {
 
     public void setID_DUI(Integer ID_DUI) {
         this.ID_DUI = ID_DUI;
-    }
-
-    public String getDueño_nombre() {
-        return dueño_nombre;
-    }
-
-    public void setDueño_nombre(String dueño_nombre) {
-        this.dueño_nombre = dueño_nombre;
-    }
-
-    public String getDueño_apellidos() {
-        return dueño_apellidos;
-    }
-
-    public void setDueño_apellidos(String dueño_apellidos) {
-        this.dueño_apellidos = dueño_apellidos;
-    }
-
-    public Integer getDueño_telefono() {
-        return dueño_telefono;
-    }
-
-    public void setDueño_telefono(Integer dueño_telefono) {
-        this.dueño_telefono = dueño_telefono;
-    }
-
-    public String getDueño_domicilio() {
-        return dueño_domicilio;
-    }
-
-    public void setDueño_domicilio(String dueño_domicilio) {
-        this.dueño_domicilio = dueño_domicilio;
-    }
-
-    public String getDueño_correo() {
-        return dueño_correo;
-    }
-
-    public void setDueño_correo(String dueño_correo) {
-        this.dueño_correo = dueño_correo;
     }
 
     public Date getFecha_e_DUI() {
@@ -117,16 +117,16 @@ public class Cliente_dueño {
     public boolean modificarCliente(){
     boolean resp = false;
     try{//realizando consulta update
-    String sql="UPDATE Cliente_dueño SET ID_DUI=?,dueño_nombre=?, dueño_apellidos=?, " 
-            + "dueño_telefono=?, dueño_domicilio=?, dueño_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=? WHERE ID_Mascota=?";
+    String sql="UPDATE Cliente_duenio SET ID_DUI=?,duenio_nombre=?, duenio_apellidos=?, " 
+            + "duenio_telefono=?, duenio_domicilio=?, duenio_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=? WHERE ID_Mascota=?";
     PreparedStatement cmd = cn.prepareStatement(sql);
     //llenar los parametros como se encuentran en las clases
     cmd.setInt(1, ID_DUI);
-    cmd.setString(2, dueño_nombre);
-    cmd.setString(3, dueño_apellidos);
-    cmd.setInt(4, dueño_telefono);
-    cmd.setString(5, dueño_domicilio);
-    cmd.setString(6, dueño_correo);
+    cmd.setString(2, duenio_nombre);
+    cmd.setString(3, duenio_apellidos);
+    cmd.setInt(4, duenio_telefono);
+    cmd.setString(5, duenio_domicilio);
+    cmd.setString(6, duenio_correo);
     cmd.setDate(7, Fecha_e_DUI);
     cmd.setString(8, nacionalidad);
     cmd.setInt(9, codigo_zona);
@@ -147,7 +147,7 @@ public class Cliente_dueño {
     public boolean EliminarCliente(){
     boolean resp=false;
     try{//realizando consulta insert
-            String sql = "DELETE FROM Cliente_dueño WHERE ID_mascota=?;";
+            String sql = "DELETE FROM Cliente_duenio WHERE ID_mascota=?;";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setInt(1, ID_DUI );
             if (!cmd.execute()) {
@@ -163,15 +163,15 @@ public class Cliente_dueño {
     public boolean guardarCliente(){
         boolean resp = false;
         try{//realizando consulta insert
-            String sql = "INSERT INTO Cliente_dueño (ID_DUI=?,dueño_nombre=?, dueño_apellidos=?, " 
-            + "dueño_telefono=?, dueño_domicilio=?, dueño_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=?,ID_Mascota=?)"+"VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Cliente_duenio (ID_DUI=?,duenio_nombre=?, duenio_apellidos=?, " 
+            + "duenio_telefono=?, duenio_domicilio=?, duenio_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=?,ID_Mascota=?)"+"VALUES(?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setInt(1, ID_DUI);
-            cmd.setString(2, dueño_nombre);
-            cmd.setString(3, dueño_apellidos);
-            cmd.setInt(4, dueño_telefono);
-            cmd.setString(5, dueño_domicilio);
-            cmd.setString(6, dueño_correo);
+            cmd.setString(2, duenio_nombre);
+            cmd.setString(3, duenio_apellidos);
+            cmd.setInt(4, duenio_telefono);
+            cmd.setString(5, duenio_domicilio);
+            cmd.setString(6, duenio_correo);
             cmd.setDate(7, Fecha_e_DUI);
             cmd.setString(8, nacionalidad);
             cmd.setInt(9, codigo_zona);
@@ -191,18 +191,18 @@ public class Cliente_dueño {
     public boolean consultarCliente(){
         boolean resp = false;
         try{//realizando consulta insert
-            String sql = "SELECT ID_DUI=?,dueño_nombre=?, dueño_apellidos=?, " 
-            + "dueño_telefono=?, dueño_domicilio=?, dueño_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=? FROM Cliente_dueño WHERE ID_DUI=?";
+            String sql = "SELECT ID_DUI=?,duenio_nombre=?, duenio_apellidos=?, " 
+            + "duenio_telefono=?, duenio_domicilio=?, duenio_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=? FROM Cliente_dueño WHERE ID_DUI=?";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setInt(1, ID_DUI );
             ResultSet rs= cmd.executeQuery();
             if (rs.next()) {
                 resp=true;
-            dueño_nombre = rs.getString(1);
-            dueño_apellidos = rs.getString(2);
-            dueño_telefono = rs.getInt(3);
-            dueño_domicilio = rs.getString(4);
-            dueño_correo = rs.getString(5);
+            duenio_nombre = rs.getString(1);
+            duenio_apellidos = rs.getString(2);
+            duenio_telefono = rs.getInt(3);
+            duenio_domicilio = rs.getString(4);
+            duenio_correo = rs.getString(5);
             Fecha_e_DUI = rs.getDate(6);
             nacionalidad = rs.getString(7);
             codigo_zona = rs.getInt(8);
