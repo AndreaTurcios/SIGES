@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     
-    conexion cc =new conexion();
-    //Connection con = cc.conexion();
-    Connection con = cc.conectar();
+//    conexion cc =new conexion();
+//    //Connection con = cc.conexion();
+//    Connection con = cc.conectar();
 
     public void ValidarUsuario () 
     {
@@ -49,9 +49,7 @@ public class Login extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(this,"Se ha encontrado un fallo en el inicio de sesion, por favor contacte con un administrado cercano. ERROR: '"+a+"'", "Fallo en el sistema", JOptionPane.ERROR_MESSAGE);
 //        }
     }
-    /**
-     * Creates new form Login
-     */
+    
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -316,7 +314,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-          ValidarUsuario();
+
+           FrmMain llamar = new FrmMain();
+           llamar.setVisible(true);
+            this.dispose();
+//          ValidarUsuario();
 //        String busqueda_usuario = metodos.BuscarUsuarioRegistrado(txtUsuario.getText(), txtContrasenia.getText());
 //        if (txtUsuario.getText().equals("root") && txtContrasenia.getText().equals("root")) 
 //        {
