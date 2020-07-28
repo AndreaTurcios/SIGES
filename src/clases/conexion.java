@@ -22,7 +22,7 @@ public class conexion {
     }
     Connection conectar=null;
     public Connection conexion()
-    {
+    { 
         try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
