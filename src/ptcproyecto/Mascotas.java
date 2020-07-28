@@ -322,21 +322,23 @@ public class Mascotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnCerrarActionPerformed
     
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+        JOptionPane.showMessageDialog(this,"Boton para corroborar si esto funciona"); 
         Mascota obj = new Mascota();
         obj.setNombre_mascota(tfNombre.getText());
         obj.setMascota_razon(tfRazon.getText());
         obj.setMascota_medicinas(tfMedicinas.getText());
         obj.setMascota_horarioReserva(tfHorarios.getText());
         obj.setID_tipoMascota(tipo_mascota.getSelectedIndex()); 
+        obj.setMascota_genero("F");
+        JOptionPane.showMessageDialog(this,"Pasamos de los obj"); 
         if (rbF.isSelected()) {
             obj.setMascota_genero("F");
-        }else{ 
-           if (rbM.isSelected()) {
+            JOptionPane.showMessageDialog(this,"Genero F"); 
+        }else{ if (rbM.isSelected()) {
             obj.setMascota_genero("M"); 
         } else{ JOptionPane.showMessageDialog(this,"Debe seleccionar el genero de la mascota"); }  
-         
-        if (obj.guardarMascota()) {
+        JOptionPane.showMessageDialog(this,"Casi llegamos a if"); 
+        if (obj.guardarMascota(obj)) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 

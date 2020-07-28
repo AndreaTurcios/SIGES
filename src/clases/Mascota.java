@@ -130,18 +130,18 @@ public class Mascota {
         }
         return resp;
     }
-    public boolean guardarMascota(){
+    public boolean guardarMascota(Mascota a){
         boolean resp = false;
         try{//realizando consulta insert
             String sql = "INSERT INTO Mascota (nombre_mascota=?, mascota_genero=?, " 
             + "mascota_razon=?, mascota_medicinas=?, mascota_horarioReserva=?)"+"VALUES(?,?,?,?,?,?)";
             PreparedStatement cmd= cn.prepareStatement(sql);
-            cmd.setString(1, nombre_mascota );
-            cmd.setString(2, mascota_genero );
-            cmd.setString(3, mascota_razon );
-            cmd.setString(4, mascota_medicinas );
-            cmd.setString(5, mascota_horarioReserva );
-            cmd.setInt(6, ID_tipoMascota );
+            cmd.setString(1, a.nombre_mascota );
+            cmd.setString(2, a.mascota_genero );
+            cmd.setString(3, a.mascota_razon );
+            cmd.setString(4, a.mascota_medicinas );
+            cmd.setString(5, a.mascota_horarioReserva );
+            cmd.setInt(6, a.ID_tipoMascota );
             if (!cmd.execute()) {
                 resp=true;
             }
