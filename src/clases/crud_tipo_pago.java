@@ -18,27 +18,33 @@ public class crud_tipo_pago
     private Integer ID_tipoPago;
     private Integer tipo_pago;
     
-    public Connection getcn(){
+    public Connection getcn()
+    {
         return cn;
     }
     
-    public void setcn(Connection cn){
+    public void setcn(Connection cn)
+    {
         this.cn = cn;
     }
     
-    public Integer getID_tipoPago(){
+    public Integer getID_tipoPago()
+    {
         return ID_tipoPago;
     }
     
-    public void setID_tipoPago(Integer ID_tipoPago){
+    public void setID_tipoPago(Integer ID_tipoPago)
+    {
         this.ID_tipoPago = ID_tipoPago;
     }
      
-    public Integer gettipo_pago(){
+    public Integer gettipo_pago()
+    {
         return tipo_pago;
     }
     
-    public void setcita_hora(Integer tipo_pago){
+    public void setcita_hora(Integer tipo_pago)
+    {
         this.tipo_pago = tipo_pago;
     }
 
