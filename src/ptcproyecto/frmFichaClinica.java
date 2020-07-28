@@ -55,7 +55,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jLabel1 = new JLabel();
         jPanel1 = new JPanel();
         jLabel12 = new JLabel();
-        jSeparator1 = new JSeparator();
         jLabel25 = new JLabel();
         jLabel26 = new JLabel();
         jLabel22 = new JLabel();
@@ -70,10 +69,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jLabel2 = new JLabel();
         jScrollPane2 = new JScrollPane();
         jTable2 = new JTable();
-        jButton2 = new JButton();
-        jSeparator2 = new JSeparator();
         jScrollPane1 = new JScrollPane();
         jTable1 = new JTable();
+        jButton2 = new JButton();
 
         setEnabled(false);
         setFocusCycleRoot(false);
@@ -151,112 +149,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(jLabel12)
-                .addGap(102, 102, 102)
-                .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnCerrar, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-                .addGap(622, 622, 622))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel23))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField3, GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                                        .addGap(1584, 1584, 1584))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel25)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(jLabel26)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 530, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
-                                .addGap(1264, 1264, 1264)
-                                .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 319, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addGap(608, 608, 608))
-            .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel32)
-                .addGap(639, 639, 639))
-        );
-        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(BtnCerrar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jLabel12))
-                                    .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSeparator1)
-                                        .addGap(71, 71, 71))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(57, 57, 57)
-                                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel25)
-                                            .addComponent(jLabel26))
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel23))
-                                        .addGap(18, 18, Short.MAX_VALUE)))
-                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel21)
-                                    .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)))
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabel33)))
-                        .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel22)
-                        .addGap(54, 54, 54)))
-                .addComponent(jLabel32)
-                .addGap(28, 28, 28))
-        );
-
-        jButton2.setFont(new Font("Ubuntu Mono", 0, 14)); // NOI18N
-        jButton2.setText("Guardar ");
-        jButton2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jTable1.setModel(new DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -270,51 +162,125 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton2.setFont(new Font("Ubuntu Mono", 0, 14)); // NOI18N
+        jButton2.setText("Guardar ");
+        jButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel26)
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel12)
+                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(285, 285, 285)
+                                .addComponent(BtnCerrar, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel33)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 319, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32)
+                            .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel23)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 248, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel22)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 204, GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnCerrar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23)
+                            .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE))))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel21)
+                        .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel32, GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel33)))
+                .addGap(19, 19, 19)
+                .addComponent(jButton2)
+                .addContainerGap())
+        );
+
         GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(581, 581, 581)
-                        .addComponent(jButton2)))
-                .addGap(0, 53, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(369, 369, 369)
-                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator2, GroupLayout.PREFERRED_SIZE, 810, GroupLayout.PREFERRED_SIZE)
-                .addGap(356, 356, 356))
+                .addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 686, GroupLayout.PREFERRED_SIZE)
+                .addGap(1573, 1573, 1573)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(jSeparator2, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(19, 19, 19))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-            .addComponent(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 698, GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 311, Short.MAX_VALUE))
+            .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -346,8 +312,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JPanel jPanel2;
     private JScrollPane jScrollPane1;
     private JScrollPane jScrollPane2;
-    private JSeparator jSeparator1;
-    private JSeparator jSeparator2;
     private JTable jTable1;
     private JTable jTable2;
     private JTextField jTextField1;

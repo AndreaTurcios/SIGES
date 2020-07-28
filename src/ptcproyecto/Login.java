@@ -15,10 +15,10 @@ public class Login extends javax.swing.JFrame {
 
     public void ValidarUsuario () 
     {
-        int resultado = 0;
+        int resultado = 1;
         String pass = String.valueOf(txtContrasenia.getPassword());
         String usuario = txtUsuario.getText();
-        String SQL = "select * from Usuarios where nombre_usuario = '" + usuario + "' && contrasenia_usuario = '" + pass + "'";
+        String SQL = "select * from Usuarios where nombre_usuario = '" + usuario + "' AND contrasenia_usuario = '" + pass + "'";
         //String SQL = "select * from Usuarios where nombre_usuario = '" + "Alejandro" + "' && contrasenia_usuario = '" + "gatitos" + "'";
         try
         {
@@ -29,8 +29,7 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(SQL);
             System.out.println("rs"+ rs);
             if (rs.next()) 
-            {
-                resultado = 1;
+            {resultado = 1;
                 if (resultado == 1) 
                 {
                     FrmMain form = new FrmMain();
@@ -232,6 +231,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(60, 60, 60))
         );
 
+        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarActionPerformed(evt);
