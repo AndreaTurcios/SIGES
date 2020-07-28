@@ -11,7 +11,7 @@ public class conexion {
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
-            con = DriverManager.getConnection("jdbc:sqlserver://LAPTOP-1ABIBEI5\\SQLEXPRESS;"
+            con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J7LU3FU\\SQLEXPRESS;"
                     + "databaseName=SIGES;User=SIGES;Password=2020SIGES");
         }
         catch (Exception ex)
