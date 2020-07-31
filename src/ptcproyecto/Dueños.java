@@ -35,6 +35,8 @@ public class Dueños extends javax.swing.JInternalFrame {
         calendar = new rojeru_san.componentes.RSDateChooser();
         jLabel9 = new javax.swing.JLabel();
         tfNacionalidad = new javax.swing.JTextField();
+        txtZona = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -112,6 +114,9 @@ public class Dueños extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Nacionalidad:");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Codigo zona:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -141,14 +146,16 @@ public class Dueños extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel9))
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
                                 .addGap(93, 93, 93)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfNacionalidad, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                                     .addComponent(tfDomicilio, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                                     .addComponent(rSYearDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addComponent(tfCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                    .addComponent(calendar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                                    .addComponent(calendar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(txtZona, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -188,6 +195,10 @@ public class Dueños extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(tfNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -274,7 +285,7 @@ public class Dueños extends javax.swing.JInternalFrame {
                 .addComponent(JPForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -288,12 +299,18 @@ public class Dueños extends javax.swing.JInternalFrame {
         Cliente_duenio obj = new Cliente_duenio();
         int DUI= Integer.parseInt(tfDUI.getText());
         obj.setID_DUI(DUI);
+        System.out.println("LLega");
         obj.setDuenio_nombre(tfDUeñonombre.getText());
         obj.setDuenio_apellidos(tfApellidos.getText());
         int Telefono= Integer.parseInt(tfTelefono.getText());
+        System.out.println("LLega telefono");
         obj.setDuenio_telefono(Telefono);
         obj.setDuenio_domicilio(tfDomicilio.getText());
         obj.setDuenio_correo(tfCorreo.getText());
+        int codigoZona= Integer.parseInt(txtZona.getText());
+        obj.setCodigo_zona(codigoZona);
+        System.out.println("LLega correo");
+        
 //        String fecha = calendar.getDatoFecha();
 //        obj.setFecha_e_DUI(fecha);
 //        obj.setNacionalidad(tfNacionalidad.getText());
@@ -303,6 +320,7 @@ public class Dueños extends javax.swing.JInternalFrame {
 //    cmd.setInt(10, ID_tipoCliente);
 //    cmd.setInt(11, ID_Mascota);
 //        
+//System.out.println("Objeto " +obj.guardarCliente());
         if (obj.guardarCliente()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            }else{ 
@@ -327,6 +345,7 @@ public class Dueños extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -347,5 +366,6 @@ public class Dueños extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfDomicilio;
     private javax.swing.JTextField tfNacionalidad;
     private javax.swing.JTextField tfTelefono;
+    private javax.swing.JTextField txtZona;
     // End of variables declaration//GEN-END:variables
 }

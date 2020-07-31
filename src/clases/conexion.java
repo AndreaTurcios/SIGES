@@ -11,13 +11,16 @@ public class conexion {
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
-            con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J7LU3FU\\SQLEXPRESS;"
+            con = DriverManager.getConnection("jdbc:sqlserver://LAPTOP-1ABIBEI5\\SQLEXPRESS;"
                     + "databaseName=SIGES;User=SIGES;Password=2020SIGES");
+            System.out.println("Conecion " + con.getMetaData() );
+        return  con;
         }
         catch (Exception ex)
         {
             System.out.println(ex.getMessage());
+            return null;
         }
-        return  con;
+        
     }
 }
