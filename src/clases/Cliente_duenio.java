@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
+
 
 public class Cliente_duenio {
 
@@ -224,7 +224,7 @@ public class Cliente_duenio {
             System.out.println(duenio_domicilio);
             cmd.setString(6, duenio_correo);
             System.out.println(duenio_correo);
-            cmd.setDate(7, new Date(10));
+            cmd.setDate(7, Fecha_e_DUI);
             System.out.println("feca" + Fecha_e_DUI);
             cmd.setString(8, "hola");
             System.out.println("naci" + nacionalidad);
@@ -287,5 +287,9 @@ public class Cliente_duenio {
         }
         return resp;
 
+    }
+    
+    public Date formatoDate(long f){
+        return new Date(f);
     }
 }
