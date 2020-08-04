@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package clases;
 
 import javax.sql.DataSource;
@@ -16,7 +12,8 @@ public class Pool {
     public DataSource dataSource;
 
     public String db = "SIGES";
-    public String url = ("jdbc:sqlserver://DESKTOP-J7LU3FU\\SQLEXPRESS;" + "databaseName=SIGES;integratedSecurity=true;");
+    public String url = ("jdbc:sqlserver://LAPTOP-1ABIBEI5\\SQLEXPRESS;"
+                    + "databaseName=SIGES;User=SIGES;Password=2020SIGES");
 
 
 
@@ -27,16 +24,10 @@ public class Pool {
     }
 
     private void inicializaDataSource(){
-
-
         BasicDataSource basicDataSource = new BasicDataSource();
-
         basicDataSource.setDriverClassName("org.gjt.mm.mysql.Driver");
         basicDataSource.setUrl(url);
         basicDataSource.setMaxActive(50);
-
-
         dataSource = basicDataSource;
-
     }
 }
