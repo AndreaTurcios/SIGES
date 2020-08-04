@@ -43,7 +43,7 @@ public class controlCodigoZona
         boolean Guardar = false;
         try 
         {
-            String sql = "INSERT INTO codigo_zona (ID_codigo, codigo_zona)"+" VALUES (?, ?)";
+            String sql = "INSERT INTO codigo_zona (codigo_zona)"+" VALUES (?)";
             PreparedStatement cmd = Con.prepareStatement(sql);
             cmd.setInt(1, ID_codigo);
             cmd.setString(2, codigo_zona);
@@ -85,10 +85,10 @@ public class controlCodigoZona
 
     public boolean ModificarCodigoZona() 
     {
-         boolean Modificar = false;
+        boolean Modificar = false;
         try 
         {
-            String sql = "UPDATE SET nacionalidad, ID_nacionalidad = ?, nacionalidad = ?";
+            String sql = "UPDATE SET codigo_zona, codigo_zona = ?";
             PreparedStatement cmd = Con.prepareStatement(sql);        
             cmd.setInt(1, ID_codigo);
             cmd.setString(2, codigo_zona);

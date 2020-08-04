@@ -23,7 +23,8 @@ public class FrmCodigoZona extends javax.swing.JFrame {
     /**
      * Creates new form FrmCodigoZona
      */
-    public FrmCodigoZona() {
+    public FrmCodigoZona() 
+    {
         initComponents();
         cargarTabla();
     }
@@ -49,7 +50,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         tblcodigoZona = new javax.swing.JTable();
         btnlimpiar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        txtcodigozona1 = new javax.swing.JTextField();
+        txtcodigozona = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -171,8 +172,8 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         });
         jPanel2.add(btneliminar);
         btneliminar.setBounds(607, 16, 97, 27);
-        jPanel2.add(txtcodigozona1);
-        txtcodigozona1.setBounds(128, 19, 258, 22);
+        jPanel2.add(txtcodigozona);
+        txtcodigozona.setBounds(128, 19, 258, 22);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(-3, 55, 860, 510);
@@ -185,7 +186,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        int codigo_zona = Integer.parseInt (txtid.getText());
+        int codigo_zona = Integer.parseInt (txtcodigozona.getText());
         try
         {
             Connection con = conexion.conectar();
@@ -205,12 +206,13 @@ public class FrmCodigoZona extends javax.swing.JFrame {
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         int id = Integer.parseInt(txtid.getText());
-        int codigo_zona = Integer.parseInt (txtid.getText());
+        int codigo_zona = Integer.parseInt (txtcodigozona.getText());
         try
         {
             Connection con = conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona=? WHERE id =?");
-            ps.setInt(1, codigo_zona);
+            PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona = ? WHERE id = ?");
+            ps.setInt(1, id);
+            ps.setInt(2, codigo_zona);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro modificado");
             limpiar();
@@ -261,7 +263,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
             while(rs.next()) 
             {
                 txtid.setText(rs.getString(String.valueOf(id)));
-                txtcodigozona1.setText(rs.getString("codigo_zona"));
+                txtcodigozona.setText(rs.getString("codigo_zona"));
             }
         }
         catch(SQLException e)
@@ -295,7 +297,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
                 Object [] fila =new  Object [columnas];
                 for(int indice =0; indice<columnas; indice ++)
                 {
-                fila [indice] = rs.getObject(indice + 1);
+                    fila [indice] = rs.getObject(indice + 1);
                 }
                 modeloTabla.addRow(fila)    ;
             }
@@ -351,7 +353,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblcodigoZona;
-    private javax.swing.JTextField txtcodigozona1;
+    private javax.swing.JTextField txtcodigozona;
     private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
 }
