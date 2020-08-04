@@ -230,14 +230,13 @@ public class FrmNacionalidad extends javax.swing.JFrame {
 
     private void btnGuardarNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarNacionalidadActionPerformed
         //Tomando los datos del formulario y pasandolos a los atributos de la clase
-        if (txtID_Nacionalidad.getText().isEmpty() || txtNacionalidad.getText().isEmpty())
+        if (txtNacionalidad.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else 
         {
             controlNacionalidad obj = new controlNacionalidad();
-            obj.setID_nacionalidad(Integer.parseInt(txtID_Nacionalidad.getText()));
             obj.setnacionalidad(txtNacionalidad.getText());
             if (obj.GuardarNacionalidad()) 
             {
@@ -252,7 +251,7 @@ public class FrmNacionalidad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarNacionalidadActionPerformed
 
     private void btnModificarNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarNacionalidadActionPerformed
-        if (txtID_Nacionalidad.getText().isEmpty() || txtNacionalidad.getText().isEmpty())
+        if (txtNacionalidad.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
@@ -260,7 +259,6 @@ public class FrmNacionalidad extends javax.swing.JFrame {
         {
 
             controlNacionalidad obj = new controlNacionalidad();
-            obj.setID_nacionalidad(Integer.parseInt(txtID_Nacionalidad.getText()));
             obj.setnacionalidad(txtNacionalidad.getText());
             if (obj.ModificarNacionalidad()) 
             {

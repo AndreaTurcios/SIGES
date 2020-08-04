@@ -43,10 +43,9 @@ public class controlNacionalidad
         boolean Guardar = false;
         try 
         {
-            String sql = "INSERT INTO nacionalidad (ID_nacionalidad, nacionalidad)"+" VALUES (?, ?)";
+            String sql = "INSERT INTO nacionalidad (nacionalidad)"+" VALUES (?)";
             PreparedStatement cmd = Con.prepareStatement(sql);
-            cmd.setInt(1, ID_nacionalidad);
-            cmd.setString(2, nacionalidad);
+            cmd.setString(1, nacionalidad);
             if (!cmd.execute()) 
             {
                 Guardar = true;
@@ -90,8 +89,7 @@ public class controlNacionalidad
         {
             String sql = "UPDATE SET nacionalidad, ID_nacionalidad = ?, nacionalidad = ?";
             PreparedStatement cmd = Con.prepareStatement(sql);        
-            cmd.setInt(1, ID_nacionalidad);
-            cmd.setString(2, nacionalidad);
+            cmd.setString(1, nacionalidad);
             if (!cmd.execute()) 
             {
                 Modificar = true;
