@@ -275,6 +275,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
     private void limpiar() 
     {
         txtid.setText("");
+        txtcodigozona.setText("");
     }
     
     private void cargarTabla()

@@ -40,24 +40,23 @@ public class controlNacionalidad
 
     public boolean GuardarNacionalidad() 
     {
-        boolean Guardar = false;
-        try 
-        {
-            String sql = "INSERT INTO nacionalidad (nacionalidad)"+" VALUES (?)";
-            PreparedStatement cmd = Con.prepareStatement(sql);
-            cmd.setString(1, nacionalidad);
-            if (!cmd.execute()) 
-            {
-                Guardar = true;
+      boolean resp = false;
+     try{
+      
+     String sql = "UPDATE nacionalidad SET nacionalidad= ? WHERE ID_nacionalidad = ? ";
+               
+       PreparedStatement cmd = Con.prepareStatement(sql);
+       cmd.setString(1,nacionalidad);
+            if (!cmd.execute()){
+                resp = true;
             }
-            cmd.close();
-            Con.close();
-        }
-        catch(Exception e) 
-        {
-            System.out.println(e.toString());
-        }
-        return Guardar;
+                cmd.close();
+                Con.close();
+            }catch(Exception e)
+             {
+              System.out.println(e.toString());
+             }
+            return resp;
     }
 
     public boolean ConsultarNacionalidad() 
