@@ -301,10 +301,21 @@ public class Cliente_duenio {
     
      public void listarDuenios(Connection cn, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "nacionalidad"};
+        String [] columnas = {"ID_DUI","duenio_nombre" +
+"      ,duenio_apellidos" +
+"      ,duenio_telefono" +
+"      ,duenio_domicilio" +
+"      ,duenio_correo" +
+"      ,Fecha_e_DUI" +
+"      ,nacionalidad" +
+"      ,codigo_zona" +
+"      ,ID_tipoCliente" +
+"      ,ID_Mascota"};
         model = new DefaultTableModel(null, columnas);
         
-        String sql = "SELECT * FROM nacionalidad ORDER BY ID_nacionalidad";
+        String sql = "SELECT ID_DUI=?,duenio_nombre=?, duenio_apellidos=?, "
+                    + "duenio_telefono=?, duenio_domicilio=?, duenio_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,"
+                + "ID_tipoCliente=? FROM Cliente_dueño WHERE ID_DUI=?";
         String [] filas = new String[1];
         Statement st = null;
         ResultSet rs = null;
@@ -312,7 +323,7 @@ public class Cliente_duenio {
             st = cn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 0; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
@@ -326,8 +337,7 @@ public class Cliente_duenio {
     public void CargarDuenios(JTable tabla){
         listarDuenios(cn, tabla);
     }
-    
-    public void consultar_datos(JComboBox cbox_duenios){
+    public void consultar_nacionalidad(JComboBox cbox_duenios){
     java.sql.Connection cn= null;    
     PreparedStatement st = null;
     ResultSet resultado = null;
@@ -340,6 +350,35 @@ public class Cliente_duenio {
        cbox_duenios.addItem("Seleccione una opción");
        while(resultado.next()){
       cbox_duenios.addItem(resultado.getString("nacionalidad"));
+       }  
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
+    }finally{
+        if(cn!=null){
+            try {
+                cn.close();
+                resultado.close();
+                resultado=null;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+    }
+    }
+    
+    public void consultar_codigozona(JComboBox cbox_zona){
+    java.sql.Connection cn= null;    
+    PreparedStatement st = null;
+    ResultSet resultado = null;
+
+    String SSQL = "SELECT codigo_zona FROM codigo_zona ORDER BY ID_codigo";
+    try {
+       cn = metodospool.dataSource.getConnection();  
+       st = cn.prepareStatement(SSQL);
+       resultado = st.executeQuery();
+       cbox_zona.addItem("Seleccione una opción");
+       while(resultado.next()){
+      cbox_zona.addItem(resultado.getString("codigo_zona"));
        }  
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(null, e);
