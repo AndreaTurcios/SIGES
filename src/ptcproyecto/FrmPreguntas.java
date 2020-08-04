@@ -5,6 +5,8 @@
  */
 package ptcproyecto;
 
+import clases.Cliente_duenio;
+
 /**
  *
  * @author 15-CW0001la
@@ -17,7 +19,10 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
     public FrmPreguntas() {
         initComponents();
     }
-
+    public void CargarDuenios(){
+        Cliente_duenio obj = new Cliente_duenio();
+        obj.consultarUsuario(cmbUsuario);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

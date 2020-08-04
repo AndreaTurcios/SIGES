@@ -394,5 +394,35 @@ public class Cliente_duenio {
         }
     }
     }
+    public void consultarUsuario(JComboBox cbox_duenios){
+    java.sql.Connection cn= null;    
+    PreparedStatement st = null;
+    ResultSet resultado = null;
+
+    String SSQL = "SELECT nombre_usuario FROM Usuarios ORDER BY ID_usuario";
+    try {
+       cn = metodospool.dataSource.getConnection();  
+       st = cn.prepareStatement(SSQL);
+       resultado = st.executeQuery();
+       cbox_duenios.addItem("Seleccione una opción");
+       while(resultado.next()){
+      cbox_duenios.addItem(resultado.getString("usuario"));
+       }  
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
+    }finally{
+        if(cn!=null){
+            try {
+                cn.close();
+                resultado.close();
+                resultado=null;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+            }
+        }
+    }
+        
+    
 
 }

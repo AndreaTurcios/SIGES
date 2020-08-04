@@ -1,28 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package control_tipo_p;
+package ptcproyecto;
 
-import Clases.Tipo_Producto;
+import Clases.tipoProducto;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Estrada
- */
 public class frmTipo_producto extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmTipo_producto
-     */
     public frmTipo_producto() {
         initComponents();
         ListarTipoProductos();
     }
         public void ListarTipoProductos(){
-       Tipo_Producto obj = new Tipo_Producto();
+       tipoProducto obj = new tipoProducto();
         obj.CargarTipoProductos(jTable1);
         
     }
@@ -76,6 +64,7 @@ public class frmTipo_producto extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JTID, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -89,11 +78,11 @@ public class frmTipo_producto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(JBConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JBConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(JTID))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JTID)
+                        .addComponent(jLabel1)))
                 .addContainerGap())
         );
 
@@ -211,7 +200,7 @@ public class frmTipo_producto extends javax.swing.JFrame {
                 .addComponent(JBImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -239,7 +228,7 @@ public class frmTipo_producto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else {
-                Tipo_Producto obj = new Tipo_Producto();
+                tipoProducto obj = new tipoProducto();
                 obj.setTipo_Producto(JTTIPO.getText());
                 if (obj.guardar()) {
                     JOptionPane.showMessageDialog(this, "Datos guardados");
@@ -256,7 +245,7 @@ public class frmTipo_producto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else{
-            Tipo_Producto obj = new Tipo_Producto();
+            tipoProducto obj = new tipoProducto();
             obj.setID_tipoProducto(Integer.parseInt(JTID.getText()));
             if (obj.consultar()) {
                 JTTIPO.setText(obj.getTipo_Producto());
@@ -277,7 +266,7 @@ public class frmTipo_producto extends javax.swing.JFrame {
         }
         else{
             
-                Tipo_Producto obj = new Tipo_Producto();
+                tipoProducto obj = new tipoProducto();
                 obj.setID_tipoProducto(Integer.parseInt(JTID.getText()));
                 obj.setTipo_Producto(JTTIPO.getText());
                 if (obj.modificar()) {

@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package control_tipo_p;
+package clases;
+
+import ptcproyecto.frmTipo_producto;
 
 /**
  *

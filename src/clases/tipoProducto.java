@@ -1,4 +1,5 @@
 package Clases;
+import ptcproyecto.frmTipo_producto;
 import clases.conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Estrada
  */
-public class Tipo_Producto {
+public class tipoProducto {
     private Connection cn;
     private Integer ID_tipoProducto;
     private String Tipo_Producto;
@@ -31,7 +32,7 @@ public class Tipo_Producto {
         this.cn = cn;
     }
     
-    public Tipo_Producto(){
+    public tipoProducto(){
         conexion con = new conexion();
         cn = con.conectar();
     }
@@ -157,14 +158,14 @@ public class Tipo_Producto {
     }
 
     /**
-     * @return the Tipo_Producto
+     * @return the tipoProducto
      */
     public String getTipo_Producto() {
         return Tipo_Producto;
     }
 
     /**
-     * @param Tipo_Producto the Tipo_Producto to set
+     * @param Tipo_Producto the tipoProducto to set
      */
     public void setTipo_Producto(String Tipo_Producto) {
         this.Tipo_Producto = Tipo_Producto;
