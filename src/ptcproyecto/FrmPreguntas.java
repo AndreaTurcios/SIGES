@@ -18,6 +18,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
      */
     public FrmPreguntas() {
         initComponents();
+        CargarDuenios();
     }
     public void CargarDuenios(){
         Cliente_duenio obj = new Cliente_duenio();

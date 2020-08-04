@@ -406,7 +406,7 @@ public class Cliente_duenio {
        resultado = st.executeQuery();
        cbox_duenios.addItem("Seleccione una opción");
        while(resultado.next()){
-      cbox_duenios.addItem(resultado.getString("usuario"));
+      cbox_duenios.addItem(resultado.getString("nombre_usuario"));
        }  
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(null, e);
