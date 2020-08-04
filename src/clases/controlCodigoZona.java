@@ -92,7 +92,7 @@ public class controlCodigoZona
             PreparedStatement cmd = Con.prepareStatement(sql);        
             cmd.setInt(1, ID_codigo);
             cmd.setString(2, codigo_zona);
-            if (!cmd.execute()) 
+            if (!cmd.execute())
             {
                 Modificar = true;
             }

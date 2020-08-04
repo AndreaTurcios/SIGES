@@ -186,19 +186,19 @@ public class FrmCodigoZona extends javax.swing.JFrame {
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         int codigo_zona = Integer.parseInt (txtid.getText());
-        
-        try{
-        Connection con = conexion.conectar();
-        PreparedStatement ps = con.prepareStatement("INSERT INTO codigo_zona(codigo_zona) VALUES (?)");
-        ps.setInt(1, codigo_zona);
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Registro guardado");
-        limpiar();
-        cargarTabla();
-        
-        }catch(SQLException e){
+        try
+        {
+            Connection con = conexion.conectar();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO codigo_zona(codigo_zona) VALUES (?)");
+            ps.setInt(1, codigo_zona);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro guardado");
+            limpiar();
+            cargarTabla();
+        }
+        catch(SQLException e)
+        {
             JOptionPane.showMessageDialog(null, e.toString());
-        
         }
         
     }//GEN-LAST:event_btnguardarActionPerformed
@@ -206,19 +206,19 @@ public class FrmCodigoZona extends javax.swing.JFrame {
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         int id = Integer.parseInt(txtid.getText());
         int codigo_zona = Integer.parseInt (txtid.getText());
-        
-        try{
-        Connection con = conexion.conectar();
-        PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona=? WHERE id =?");
-        ps.setInt(1, codigo_zona);
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Registro modificado");
-        limpiar();
-        cargarTabla();
-        
-        }catch(SQLException e){
+        try
+        {
+            Connection con = conexion.conectar();
+            PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona=? WHERE id =?");
+            ps.setInt(1, codigo_zona);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro modificado");
+            limpiar();
+            cargarTabla();
+        }
+        catch(SQLException e)
+        {
             JOptionPane.showMessageDialog(null, e.toString());
-        
         }
     }//GEN-LAST:event_btnmodificarActionPerformed
 
@@ -231,79 +231,80 @@ public class FrmCodigoZona extends javax.swing.JFrame {
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-         int id = Integer.parseInt(txtid.getText());
-        
-        
-        try{
-        Connection con = conexion.conectar();
-        PreparedStatement ps = con.prepareStatement("DELETE FROM  codigo_zona WHERE id =?");
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Registro Eliminado");
-        limpiar();
-        cargarTabla();
-        
-        }catch(SQLException e){
+         int idCodigoZona = Integer.parseInt(txtid.getText());
+        try
+        {
+            Connection con = conexion.conectar();
+            PreparedStatement ps = con.prepareStatement("DELETE FROM  codigo_zona WHERE id =?");
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro Eliminado");
+            limpiar();
+            cargarTabla();
+        }
+        catch(SQLException e)
+        {
             JOptionPane.showMessageDialog(null, e.toString());
-        
         }
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void tblcodigoZonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcodigoZonaMouseClicked
-        try{
-        int fila = tblcodigoZona.getSelectedRow();
-        int id = Integer.parseInt(tblcodigoZona.getValueAt(fila, 0).toString());
-        PreparedStatement ps;
-        ResultSet rs;
-        
-        
-        Connection con = conexion.conectar();
-        ps = con.prepareStatement("SELECT codigo_zona FROM codigo_zona WHERE id=? ");
-        ps.setInt(1, id);
-        rs = ps.executeQuery();
-        
-        
-        while(rs.next()) {
-        txtid.setText(rs.getString(String.valueOf(id)));
-       txtcodigozona1.setText(rs.getString("codigo_zona"));
+        try
+        {
+            int fila = tblcodigoZona.getSelectedRow();
+            int id = Integer.parseInt(tblcodigoZona.getValueAt(fila, 0).toString());
+            PreparedStatement ps;
+            ResultSet rs;
+            Connection con = conexion.conectar();
+            ps = con.prepareStatement("SELECT codigo_zona FROM codigo_zona WHERE id=? ");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while(rs.next()) 
+            {
+                txtid.setText(rs.getString(String.valueOf(id)));
+                txtcodigozona1.setText(rs.getString("codigo_zona"));
+            }
         }
-        
-        }catch(SQLException e){
-        JOptionPane.showMessageDialog(null, e.toString());
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
         }
     }//GEN-LAST:event_tblcodigoZonaMouseClicked
 
-    private void limpiar() {
-    txtid.setText("");
+    private void limpiar() 
+    {
+        txtid.setText("");
     }
     
-    private void cargarTabla(){
-    DefaultTableModel modeloTabla = (DefaultTableModel) tblcodigoZona.getModel();
-    modeloTabla.setRowCount(0);
-    
-    PreparedStatement ps;
-    ResultSet rs;
-    ResultSetMetaData rsmd;
-    int columnas;
-    
-    try{
-    
-        Connection con = conexion.conectar();
-        ps = con.prepareStatement("SELECT codigo_zona FROM codigo_zona ");
-        rs = ps.executeQuery();
-        rsmd = rs.getMetaData();
-        columnas = rsmd.getColumnCount();
-        
-        while(rs.next()){
-        Object [] fila =new  Object [columnas];
-        for(int indice =0; indice<columnas; indice ++){
-        fila [indice] = rs.getObject(indice + 1);
+    private void cargarTabla()
+    {
+        DefaultTableModel modeloTabla = (DefaultTableModel) tblcodigoZona.getModel();
+        modeloTabla.setRowCount(0);
+        PreparedStatement ps;
+        ResultSet rs;
+        ResultSetMetaData rsmd;
+        int columnas;
+        try
+        {
+            Connection con = conexion.conectar();
+            ps = con.prepareStatement("SELECT codigo_zona FROM codigo_zona ");
+            rs = ps.executeQuery();
+            rsmd = rs.getMetaData();
+            columnas = rsmd.getColumnCount();
+            while(rs.next())
+            {
+                Object [] fila =new  Object [columnas];
+                for(int indice =0; indice<columnas; indice ++)
+                {
+                fila [indice] = rs.getObject(indice + 1);
+                }
+                modeloTabla.addRow(fila)    ;
+            }
+
         }
-         modeloTabla.addRow(fila)    ;
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
         }
-                
-    }catch(SQLException e){
-    JOptionPane.showMessageDialog(null, e.toString());
-    }
     }
     
     public static void main(String args[]) {
