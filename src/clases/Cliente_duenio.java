@@ -299,7 +299,7 @@ public class Cliente_duenio {
     }
     Pool metodospool = new Pool();
     
-     public void listarProductos(Connection cn, JTable tabla){
+     public void listarDuenios(Connection cn, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID", "nacionalidad"};
         model = new DefaultTableModel(null, columnas);
@@ -324,7 +324,7 @@ public class Cliente_duenio {
         }
     }   
     public void CargarDuenios(JTable tabla){
-        listarProductos(cn, tabla);
+        listarDuenios(cn, tabla);
     }
     
     public void consultar_datos(JComboBox cbox_duenios){
