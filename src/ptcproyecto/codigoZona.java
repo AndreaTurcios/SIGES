@@ -5,28 +5,25 @@
  */
 package ptcproyecto;
 
+import clases.conexion;
+import clases.controlCodigoZona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import clases.*;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Nanos
+ * @author 15-CW0001la
  */
-public class FrmCodigoZona extends javax.swing.JFrame {
+public class codigoZona extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FrmCodigoZona
+     * Creates new form codigoZona
      */
-    public FrmCodigoZona() 
-    {
+    public codigoZona() {
         initComponents();
-        cargarTabla();
     }
 
     /**
@@ -43,7 +40,6 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         BtnCerrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtid = new javax.swing.JTextField();
         btnguardar = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -51,9 +47,6 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         btnlimpiar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         txtcodigozona = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         JPForm.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -73,21 +66,18 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         JPFormLayout.setHorizontalGroup(
             JPFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPFormLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(303, 303, 303)
+                .addGap(187, 187, 187)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPFormLayout.setVerticalGroup(
             JPFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPFormLayout.createSequentialGroup()
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        getContentPane().add(JPForm);
-        JPForm.setBounds(0, 0, 858, 51);
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
         jPanel2.setLayout(null);
@@ -96,8 +86,6 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         jLabel2.setText("Codigo Zona");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(32, 15, 78, 29);
-        jPanel2.add(txtid);
-        txtid.setBounds(120, 60, 20, 22);
 
         btnguardar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btnguardar.setText("Guardar ");
@@ -107,7 +95,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnguardar);
-        btnguardar.setBounds(404, 16, 89, 27);
+        btnguardar.setBounds(20, 60, 89, 23);
 
         btnmodificar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btnmodificar.setText("Modificar");
@@ -117,7 +105,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnmodificar);
-        btnmodificar.setBounds(511, 16, 89, 27);
+        btnmodificar.setBounds(120, 60, 95, 23);
 
         tblcodigoZona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -152,7 +140,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblcodigoZona);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(17, 103, 830, 242);
+        jScrollPane1.setBounds(17, 103, 530, 242);
 
         btnlimpiar.setText("Limpiar");
         btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +149,7 @@ public class FrmCodigoZona extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnlimpiar);
-        btnlimpiar.setBounds(720, 20, 97, 25);
+        btnlimpiar.setBounds(340, 60, 97, 23);
 
         btneliminar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btneliminar.setText("Eliminar");
@@ -171,12 +159,35 @@ public class FrmCodigoZona extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btneliminar);
-        btneliminar.setBounds(607, 16, 97, 27);
+        btneliminar.setBounds(230, 60, 97, 23);
         jPanel2.add(txtcodigozona);
-        txtcodigozona.setBounds(128, 19, 258, 22);
+        txtcodigozona.setBounds(128, 19, 258, 20);
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(-3, 55, 860, 510);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(JPForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 56, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JPForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(383, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -201,18 +212,16 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, e.toString());
         }
-        
+
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        int id = Integer.parseInt(txtid.getText());
         int codigo_zona = Integer.parseInt (txtcodigozona.getText());
         try
         {
             Connection con = conexion.conectar();
             PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona = ? WHERE id = ?");
-            ps.setInt(1, id);
-            ps.setInt(2, codigo_zona);
+            ps.setInt(1, codigo_zona);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro modificado");
             limpiar();
@@ -228,27 +237,6 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tblcodigoZonaAncestorAdded
 
-    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-        limpiar();
-    }//GEN-LAST:event_btnlimpiarActionPerformed
-
-    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-         int idCodigoZona = Integer.parseInt(txtid.getText());
-        try
-        {
-            Connection con = conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("DELETE FROM  codigo_zona WHERE id =?");
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro Eliminado");
-            limpiar();
-            cargarTabla();
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-    }//GEN-LAST:event_btneliminarActionPerformed
-
     private void tblcodigoZonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcodigoZonaMouseClicked
         try
         {
@@ -260,9 +248,8 @@ public class FrmCodigoZona extends javax.swing.JFrame {
             ps = con.prepareStatement("SELECT codigo_zona FROM codigo_zona WHERE id=? ");
             ps.setInt(1, id);
             rs = ps.executeQuery();
-            while(rs.next()) 
+            while(rs.next())
             {
-                txtid.setText(rs.getString(String.valueOf(id)));
                 txtcodigozona.setText(rs.getString("codigo_zona"));
             }
         }
@@ -272,75 +259,27 @@ public class FrmCodigoZona extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblcodigoZonaMouseClicked
 
-    private void limpiar() 
-    {
-        txtid.setText("");
-        txtcodigozona.setText("");
-    }
-    
-    private void cargarTabla()
-    {
-        DefaultTableModel modeloTabla = (DefaultTableModel) tblcodigoZona.getModel();
-        modeloTabla.setRowCount(0);
-        PreparedStatement ps;
-        ResultSet rs;
-        ResultSetMetaData rsmd;
-        int columnas;
-        try
-        {
-            Connection con = conexion.conectar();
-            ps = con.prepareStatement("SELECT codigo_zona FROM codigo_zona ");
-            rs = ps.executeQuery();
-            rsmd = rs.getMetaData();
-            columnas = rsmd.getColumnCount();
-            while(rs.next())
-            {
-                Object [] fila =new  Object [columnas];
-                for(int indice =0; indice<columnas; indice ++)
-                {
-                    fila [indice] = rs.getObject(indice + 1);
-                }
-                modeloTabla.addRow(fila)    ;
-            }
+    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btnlimpiarActionPerformed
 
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-    }
-    
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCodigoZona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCodigoZona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCodigoZona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCodigoZona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+//        int idCodigoZona = Integer.parseInt(txtid.getText());
+//        try
+//        {
+//            Connection con = conexion.conectar();
+//            PreparedStatement ps = con.prepareStatement("DELETE FROM  codigo_zona WHERE id =?");
+//            ps.executeUpdate();
+//            JOptionPane.showMessageDialog(null, "Registro Eliminado");
+//            limpiar();
+//            cargarTabla();
+//        }
+//        catch(SQLException e)
+//        {
+//            JOptionPane.showMessageDialog(null, e.toString());
+//        }
+    }//GEN-LAST:event_btneliminarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmCodigoZona().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
@@ -355,6 +294,13 @@ public class FrmCodigoZona extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblcodigoZona;
     private javax.swing.JTextField txtcodigozona;
-    private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiar() {
+        txtcodigozona.setText(" ");
+    }
+
+    private void cargarTabla() {
+        
+    }
 }

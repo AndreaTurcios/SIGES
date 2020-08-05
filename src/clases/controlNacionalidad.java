@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,6 +16,14 @@ import java.sql.SQLException;
 public class controlNacionalidad 
 {
     private Connection Con;
+
+    public Connection getCon() {
+        return Con;
+    }
+
+    public void setCon(Connection Con) {
+        this.Con = Con;
+    }
     private Integer ID_nacionalidad;
     private String nacionalidad;
     
@@ -44,10 +56,11 @@ public class controlNacionalidad
         boolean resp = false;
      try{
        
-     String sql = "INSERT INTO nacionalidad (ID_nacionalidad , nacionalidad) VALUES ( ?, ?) ";
+     String sql = "INSERT INTO nacionalidad (nacionalidad) VALUES (?) ";
                 
        PreparedStatement cmd = Con.prepareStatement(sql);
        cmd.setString(1,nacionalidad);
+       System.out.println(nacionalidad);
             if (!cmd.execute()){
                 resp = true;
             }
@@ -97,7 +110,32 @@ public class controlNacionalidad
         }
         return resp;
    }
-
+    public void CargarNacionalidad(Connection cn, JTable tabla){
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID_nacionalidad", "nacionalidad"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM nacionalidad ORDER BY ID_nacionalidad";
+        String [] filas = new String[3];
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()){
+                for (int i = 0; i < 3; i++) {
+                    filas[i] = rs.getString(i+1);
+                }
+                model.addRow(filas);
+            }
+            tabla.setModel(model);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar tabla "+e);
+        }
+    }   
+    public void CargarNacionalidades(JTable tabla){
+        CargarNacionalidad(getCon(), tabla);
+    }
     @Override
     public String toString() {
         return nacionalidad;
