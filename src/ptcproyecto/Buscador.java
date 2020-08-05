@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ptcproyecto;
+
+import java.awt.Color;
 
 /**
  *
@@ -16,6 +13,9 @@ public class Buscador extends javax.swing.JFrame {
      */
     public Buscador() {
         initComponents();
+        this.setLocationRelativeTo(null);
+//        this.getContentPane().setBackground(Color.BLUE);
+        this.setTitle("Buscador de mascotas");
     }
 
     /**
@@ -27,18 +27,37 @@ public class Buscador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        panelinterno = new javax.swing.JPanel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+
+        panelinterno.setBackground(new java.awt.Color(153, 153, 255));
+
+        javax.swing.GroupLayout panelinternoLayout = new javax.swing.GroupLayout(panelinterno);
+        panelinterno.setLayout(panelinternoLayout);
+        panelinternoLayout.setHorizontalGroup(
+            panelinternoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 629, Short.MAX_VALUE)
+        );
+        panelinternoLayout.setVerticalGroup(
+            panelinternoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 451, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 578, Short.MAX_VALUE)
+            .addComponent(panelinterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 408, Short.MAX_VALUE)
+            .addComponent(panelinterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        getAccessibleContext().setAccessibleName("Buscador");
+        getAccessibleContext().setAccessibleDescription("Buscador de mascotas");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +98,6 @@ public class Buscador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel panelinterno;
     // End of variables declaration//GEN-END:variables
 }
