@@ -39,7 +39,6 @@ public class Citas extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         BtnCerrar1 = new javax.swing.JButton();
-        BtnCerrar2 = new javax.swing.JButton();
         JPIngresoCitas = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -73,7 +72,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jTextField1.setBackground(new java.awt.Color(204, 102, 255));
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
 
-        BtnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Buscar.jpeg"))); // NOI18N
+        BtnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar1.setToolTipText("");
         BtnCerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,32 +87,23 @@ public class Citas extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        JPCitas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 270, 50));
+        JPCitas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 270, 50));
 
-        BtnCerrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1487086345-cross_81577.png"))); // NOI18N
-        BtnCerrar2.setToolTipText("");
-        BtnCerrar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrar2ActionPerformed(evt);
-            }
-        });
-        JPCitas.add(BtnCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 27, 25));
-
-        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
+        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 50));
 
         JPIngresoCitas.setBackground(new java.awt.Color(255, 255, 255));
         JPIngresoCitas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -229,10 +219,6 @@ public class Citas extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_BtnCerrar1ActionPerformed
 
-    private void BtnCerrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar2ActionPerformed
-        this.dispose ();
-    }//GEN-LAST:event_BtnCerrar2ActionPerformed
-
     private void JbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtGuardarActionPerformed
        Cita obj = new Cita();
        obj.setcita_hora(Integer.parseInt(tfHora.getText ()));
@@ -280,7 +266,6 @@ public class Citas extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar1;
-    private javax.swing.JButton BtnCerrar2;
     private javax.swing.JPanel JPCitas;
     private javax.swing.JPanel JPIngresoCitas;
     private javax.swing.JButton JbtGuardar;
