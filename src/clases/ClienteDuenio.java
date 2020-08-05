@@ -11,8 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
-public class Cliente_duenio {
+public class ClienteDuenio {
 
     private Connection cn;
     private conexion conexion;
@@ -24,6 +23,8 @@ public class Cliente_duenio {
     private String duenio_correo;
     private Date Fecha_e_DUI;
     private String nacionalidad;
+    private int nacionalidad_id;
+    private controlNacionalidad nacionalidad2;
     private Integer codigo_zona;
     private Integer ID_tipoCliente;
     private Integer ID_Mascota;
@@ -231,13 +232,15 @@ public class Cliente_duenio {
             System.out.println(duenio_correo);
             cmd.setDate(7, Fecha_e_DUI);
             System.out.println("feca" + Fecha_e_DUI);
-            cmd.setString(8, "hola");
+            //8-Nacinalidad Integer
+            //cmd.setInt(8, nacionalidad_id);
+            cmd.setInt(8, nacionalidad2.getID_nacionalidad());
             System.out.println("naci" + nacionalidad);
             cmd.setInt(9, codigo_zona);
             System.out.println("cod zona" + codigo_zona);
-            cmd.setInt(10, 1);
+            cmd.setInt(10, ID_tipoCliente);
             System.out.println("TIPO " + ID_tipoCliente);
-            cmd.setInt(11, 1);
+            cmd.setInt(11, ID_Mascota);
             System.out.println("mas " + ID_Mascota);
             /*cmd.setInt(1, ID_DUI);
             cmd.setString(2, duenio_nombre);
@@ -258,8 +261,8 @@ public class Cliente_duenio {
             cn.close();
             return resp;
         } catch (SQLException ex) {
-          System.err.println("Error guardar Cliente2 " + ex);
-         return false;
+            System.err.println("Error guardar Cliente2 " + ex);
+            return false;
         }
 
     }
@@ -293,189 +296,221 @@ public class Cliente_duenio {
         return resp;
 
     }
-    
-    public Date formatoDate(long f){
+
+    public Date formatoDate(long f) {
         return new Date(f);
     }
     Pool metodospool = new Pool();
-    
-     public void listarDuenios(Connection cn, JTable tabla){
+
+    public void listarDuenios(Connection cn, JTable tabla) {
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID_DUI","duenio_nombre" +
-"      ,duenio_apellidos" +
-"      ,duenio_telefono" +
-"      ,duenio_domicilio" +
-"      ,duenio_correo" +
-"      ,Fecha_e_DUI" +
-"      ,nacionalidad" +
-"      ,codigo_zona" +
-"      ,ID_tipoCliente" +
-"      ,ID_Mascota"};
+        String[] columnas = {"ID_DUI", "duenio_nombre"
+            + "      ,duenio_apellidos"
+            + "      ,duenio_telefono"
+            + "      ,duenio_domicilio"
+            + "      ,duenio_correo"
+            + "      ,Fecha_e_DUI"
+            + "      ,nacionalidad"
+            + "      ,codigo_zona"
+            + "      ,ID_tipoCliente"
+            + "      ,ID_Mascota"};
         model = new DefaultTableModel(null, columnas);
-        
+
         String sql = "SELECT ID_DUI=?,duenio_nombre=?, duenio_apellidos=?, "
-                    + "duenio_telefono=?, duenio_domicilio=?, duenio_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,"
+                + "duenio_telefono=?, duenio_domicilio=?, duenio_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,"
                 + "ID_tipoCliente=? FROM Cliente_dueño WHERE ID_DUI=?";
-        String [] filas = new String[1];
+        String[] filas = new String[1];
         Statement st = null;
         ResultSet rs = null;
-        try{
+        try {
             st = cn.createStatement();
             rs = st.executeQuery(sql);
-            while (rs.next()){
+            while (rs.next()) {
                 for (int i = 0; i < 0; i++) {
-                    filas[i] = rs.getString(i+1);
+                    filas[i] = rs.getString(i + 1);
                 }
                 model.addRow(filas);
             }
             tabla.setModel(model);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla");
         }
-    }   
-    public void CargarDuenios(JTable tabla){
+    }
+
+    public void CargarDuenios(JTable tabla) {
         listarDuenios(cn, tabla);
     }
-    public void consultarNacionalidad(JComboBox cbox_duenios){
-    java.sql.Connection cn= null;    
-    PreparedStatement st = null;
-    ResultSet resultado = null;
 
-    String SSQL = "SELECT nacionalidad FROM nacionalidad ORDER BY ID_nacionalidad";
-    try {
-       cn = metodospool.dataSource.getConnection();  
-       st = cn.prepareStatement(SSQL);
-       resultado = st.executeQuery();
-       cbox_duenios.addItem("Seleccione una opción");
-       while(resultado.next()){
-      cbox_duenios.addItem(resultado.getString("nacionalidad"));
-       }  
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }finally{
-        if(cn!=null){
-            try {
-                cn.close();
-                resultado.close();
-                resultado=null;
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-        }
-    }
-    }
-    public void consultarMascota(JComboBox cboxMascota){
-    java.sql.Connection cn= null;    
-    PreparedStatement st = null;
-    ResultSet resultado = null;
-    String SSQL = "SELECT nombre_mascota FROM Mascota ORDER BY ID_mascota";
-    try {
-       cn = metodospool.dataSource.getConnection();  
-       st = cn.prepareStatement(SSQL);
-       resultado = st.executeQuery();
-       cboxMascota.addItem("Seleccione una opción");
-       while(resultado.next()){
-      cboxMascota.addItem(resultado.getString("nombre_mascota"));
-       }  
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }finally{
-        if(cn!=null){
-            try {
-                cn.close();
-                resultado.close();
-                resultado=null;
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-        }
-    }
-    }
-    public void consultarTipoC(JComboBox cbox_clientet){
-    java.sql.Connection cn= null;    
-    PreparedStatement st = null;
-    ResultSet resultado = null;
-    String SSQL = "SELECT tipo_cliente FROM Tipo_cliente ORDER BY ID_tipoCliente";
-    try {
-       cn = metodospool.dataSource.getConnection();  
-       st = cn.prepareStatement(SSQL);
-       resultado = st.executeQuery();
-       cbox_clientet.addItem("Seleccione una opción");
-       while(resultado.next()){
-      cbox_clientet.addItem(resultado.getString("tipo_cliente"));
-       }  
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }finally{
-        if(cn!=null){
-            try {
-                cn.close();
-                resultado.close();
-                resultado=null;
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-        }
-    }
-    }
-    public void ConsultarCodigozona(JComboBox cbox_zona){
-    java.sql.Connection cn= null;    
-    PreparedStatement st = null;
-    ResultSet resultado = null;
+    public void consultarNacionalidad(JComboBox cbox_duenios) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
 
-    String SSQL = "SELECT codigo_zona FROM codigo_zona ORDER BY ID_codigo";
-    try {
-       cn = metodospool.dataSource.getConnection();  
-       st = cn.prepareStatement(SSQL);
-       resultado = st.executeQuery();
-       cbox_zona.addItem("Seleccione una opción");
-       while(resultado.next()){
-      cbox_zona.addItem(resultado.getString("codigo_zona"));
-       }  
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }finally{
-        if(cn!=null){
-            try {
-                cn.close();
-                resultado.close();
-                resultado=null;
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
+        String SSQL = "SELECT ID_nacionalidad ,nacionalidad FROM nacionalidad ORDER BY ID_nacionalidad";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_duenios.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                controlNacionalidad c = new controlNacionalidad();
+                c.setID_nacionalidad(resultado.getInt("ID_nacionalidad"));
+                c.setnacionalidad(resultado.getString("nacionalidad"));
+                cbox_duenios.addItem(c);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
             }
         }
     }
-    }
-    public void consultarUsuario(JComboBox cbox_duenios){
-    java.sql.Connection cn= null;    
-    PreparedStatement st = null;
-    ResultSet resultado = null;
 
-    String SSQL = "SELECT nombre_usuario FROM Usuarios ORDER BY ID_usuario";
-    try {
-       cn = metodospool.dataSource.getConnection();  
-       st = cn.prepareStatement(SSQL);
-       resultado = st.executeQuery();
-       cbox_duenios.addItem("Seleccione una opción");
-       while(resultado.next()){
-      cbox_duenios.addItem(resultado.getString("nombre_usuario"));
-       }  
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }finally{
-        if(cn!=null){
-            try {
-                cn.close();
-                resultado.close();
-                resultado=null;
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
+    public void consultarMascota(JComboBox cboxMascota) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_mascota, nombre_mascota FROM Mascota ORDER BY ID_mascota";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cboxMascota.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                Mascota m = new Mascota();
+                m.setID_mascota(resultado.getInt("ID_mascota"));
+                m.setNombre_mascota(resultado.getString("nombre_mascota"));
+                cboxMascota.addItem(m);
             }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
             }
         }
     }
+
+    public void consultarTipoC(JComboBox cbox_clientet) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_tipoCliente,tipo_cliente FROM Tipo_cliente ORDER BY ID_tipoCliente";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_clientet.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                tipoCliente d = new tipoCliente();
+                d.setID_tipoCliente(resultado.getInt("ID_tipoCliente"));
+                d.setTipo_cliente(resultado.getString("tipo_cliente"));
+                cbox_clientet.addItem(d);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
+
+    public void ConsultarCodigozona(JComboBox cbox_zona) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT ID_codigo, codigo_zona FROM codigo_zona ORDER BY ID_codigo";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_zona.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                controlCodigoZona cz = new controlCodigoZona();
+                cz.setID_codigo(resultado.getInt("ID_codigo"));
+                cz.setcodigo_zona(resultado.getInt("codigo_zona"));
+                cbox_zona.addItem(cz);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
+
+    public void consultarUsuario(JComboBox cbox_duenios) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT nombre_usuario FROM Usuarios ORDER BY ID_usuario";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_duenios.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                cbox_duenios.addItem(resultado.getString("nombre_usuario"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
+
+    public int getNacionalidad_id() {
+        return nacionalidad_id;
+    }
+
+    public void setNacionalidad_id(int nacionalidad_id) {
+        this.nacionalidad_id = nacionalidad_id;
+    }
+
+    public controlNacionalidad getNacionalidad2() {
+        return nacionalidad2;
+    }
+
+    public void setNacionalidad2(controlNacionalidad nacionalidad2) {
+        this.nacionalidad2 = nacionalidad2;
+    }
+
         
-    
-
 }

@@ -1,7 +1,10 @@
 package ptcproyecto;
 
-import clases.Cliente_duenio;
+import clases.ClienteDuenio;
+import clases.Mascota;
+import clases.controlCodigoZona;
 import clases.controlNacionalidad;
+import clases.tipoCliente;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -158,28 +161,32 @@ public class Dueños extends javax.swing.JInternalFrame {
                             .addComponent(tfDUI, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(218, 218, 218))
-                    .addComponent(jLabel5)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel12)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5)
+                            .addComponent(jButton1)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(tfCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(calendar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(cmbNacionalidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbZona, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbTipoCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbMascota, 0, 164, Short.MAX_VALUE)))))))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel11))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(tfCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cmbMascota, 0, 106, Short.MAX_VALUE)
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(cmbTipoCliente, javax.swing.GroupLayout.Alignment.LEADING, 0, 106, Short.MAX_VALUE)
+                                                .addComponent(cmbZona, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(cmbNacionalidad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(calendar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,20 +319,20 @@ public class Dueños extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
     public void CargarDuenios(){
-        Cliente_duenio obj = new Cliente_duenio();
+        ClienteDuenio obj = new ClienteDuenio();
         obj.consultarNacionalidad(cmbNacionalidad);
         obj.ConsultarCodigozona(cmbZona);
         obj.consultarTipoC(cmbTipoCliente);
         obj.consultarMascota(cmbMascota);
     }
     public void ListarDuenios(){
-        Cliente_duenio obj = new Cliente_duenio();
+        ClienteDuenio obj = new ClienteDuenio();
         obj.CargarDuenios(jTable1);
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         controlNacionalidad n = new controlNacionalidad();
         n.Consultar();
-        Cliente_duenio obj = new Cliente_duenio();
+        ClienteDuenio obj = new ClienteDuenio();
         int DUI= Integer.parseInt(tfDUI.getText());
         obj.setID_DUI(DUI);
         System.out.println("LLega");
@@ -348,8 +355,24 @@ public class Dueños extends javax.swing.JInternalFrame {
         //obj.setFecha_e_DUI(fecha);
         //obj.setFecha_e_DUI(new java.sql.Date(f));
         obj.setFecha_e_DUI(new java.sql.Date(calendar.getDatoFecha().getTime()));
+        controlNacionalidad nac = (controlNacionalidad)cmbNacionalidad.getSelectedItem();
+        System.out.println("Item " + nac.getID_nacionalidad());
+        System.out.println("Item " +cmbNacionalidad.getSelectedObjects().getClass());
+        //obj.setNacionalidad(nac.getID_nacionalidad());
+        obj.setNacionalidad_id(nac.getID_nacionalidad());
+        obj.setNacionalidad2(nac);
         
-//        obj.setNacionalidad(tfNacionalidad.getText());
+        Mascota ma = (Mascota)cmbMascota.getSelectedItem();
+        System.out.println("Mascota " + ma.getID_mascota());
+        obj.setID_Mascota(ma.getID_mascota());
+        
+        tipoCliente ti = (tipoCliente)cmbTipoCliente.getSelectedItem();
+        System.out.println("Cliente tipo " + ti.getID_tipoCliente());
+        obj.setID_tipoCliente(ti.getID_tipoCliente());
+        
+        controlCodigoZona coza = (controlCodigoZona)cmbZona.getSelectedItem();
+        System.out.println("Codigo zona " + coza.getID_codigo());
+        obj.setCodigo_zona(coza.getID_codigo());
 //        
 //    
 //    cmd.setInt(9, codigo_zona);
@@ -357,11 +380,12 @@ public class Dueños extends javax.swing.JInternalFrame {
 //    cmd.setInt(11, ID_Mascota);
 //        
 //System.out.println("Objeto " +obj.guardarCliente());
+
         if (obj.guardarCliente()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
-        }
+        }/**/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

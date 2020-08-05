@@ -5,7 +5,7 @@
  */
 package ptcproyecto;
 
-import clases.Cliente_duenio;
+import clases.ClienteDuenio;
 
 /**
  *
@@ -21,7 +21,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         CargarDuenios();
     }
     public void CargarDuenios(){
-        Cliente_duenio obj = new Cliente_duenio();
+        ClienteDuenio obj = new ClienteDuenio();
         obj.consultarUsuario(cmbUsuario);
     }
     /**

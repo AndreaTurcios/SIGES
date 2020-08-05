@@ -97,6 +97,13 @@ public class controlNacionalidad
         }
         return resp;
    }
+
+    @Override
+    public String toString() {
+        return nacionalidad;
+    }
+   
+   
     }
        
     

@@ -16,7 +16,15 @@ public class controlCodigoZona
 {
     private Connection Con;
     private Integer ID_codigo;
-    private String codigo_zona;
+    private int codigo_zona;
+
+    public int getCodigo_zona() {
+        return codigo_zona;
+    }
+
+    public void setCodigo_zona(int codigo_zona) {
+        this.codigo_zona = codigo_zona;
+    }
     
     public Integer getID_codigo()
     {
@@ -28,12 +36,12 @@ public class controlCodigoZona
         this.ID_codigo = ID_codigo;
     }
     
-    public String getcodigo_zona()
+    public int getcodigo_zona()
     {
         return codigo_zona;
     }
     
-    public void setcodigo_zona(String codigo_zona)
+    public void setcodigo_zona(int codigo_zona)
     {
         this.codigo_zona = codigo_zona;
     }
@@ -46,7 +54,7 @@ public class controlCodigoZona
             String sql = "INSERT INTO codigo_zona (codigo_zona)"+" VALUES (?)";
             PreparedStatement cmd = Con.prepareStatement(sql);
             cmd.setInt(1, ID_codigo);
-            cmd.setString(2, codigo_zona);
+            cmd.setInt(2, codigo_zona);
             if (!cmd.execute()) 
             {
                 Guardar = true;
@@ -91,7 +99,7 @@ public class controlCodigoZona
             String sql = "UPDATE SET codigo_zona, codigo_zona = ?";
             PreparedStatement cmd = Con.prepareStatement(sql);        
             cmd.setInt(1, ID_codigo);
-            cmd.setString(2, codigo_zona);
+            cmd.setInt(2, codigo_zona);
             if (!cmd.execute())
             {
                 Modificar = true;
@@ -104,5 +112,9 @@ public class controlCodigoZona
             System.out.println(e.toString());
         }
         return Modificar;
+    }
+    public String toString() {
+        String codigo= Integer.toString(codigo_zona);
+        return codigo;
     }
 }
