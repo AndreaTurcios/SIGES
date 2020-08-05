@@ -369,7 +369,6 @@ public class Cliente_duenio {
     java.sql.Connection cn= null;    
     PreparedStatement st = null;
     ResultSet resultado = null;
-
     String SSQL = "SELECT tipo_cliente FROM codigo_zona ORDER BY ID_codigo";
     try {
        cn = metodospool.dataSource.getConnection();  

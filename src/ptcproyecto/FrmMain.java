@@ -559,7 +559,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel13.setForeground(Color.BLACK);
         jLabel6.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
-        frmTipo_producto fich= new frmTipo_producto();
+        TipoProducto fich= new TipoProducto();
         panelArriba.add(fich);
         fich.show();
     }//GEN-LAST:event_jLabel17MouseClicked
