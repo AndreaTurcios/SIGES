@@ -21,7 +21,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     public TipoMascota() {
         initComponents();
         //hacer invisible el txt del ID
-        txtID.setVisible(false);
+        
         cargarTabla();
     }
 
@@ -38,7 +38,6 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtTipomascota = new javax.swing.JTextField();
-        txtID = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -115,12 +114,6 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Tipo mascota:");
 
-        txtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDActionPerformed(evt);
-            }
-        });
-
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,8 +154,6 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtTipomascota, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
@@ -177,8 +168,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtTipomascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTipomascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
@@ -220,10 +210,6 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDActionPerformed
-
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         String tipo_animal = txtTipomascota.getText();
 
@@ -255,7 +241,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             rs = ps.executeQuery();
             
             while(rs.next()){
-            txtID.setText(rs.getString(String.valueOf(id)));
+            
             txtTipomascota.setText(rs.getString("tipo_animal"));
             }
         } catch (SQLException e) {
@@ -264,7 +250,6 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblTipomascotaMouseClicked
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        int id = Integer.parseInt(txtID.getText());
         String tipo_animal = txtTipomascota.getText();
 
         try {
@@ -283,12 +268,9 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int id = Integer.parseInt(txtID.getText());
-
         try {
             Connection cn = conexion.conectar();
             PreparedStatement ps = cn.prepareStatement("DELETE FROM Tipo_mascota WHERE id= ?");
-            ps.setInt(1, id);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro registro eliminado");
             limpiar();
@@ -305,7 +287,6 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void limpiar() {
-        txtID.setText("");
         txtTipomascota.setText("");
     }
 
@@ -325,7 +306,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
         try {
             Connection cn = conexion.conectar();
-            ps = cn.prepareStatement("SELECT ID, tipo_animal FROM Tipo_mascota");
+            ps = cn.prepareStatement("SELECT ID_tipoMascota, tipo_animal FROM Tipo_mascota ORDER BY ID_tipoMascota");
             rs = ps.executeQuery();
             rsmd = rs.getMetaData();
             columnas = rsmd.getColumnCount();
@@ -357,7 +338,6 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tblTipomascota;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtTipomascota;
     // End of variables declaration//GEN-END:variables
 }

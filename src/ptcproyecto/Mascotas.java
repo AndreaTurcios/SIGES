@@ -12,6 +12,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         initComponents();
         DefaultTableModel modelo = new DefaultTableModel();
         ListarMascota();
+        CargarDuenios();
     }
     
     @SuppressWarnings("unchecked")
@@ -144,7 +145,11 @@ public class Mascotas extends javax.swing.JInternalFrame {
         GeneroBtnG.add(rbM);
         rbM.setText("M");
 
-        tipo_mascota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguna", "Gatos", "Perros" }));
+        tipo_mascota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipo_mascotaActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Tipo mascota:");
@@ -322,9 +327,11 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
-    
+    public void CargarDuenios(){
+        Mascota obj = new Mascota();
+        obj.consultarTipoMascota(tipo_mascota);
+    }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        JOptionPane.showMessageDialog(this,"Boton para corroborar si esto funciona"); 
         Mascota obj = new Mascota();
         obj.setNombre_mascota(tfNombre.getText());
         obj.setMascota_razon(tfRazon.getText());
@@ -380,7 +387,6 @@ public class Mascotas extends javax.swing.JInternalFrame {
     public void ListarMascota(){
         Mascota obj = new Mascota();
         obj.CargarMascotas(jTable1);
-        
     }
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
 //        if (tfNombre.getText().isEmpty() || tfRazon.getText().isEmpty() || tfMedicinas.getText().isEmpty()|| tfHorarios.getText().isEmpty()) {
@@ -429,6 +435,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1AncestorAdded
+
+    private void tipo_mascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_mascotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipo_mascotaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;

@@ -1,11 +1,13 @@
 package clases;
-
+import clases.Pool;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -84,7 +86,38 @@ public class Mascota {
     public void setMascota_horarioReserva(String mascota_horarioReserva) {
         this.mascota_horarioReserva = mascota_horarioReserva;
     }
+    Pool metodospool = new Pool();
+    public void consultarTipoMascota(JComboBox cbox_mascotat) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
 
+        String SSQL = "SELECT ID_tipoMascota, tipo_animal FROM Tipo_mascota ORDER BY ID_tipoMascota";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_mascotat.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                tipoMascota tm = new tipoMascota();
+                tm.setID_tipoMascota(resultado.getInt("ID_tipoMascota"));
+                tm.setTipo_animal(resultado.getString("tipo_animal"));
+                cbox_mascotat.addItem(tm);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
     public void CargarMascota(Connection cn, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID_mascota", "nombre_mascota", "mascota_genero", "mascota_razon", "mascota_medicinas", "mascota_horarioReserva", "ID_tipoMascota"};
