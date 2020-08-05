@@ -14,8 +14,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
     }
+    public static String texto = "";
 //    public void ValidarUsuario () 
 //    {
 //        int resultado = 1;
@@ -318,6 +318,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        texto = txtUsuario.getText();
         String contrasenia = String.valueOf(txtContrasenia.getPassword());
         String usuario = txtUsuario.getText();
         

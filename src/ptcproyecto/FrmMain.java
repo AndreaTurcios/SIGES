@@ -17,6 +17,8 @@ public class FrmMain extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jLabel14.setVisible(false);
+        Login ventana = new Login();
+        lblUsuario.setText(Login.texto);
     }
 
     @SuppressWarnings("unchecked")
