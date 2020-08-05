@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clases;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -37,14 +34,38 @@ public class controlNacionalidad
     {
         this.nacionalidad = nacionalidad;
     }
+    
+    public controlNacionalidad() {
+    conexion o = new conexion();
+    Con = o.conectar();
+    }
 
-    public boolean GuardarNacionalidad() 
-    {
-      boolean resp = false;
+    public boolean guardar() {
+        boolean resp = false;
      try{
-      
+       
+     String sql = "INSERT INTO nacionalidad (ID_nacionalidad , nacionalidad) VALUES ( ?, ?) ";
+                
+       PreparedStatement cmd = Con.prepareStatement(sql);
+       cmd.setString(1,nacionalidad);
+            if (!cmd.execute()){
+                resp = true;
+            }
+                cmd.close();
+                Con.close();
+            }catch(Exception e)
+             {
+              System.out.println(e.toString());
+             }
+            return resp;
+        } 
+
+    public boolean modificar() {
+       boolean resp = false;
+     try{
+       
      String sql = "UPDATE nacionalidad SET nacionalidad= ? WHERE ID_nacionalidad = ? ";
-               
+                
        PreparedStatement cmd = Con.prepareStatement(sql);
        cmd.setString(1,nacionalidad);
             if (!cmd.execute()){
@@ -59,47 +80,26 @@ public class controlNacionalidad
             return resp;
     }
 
-    public boolean ConsultarNacionalidad() 
-    {
-        boolean Consultar = false;
-        try 
-        {
-            String sql = "SELECT * FROM nacionalidad WHERE ID_nacionalidad = ? ";
+   public boolean Consultar() {
+        boolean resp = false;
+        try {
+            //conexion = new conexion();
+            String sql = "SELECT ID_nacionalidad , nacionalidad FROM nacionalidad";
             PreparedStatement cmd = Con.prepareStatement(sql);
-            cmd.setInt(1, ID_nacionalidad);
-            if (!cmd.execute()) 
-            {
-                Consultar = true;
-            }
+            
+            System.out.println("Valores" + cmd.executeQuery());
             cmd.close();
             Con.close();
+           // return  true;
+        } catch (SQLException e) {
+            System.err.println("Error " + e);
+         //   return false;
         }
-        catch(Exception e) 
-        {
-            System.out.println(e.toString());
-        }
-        return Consultar;
+        return resp;
+   }
     }
+       
+    
+    
 
-    public boolean ModificarNacionalidad() 
-    {
-         boolean Modificar = false;
-        try 
-        {
-            String sql = "UPDATE SET nacionalidad, ID_nacionalidad = ?, nacionalidad = ?";
-            PreparedStatement cmd = Con.prepareStatement(sql);        
-            cmd.setString(1, nacionalidad);
-            if (!cmd.execute()) 
-            {
-                Modificar = true;
-            }
-            cmd.close();
-            Con.close();
-        }
-        catch(Exception e) 
-        {
-            System.out.println(e.toString());
-        }
-        return Modificar;
-    }
-}
+   

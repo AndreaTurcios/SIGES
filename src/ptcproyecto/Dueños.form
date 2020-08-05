@@ -194,7 +194,7 @@
                                           <Component id="calendar" pref="0" max="32767" attributes="0"/>
                                           <Component id="cmbNacionalidad" max="32767" attributes="0"/>
                                           <Component id="cmbZona" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cmbTipoCLiente" max="32767" attributes="0"/>
+                                          <Component id="cmbTipoCliente" max="32767" attributes="0"/>
                                           <Component id="cmbMascota" alignment="0" pref="164" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -255,7 +255,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbTipoCLiente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbTipoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -379,7 +379,7 @@
                 <Property name="text" type="java.lang.String" value="Tipo cliente:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cmbTipoCLiente">
+            <Component class="javax.swing.JComboBox" name="cmbTipoCliente">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -408,6 +408,9 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbZonaActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>

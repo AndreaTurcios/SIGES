@@ -5,19 +5,19 @@
  */
 package ptcproyecto;
 
+import clases.controlNacionalidad;
 import javax.swing.JOptionPane;
-import clases.*;
 
 /**
  *
- * @author Nanos
+ * @author 15-CW0001la
  */
-public class FrmNacionalidad extends javax.swing.JFrame {
+public class Nacionalidad extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FrmNacionalidad
+     * Creates new form Nacionalidad
      */
-    public FrmNacionalidad() {
+    public Nacionalidad() {
         initComponents();
     }
 
@@ -30,7 +30,6 @@ public class FrmNacionalidad extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtBusqueda = new javax.swing.JTextField();
@@ -46,13 +45,6 @@ public class FrmNacionalidad extends javax.swing.JFrame {
         btnLimpiarNacionalidad = new javax.swing.JButton();
         btnImprimirNacionalidad = new javax.swing.JButton();
         txtNacionalidad = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        getContentPane().setLayout(null);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(157, 34, 202));
 
@@ -76,7 +68,7 @@ public class FrmNacionalidad extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
                 .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnConsulta)
@@ -96,9 +88,6 @@ public class FrmNacionalidad extends javax.swing.JFrame {
                     .addComponent(btnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 819, 55);
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -133,22 +122,13 @@ public class FrmNacionalidad extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(12, 234, 795, 305);
-
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("Nacionalidad:");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 70, 90, 30);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setText("ID_Nacionalidad:");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(300, 80, 130, 15);
 
         txtID_Nacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jPanel1.add(txtID_Nacionalidad);
-        txtID_Nacionalidad.setBounds(440, 70, 170, 30);
 
         btnGuardarNacionalidad.setBackground(new java.awt.Color(0, 153, 153));
         btnGuardarNacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -159,8 +139,6 @@ public class FrmNacionalidad extends javax.swing.JFrame {
                 btnGuardarNacionalidadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardarNacionalidad);
-        btnGuardarNacionalidad.setBounds(641, 68, 103, 30);
 
         btnModificarNacionalidad.setBackground(new java.awt.Color(0, 153, 153));
         btnModificarNacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -171,35 +149,92 @@ public class FrmNacionalidad extends javax.swing.JFrame {
                 btnModificarNacionalidadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificarNacionalidad);
-        btnModificarNacionalidad.setBounds(641, 111, 103, 30);
 
         btnLimpiarNacionalidad.setBackground(new java.awt.Color(0, 153, 153));
         btnLimpiarNacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnLimpiarNacionalidad.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarNacionalidad.setText("Limpiar");
-        jPanel1.add(btnLimpiarNacionalidad);
-        btnLimpiarNacionalidad.setBounds(641, 191, 103, 30);
 
         btnImprimirNacionalidad.setBackground(new java.awt.Color(0, 153, 153));
         btnImprimirNacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnImprimirNacionalidad.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimirNacionalidad.setText("Imprimir");
-        jPanel1.add(btnImprimirNacionalidad);
-        btnImprimirNacionalidad.setBounds(641, 148, 102, 30);
 
         txtNacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jPanel1.add(txtNacionalidad);
-        txtNacionalidad.setBounds(110, 70, 170, 30);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 13, 819, 540);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 819, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(txtID_Nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(31, 31, 31)
+                            .addComponent(btnGuardarNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(641, 641, 641)
+                            .addComponent(btnModificarNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(641, 641, 641)
+                            .addComponent(btnImprimirNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(641, 641, 641)
+                            .addComponent(btnLimpiarNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(17, 17, 17)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(jLabel7))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(txtID_Nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnGuardarNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(11, 11, 11)
+                    .addComponent(btnModificarNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(7, 7, 7)
+                    .addComponent(btnImprimirNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(13, 13, 13)
+                    .addComponent(btnLimpiarNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(13, 13, 13)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
-        if (txtBusqueda.getText().isEmpty()) 
+        if (txtBusqueda.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
@@ -207,7 +242,7 @@ public class FrmNacionalidad extends javax.swing.JFrame {
         {
             controlNacionalidad obj = new controlNacionalidad();
             obj.setID_nacionalidad(Integer.parseInt(txtBusqueda.getText()));
-            if (obj.ConsultarNacionalidad()) 
+            if (obj.Consultar())
             {
                 txtID_Nacionalidad.setText(Integer.toString(obj.getID_nacionalidad()));
                 txtNacionalidad.setText(obj.getnacionalidad());
@@ -224,11 +259,11 @@ public class FrmNacionalidad extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
-        else 
+        else
         {
             controlNacionalidad obj = new controlNacionalidad();
             obj.setnacionalidad(txtNacionalidad.getText());
-            if (obj.GuardarNacionalidad()) 
+            if (obj.guardar())
             {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
             }
@@ -237,7 +272,6 @@ public class FrmNacionalidad extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error al guardar datos");
             }
         }
-
     }//GEN-LAST:event_btnGuardarNacionalidadActionPerformed
 
     private void btnModificarNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarNacionalidadActionPerformed
@@ -250,7 +284,7 @@ public class FrmNacionalidad extends javax.swing.JFrame {
 
             controlNacionalidad obj = new controlNacionalidad();
             obj.setnacionalidad(txtNacionalidad.getText());
-            if (obj.ModificarNacionalidad()) 
+            if (obj.modificar())
             {
                 JOptionPane.showMessageDialog(this, "Datos modificados");
             }
@@ -262,40 +296,6 @@ public class FrmNacionalidad extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnModificarNacionalidadActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmNacionalidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmNacionalidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmNacionalidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmNacionalidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmNacionalidad().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsulta;
@@ -306,7 +306,6 @@ public class FrmNacionalidad extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;

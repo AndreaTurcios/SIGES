@@ -1,7 +1,7 @@
 package ptcproyecto;
 
 import clases.Cliente_duenio;
-import clases.Nacionalidad;
+import clases.controlNacionalidad;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -40,7 +40,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cmbTipoCLiente = new javax.swing.JComboBox<>();
+        cmbTipoCliente = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         cmbZona = new javax.swing.JComboBox<>();
         cmbNacionalidad = new javax.swing.JComboBox<>();
@@ -127,10 +127,16 @@ public class Dueños extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Tipo cliente:");
 
-        cmbTipoCLiente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("Mascota:");
+
+        cmbZona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbZonaActionPerformed(evt);
+            }
+        });
 
         cmbMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -176,7 +182,7 @@ public class Dueños extends javax.swing.JInternalFrame {
                                     .addComponent(calendar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addComponent(cmbNacionalidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cmbZona, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbTipoCLiente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbTipoCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cmbMascota, 0, 164, Short.MAX_VALUE)))))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -221,7 +227,7 @@ public class Dueños extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(cmbTipoCLiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -311,15 +317,16 @@ public class Dueños extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnCerrarActionPerformed
     public void CargarDuenios(){
         Cliente_duenio obj = new Cliente_duenio();
-        obj.consultar_nacionalidad(cmbNacionalidad);
-        obj.consultar_codigozona(cmbZona);
+        obj.consultarNacionalidad(cmbNacionalidad);
+        obj.ConsultarCodigozona(cmbZona);
+        obj.consultarTipoC(cmbTipoCliente);
     }
     public void ListarDuenios(){
         Cliente_duenio obj = new Cliente_duenio();
         obj.CargarDuenios(jTable1);
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Nacionalidad n = new Nacionalidad();
+        controlNacionalidad n = new controlNacionalidad();
         n.Consultar();
         Cliente_duenio obj = new Cliente_duenio();
         int DUI= Integer.parseInt(tfDUI.getText());
@@ -364,6 +371,10 @@ public class Dueños extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void cmbZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbZonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbZonaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
@@ -371,7 +382,7 @@ public class Dueños extends javax.swing.JInternalFrame {
     private rojeru_san.componentes.RSDateChooser calendar;
     private javax.swing.JComboBox<String> cmbMascota;
     private javax.swing.JComboBox<String> cmbNacionalidad;
-    private javax.swing.JComboBox<String> cmbTipoCLiente;
+    private javax.swing.JComboBox<String> cmbTipoCliente;
     private javax.swing.JComboBox<String> cmbZona;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;

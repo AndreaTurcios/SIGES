@@ -337,7 +337,7 @@ public class Cliente_duenio {
     public void CargarDuenios(JTable tabla){
         listarDuenios(cn, tabla);
     }
-    public void consultar_nacionalidad(JComboBox cbox_duenios){
+    public void consultarNacionalidad(JComboBox cbox_duenios){
     java.sql.Connection cn= null;    
     PreparedStatement st = null;
     ResultSet resultado = null;
@@ -365,8 +365,35 @@ public class Cliente_duenio {
         }
     }
     }
-    
-    public void consultar_codigozona(JComboBox cbox_zona){
+    public void consultarTipoC(JComboBox cbox_zona){
+    java.sql.Connection cn= null;    
+    PreparedStatement st = null;
+    ResultSet resultado = null;
+
+    String SSQL = "SELECT tipo_cliente FROM codigo_zona ORDER BY ID_codigo";
+    try {
+       cn = metodospool.dataSource.getConnection();  
+       st = cn.prepareStatement(SSQL);
+       resultado = st.executeQuery();
+       cbox_zona.addItem("Seleccione una opción");
+       while(resultado.next()){
+      cbox_zona.addItem(resultado.getString("codigo_zona"));
+       }  
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
+    }finally{
+        if(cn!=null){
+            try {
+                cn.close();
+                resultado.close();
+                resultado=null;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+    }
+    }
+    public void ConsultarCodigozona(JComboBox cbox_zona){
     java.sql.Connection cn= null;    
     PreparedStatement st = null;
     ResultSet resultado = null;
