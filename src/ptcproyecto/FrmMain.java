@@ -86,13 +86,13 @@ public class FrmMain extends javax.swing.JFrame {
         panelMenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         panelArriba.setBackground(new java.awt.Color(153, 153, 255));
-        panelArriba.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        panelArriba.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout panelArribaLayout = new javax.swing.GroupLayout(panelArriba);
         panelArriba.setLayout(panelArribaLayout);
         panelArribaLayout.setHorizontalGroup(
             panelArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 749, Short.MAX_VALUE)
+            .addGap(0, 745, Short.MAX_VALUE)
         );
         panelArribaLayout.setVerticalGroup(
             panelArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
