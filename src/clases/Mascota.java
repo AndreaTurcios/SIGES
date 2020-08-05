@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.Time;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Mascota {
     private Connection cn;
@@ -81,8 +85,33 @@ public class Mascota {
         this.mascota_horarioReserva = mascota_horarioReserva;
     }
 
+    public void CargarMascota(Connection cn, JTable tabla){
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID_mascota", "nombre_mascota", "mascota_genero", "mascota_razon", "mascota_medicinas", "mascota_horarioReserva", "ID_tipoMascota"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM Mascota ORDER BY ID_mascota";
+        String [] filas = new String[7];
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()){
+                for (int i = 0; i < 7; i++) {
+                    filas[i] = rs.getString(i+1);
+                }
+                model.addRow(filas);
+            }
+            tabla.setModel(model);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
+        }
+    }   
     
-    
+    public void CargarMascotas(JTable tabla){
+        CargarMascota(getCn(), tabla);
+    }
     
     public Mascota() {
         //estableciendo la conexion

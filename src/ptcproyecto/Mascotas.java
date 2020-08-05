@@ -2,6 +2,7 @@ package ptcproyecto;
 
 import javax.swing.JOptionPane;
 import clases.Mascota;
+import clases.MtoProductos;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -10,6 +11,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
     public Mascotas() {
         initComponents();
         DefaultTableModel modelo = new DefaultTableModel();
+        ListarMascota();
     }
     
     @SuppressWarnings("unchecked")
@@ -157,7 +159,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jButton3.setText("Tipo mascota");
 
         btnMostrar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
-        btnMostrar.setText("Mostrar");
+        btnMostrar.setText("Modificar");
         btnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMostrarActionPerformed(evt);
@@ -374,17 +376,37 @@ public class Mascotas extends javax.swing.JInternalFrame {
         tfHorarios.setText("");
         GeneroBtnG.clearSelection();
     }//GEN-LAST:event_btnLimpiarActionPerformed
-
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+    
+    public void ListarMascota(){
         Mascota obj = new Mascota();
-        if (obj.consultarMascota()) {
-        tfNombre.setText(obj.getNombre_mascota());
-        tfRazon.setText(obj.getMascota_razon());
-        tfMedicinas.setText(obj.getMascota_medicinas());
-        tfHorarios.setText(obj.getMascota_horarioReserva()); 
-        }else{
-         JOptionPane.showMessageDialog(this,"Datos no encontrados"); 
-        }
+        obj.CargarMascotas(jTable1);
+        
+    }
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+//        if (tfNombre.getText().isEmpty() || tfRazon.getText().isEmpty() || tfMedicinas.getText().isEmpty()|| tfHorarios.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+//        }
+//        else{
+//            
+//                MtoProductos obj = new MtoProductos();
+//                obj.setID_producto(Integer.parseInt(JTID.getText()));
+//                obj.setProducto(JTProducto.getText());
+//                obj.setCodigo(Integer.parseInt(JTCodigo.getText()));
+//                obj.setFechaE(JTFechaE.getText());
+//                obj.setCosto(Double.parseDouble(JTCosto.getText()));
+//                obj.setFechaEx(JTFechaEx.getText());
+//                int Tipo = JCBTIPO.getSelectedIndex(); 
+//                obj.setDUI(Integer.parseInt(JTDUI.getText()));
+//                obj.setTipo_producto(Tipo);
+//                if (obj.modificar()) {
+//                    JOptionPane.showMessageDialog(this, "Datos modificados");
+//                    ListarProductos();
+//                }
+//                else{
+//                    JOptionPane.showMessageDialog(this, "Error al modificar datos");
+//                }
+//
+//        }
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

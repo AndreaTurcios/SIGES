@@ -304,36 +304,25 @@ public class ClienteDuenio {
 
     public void listarDuenios(Connection cn, JTable tabla) {
         DefaultTableModel model = new DefaultTableModel();
-        String[] columnas = {"ID_DUI", "duenio_nombre"
-            + "      ,duenio_apellidos"
-            + "      ,duenio_telefono"
-            + "      ,duenio_domicilio"
-            + "      ,duenio_correo"
-            + "      ,Fecha_e_DUI"
-            + "      ,nacionalidad"
-            + "      ,codigo_zona"
-            + "      ,ID_tipoCliente"
-            + "      ,ID_Mascota"};
+        String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente", "Mascota"};
         model = new DefaultTableModel(null, columnas);
-
-        String sql = "SELECT ID_DUI=?,duenio_nombre=?, duenio_apellidos=?, "
-                + "duenio_telefono=?, duenio_domicilio=?, duenio_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,"
-                + "ID_tipoCliente=? FROM Cliente_dueño WHERE ID_DUI=?";
-        String[] filas = new String[1];
+        String sql = "SELECT*FROM Cliente_duenio";
+        String [] filas = new String[11];
         Statement st = null;
         ResultSet rs = null;
-        try {
+        try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
-            while (rs.next()) {
-                for (int i = 0; i < 0; i++) {
-                    filas[i] = rs.getString(i + 1);
+            while (rs.next()){
+                for (int i = 0; i < 11; i++) {
+                    filas[i] = rs.getString(i);
                 }
                 model.addRow(filas);
             }
             tabla.setModel(model);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
         }
     }
 
