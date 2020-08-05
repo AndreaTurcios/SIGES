@@ -171,7 +171,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Buscar mascots");
+        jButton1.setText("Buscar mascota");
+        jButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -301,6 +306,11 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private void BtnCerrarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         Buscador llamar = new Buscador();
+         llamar.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
