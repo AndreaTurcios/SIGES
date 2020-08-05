@@ -127,8 +127,6 @@ public class Dueños extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Tipo cliente:");
 
-        cmbTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("Mascota:");
 
@@ -137,8 +135,6 @@ public class Dueños extends javax.swing.JInternalFrame {
                 cmbZonaActionPerformed(evt);
             }
         });
-
-        cmbMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -320,6 +316,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         obj.consultarNacionalidad(cmbNacionalidad);
         obj.ConsultarCodigozona(cmbZona);
         obj.consultarTipoC(cmbTipoCliente);
+        obj.consultarMascota(cmbMascota);
     }
     public void ListarDuenios(){
         Cliente_duenio obj = new Cliente_duenio();

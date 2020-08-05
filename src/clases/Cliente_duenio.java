@@ -365,18 +365,45 @@ public class Cliente_duenio {
         }
     }
     }
-    public void consultarTipoC(JComboBox cbox_zona){
+    public void consultarMascota(JComboBox cboxMascota){
     java.sql.Connection cn= null;    
     PreparedStatement st = null;
     ResultSet resultado = null;
-    String SSQL = "SELECT tipo_cliente FROM codigo_zona ORDER BY ID_codigo";
+    String SSQL = "SELECT nombre_mascota FROM Mascota ORDER BY ID_mascota";
     try {
        cn = metodospool.dataSource.getConnection();  
        st = cn.prepareStatement(SSQL);
        resultado = st.executeQuery();
-       cbox_zona.addItem("Seleccione una opción");
+       cboxMascota.addItem("Seleccione una opción");
        while(resultado.next()){
-      cbox_zona.addItem(resultado.getString("codigo_zona"));
+      cboxMascota.addItem(resultado.getString("nombre_mascota"));
+       }  
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
+    }finally{
+        if(cn!=null){
+            try {
+                cn.close();
+                resultado.close();
+                resultado=null;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+    }
+    }
+    public void consultarTipoC(JComboBox cbox_clientet){
+    java.sql.Connection cn= null;    
+    PreparedStatement st = null;
+    ResultSet resultado = null;
+    String SSQL = "SELECT tipo_cliente FROM Tipo_cliente ORDER BY ID_tipoCliente";
+    try {
+       cn = metodospool.dataSource.getConnection();  
+       st = cn.prepareStatement(SSQL);
+       resultado = st.executeQuery();
+       cbox_clientet.addItem("Seleccione una opción");
+       while(resultado.next()){
+      cbox_clientet.addItem(resultado.getString("tipo_cliente"));
        }  
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(null, e);
