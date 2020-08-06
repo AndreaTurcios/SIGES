@@ -125,51 +125,51 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="385">
+		<band height="33">
 			<textField>
-				<reportElement x="0" y="0" width="30" height="20" uuid="33f5da5f-f5db-4fcf-9db4-7e53df0232a4"/>
+				<reportElement x="0" y="5" width="30" height="20" uuid="33f5da5f-f5db-4fcf-9db4-7e53df0232a4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ID_consulta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="30" y="0" width="106" height="20" uuid="ee6903e1-b965-467b-9a1a-d4006c4cdff8"/>
+				<reportElement x="30" y="5" width="106" height="20" uuid="ee6903e1-b965-467b-9a1a-d4006c4cdff8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{consulta_fecha}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="136" y="0" width="104" height="20" uuid="c689c414-2bb1-4c3f-8f05-b9fd9d85665d"/>
+				<reportElement x="136" y="5" width="104" height="20" uuid="c689c414-2bb1-4c3f-8f05-b9fd9d85665d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{consulta_hora}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="240" y="0" width="92" height="20" uuid="3a51be50-6504-4a03-b8f8-c64db4e9b6c9"/>
+				<reportElement x="240" y="5" width="92" height="20" uuid="3a51be50-6504-4a03-b8f8-c64db4e9b6c9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ID_estado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="332" y="0" width="96" height="20" uuid="352177d7-ea34-4869-b5cc-a04ef4f19239"/>
+				<reportElement x="332" y="5" width="96" height="20" uuid="352177d7-ea34-4869-b5cc-a04ef4f19239"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ID_tipoConsulta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="428" y="0" width="96" height="20" uuid="1c8842aa-5727-4ef9-bad5-e7c97c2e5876"/>
+				<reportElement x="428" y="5" width="96" height="20" uuid="1c8842aa-5727-4ef9-bad5-e7c97c2e5876"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ID_tipoConsulta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="524" y="0" width="88" height="20" uuid="9f4a3f1d-def8-48f4-ac2b-ae57d0359390"/>
+				<reportElement x="524" y="5" width="88" height="20" uuid="9f4a3f1d-def8-48f4-ac2b-ae57d0359390"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
