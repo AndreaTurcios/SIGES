@@ -21,7 +21,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Registro de tipos de pagos]]></text>
+				<text><![CDATA["Registro de tipos de pagos"]]></text>
 			</staticText>
 			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
 				<reportElement x="455" y="10" width="93" height="60" uuid="2a3864a7-1560-450b-99e0-0d73400b116a"/>
@@ -32,20 +32,20 @@
 	<pageHeader>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="120" height="20" backcolor="#CCCCFF" uuid="7e1646b6-9134-4175-9e49-699c0e2e5cf2"/>
+				<reportElement mode="Opaque" x="0" y="0" width="125" height="20" backcolor="#CCCCFF" uuid="7e1646b6-9134-4175-9e49-699c0e2e5cf2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Solicitante del registro:]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Solicitante del registro:"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Opaque" x="311" y="0" width="94" height="20" backcolor="#CCCCFF" uuid="e6c0171b-d30b-40ff-b254-148c49dcc476"/>
+				<reportElement mode="Opaque" x="302" y="0" width="103" height="20" backcolor="#CCCCFF" uuid="e6c0171b-d30b-40ff-b254-148c49dcc476"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Fecha de emisión:]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Fecha de emisión:"]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy h.mm a">
 				<reportElement x="405" y="0" width="150" height="20" uuid="cd14a504-205f-4d9d-9644-922d7fec2975"/>
@@ -64,7 +64,7 @@
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[N°]]></textFieldExpression>
+				<textFieldExpression><![CDATA["N"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="174" y="0" width="125" height="40" backcolor="#3F67FB" uuid="f4f070e6-eb2d-43b9-8a34-7084f2e96c8f"/>
@@ -93,7 +93,7 @@
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Tipo de pago]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Tipo de pago"]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

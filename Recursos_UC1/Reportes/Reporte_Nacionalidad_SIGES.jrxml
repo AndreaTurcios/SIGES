@@ -32,20 +32,20 @@
 	<pageHeader>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="120" height="20" backcolor="#CCCCFF" uuid="dc079727-e6c3-4f82-9da4-3b550420f9dc"/>
+				<reportElement mode="Opaque" x="0" y="0" width="124" height="20" backcolor="#CCCCFF" uuid="dc079727-e6c3-4f82-9da4-3b550420f9dc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Solicitante del registro:]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Solicitante del registro:"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Opaque" x="325" y="0" width="94" height="20" backcolor="#CCCCFF" uuid="1bc8c7f8-57a9-498e-a6d4-5b2a5ca85552"/>
+				<reportElement mode="Opaque" x="318" y="0" width="101" height="20" backcolor="#CCCCFF" uuid="1bc8c7f8-57a9-498e-a6d4-5b2a5ca85552"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Fecha de emisión:]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Fecha de emisión:"]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy h.mm a">
 				<reportElement mode="Opaque" x="419" y="0" width="136" height="20" backcolor="#E1E1E1" uuid="c3757152-cbc7-487c-8a80-19696919b026"/>
@@ -82,7 +82,7 @@
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[N°]]></textFieldExpression>
+				<textFieldExpression><![CDATA["N°"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="45" y="0" width="125" height="40" backcolor="#3F67FB" uuid="9e0217b0-176f-412b-a374-d1e211657ca6"/>
@@ -90,7 +90,7 @@
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Nacionalidades]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Nacionalidades"]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

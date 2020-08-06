@@ -32,23 +32,23 @@
 	<pageHeader>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="120" height="20" backcolor="#CCCCFF" uuid="2dbf313f-672c-4fc5-bb5f-2bce510d2b58"/>
+				<reportElement mode="Opaque" x="0" y="0" width="126" height="20" backcolor="#CCCCFF" uuid="2dbf313f-672c-4fc5-bb5f-2bce510d2b58"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Solicitante del registro:]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Solicitante del registro:"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Opaque" x="311" y="0" width="94" height="20" backcolor="#CCCCFF" uuid="1092894d-b45b-413d-93d7-fa79b0402c12"/>
+				<reportElement mode="Opaque" x="302" y="0" width="103" height="20" backcolor="#CCCCFF" uuid="1092894d-b45b-413d-93d7-fa79b0402c12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Fecha de emisión:]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Fecha de emisión:"]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy h.mm a">
-				<reportElement x="405" y="0" width="150" height="20" uuid="d181ff0d-cfcc-4b62-8e09-527e8d84c3e1"/>
+				<reportElement mode="Opaque" x="405" y="0" width="150" height="20" backcolor="#CECECE" uuid="d181ff0d-cfcc-4b62-8e09-527e8d84c3e1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
@@ -64,7 +64,7 @@
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[N°]]></textFieldExpression>
+				<textFieldExpression><![CDATA["N°"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="44" y="0" width="125" height="40" backcolor="#3F67FB" uuid="41f578b1-b1a1-4129-bf0d-db69746e95ba"/>
@@ -72,7 +72,7 @@
 					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Tipo de consulta]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Tipo de consulta"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="173" y="0" width="125" height="40" backcolor="#3F67FB" uuid="aa19fd85-513a-49c0-84b1-f0075d093292"/>
