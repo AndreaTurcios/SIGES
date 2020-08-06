@@ -178,7 +178,6 @@
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <EmptySpace max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="tfDomicilio" alignment="1" min="-2" pref="187" max="-2" attributes="0"/>
                                                   <Component id="tfTelefono" alignment="1" min="-2" pref="187" max="-2" attributes="0"/>
@@ -275,9 +274,9 @@
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <Component id="tfDomicilio" min="-2" pref="64" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="tfCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfCorreo" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">

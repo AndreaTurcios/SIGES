@@ -6,7 +6,11 @@ import java.net.URLDecoder;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -275,6 +279,22 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimpiarNacionalidadActionPerformed
 
     private void btnImprimirNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirNacionalidadActionPerformed
+        try 
+        {
+            java.sql.Connection con = conexion.conectar();
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Reporte_Nacionalidad_SIGES.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } 
+        catch (JRException ex) 
+        {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        /*
         String path = "";
         try
         {
@@ -293,6 +313,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Error durante el proceso de presentacion del reporte. Error: " + e);
             System.out.println(e.getMessage());
         }
+        */
     }//GEN-LAST:event_btnImprimirNacionalidadActionPerformed
 
 
