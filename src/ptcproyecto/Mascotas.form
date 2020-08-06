@@ -136,7 +136,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                              <Component id="btnMostrar" min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="btnImprimir" min="-2" pref="101" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -253,7 +253,7 @@
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="btnModificar" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                                          <Component id="btnMostrar" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                                          <Component id="btnImprimir" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                                           <Component id="btnEliminar" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -337,7 +337,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu Mono" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Modificar"/>
+                <Property name="text" type="java.lang.String" value="Mostrar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarActionPerformed"/>
@@ -423,15 +423,15 @@
                 <Property name="text" type="java.lang.String" value="Tipo mascota"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnMostrar">
+            <Component class="javax.swing.JButton" name="btnImprimir">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu Mono" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Modificar"/>
+                <Property name="text" type="java.lang.String" value="Imprimir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimirActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnEliminar">

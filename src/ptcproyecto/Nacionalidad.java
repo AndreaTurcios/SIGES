@@ -1,7 +1,17 @@
 package ptcproyecto;
 
+import clases.conexion;
 import clases.controlNacionalidad;
+import java.net.URLDecoder;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -122,6 +132,11 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         btnImprimirNacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnImprimirNacionalidad.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimirNacionalidad.setText("Imprimir");
+        btnImprimirNacionalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirNacionalidadActionPerformed(evt);
+            }
+        });
 
         txtNacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
@@ -258,6 +273,27 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     private void btnLimpiarNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarNacionalidadActionPerformed
         txtNacionalidad.setText(" ");
     }//GEN-LAST:event_btnLimpiarNacionalidadActionPerformed
+
+    private void btnImprimirNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirNacionalidadActionPerformed
+        String path = "";
+        try
+        {
+            path = getClass().getResource("reportes/Reporte_Nacionalidad_SIGES.jasper").getPath();
+            path = URLDecoder.decode(path, "UTF-8");
+            Connection cn = new conexion().conectar();
+            Map parametros = new HashMap();
+            JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);
+            JasperViewer visor = new JasperViewer(imprimir,false);
+            visor.setTitle("Reporte Nacionalidad");
+            visor.setVisible(true);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Error durante el proceso de presentacion del reporte. Error: " + e);
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnImprimirNacionalidadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

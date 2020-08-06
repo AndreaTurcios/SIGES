@@ -3,8 +3,18 @@ package ptcproyecto;
 import javax.swing.JOptionPane;
 import clases.Mascota;
 import clases.MtoProductos;
+import clases.conexion;
+import java.net.URLDecoder;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Mascotas extends javax.swing.JInternalFrame {
 
@@ -44,7 +54,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        btnMostrar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
 
         setBorder(null);
@@ -108,7 +118,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel8.setText("Horarios:");
 
         btnModificar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
-        btnModificar.setText("Modificar");
+        btnModificar.setText("Mostrar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -163,11 +173,11 @@ public class Mascotas extends javax.swing.JInternalFrame {
 
         jButton3.setText("Tipo mascota");
 
-        btnMostrar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
-        btnMostrar.setText("Modificar");
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+        btnImprimir.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnImprimir.setText("Imprimir");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+                btnImprimirActionPerformed(evt);
             }
         });
 
@@ -188,7 +198,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(94, 94, 94)
-                        .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -278,7 +288,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -388,32 +398,26 @@ public class Mascotas extends javax.swing.JInternalFrame {
         Mascota obj = new Mascota();
         obj.CargarMascotas(jTable1);
     }
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-//        if (tfNombre.getText().isEmpty() || tfRazon.getText().isEmpty() || tfMedicinas.getText().isEmpty()|| tfHorarios.getText().isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
-//        }
-//        else{
-//            
-//                MtoProductos obj = new MtoProductos();
-//                obj.setID_producto(Integer.parseInt(JTID.getText()));
-//                obj.setProducto(JTProducto.getText());
-//                obj.setCodigo(Integer.parseInt(JTCodigo.getText()));
-//                obj.setFechaE(JTFechaE.getText());
-//                obj.setCosto(Double.parseDouble(JTCosto.getText()));
-//                obj.setFechaEx(JTFechaEx.getText());
-//                int Tipo = JCBTIPO.getSelectedIndex(); 
-//                obj.setDUI(Integer.parseInt(JTDUI.getText()));
-//                obj.setTipo_producto(Tipo);
-//                if (obj.modificar()) {
-//                    JOptionPane.showMessageDialog(this, "Datos modificados");
-//                    ListarProductos();
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(this, "Error al modificar datos");
-//                }
-//
-//        }
-    }//GEN-LAST:event_btnMostrarActionPerformed
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        String path = "";
+        try
+        {
+            path = getClass().getResource("reportes/Reporte_Mascota_SIGES.jasper").getPath();
+            path = URLDecoder.decode(path, "UTF-8");
+            Connection cn = new conexion().conectar();
+            Map parametros = new HashMap();
+            JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);
+            JasperViewer visor = new JasperViewer(imprimir,false);
+            visor.setTitle("Reporte Mascotas");
+            visor.setVisible(true);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Error durante el proceso de presentacion del reporte. Error: " + e);
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
        Mascota obj = new Mascota();
@@ -446,9 +450,9 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel JPForm;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

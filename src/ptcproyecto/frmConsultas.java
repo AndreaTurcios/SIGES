@@ -2,7 +2,16 @@ package ptcproyecto;
 
 import clases.*;
 import java.awt.Dimension;
+import java.net.URLDecoder;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -33,6 +42,8 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         btnModificar_Consulta = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        btnMostrar_Consulta1 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
         jPTablaDatosConsultas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbConsultas = new javax.swing.JTable();
@@ -119,28 +130,41 @@ public class frmConsultas extends javax.swing.JInternalFrame {
                 btnGuardar_ConsultaActionPerformed(evt);
             }
         });
-        JPGestionConsultas.add(btnGuardar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 66, 190, 48));
+        JPGestionConsultas.add(btnGuardar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 50));
 
         btnMostrar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
         btnMostrar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnMostrar_Consulta.setForeground(new java.awt.Color(255, 255, 255));
-        btnMostrar_Consulta.setText("Mostrar");
+        btnMostrar_Consulta.setText("Imprimir");
         btnMostrar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
         btnMostrar_Consulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMostrar_ConsultaActionPerformed(evt);
             }
         });
-        JPGestionConsultas.add(btnMostrar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 165, 190, 53));
+        JPGestionConsultas.add(btnMostrar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 200, 50));
 
         btnModificar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
         btnModificar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnModificar_Consulta.setForeground(new java.awt.Color(255, 255, 255));
         btnModificar_Consulta.setText("Modificar");
         btnModificar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
-        JPGestionConsultas.add(btnModificar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 252, 190, -1));
-        JPGestionConsultas.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 137, 210, 10));
-        JPGestionConsultas.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 236, 210, 10));
+        JPGestionConsultas.add(btnModificar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 190, 50));
+        JPGestionConsultas.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 220, 20));
+        JPGestionConsultas.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 220, 10));
+
+        btnMostrar_Consulta1.setBackground(new java.awt.Color(0, 136, 130));
+        btnMostrar_Consulta1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnMostrar_Consulta1.setForeground(new java.awt.Color(255, 255, 255));
+        btnMostrar_Consulta1.setText("Mostrar");
+        btnMostrar_Consulta1.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnMostrar_Consulta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrar_Consulta1ActionPerformed(evt);
+            }
+        });
+        JPGestionConsultas.add(btnMostrar_Consulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 200, 50));
+        JPGestionConsultas.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 220, 10));
 
         jPTablaDatosConsultas.setBackground(new java.awt.Color(255, 255, 255));
         jPTablaDatosConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -215,7 +239,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(240, Short.MAX_VALUE)
+                .addContainerGap(238, Short.MAX_VALUE)
                 .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,7 +259,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -279,8 +303,29 @@ public class frmConsultas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardar_ConsultaActionPerformed
 
     private void btnMostrar_ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_ConsultaActionPerformed
-
+        String path = "";
+        try
+        {
+            path = getClass().getResource("reportes/Reporte_Base_SIGES.jasper").getPath();
+            path = URLDecoder.decode(path, "UTF-8");
+            Connection cn = new conexion().conectar();
+            Map parametros = new HashMap();
+            JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);
+            JasperViewer visor = new JasperViewer(imprimir,false);
+            visor.setTitle("Reporte Consultas");
+            visor.setVisible(true);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Error durante el proceso de presentacion del reporte. Error: " + e);
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_btnMostrar_ConsultaActionPerformed
+
+    private void btnMostrar_Consulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_Consulta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrar_Consulta1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -296,6 +341,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar_Consulta;
     private javax.swing.JButton btnModificar_Consulta;
     private javax.swing.JButton btnMostrar_Consulta;
+    private javax.swing.JButton btnMostrar_Consulta1;
     private rojeru_san.componentes.RSDateChooser cndFecha;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -311,6 +357,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tbConsultas;
     private javax.swing.JTextField txtDUI;
