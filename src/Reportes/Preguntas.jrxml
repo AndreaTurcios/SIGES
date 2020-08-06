@@ -15,11 +15,11 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<image hAlign="Center">
-				<reportElement x="462" y="0" width="93" height="79" uuid="fb2d5b44-9539-4cf3-b479-250c4cc42754"/>
+				<reportElement x="461" y="0" width="93" height="79" uuid="fb2d5b44-9539-4cf3-b479-250c4cc42754"/>
 				<imageExpression><![CDATA["C:\\Users\\estef\\Downloads\\WhatsApp Image 2020-06-18 at 1.09.09 PM.jpeg"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="199" y="16" width="186" height="43" forecolor="#FFFFFF" uuid="26b56b47-f86b-416f-b6e6-8c5b17c5ce18"/>
+				<reportElement x="179" y="12" width="186" height="43" forecolor="#FFFFFF" uuid="26b56b47-f86b-416f-b6e6-8c5b17c5ce18"/>
 				<textElement textAlignment="Center">
 					<font size="30"/>
 				</textElement>
@@ -28,11 +28,7 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch">
-			<rectangle>
-				<reportElement x="-1" y="-79" width="555" height="79" backcolor="#3F679A" uuid="f5e026e4-08ac-456d-9675-e56d0d0d1c6f"/>
-			</rectangle>
-		</band>
+		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="61" splitType="Stretch">
@@ -64,6 +60,9 @@
 				</textElement>
 				<textFieldExpression><![CDATA[Pregunta]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement x="-1" y="-114" width="555" height="79" backcolor="#3F679A" uuid="f5e026e4-08ac-456d-9675-e56d0d0d1c6f"/>
+			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
