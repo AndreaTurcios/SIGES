@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Base_SIGES" language="groovy" pageWidth="648" pageHeight="864" columnWidth="612" leftMargin="18" rightMargin="18" topMargin="18" bottomMargin="18" uuid="9a6e3552-7b27-4f05-9eea-708a20ba1668">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM consulta]]>
+	</queryString>
+	<field name="ID_consulta" class="java.lang.Integer"/>
+	<field name="consulta_fecha" class="java.sql.Date"/>
+	<field name="consulta_hora" class="java.sql.Time"/>
+	<field name="ID_estado" class="java.lang.Integer"/>
+	<field name="ID_tipoConsulta" class="java.lang.Integer"/>
+	<field name="ID_DUI" class="java.lang.Integer"/>
+	<group name="Group1">
+		<groupHeader>
+			<band height="20">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="30" height="19" forecolor="#000000" backcolor="#E6E6E6" uuid="f277ba18-a3d2-44b0-92c7-af66854c6adb"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[N°]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="332" y="1" width="96" height="19" forecolor="#000000" backcolor="#E6E6E6" uuid="3249bed1-2250-4679-b98c-996b7d1796ba"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[Tipo de consulta]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="428" y="1" width="96" height="19" forecolor="#000000" backcolor="#E6E6E6" uuid="e03bfe6d-10c4-410d-90cd-b1e1895f0181"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[Tipo de consulta]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="30" y="0" width="106" height="19" forecolor="#000000" backcolor="#E6E6E6" uuid="e7ccfe5c-4ad6-4327-913a-072375c2baa6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[Fecha de la consulta]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="136" y="0" width="104" height="19" forecolor="#000000" backcolor="#E6E6E6" uuid="ca556843-9078-4bd9-9f4a-ef904109cf94"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[Hora de la consulta]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="240" y="1" width="92" height="19" forecolor="#000000" backcolor="#E6E6E6" uuid="10866768-304e-45bf-9fb0-4e792b7c213c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[Estado]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="524" y="0" width="88" height="20" backcolor="#E6E6E6" uuid="5b3c94c4-b081-46e0-99d5-e4776cbae7a5"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[DUI]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="651" height="92" backcolor="#006699" uuid="ac644991-4362-4449-a4e2-52c79c5ebf86"/>
+				<staticText>
+					<reportElement x="19" y="25" width="361" height="43" forecolor="#FFFFFF" uuid="551cdbbf-1b9e-48ae-90e0-63019e51a7ef"/>
+					<textElement>
+						<font fontName="Arial" size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Registro de consultas]]></text>
+				</staticText>
+				<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+					<reportElement positionType="Float" x="561" y="8" width="80" height="80" uuid="04ffbdb0-499e-48b4-8b50-d49096f3891e"/>
+					<imageExpression><![CDATA["C:\\Users\\Nanos\\Documents\\Unlimited_Lost_Code\\Netbeans 8.2\\SIGES\\Recursos_UC1\\Imagenes_UC1\\Logo_SIGES.jpg"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="394e3e39-f8de-4403-8657-0d00fa2171a7"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="169" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ca963a8e-7de7-4fdc-a75a-0a790f201b20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitante del registro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="1" width="152" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e60c230d-9a1a-415a-b94e-88b1dccbd3ca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de la solicitud:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="450" y="0" width="162" height="20" uuid="92e49d12-53dc-4217-af31-84bcae567414"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="385">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="20" uuid="33f5da5f-f5db-4fcf-9db4-7e53df0232a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_consulta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="106" height="20" uuid="ee6903e1-b965-467b-9a1a-d4006c4cdff8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{consulta_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="0" width="104" height="20" uuid="c689c414-2bb1-4c3f-8f05-b9fd9d85665d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{consulta_hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="92" height="20" uuid="3a51be50-6504-4a03-b8f8-c64db4e9b6c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="96" height="20" uuid="352177d7-ea34-4869-b5cc-a04ef4f19239"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_tipoConsulta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="0" width="96" height="20" uuid="1c8842aa-5727-4ef9-bad5-e7c97c2e5876"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_tipoConsulta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="524" y="0" width="88" height="20" uuid="9f4a3f1d-def8-48f4-ac2b-ae57d0359390"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_DUI}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="492" y="18" width="80" height="20" uuid="945f5f88-9077-4f22-94a4-d276a4593157"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="572" y="18" width="40" height="20" uuid="cff157cb-d4da-4d14-97c5-760a8446bad2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
