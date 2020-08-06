@@ -95,7 +95,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="296" splitType="Stretch">
+		<band height="50" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="5" width="40" height="40" uuid="014500c0-5255-4698-afa9-e659ce77c78a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -113,6 +113,17 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="427" y="16" width="80" height="20" uuid="45d4ffeb-6426-420c-bcf1-12181abd3b56"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="514" y="16" width="40" height="20" uuid="686dc9e7-9c33-43b6-a93b-d4dd0d475830"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 </jasperReport>

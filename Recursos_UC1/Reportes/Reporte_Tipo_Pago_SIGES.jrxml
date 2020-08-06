@@ -4,8 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[SELECT * FROM Tipo_Pago
-]]>
+		<![CDATA[SELECT * FROM Tipo_Pago]]>
 	</queryString>
 	<field name="ID_tipoPago" class="java.lang.Integer"/>
 	<field name="tipo_pago" class="java.lang.String"/>
@@ -99,7 +98,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="316" splitType="Stretch">
+		<band height="62" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="5" width="40" height="40" uuid="d6545374-25df-4f7d-a59e-d664dc3d7d00"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -119,22 +118,12 @@
 	<pageFooter>
 		<band height="54" splitType="Stretch">
 			<textField>
-				<reportElement x="430" y="334" width="80" height="20" uuid="e7366db9-d0f2-4acb-b311-d32853c5ed38"/>
+				<reportElement x="430" y="18" width="80" height="20" uuid="bdd9864d-7341-4eed-86dd-6aa6b9641358"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="510" y="334" width="40" height="20" uuid="156ef346-9379-4b5b-b96f-7347d14073b1"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="428" y="19" width="80" height="20" uuid="b9ae1090-b841-4c29-92d2-546e5dd56dbe"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="508" y="19" width="40" height="20" uuid="0cf88436-d4cc-415c-8464-074f6ce1fc6f"/>
+				<reportElement x="517" y="18" width="40" height="20" uuid="67f23412-61aa-4668-9674-b650aba7b63c"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
