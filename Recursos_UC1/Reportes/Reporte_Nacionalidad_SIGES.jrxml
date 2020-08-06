@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Nacionalidad_SIGES" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4980b041-3b85-4519-9bb6-e2dce56175d9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM nacionalidad]]>
+	</queryString>
+	<field name="ID_nacionalidad" class="java.lang.Integer"/>
+	<field name="nacionalidad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="80" backcolor="#6666FF" uuid="dc4c42a2-97af-4781-9a45-1dbe7e4beb6e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="10" width="350" height="60" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="cc6bc2db-9380-440f-bc45-6cffa61400d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registro de nacionalidades]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+				<reportElement x="455" y="10" width="93" height="60" uuid="abde7866-0087-4fa9-99e5-deb7b7123856"/>
+				<imageExpression><![CDATA["C:\\Users\\Nanos\\Documents\\Unlimited_Lost_Code\\Netbeans 8.2\\SIGES\\Recursos_UC1\\Imagenes_UC1\\Logo_SIGES.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="120" height="20" backcolor="#CCCCFF" uuid="dc079727-e6c3-4f82-9da4-3b550420f9dc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Solicitante del registro:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="325" y="0" width="94" height="20" backcolor="#CCCCFF" uuid="1bc8c7f8-57a9-498e-a6d4-5b2a5ca85552"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fecha de emisión:]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement mode="Opaque" x="419" y="0" width="136" height="20" backcolor="#E1E1E1" uuid="c3757152-cbc7-487c-8a80-19696919b026"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="173" y="0" width="125" height="40" backcolor="#3F67FB" uuid="50432c27-7fa1-4201-bcfa-1d0a62843c9f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="302" y="0" width="125" height="40" backcolor="#3F67FB" uuid="43f2ad24-0d1b-4448-a3e0-1e15624b2c87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="430" y="0" width="125" height="40" backcolor="#3F67FB" uuid="3fa78f6c-273a-44d7-8c1f-0c9884578111"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="40" height="40" backcolor="#3F67FB" uuid="f2901bb7-795d-4bc4-a958-0b355458e5c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[N°]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="45" y="0" width="125" height="40" backcolor="#3F67FB" uuid="9e0217b0-176f-412b-a374-d1e211657ca6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Nacionalidades]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="296" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="5" width="40" height="40" uuid="014500c0-5255-4698-afa9-e659ce77c78a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_nacionalidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="5" width="125" height="40" uuid="cc7deb22-d2ce-43bb-90cb-903d9251e121"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_nacionalidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
