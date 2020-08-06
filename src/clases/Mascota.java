@@ -94,6 +94,7 @@ public class Mascota {
 
         String SSQL = "SELECT ID_tipoMascota, tipo_animal FROM Tipo_mascota ORDER BY ID_tipoMascota";
         try {
+         
             cn = metodospool.dataSource.getConnection();
             st = cn.prepareStatement(SSQL);
             resultado = st.executeQuery();
@@ -125,10 +126,13 @@ public class Mascota {
         String sql = "SELECT * FROM Mascota ORDER BY ID_mascota";
         String [] filas = new String[7];
         Statement st = null;
+        
         ResultSet rs = null;
+        
         try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
+            System.out.println("datos obtenidos "+rs);
             while (rs.next()){
                 for (int i = 0; i < 7; i++) {
                     filas[i] = rs.getString(i+1);
@@ -147,7 +151,7 @@ public class Mascota {
     }
     
     public Mascota() {
-        //estableciendo la conexion
+        //estableciendo la conexion 
        clases.conexion con = new clases.conexion();
        cn = con.conectar();
        }

@@ -28,7 +28,12 @@ public class ClienteDuenio {
     private Integer codigo_zona;
     private Integer ID_tipoCliente;
     private Integer ID_Mascota;
-
+    
+    public ClienteDuenio() {
+        //estableciendo la conexion 
+       clases.conexion con = new clases.conexion();
+       cn = con.conectar();
+       }
     public String getDuenio_nombre() {
         return duenio_nombre;
     }
@@ -301,40 +306,80 @@ public class ClienteDuenio {
         return new Date(f);
     }
     Pool metodospool = new Pool();
-
+    
     public void listarDuenios(Connection cn, JTable tabla) {
+        //cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente", "Mascota"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT*FROM Cliente_duenio";
+        String sql = "SELECT*FROM Cliente_duenio ORDER BY ID_DUI";
+        System.out.println("datos "+sql);
         String [] filas = new String[11];
         Statement st = null;
+       // PreparedStatement cnn = null;
         ResultSet rs = null;
+         System.out.println("ingresa");
         try{
             st = cn.createStatement();
+//            cnn = cn.prepareStatement(sql);
             rs = st.executeQuery(sql);
+  //          rs = cnn.executeQuery();
+            System.out.println("comprobacion "+rs);
             while (rs.next()){
-                for (int i = 0; i < 11; i++) {
-                    filas[i] = rs.getString(i);
+                for (int i = 1; i < 11; i++) {
+                    filas[i-1] = rs.getString(i);
                 }
                 model.addRow(filas);
             }
             tabla.setModel(model);
         }
-        catch(Exception e){
+        catch(SQLException e){
             JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
         }
     }
 
-    public void CargarDuenios(JTable tabla) {
-        listarDuenios(cn, tabla);
+    
+    public void listarDuenios() {
+        cn = conexion.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente", "Mascota"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT*FROM Cliente_duenio ORDER BY ID_DUI";
+        System.out.println("datos "+sql);
+        String [] filas = new String[11];
+        Statement st = null;
+       // PreparedStatement cnn = null;
+        ResultSet rs = null;
+         System.out.println("ingresa");
+        try{
+            st = cn.createStatement();
+//            cnn = cn.prepareStatement(sql);
+            rs = st.executeQuery(sql);
+  //          rs = cnn.executeQuery();
+            System.out.println("comprobacion "+rs.toString());
+            while (rs.next()){
+                for (int i = 1; i < 11; i++) {
+                    filas[i] = rs.getString(i);
+                    System.out.println("Indice 1" + rs.getString(i));
+                }
+                model.addRow(filas);
+            }
+            //tabla.setModel(model);
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
+        }
+    }
+
+    public void CargarDuenio(JTable tabla) {
+        listarDuenios(cn ,tabla);
     }
 
     public void consultarNacionalidad(JComboBox cbox_duenios) {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
         ResultSet resultado = null;
-
+        
         String SSQL = "SELECT ID_nacionalidad ,nacionalidad FROM nacionalidad ORDER BY ID_nacionalidad";
         try {
             cn = metodospool.dataSource.getConnection();
