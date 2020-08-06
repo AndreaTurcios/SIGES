@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Mascota_SIGES" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ebcc6313-1f75-4637-ba71-1ba44760ee62">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM Mascota]]>
+	</queryString>
+	<field name="ID_mascota" class="java.lang.Integer"/>
+	<field name="nombre_mascota" class="java.lang.String"/>
+	<field name="mascota_genero" class="java.lang.String"/>
+	<field name="mascota_razon" class="java.lang.String"/>
+	<field name="mascota_medicinas" class="java.lang.String"/>
+	<field name="mascota_horarioReserva" class="java.lang.String"/>
+	<field name="ID_tipoMascota" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#0F679B" uuid="a7c36f99-5a2b-4792-9603-73fcbc099091"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="15" y="29" width="239" height="30" forecolor="#FFFFFF" uuid="1a2d5052-1733-4539-bb50-a5f06335cd20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="18"/>
+				</textElement>
+				<text><![CDATA[Registro de Mascotas]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+				<reportElement x="464" y="8" width="80" height="60" uuid="0ab4936b-f876-4c6c-9678-56d8c26deb75"/>
+				<imageExpression><![CDATA["C:\\Users\\Nanos\\Documents\\Unlimited_Lost_Code\\Netbeans 8.2\\SIGES\\Recursos_UC1\\Imagenes_UC1\\Logo_SIGES.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="334" y="10" width="94" height="20" backcolor="#CCCCFF" uuid="9792a73d-7a6a-4ea0-84b9-d43ff5403d87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fecha de emisión:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="2" y="10" width="112" height="20" backcolor="#CCCCFF" uuid="63feb1e8-cdb4-45af-ab79-372973358b69"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Solicitante del registro:]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement mode="Opaque" x="428" y="10" width="125" height="20" backcolor="#E1E1E1" uuid="2ef38222-a1c7-41bc-99a5-446bb8697f7f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="1" y="2" width="40" height="40" backcolor="#CCCCFF" uuid="5f9e83f3-4e99-47a6-aab8-617556a2fabe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[N°]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="44" y="2" width="80" height="40" backcolor="#CCCCFF" uuid="c83fac83-353c-4d8e-84fa-2010be536cc8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Nombre de la mascota]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="129" y="2" width="80" height="40" backcolor="#CCCCFF" uuid="681b076b-5537-4044-84a5-22e5030d9c1d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Genero]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="216" y="2" width="80" height="40" backcolor="#CCCCFF" uuid="88531812-d353-4757-aa47-72cc16925ea0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Razon de la consulta]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="302" y="2" width="80" height="40" backcolor="#CCCCFF" uuid="45800d3a-1128-495b-972d-bdf161d10656"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Medicamentos recetados]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="388" y="2" width="80" height="40" backcolor="#CCCCFF" uuid="ed4353d5-5f64-419d-a178-f26a59eca9fa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fecha de la consulta]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="473" y="2" width="80" height="40" backcolor="#CCCCFF" uuid="ea735897-edc2-4a33-ba0d-4b88aa5c0f99"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Especie]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="2" width="40" height="40" uuid="18f4d18e-67bb-40c5-aac7-720cab80e1c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_mascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="2" width="80" height="40" uuid="b59035a8-ba07-4093-8d78-f9cebd09c9ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_mascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="2" width="80" height="40" uuid="2e65e48b-a801-4e09-86af-cabeedd66f22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mascota_genero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="2" width="80" height="40" uuid="e55e4247-9d04-481c-98c6-59b7e1106f15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mascota_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="2" width="80" height="40" uuid="25e71b30-5317-4081-a6a2-05c18055c44a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mascota_medicinas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="2" width="80" height="40" uuid="342785ab-084d-4288-a8b3-16e26fa599dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mascota_horarioReserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="2" width="80" height="40" uuid="408e67de-609c-46d4-9b3c-65fddbd5f148"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_tipoMascota}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="428" y="16" width="80" height="20" uuid="e0a768e1-313f-451d-82f3-16a42029f30b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="16" width="40" height="20" uuid="59dfc102-76f2-43a8-9e10-b8cca96812a4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Tipo_Consulta_SIGES" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e00b492-08a1-4e3f-964a-c481c4b47700">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM Tipo_pago]]>
+	</queryString>
+	<field name="ID_tipoPago" class="java.lang.Integer"/>
+	<field name="tipo_pago" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="80" backcolor="#6666FF" uuid="40288272-1f3e-4129-b9aa-f5872b7a831d"/>
+			</rectangle>
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+				<reportElement x="450" y="10" width="93" height="60" uuid="fc7c4757-197c-477b-8ab0-cbdb7880629d"/>
+				<imageExpression><![CDATA["C:\\Users\\Nanos\\Documents\\Unlimited_Lost_Code\\Netbeans 8.2\\SIGES\\Recursos_UC1\\Imagenes_UC1\\Logo_SIGES.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="10" y="10" width="350" height="60" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="08aa863d-1b01-477e-afac-de124479213b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registro de los tipos de consultas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="120" height="20" backcolor="#CCCCFF" uuid="2dbf313f-672c-4fc5-bb5f-2bce510d2b58"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Solicitante del registro:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="311" y="0" width="94" height="20" backcolor="#CCCCFF" uuid="1092894d-b45b-413d-93d7-fa79b0402c12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Fecha de emisión:]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="405" y="0" width="150" height="20" uuid="d181ff0d-cfcc-4b62-8e09-527e8d84c3e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="40" height="40" backcolor="#3F67FB" uuid="e00c710b-c494-46ac-90da-91be01c622d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[N°]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="44" y="0" width="125" height="40" backcolor="#3F67FB" uuid="41f578b1-b1a1-4129-bf0d-db69746e95ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Tipo de consulta]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="173" y="0" width="125" height="40" backcolor="#3F67FB" uuid="aa19fd85-513a-49c0-84b1-f0075d093292"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="302" y="0" width="125" height="40" backcolor="#3F67FB" uuid="d30f1934-3c38-4134-abbe-3c9a1641e4f9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="430" y="0" width="125" height="40" backcolor="#3F67FB" uuid="46c8dbca-29cf-4429-9845-59b87c6c26ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="5" width="40" height="40" uuid="c2d3644d-27a0-4914-a53b-d3ae5a3f19ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_tipoPago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="5" width="123" height="40" uuid="c5aa0704-018f-415b-9643-94985acb63ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo_pago}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="423" y="18" width="80" height="20" uuid="21ed4c79-accf-424e-b5b9-fb0289e3f806"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="503" y="18" width="40" height="20" uuid="3722e478-3394-465a-bb61-1746f51b3fbd"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
