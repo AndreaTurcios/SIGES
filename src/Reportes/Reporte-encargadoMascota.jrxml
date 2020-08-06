@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte-encargadoMascota" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c800f8ff-587a-473e-8f32-b619af998774">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Cliente_duenio."ID_DUI" AS Cliente_duenio_ID_DUI,
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos,
+     Cliente_duenio."duenio_telefono" AS Cliente_duenio_duenio_telefono,
+     Cliente_duenio."duenio_domicilio" AS Cliente_duenio_duenio_domicilio,
+     Cliente_duenio."duenio_correo" AS Cliente_duenio_duenio_correo,
+     Cliente_duenio."Fecha_e_DUI" AS Cliente_duenio_Fecha_e_DUI,
+     Cliente_duenio."nacionalidad" AS Cliente_duenio_nacionalidad,
+     Cliente_duenio."codigo_zona" AS Cliente_duenio_codigo_zona,
+     Mascota."nombre_mascota" AS Mascota_nombre_mascota
+FROM
+     "dbo"."Mascota" Mascota INNER JOIN "dbo"."Cliente_duenio" Cliente_duenio ON Mascota."ID_mascota" = Cliente_duenio."ID_Mascota"]]>
+	</queryString>
+	<field name="Cliente_duenio_ID_DUI" class="java.lang.Integer"/>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_telefono" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_domicilio" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_correo" class="java.lang.String"/>
+	<field name="Cliente_duenio_Fecha_e_DUI" class="java.sql.Date"/>
+	<field name="Cliente_duenio_nacionalidad" class="java.lang.Integer"/>
+	<field name="Cliente_duenio_codigo_zona" class="java.lang.Integer"/>
+	<field name="Mascota_nombre_mascota" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="-3" width="572" height="82" backcolor="#006699" uuid="7e82943a-d28e-4750-9b99-e15afc34a910"/>
+				<staticText>
+					<reportElement x="87" y="9" width="425" height="43" forecolor="#FFFFFF" uuid="18989071-e392-46c6-9886-fe86265bc376"/>
+					<textElement>
+						<font fontName="Arial" size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte Encargado Mascota]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="206" y="52" width="113" height="20" uuid="c621ff8c-6511-4158-b7fc-394a76e0e586"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="abdc7137-64b4-488f-9da6-dbc6e9bff78f"/>
+				<text><![CDATA[Cliente_duenio_ID_DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="0" width="100" height="20" uuid="e828b664-e9a4-468d-b126-ba57c61f43cf"/>
+				<text><![CDATA[Cliente_duenio_duenio_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="0" width="100" height="20" uuid="6ec88754-3fae-4c8d-b1cf-00999c4b5208"/>
+				<text><![CDATA[Cliente_duenio_duenio_apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="0" width="100" height="20" uuid="fcf38942-badc-4f58-9ba4-b4d83f483f2e"/>
+				<text><![CDATA[Cliente_duenio_duenio_telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="0" width="100" height="20" uuid="0adc653a-a0d2-4e5e-a963-aec6bac55a86"/>
+				<text><![CDATA[Cliente_duenio_duenio_domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="32" width="100" height="20" uuid="2989c4e3-ab7e-4b9c-9d26-b773ef068456"/>
+				<text><![CDATA[Cliente_duenio_duenio_correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="32" width="100" height="20" uuid="b6e8d872-3d29-40fb-86cf-0a29192546a8"/>
+				<text><![CDATA[Cliente_duenio_Fecha_e_DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="32" width="100" height="20" uuid="a355d3ef-0223-4b13-bcb2-2b160722341a"/>
+				<text><![CDATA[Mascota_nombre_mascota]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="75" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="2ddbd82a-bacb-49a2-a8d9-fabecd538ba1"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_ID_DUI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="100" height="20" uuid="be24c7c8-9056-4fc2-8efc-5061114464a2"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="100" height="20" uuid="cc7e186a-5687-4c8d-936e-9ffc36351d30"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="100" height="20" uuid="0b22bfc3-d648-43e9-891b-65f513a5928d"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="100" height="20" uuid="cbac725e-7953-40cd-90fb-88c6908520aa"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_domicilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="51" width="100" height="20" uuid="3af0dfe4-91ec-4c6d-be99-1ebd6dee370a"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_correo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="51" width="100" height="20" uuid="f88fa27f-44af-4e0b-a6a7-0d3fd37739d1"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_Fecha_e_DUI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="51" width="100" height="20" uuid="1790be8b-e3fb-4d65-b94b-746da935e527"/>
+				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="223" y="16" width="80" height="20" uuid="d31ed068-d56f-4d6b-bd5f-2dcc1cf8d19c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="303" y="16" width="40" height="20" uuid="0a62b6af-a6b5-474d-8927-59c01e59e37d"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

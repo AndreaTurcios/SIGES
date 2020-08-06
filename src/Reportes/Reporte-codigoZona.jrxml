@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte-codigoZona" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9bfc5b31-fa25-4b57-ae84-1e9b14e40f16">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     codigo_zona."codigo_zona" AS codigo_zona_codigo_zona,
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos
+FROM
+     "dbo"."codigo_zona" codigo_zona INNER JOIN "dbo"."Cliente_duenio" Cliente_duenio ON codigo_zona."ID_codigo" = Cliente_duenio."codigo_zona"]]>
+	</queryString>
+	<field name="codigo_zona_codigo_zona" class="java.lang.Integer"/>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="572" height="79" backcolor="#006699" uuid="977545b2-8a98-4895-86fd-873bf9b01401"/>
+				<staticText>
+					<reportElement x="147" y="3" width="342" height="43" forecolor="#FFFFFF" uuid="1ae07018-6169-463c-9009-a99db48416c0"/>
+					<textElement>
+						<font fontName="Arial" size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte codigo zona]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="227" y="46" width="113" height="20" uuid="00d32b6b-585c-449f-9c37-18244f90a11c"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="63dd5559-88bb-4786-ae35-f10f6830f746"/>
+				<text><![CDATA[Nombre cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="0" width="100" height="20" uuid="0d360cfd-c795-4e2c-851c-b757eecac6ef"/>
+				<text><![CDATA[Apellido cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="269" y="0" width="100" height="20" uuid="9df24c5d-b157-4d70-bbac-833ef5620a20"/>
+				<text><![CDATA[Codigo zona]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e7b13df1-1f94-4745-8243-033158927bd5"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="0" width="100" height="20" uuid="dbe7fd1e-b36b-49b3-ac80-ede4dd744d58"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="0" width="100" height="20" uuid="c637bb81-1150-48ae-b0e7-f79776a3262e"/>
+				<textFieldExpression><![CDATA[$F{codigo_zona_codigo_zona}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="15" width="80" height="20" uuid="e3f2f9d9-1b2a-4bae-882c-ade7191b0ee8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="307" y="15" width="40" height="20" uuid="10ef29eb-bb7e-4d55-8294-f263a6026e8c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

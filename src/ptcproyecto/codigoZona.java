@@ -11,7 +11,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -47,6 +56,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
         btnlimpiar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         txtcodigozona = new javax.swing.JTextField();
+        btnReporte = new javax.swing.JButton();
 
         JPForm.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -95,7 +105,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnguardar);
-        btnguardar.setBounds(20, 60, 89, 23);
+        btnguardar.setBounds(20, 60, 89, 27);
 
         btnmodificar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btnmodificar.setText("Modificar");
@@ -105,7 +115,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnmodificar);
-        btnmodificar.setBounds(120, 60, 95, 23);
+        btnmodificar.setBounds(120, 60, 89, 27);
 
         tblcodigoZona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,7 +159,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnlimpiar);
-        btnlimpiar.setBounds(340, 60, 97, 23);
+        btnlimpiar.setBounds(340, 60, 97, 25);
 
         btneliminar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btneliminar.setText("Eliminar");
@@ -159,9 +169,18 @@ public class codigoZona extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btneliminar);
-        btneliminar.setBounds(230, 60, 97, 23);
+        btneliminar.setBounds(230, 60, 97, 27);
         jPanel2.add(txtcodigozona);
-        txtcodigozona.setBounds(128, 19, 258, 20);
+        txtcodigozona.setBounds(128, 19, 258, 22);
+
+        btnReporte.setText("Reporte");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnReporte);
+        btnReporte.setBounds(450, 60, 77, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -280,10 +299,34 @@ public class codigoZona extends javax.swing.JInternalFrame {
 //        }
     }//GEN-LAST:event_btneliminarActionPerformed
 
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        try {
+            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection conn = con.getConexion();
+            
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Reporte-producto.jasper";
+            
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+            
+            JasperViewer view = new JasperViewer(jprint, false);
+            
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
+            view.setVisible(true);
+                    
+        } catch (JRException ex) {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReporteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JPanel JPForm;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnlimpiar;

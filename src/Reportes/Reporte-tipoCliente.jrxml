@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte-tipoCliente" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ed1650a-c319-43bd-b2d1-3a704c9f8f77">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos,
+     Cliente_duenio."duenio_telefono" AS Cliente_duenio_duenio_telefono,
+     Cliente_duenio."duenio_domicilio" AS Cliente_duenio_duenio_domicilio,
+     Cliente_duenio."duenio_correo" AS Cliente_duenio_duenio_correo,
+     Tipo_cliente."tipo_cliente" AS Tipo_cliente_tipo_cliente
+FROM
+     "dbo"."Tipo_cliente" Tipo_cliente INNER JOIN "dbo"."Cliente_duenio" Cliente_duenio ON Tipo_cliente."ID_tipoCliente" = Cliente_duenio."ID_tipoCliente"]]>
+	</queryString>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_telefono" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_domicilio" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_correo" class="java.lang.String"/>
+	<field name="Tipo_cliente_tipo_cliente" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="572" height="79" backcolor="#006699" uuid="3d119900-d2d9-40a7-99f8-2f1480263970"/>
+				<staticText>
+					<reportElement x="147" y="3" width="342" height="43" forecolor="#FFFFFF" uuid="8c057774-9011-4514-9269-3a165f051d71"/>
+					<textElement>
+						<font fontName="Arial" size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte tipo cliente]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="227" y="46" width="113" height="20" uuid="0d22b270-6ed8-4ec8-b302-91699d239984"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="82" height="20" uuid="e1268694-1cfd-4685-9cff-f8f9709a2dba"/>
+				<text><![CDATA[Nombre cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="0" width="86" height="20" uuid="6fe00879-e615-4328-a17e-15f04d89b248"/>
+				<text><![CDATA[Apellido cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="0" width="85" height="20" uuid="18d76f90-1607-49cd-bfda-cf11797cfea9"/>
+				<text><![CDATA[Telefono cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="0" width="88" height="20" uuid="4b07a3d3-7ae1-4d62-97fa-5171dd375caf"/>
+				<text><![CDATA[Domicilio cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="69" height="20" uuid="61f5b293-8edb-46db-b04d-e9a2a0e5a6bb"/>
+				<text><![CDATA[Correo cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="499" y="0" width="63" height="20" uuid="a483da6a-d558-491a-9f42-70b145fa2570"/>
+				<text><![CDATA[Tipo cliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="58" height="20" uuid="3ce83d4a-f243-4764-a0cd-d75694ee36f5"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="0" width="54" height="20" uuid="02dbc133-7f26-4450-bf62-3861605d2f4b"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="0" width="100" height="20" uuid="34a5ccaf-ca62-434e-aeb6-684192242537"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="0" width="100" height="20" uuid="550e7495-7ced-4b51-ba8e-08aefdcbc797"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_domicilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="79" height="20" uuid="de77e6e6-e79a-4b64-952d-0aeab313b12e"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_correo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="0" width="73" height="20" uuid="c0c31676-dd19-4be8-a80e-8a05fdc69a25"/>
+				<textFieldExpression><![CDATA[$F{Tipo_cliente_tipo_cliente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="16" width="80" height="20" uuid="809bd89a-ce94-46dd-93a5-18ea41dc53df"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="307" y="16" width="40" height="20" uuid="b19f8cd6-5bea-4c03-bec5-bbfd02635a70"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

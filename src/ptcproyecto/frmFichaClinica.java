@@ -5,10 +5,15 @@
  */
 package ptcproyecto;
 
+import clases.conexion;
+import static clases.conexion.conectar;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractListModel;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -28,6 +33,12 @@ import javax.swing.LayoutStyle;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -73,6 +84,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jTable1 = new JTable();
         jButton2 = new JButton();
         jButton1 = new JButton();
+        btnreporte = new JButton();
 
         setEnabled(false);
         setFocusCycleRoot(false);
@@ -178,6 +190,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
             }
         });
 
+        btnreporte.setText("Generar reporte");
+        btnreporte.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                btnreporteActionPerformed(evt);
+            }
+        });
+
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -220,7 +239,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 204, GroupLayout.PREFERRED_SIZE)))
                                 .addGap(29, 29, 29)
-                                .addComponent(jButton1)))
+                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnreporte, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
@@ -243,8 +264,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                                 .addGap(17, 17, 17)
                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel23)
-                                    .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1)))
+                                    .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jButton1)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnreporte, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)))
@@ -312,9 +337,33 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
          llamar.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnreporteActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnreporteActionPerformed
+        try {
+            Connection con = conexion.conectar();
+            Connection conn = con.getConexion();
+            
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Reporte-Ficha.jasper";
+            
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+            
+            JasperViewer view = new JasperViewer(jprint, false);
+            
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
+            view.setVisible(true);
+                    
+        } catch (JRException ex) {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnreporteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton BtnCerrar;
+    private JButton btnreporte;
     private JButton jButton1;
     private JButton jButton2;
     private JLabel jLabel1;
