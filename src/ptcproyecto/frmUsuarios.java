@@ -1,7 +1,17 @@
 package ptcproyecto;
 
 import clases.Usuario;
+import clases.conexion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -446,7 +456,21 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtbConsultarActionPerformed
 
     private void JBImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBImprimirActionPerformed
-        // TODO add your handling code here:
+        try 
+        {
+            java.sql.Connection con = conexion.conectar();
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Empleados.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } 
+        catch (JRException ex) 
+        {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JBImprimirActionPerformed
 
     private void jtfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfUsuarioActionPerformed

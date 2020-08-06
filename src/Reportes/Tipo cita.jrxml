@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tipo cita" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d84cd3b3-5fa5-4a94-8f1b-9268540cce54">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from Tipo_citas]]>
+	</queryString>
+	<field name="ID_tipoCita" class="java.lang.Integer"/>
+	<field name="tipo_cita" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#3F679A" uuid="80839d99-ba22-433a-9c86-5a52a6f78ded"/>
+			</rectangle>
+			<textField>
+				<reportElement x="205" y="28" width="192" height="43" forecolor="#FFFFFF" uuid="f58ed2b6-baeb-401a-95fc-99afbb28beb6"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Tipo cita]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center">
+				<reportElement x="462" y="0" width="93" height="79" uuid="32be4d37-634a-4db4-85a6-945702653ed5"/>
+				<imageExpression><![CDATA["C:\\Users\\estef\\Downloads\\WhatsApp Image 2020-06-18 at 1.09.09 PM.jpeg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="210" height="20" backcolor="#3F679A" uuid="caaf2694-cf2b-43bb-883b-96bd6bd11f94"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="41" width="205" height="20" uuid="8ddc17bc-e515-4bb1-a097-e75eb88e8d9c"/>
+				<textFieldExpression><![CDATA[$F{tipo_cita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="32db3c51-4d13-49e2-a35f-7c8bf37a65ba"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Tipos de cita]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20" uuid="47b6ed85-2ef8-48a0-bd56-c4b7b2c823ab"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" uuid="214594e3-4b9b-4395-bb58-7f017a78ec27"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -5,11 +5,21 @@
  */
 package ptcproyecto;
 import clases.Cita;
+import clases.conexion;
 import java.awt.Dimension;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -52,7 +62,8 @@ public class Citas extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         JbtGuardar = new javax.swing.JButton();
         JbtnConsultar = new javax.swing.JButton();
-        JbtnModificar = new javax.swing.JButton();
+        JbtnImprimir = new javax.swing.JButton();
+        JbtnModificar1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -203,14 +214,23 @@ public class Citas extends javax.swing.JInternalFrame {
         });
         getContentPane().add(JbtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 163, 130, 40));
 
-        JbtnModificar.setBackground(new java.awt.Color(0, 153, 153));
-        JbtnModificar.setText("Modificar");
-        JbtnModificar.addActionListener(new java.awt.event.ActionListener() {
+        JbtnImprimir.setBackground(new java.awt.Color(0, 153, 153));
+        JbtnImprimir.setText("Imprimir");
+        JbtnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JbtnModificarActionPerformed(evt);
+                JbtnImprimirActionPerformed(evt);
             }
         });
-        getContentPane().add(JbtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 223, 130, 40));
+        getContentPane().add(JbtnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 130, 40));
+
+        JbtnModificar1.setBackground(new java.awt.Color(0, 153, 153));
+        JbtnModificar1.setText("Modificar");
+        JbtnModificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JbtnModificar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JbtnModificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 223, 130, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,18 +270,27 @@ public class Citas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_JbtnConsultarActionPerformed
 
-    private void JbtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnModificarActionPerformed
-         Cita obj = new Cita();
-       obj.setcita_hora(Integer.parseInt(tfHora.getText ()));
-       obj.setcita_fecha(Integer.parseInt(tfFecha.getText ()));
-       obj.setID_tipoCita((Integer) cbTipoCita.getSelectedItem());
-       obj.setDUI((Integer)jcbDUI.getSelectedItem ());
-       if (obj.Modificar()) {
-            JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los modificados");
+    private void JbtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnImprimirActionPerformed
+         try 
+        {
+            java.sql.Connection con = conexion.conectar();
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Cita.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } 
+        catch (JRException ex) 
+        {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_JbtnModificarActionPerformed
+    }//GEN-LAST:event_JbtnImprimirActionPerformed
+
+    private void JbtnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnModificar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JbtnModificar1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -270,7 +299,8 @@ public class Citas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel JPIngresoCitas;
     private javax.swing.JButton JbtGuardar;
     private javax.swing.JButton JbtnConsultar;
-    private javax.swing.JButton JbtnModificar;
+    private javax.swing.JButton JbtnImprimir;
+    private javax.swing.JButton JbtnModificar1;
     private javax.swing.JComboBox<String> cbTipoCita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

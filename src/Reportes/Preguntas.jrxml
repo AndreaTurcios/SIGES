@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Preguntas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ad670761-183d-4df9-bcae-34e92bc8d63c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM Preguntas]]>
+	</queryString>
+	<field name="ID_Pregunta" class="java.lang.Integer"/>
+	<field name="pregunta" class="java.lang.String"/>
+	<field name="ID_usuario" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="462" y="0" width="93" height="79" uuid="fb2d5b44-9539-4cf3-b479-250c4cc42754"/>
+				<imageExpression><![CDATA["C:\\Users\\estef\\Downloads\\WhatsApp Image 2020-06-18 at 1.09.09 PM.jpeg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="199" y="16" width="186" height="43" forecolor="#FFFFFF" uuid="26b56b47-f86b-416f-b6e6-8c5b17c5ce18"/>
+				<textElement textAlignment="Center">
+					<font size="30"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Preguntas]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-1" y="-79" width="555" height="79" backcolor="#3F679A" uuid="f5e026e4-08ac-456d-9675-e56d0d0d1c6f"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="265" y="0" width="290" height="20" backcolor="#3F679A" uuid="b643a002-8b1e-446f-8143-2cd24d975948"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-1" y="0" width="255" height="20" backcolor="#3F679A" uuid="e4a48ba2-fe12-4982-80eb-86b8284e3986"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="41" width="100" height="20" uuid="8f40a24c-6c54-400f-8ce1-afd5a8b5dcbf"/>
+				<textFieldExpression><![CDATA[$F{ID_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="41" width="100" height="20" uuid="5a56c8d4-a1cc-4270-a44f-0752f98c0074"/>
+				<textFieldExpression><![CDATA[$F{pregunta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="520db71d-a58a-4ca7-94ae-5eec6ce017a1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Usuarios]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="0a24634b-e794-4244-8138-05f47405611f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Pregunta]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

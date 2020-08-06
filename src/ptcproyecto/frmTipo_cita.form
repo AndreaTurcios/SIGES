@@ -78,9 +78,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnCerrar2">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/1487086345-cross_81577.png"/>
-            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
@@ -100,16 +97,18 @@
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfTipocita" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="149" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="355" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jtbGuardar" min="-2" pref="79" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="jtbModificar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jtbConsultar" min="-2" pref="82" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jtbImprimir" min="-2" pref="82" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -124,13 +123,14 @@
                           <Component id="jtbConsultar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="jtbGuardar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="jtbModificar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jtbImprimir" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Component id="jtfTipocita" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="122" max="32767" attributes="0"/>
+                          <EmptySpace pref="126" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -199,6 +199,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfTipocitaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="jtbImprimir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Imprimir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtbImprimirActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

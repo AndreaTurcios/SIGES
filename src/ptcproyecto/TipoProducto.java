@@ -6,10 +6,20 @@
 package ptcproyecto;
 
 import Clases.tipoProductos;
+import clases.conexion;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -114,6 +124,11 @@ public class TipoProducto extends javax.swing.JInternalFrame {
         JBImprimir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         JBImprimir.setForeground(new java.awt.Color(255, 255, 255));
         JBImprimir.setText("Imprimir");
+        JBImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBImprimirActionPerformed(evt);
+            }
+        });
 
         JBLimpiar.setBackground(new java.awt.Color(0, 153, 153));
         JBLimpiar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -276,6 +291,24 @@ public class TipoProducto extends javax.swing.JInternalFrame {
     private void JTTIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTTIPOActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTTIPOActionPerformed
+
+    private void JBImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBImprimirActionPerformed
+        try 
+        {
+            java.sql.Connection con = conexion.conectar();
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Tipo producto.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } 
+        catch (JRException ex) 
+        {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JBImprimirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

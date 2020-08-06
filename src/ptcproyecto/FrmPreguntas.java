@@ -6,6 +6,16 @@
 package ptcproyecto;
 
 import clases.ClienteDuenio;
+import clases.conexion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -41,6 +51,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         cmbUsuario = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
+        jbtImprimir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         JPForm = new javax.swing.JPanel();
@@ -73,6 +84,14 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
             }
         });
 
+        jbtImprimir.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        jbtImprimir.setText("Imprimir");
+        jbtImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -97,6 +116,10 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jButton1)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(jbtImprimir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +136,9 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jbtImprimir)
+                .addContainerGap())
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -138,7 +163,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +172,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         JPForm.setBackground(new java.awt.Color(153, 153, 255));
@@ -202,7 +227,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                 .addComponent(JPForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -221,6 +246,24 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
+    private void jbtImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtImprimirActionPerformed
+        try 
+        {
+            java.sql.Connection con = conexion.conectar();
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Preguntas.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } 
+        catch (JRException ex) 
+        {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jbtImprimirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
@@ -235,6 +278,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbtImprimir;
     private javax.swing.JTextField tfPregunta;
     // End of variables declaration//GEN-END:variables
 }
