@@ -339,40 +339,35 @@ public class ClienteDuenio {
     }
 
     
-    public void listarDuenios() {
+    public void listarDueniosT(Connection cn, JTable tabla){
         cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente", "Mascota"};
+        String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente", "tipo mascota"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT*FROM Cliente_duenio ORDER BY ID_DUI";
-        System.out.println("datos "+sql);
+        String sql = "SELECT * FROM Cliente_duenio ORDER BY ID_DUI";
         String [] filas = new String[11];
         Statement st = null;
-       // PreparedStatement cnn = null;
         ResultSet rs = null;
-         System.out.println("ingresa");
+        
         try{
             st = cn.createStatement();
-//            cnn = cn.prepareStatement(sql);
             rs = st.executeQuery(sql);
-  //          rs = cnn.executeQuery();
-            System.out.println("comprobacion "+rs.toString());
+            System.out.println("datos obtenidos "+rs);
             while (rs.next()){
-                for (int i = 1; i < 11; i++) {
-                    filas[i] = rs.getString(i);
-                    System.out.println("Indice 1" + rs.getString(i));
+                for (int i = 0; i < 11; i++) {
+                    filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
             }
-            //tabla.setModel(model);
+            tabla.setModel(model);
         }
-        catch(SQLException e){
+        catch(Exception e){
             JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
         }
-    }
+    }   
 
     public void CargarDuenio(JTable tabla) {
-        listarDuenios(cn ,tabla);
+        listarDueniosT(cn ,tabla);
     }
 
     public void consultarNacionalidad(JComboBox cbox_duenios) {
