@@ -454,14 +454,14 @@ public class FrmProductos extends javax.swing.JFrame {
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
             java.sql.Connection con = conexion.conectar();
-            java.sql.Connection conn = con.getConexion();
+//            java.sql.Connection conn = con.getConexion();
             
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-producto.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             
             JasperViewer view = new JasperViewer(jprint, false);
             

@@ -241,14 +241,14 @@ public class Agenda extends javax.swing.JInternalFrame {
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
             Connection con = conexion.conectar();
-            Connection conn = con.getConexion();
+//            Connection conn = con.getConection();
             
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-Agenda.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             
             JasperViewer view = new JasperViewer(jprint, false);
             

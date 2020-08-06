@@ -175,7 +175,7 @@ public class ClienteDuenio {
     public boolean EliminarCliente() {
         boolean resp = false;
         try {//realizando consulta insert
-            String sql = "DELETE FROM Cliente_duenio WHERE ID_mascota=?;";
+            String sql = "DELETE FROM Cliente_duenio WHERE ID_DUI=?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setInt(1, ID_DUI);
             if (!cmd.execute()) {
@@ -184,7 +184,7 @@ public class ClienteDuenio {
             cmd.close();
             cn.close();
         } catch (Exception ex) {
-            System.out.println(ex.toString());
+            System.out.println("Error exception es"+ex.toString());
         }
         return resp;
     }
@@ -271,7 +271,6 @@ public class ClienteDuenio {
         }
 
     }
-
     public boolean consultarCliente() {
         boolean resp = false;
         try {//realizando consulta insert

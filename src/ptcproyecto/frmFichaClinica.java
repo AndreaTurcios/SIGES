@@ -340,14 +340,14 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private void btnreporteActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnreporteActionPerformed
         try {
             Connection con = conexion.conectar();
-            Connection conn = con.getConexion();
+//            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-Ficha.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             
             JasperViewer view = new JasperViewer(jprint, false);
             
