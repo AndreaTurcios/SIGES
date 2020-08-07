@@ -35,7 +35,7 @@ FROM
 					<text><![CDATA[Reporte de Agenda]]></text>
 				</staticText>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="227" y="46" width="113" height="20" uuid="3e3ff71b-cc73-4db3-9632-056fdc3be896"/>
+					<reportElement x="206" y="52" width="113" height="20" uuid="3e3ff71b-cc73-4db3-9632-056fdc3be896"/>
 					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 				</textField>
 			</frame>

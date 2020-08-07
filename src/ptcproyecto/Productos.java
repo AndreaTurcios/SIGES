@@ -8,7 +8,18 @@ package ptcproyecto;
 import javax.swing.JOptionPane;
 import clases.CargarTipoProducto;
 import clases.MtoProductos;
+import clases.conexion;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -221,6 +232,11 @@ public class Productos extends javax.swing.JInternalFrame {
         JBImprimir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         JBImprimir.setForeground(new java.awt.Color(255, 255, 255));
         JBImprimir.setText("Imprimir");
+        JBImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBImprimirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -413,6 +429,29 @@ public class Productos extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_JBModificarActionPerformed
+
+    private void JBImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBImprimirActionPerformed
+        try {
+            Connection con = conexion.conectar();
+
+            
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Reporte-Ficha.jasper";
+            
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            
+            JasperViewer view = new JasperViewer(jprint, false);
+            
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
+            view.setVisible(true);
+                    
+        } catch (JRException ex) {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JBImprimirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
