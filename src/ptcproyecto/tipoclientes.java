@@ -19,14 +19,14 @@ import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
- * @author cvera
+ * @author 15-CW0001la
  */
-public class tipoCliente extends javax.swing.JFrame {
+public class tipoclientes extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form tipoCliente
+     * Creates new form tipoclientes
      */
-    public tipoCliente() {
+    public tipoclientes() {
         initComponents();
     }
 
@@ -40,8 +40,6 @@ public class tipoCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         btnReporte = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnReporte.setText("Reporte");
         btnReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +62,7 @@ public class tipoCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addComponent(btnReporte)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         pack();
@@ -73,60 +71,26 @@ public class tipoCliente extends javax.swing.JFrame {
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
             Connection con = conexion.conectar();
-//            Connection conn = con.getConexion();
-            
+            //            Connection conn = con.getConexion();
+
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-tipoCliente.jasper";
-            
+
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            
+
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
-            
+
             JasperViewer view = new JasperViewer(jprint, false);
-            
+
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            
+
             view.setVisible(true);
-                    
+
         } catch (JRException ex) {
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnReporteActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tipoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tipoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tipoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tipoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new tipoCliente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReporte;

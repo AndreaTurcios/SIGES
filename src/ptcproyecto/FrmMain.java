@@ -519,7 +519,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel14.setForeground(Color.WHITE); 
         jLabel15.setForeground(Color.WHITE);
         jLabel16.setForeground(Color.WHITE);
-        tipoCliente fich= new tipoCliente();
+        tipoclientes fich= new tipoclientes();
         panelArriba.add(fich);
         fich.show();
     }//GEN-LAST:event_btntipoClienteMouseClicked

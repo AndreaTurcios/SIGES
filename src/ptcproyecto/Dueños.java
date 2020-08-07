@@ -1,6 +1,7 @@
 package ptcproyecto;
 
 import clases.*;
+import clases.tipoCliente;
 import java.net.URLDecoder;
 import java.sql.Connection;
 import java.util.HashMap;
