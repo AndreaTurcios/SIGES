@@ -104,11 +104,11 @@
 				<textFieldExpression><![CDATA[$F{ID_nacionalidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="45" y="5" width="125" height="40" uuid="cc7deb22-d2ce-43bb-90cb-903d9251e121"/>
+				<reportElement x="45" y="5" width="123" height="40" uuid="3984bafb-56f2-444e-a954-8798abe7ffbc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ID_nacionalidad}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nacionalidad}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
