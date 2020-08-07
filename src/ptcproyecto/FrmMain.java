@@ -126,8 +126,11 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("                        Agenda");
+        jLabel2.setText("                    Agenda");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel2.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel2.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel2.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -136,8 +139,11 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("                      Productos");
+        jLabel3.setText("                    Productos");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel3.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel3.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel3.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -146,8 +152,12 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("                      Consultas");
+        jLabel5.setText("                    Consultas");
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel5.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel5.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel5.setName(""); // NOI18N
+        jLabel5.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -156,8 +166,12 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("                        Dueños");
+        jLabel6.setText("                    Dueños");
         jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel6.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel6.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel6.setName(""); // NOI18N
+        jLabel6.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -166,8 +180,12 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("                       Mascotas");
+        jLabel7.setText("                    Mascotas");
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel7.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel7.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel7.setName(""); // NOI18N
+        jLabel7.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -176,8 +194,12 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("                        Usuarios");
+        jLabel9.setText("                    Usuarios");
         jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel9.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel9.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel9.setName(""); // NOI18N
+        jLabel9.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
@@ -185,8 +207,13 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel10.setText("                        Preguntas");
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("                    Preguntas");
+        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel10.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel10.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel10.setName(""); // NOI18N
+        jLabel10.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
@@ -194,8 +221,13 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel8.setText("                      Tipo mascota");
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("                    Tipo mascota");
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel8.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel8.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel8.setName(""); // NOI18N
+        jLabel8.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
@@ -203,8 +235,12 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel13.setText("                      Tipo producto");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("                    Tipo producto");
+        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel13.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel13.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel13.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -215,6 +251,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("                    Nacionalidad");
         jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel11.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel11.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel11.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -222,8 +261,12 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel12.setText("                      Tipo pago");
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel12.setForeground(java.awt.Color.white);
+        jLabel12.setText("                    Tipo pago");
+        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel12.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel12.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel12.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);
@@ -231,8 +274,12 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel16.setText("                     Tipo empleado");
-        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("                    Tipo empleado");
+        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel16.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel16.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel16.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel16MouseClicked(evt);
@@ -240,8 +287,12 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel14.setText("                  Codigo zona");
-        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("                    Codigo zona");
+        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel14.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel14.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel14.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel14MouseClicked(evt);
@@ -260,8 +311,11 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("                         Citas");
+        jLabel4.setText("                    Citas");
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel4.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel4.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel4.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -269,8 +323,12 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel15.setText("                     Tipo cita");
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("                    Tipo cita");
+        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel15.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel15.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel15.setPreferredSize(new java.awt.Dimension(159, 20));
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel15MouseClicked(evt);
