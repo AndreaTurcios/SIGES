@@ -211,6 +211,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         {
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //fasdasdasd
         /*
         String path = "";
         try
