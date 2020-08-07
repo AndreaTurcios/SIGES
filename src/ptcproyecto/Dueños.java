@@ -447,7 +447,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         {
             java.sql.Connection con = conexion.conectar();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte_Cliente_Duenio_SIGES.jasper";
+            String path = "src\\Reportes\\ReporteClienteDuenioSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint, false);

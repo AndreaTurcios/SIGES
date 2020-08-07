@@ -282,7 +282,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         {
             java.sql.Connection con = conexion.conectar();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte_Nacionalidad_SIGES.jasper";
+            String path = "src\\Reportes\\ReporteNacionalidadSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint, false);
