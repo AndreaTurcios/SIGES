@@ -7,6 +7,7 @@ package ptcproyecto;
 import clases.Cita;
 import clases.conexion;
 import java.awt.Dimension;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
@@ -194,7 +195,7 @@ public class Citas extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 430, 180));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 430, 180));
 
         JbtGuardar.setBackground(new java.awt.Color(0, 153, 153));
         JbtGuardar.setText("Guardar");
@@ -289,7 +290,26 @@ public class Citas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JbtnImprimirActionPerformed
 
     private void JbtnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnModificar1ActionPerformed
-        // TODO add your handling code here:
+        try {
+            Connection con = conexion.conectar();
+//            Connection conn = con.getConexion();
+            
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Reporte-cita(D).jasper";
+            
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            
+            JasperViewer view = new JasperViewer(jprint, false);
+            
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
+            view.setVisible(true);
+                    
+        } catch (JRException ex) {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JbtnModificar1ActionPerformed
 
 

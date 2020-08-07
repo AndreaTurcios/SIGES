@@ -298,7 +298,7 @@ public class TipoProducto extends javax.swing.JInternalFrame {
         {
             java.sql.Connection con = conexion.conectar();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Tipo producto.jasper";
+            String path = "src\\Reportes\\Reporte-tipoProducto(D).jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint, false);

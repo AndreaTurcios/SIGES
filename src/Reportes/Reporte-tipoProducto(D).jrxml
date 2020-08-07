@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte-tipoProducto(D)" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="78ff91d2-0335-41c8-97e4-368f11020378">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Tipo_producto."tipo_producto" AS Tipo_producto_tipo_producto,
+     Productos."producto" AS Productos_producto,
+     Productos."codigo_producto" AS Productos_codigo_producto
+FROM
+     "dbo"."Tipo_producto" Tipo_producto INNER JOIN "dbo"."Productos" Productos ON Tipo_producto."ID_tipoProducto" = Productos."ID_tipoProductos"]]>
+	</queryString>
+	<field name="Tipo_producto_tipo_producto" class="java.lang.String"/>
+	<field name="Productos_producto" class="java.lang.String"/>
+	<field name="Productos_codigo_producto" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="572" height="79" backcolor="#006699" uuid="88402965-a779-45cb-9854-b22ae92e5d35"/>
+				<staticText>
+					<reportElement x="124" y="3" width="340" height="43" forecolor="#FFFFFF" uuid="f31270e7-c5d2-481e-8c52-ba7723e41073"/>
+					<textElement>
+						<font fontName="Arial" size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte tipo producto]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="222" y="46" width="113" height="20" uuid="dd1dae9e-e476-4523-a550-89e2c2a92180"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="f1fd1fe0-d7f0-4ef3-b72e-f88ea17e778b"/>
+				<text><![CDATA[Productos_producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="0" width="100" height="20" uuid="7c913aa4-2c3d-45d0-962d-c3085e8918db"/>
+				<text><![CDATA[Productos_codigo_producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="0" width="100" height="20" uuid="56a4edb2-26c0-449e-ae69-16a9cf89502c"/>
+				<text><![CDATA[Tipo_producto_tipo_producto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="185079d3-35d6-4b10-b0be-5f73562c35d4"/>
+				<textFieldExpression><![CDATA[$F{Productos_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="0" width="100" height="20" uuid="4116fc42-5f43-4f9c-9223-840d7c64be82"/>
+				<textFieldExpression><![CDATA[$F{Productos_codigo_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="0" width="100" height="20" uuid="abcf2635-c644-4d05-a676-ae377daf1194"/>
+				<textFieldExpression><![CDATA[$F{Tipo_producto_tipo_producto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="223" y="9" width="80" height="20" uuid="2366edc7-5de8-4217-b085-82cccaefb004"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="303" y="9" width="40" height="20" uuid="16793845-8e1c-41ac-a2e3-48726b2d0151"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

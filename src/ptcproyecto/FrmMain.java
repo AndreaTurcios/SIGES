@@ -31,6 +31,7 @@ public class FrmMain extends javax.swing.JFrame {
         panelMenu = new javax.swing.JPanel();
         panelArriba = new javax.swing.JPanel();
         btntipoCliente = new javax.swing.JLabel();
+        btntipoCliente1 = new javax.swing.JLabel();
         jLabel0 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         lblTipo_Usuario = new javax.swing.JLabel();
@@ -101,21 +102,35 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
+        btntipoCliente1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        btntipoCliente1.setForeground(new java.awt.Color(255, 255, 255));
+        btntipoCliente1.setText("                          Tipo citas");
+        btntipoCliente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btntipoCliente1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btntipoCliente1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelArribaLayout = new javax.swing.GroupLayout(panelArriba);
         panelArriba.setLayout(panelArribaLayout);
         panelArribaLayout.setHorizontalGroup(
             panelArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelArribaLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(btntipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(486, Short.MAX_VALUE))
+                .addGroup(panelArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btntipoCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btntipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(492, Short.MAX_VALUE))
         );
         panelArribaLayout.setVerticalGroup(
             panelArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelArribaLayout.createSequentialGroup()
                 .addGap(101, 101, 101)
                 .addComponent(btntipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(585, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btntipoCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(547, Short.MAX_VALUE))
         );
 
         jLabel0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/person_icon-icons.com_50075.png"))); // NOI18N
@@ -448,7 +463,7 @@ public class FrmMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(panelArriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
             .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMenuLayout.createSequentialGroup()
                     .addGap(121, 121, 121)
@@ -843,6 +858,12 @@ public class FrmMain extends javax.swing.JFrame {
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void btntipoCliente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntipoCliente1MouseClicked
+        frmTipo_cita fich= new frmTipo_cita ();
+        panelArriba.add(fich);
+        fich.show();
+    }//GEN-LAST:event_btntipoCliente1MouseClicked
         
         
     /**
@@ -883,6 +904,7 @@ public class FrmMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel btntipoCliente;
+    private javax.swing.JLabel btntipoCliente1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel01;

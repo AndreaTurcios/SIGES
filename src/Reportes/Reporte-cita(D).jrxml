@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte-cita(D)" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="58872ddf-55d9-438a-a4de-0fa82ac257ab">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Citas."cita_fecha" AS Citas_cita_fecha,
+     Citas."cita_hora" AS Citas_cita_hora,
+     Cliente_duenio."ID_DUI" AS Cliente_duenio_ID_DUI,
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos,
+     Cliente_duenio."duenio_telefono" AS Cliente_duenio_duenio_telefono
+FROM
+     "dbo"."Cliente_duenio" Cliente_duenio INNER JOIN "dbo"."Citas" Citas ON Cliente_duenio."ID_DUI" = Citas."ID_DUI"]]>
+	</queryString>
+	<field name="Citas_cita_fecha" class="java.sql.Date"/>
+	<field name="Citas_cita_hora" class="java.sql.Time"/>
+	<field name="Cliente_duenio_ID_DUI" class="java.lang.Integer"/>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_telefono" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="572" height="79" backcolor="#006699" uuid="3f58e6a1-446c-40c4-bc68-565f89e0629f"/>
+				<staticText>
+					<reportElement x="147" y="3" width="279" height="43" forecolor="#FFFFFF" uuid="84d772c4-8810-495a-bc3b-d219279facbf"/>
+					<textElement>
+						<font fontName="Arial" size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte Citas]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="206" y="52" width="113" height="20" uuid="41a3d963-d1e1-4d72-83df-44a012621715"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="7581ec6b-5967-4647-b87d-e05afae48297"/>
+				<text><![CDATA[Nombre cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="0" width="100" height="20" uuid="a071365e-66f8-48e8-ae20-d2e22a3a1819"/>
+				<text><![CDATA[Apellido cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="100" height="20" uuid="10771ebe-6b63-4700-b5dd-51d8ac45a2d5"/>
+				<text><![CDATA[Telefono cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="0" width="100" height="20" uuid="8db35865-6752-443c-828d-6799a14049e2"/>
+				<text><![CDATA[Fecha de cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="0" width="100" height="20" uuid="41f874d0-58b6-4105-8f00-45a4e42f5332"/>
+				<text><![CDATA[Hora de cita]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="a8bc774e-23ae-4aa6-bca6-a514f5ae62e3"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="100" height="20" uuid="6ae16392-910e-451e-876e-e73926fd3298"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="100" height="20" uuid="4f9ee968-90ce-4b67-be71-36d7fcf38765"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="0" width="100" height="20" uuid="a6a9463d-16af-460c-99f4-edb9969c6138"/>
+				<textFieldExpression><![CDATA[$F{Citas_cita_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="0" width="100" height="20" uuid="96f1beea-b03a-4292-abf0-5aa1a58c2843"/>
+				<textFieldExpression><![CDATA[$F{Citas_cita_hora}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="228" y="16" width="80" height="20" uuid="e6ea3a8f-623c-4d44-a6fc-4c59ca9e68ee"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="308" y="16" width="40" height="20" uuid="38cd6cf0-7fde-4a29-9263-528bac9f6885"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

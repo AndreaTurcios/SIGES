@@ -16,10 +16,6 @@
 			<rectangle>
 				<reportElement x="0" y="0" width="555" height="79" backcolor="#3F679A" uuid="1ab2a2d0-acc1-4596-a35c-8343bcb3114b"/>
 			</rectangle>
-			<image hAlign="Center">
-				<reportElement x="462" y="0" width="93" height="79" uuid="e677ad60-edb6-41c8-a5ed-627bf83ca318"/>
-				<imageExpression><![CDATA["C:\\Users\\estef\\Downloads\\WhatsApp Image 2020-06-18 at 1.09.09 PM.jpeg"]]></imageExpression>
-			</image>
 			<textField>
 				<reportElement x="193" y="15" width="208" height="48" forecolor="#FFFFFF" uuid="6e1d5506-260e-4594-9ff0-dc3326d37ecd"/>
 				<textElement>
