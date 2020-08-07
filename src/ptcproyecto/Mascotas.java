@@ -1,9 +1,7 @@
 package ptcproyecto;
 
 import javax.swing.JOptionPane;
-import clases.Mascota;
-import clases.MtoProductos;
-import clases.conexion;
+import clases.*;
 import java.net.URLDecoder;
 import java.sql.Connection;
 import java.util.HashMap;
