@@ -5,7 +5,8 @@
  */
 package ptcproyecto;
 
-import Clases.tipoProductos;
+
+import clases.tipoProductos;
 import clases.conexion;
 import java.sql.ResultSet;
 import java.sql.Statement;

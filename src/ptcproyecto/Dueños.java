@@ -1,11 +1,6 @@
 package ptcproyecto;
 
-import clases.ClienteDuenio;
-import clases.Mascota;
-import clases.conexion;
-import clases.controlCodigoZona;
-import clases.controlNacionalidad;
-import clases.tipoCliente;
+import clases.*;
 import java.net.URLDecoder;
 import java.sql.Connection;
 import java.util.HashMap;
