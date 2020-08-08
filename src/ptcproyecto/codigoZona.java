@@ -305,7 +305,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
 //            java.sql.Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-producto.jasper";
+            String path = "src\\Reportes\\Reporte-codigoZona.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
