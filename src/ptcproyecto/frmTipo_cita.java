@@ -7,6 +7,7 @@ package ptcproyecto;
 
 import clases.Tipocita;
 import clases.conexion;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -237,19 +238,24 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfTipocitaActionPerformed
 
     private void jtbImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbImprimirActionPerformed
-        try 
-        {
-            java.sql.Connection con = conexion.conectar();
+        try {
+            Connection con = conexion.conectar();
+//            Connection conn = con.getConexion();
+            
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-tipoCita(D).jasper";
+            
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            
             JasperViewer view = new JasperViewer(jprint, false);
+            
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
             view.setVisible(true);
-        } 
-        catch (JRException ex) 
-        {
+                    
+        } catch (JRException ex) {
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jtbImprimirActionPerformed
