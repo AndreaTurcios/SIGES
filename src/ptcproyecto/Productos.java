@@ -436,7 +436,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-Ficha.jasper";
+            String path = "src\\Reportes\\Reporte-producto.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             

@@ -73,7 +73,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-cita(D).jasper";
+            String path = "src\\Reportes\\Reporte-tipoEmpleado(D).jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             

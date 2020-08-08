@@ -19,7 +19,7 @@
 			<staticText>
 				<reportElement x="6" y="10" width="350" height="60" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="802a1b1a-eb3c-4e2e-9368-222bc5e33aa7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="18" isBold="true"/>
+					<font fontName="Arial" isBold="true"/>
 				</textElement>
 				<text><![CDATA["Registro de tipos de pagos"]]></text>
 			</staticText>
