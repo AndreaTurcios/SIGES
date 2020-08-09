@@ -12,5 +12,4 @@ public class Control_Productos {
         FrmProductos abrir = new FrmProductos();
         abrir.setVisible(true);
     }
-    
 }
