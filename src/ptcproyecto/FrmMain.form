@@ -80,7 +80,7 @@
     <Container class="javax.swing.JPanel" name="panelAbajo">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="27" width="1020" height="700"/>
+          <AbsoluteConstraints x="0" y="27" width="1020" height="-1"/>
         </Constraint>
       </Constraints>
 

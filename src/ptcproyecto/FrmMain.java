@@ -484,7 +484,7 @@ public class FrmMain extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelAbajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 27, 1020, 700));
+        getContentPane().add(panelAbajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 27, 1020, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
