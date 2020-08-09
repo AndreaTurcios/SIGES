@@ -47,7 +47,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         JPTablaConcretadas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        JBConcretadas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -114,12 +113,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        JBConcretadas.setBackground(new java.awt.Color(0, 136, 130));
-        JBConcretadas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        JBConcretadas.setForeground(new java.awt.Color(255, 255, 255));
-        JBConcretadas.setText("Mostrar");
-        JBConcretadas.setPreferredSize(new java.awt.Dimension(90, 60));
-
         javax.swing.GroupLayout JPTablaConcretadasLayout = new javax.swing.GroupLayout(JPTablaConcretadas);
         JPTablaConcretadas.setLayout(JPTablaConcretadasLayout);
         JPTablaConcretadasLayout.setHorizontalGroup(
@@ -128,11 +121,6 @@ public class Agenda extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
-                    .addGap(0, 61, Short.MAX_VALUE)
-                    .addComponent(JBConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 61, Short.MAX_VALUE)))
         );
         JPTablaConcretadasLayout.setVerticalGroup(
             JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,11 +128,6 @@ public class Agenda extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JPTablaConcretadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JPTablaConcretadasLayout.createSequentialGroup()
-                    .addGap(0, 144, Short.MAX_VALUE)
-                    .addComponent(JBConcretadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 143, Short.MAX_VALUE)))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -264,7 +247,6 @@ public class Agenda extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
-    private javax.swing.JButton JBConcretadas;
     private javax.swing.JButton JBConcretadas1;
     private javax.swing.JPanel JPForm;
     private javax.swing.JPanel JPTablaConcretadas;
