@@ -27,6 +27,7 @@ public class Agenda extends javax.swing.JInternalFrame {
      */
     public Agenda() {
         initComponents();
+        ListarProgramados();
     }
 
     /**
@@ -220,7 +221,12 @@ public class Agenda extends javax.swing.JInternalFrame {
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
-
+    public void ListarProgramados(){
+        clases.Agenda obj = new clases.Agenda();
+        obj.CargarProgramados(jTable1);
+        obj.CargarCompletadas(jTable3);
+        obj.CargarCanceladas(jTable2);
+    }
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
             Connection con = conexion.conectar();
