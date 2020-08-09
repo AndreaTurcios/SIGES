@@ -35,7 +35,7 @@ FROM
 					<textElement>
 						<font fontName="Arial" size="30" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Reporte tipo citas ]]></text>
+					<text><![CDATA[Reporte de Agenda]]></text>
 				</staticText>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="206" y="52" width="113" height="20" uuid="11d5e430-9ed3-421e-950e-ab8698507bc4"/>
