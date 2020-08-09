@@ -237,6 +237,13 @@ public class Usuario {
         }
         return resp;
     }
+
+    @Override
+    public String toString() {
+        return Usuario;
+    }
+    
+    
     
     }
 

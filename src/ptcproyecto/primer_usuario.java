@@ -1,7 +1,7 @@
 
 package ptcproyecto;
 
-import clases.Primer_usuario;
+import clases.usuarios;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -335,23 +335,23 @@ public class primer_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTfContraseñaActionPerformed
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
-        Primer_usuario obj = new Primer_usuario();
-        if (obj.Consultar()) {
-        obj.setnombre_empleado(jTfNombre.getText());
-        obj.setempleado_apellidos(jTApellido.getText());
-        obj.setempleado_telefono(jTfTelefono.getText());
-        obj.setnempleado_correo(jTfCorreo.getText());
-        obj.setempleado_domicilio(jTfNombre.getText());
-        obj.setID_tipoUsuarios((Integer) jCBtipo_U.getSelectedItem());
-        obj.setnombre_usuario(jTfUsuario.getText());
-        obj.setcontrasenia_usuario(jTfContraseña.getText());
-        }else{
-            JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
-        }
+//        usuarios obj = new usuarios();
+//        if (obj.consultarUsuario()) {
+//        obj.setnombre_empleado(jTfNombre.getText());
+//        obj.setempleado_apellidos(jTApellido.getText());
+//        obj.setempleado_telefono(jTfTelefono.getText());
+//        obj.setnempleado_correo(jTfCorreo.getText());
+//        obj.setempleado_domicilio(jTfNombre.getText());
+//        obj.setID_tipoUsuarios((Integer) jCBtipo_U.getSelectedItem());
+//        obj.setnombre_usuario(jTfUsuario.getText());
+//        obj.setcontrasenia_usuario(jTfContraseña.getText());
+//        }else{
+//            JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
+//        }
     }//GEN-LAST:event_jtbConsultarActionPerformed
 
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
-        Primer_usuario obj = new Primer_usuario();
+        usuarios obj = new usuarios();
         obj.setnombre_empleado(jTfNombre.getText());
         obj.setempleado_apellidos(jTApellido.getText());
         obj.setempleado_telefono(jTfTelefono.getText());
@@ -368,7 +368,7 @@ public class primer_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
     private void jtbModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbModificar1ActionPerformed
-        Primer_usuario obj = new Primer_usuario();
+        usuarios obj = new usuarios();
         obj.setnombre_empleado(jTfNombre.getText());
         obj.setempleado_apellidos(jTApellido.getText());
         obj.setempleado_telefono(jTfTelefono.getText());

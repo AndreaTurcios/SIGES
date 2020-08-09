@@ -1,11 +1,17 @@
 package clases;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
-public class Primer_usuario {
+public class usuarios {
     private Connection cn;
     private Integer ID_usuario;
     private String nombre_empleado;
@@ -130,11 +136,81 @@ public class Primer_usuario {
     public boolean modificar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public boolean Consultar() {
-        return false;
-        
+    Pool metodospool = new Pool();
+    public void consultarPreguntas (JComboBox cbox_preguntas) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_Pregunta, pregunta FROM preguntas ORDER BY ID_Pregunta";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_preguntas.addItem("Seleccione una opcion");
+            while (resultado.next()) {
+                controlPreguntas preguntas = new controlPreguntas();
+                preguntas.setID_pregunta(resultado.getInt("ID_Pregunta"));
+                preguntas.setPregunta(resultado.getString("pregunta"));
+                cbox_preguntas.addItem(preguntas);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+         }
+       
+         }
+    }
+    public void consultarUsuario(JComboBox cbox_usuario) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_usuario, nombre_usuario FROM Usuarios ORDER BY ID_usuario";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_usuario.addItem("Usuarios");
+            while (resultado.next()) {
+                Usuario user = new Usuario();
+                user.setID_usuario(resultado.getInt("ID_usuario"));
+                user.setUsuario(resultado.getString("nombre_usuario"));
+                cbox_usuario.addItem(user);
+//                JOptionPane.showMessageDialog(null, "es "+user);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+         }
+       
+         }
         
     }
+    public String getNombre_usuario() {
+        return nombre_usuario;
+    }
+
+    @Override
+    public String toString() {
+        return nombre_empleado;
+    }
+
+    
+    
     
 }

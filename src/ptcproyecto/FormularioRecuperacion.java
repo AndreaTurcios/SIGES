@@ -1,5 +1,6 @@
 package ptcproyecto;
 
+import clases.usuarios;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -14,12 +15,12 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         jTextField2.setEnabled(false);
         jTextField3.setEnabled(false);
         jButton2.setEnabled(false);
-        CargarUsuarios();
+        CargarCombo();
     }
-    public void CargarUsuarios(){
-//        ClienteDuenio obj = new ClienteDuenio();
-//        obj.consultarUsuario(cmbUsuario);
-
+    public void CargarCombo(){
+        usuarios obj = new usuarios();
+        obj.consultarUsuario(cmbUsuario);
+        obj.consultarPreguntas(jComboBox2);
     }
 
     @SuppressWarnings("unchecked")
@@ -86,7 +87,6 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         jLabel2.setText("Seleccione el nombre de usuario:");
 
         cmbUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cmbUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuarios", "Fabio", "Andrea", "Diego", "Edwin", "Stefany" }));
         cmbUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUsuarioActionPerformed(evt);
@@ -96,7 +96,6 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jComboBox2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Preguntas", "Donde naciste?", "En que mes naciste?", "Donde es tu lugar preferido?", "En ciudad naciste?" }));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Seleccione una pregunta acorde a su registro:");

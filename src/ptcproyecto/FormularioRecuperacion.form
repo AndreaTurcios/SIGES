@@ -227,14 +227,7 @@
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="Usuarios"/>
-                    <StringItem index="1" value="Fabio"/>
-                    <StringItem index="2" value="Andrea"/>
-                    <StringItem index="3" value="Diego"/>
-                    <StringItem index="4" value="Edwin"/>
-                    <StringItem index="5" value="Stefany"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -257,13 +250,7 @@
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Preguntas"/>
-                    <StringItem index="1" value="Donde naciste?"/>
-                    <StringItem index="2" value="En que mes naciste?"/>
-                    <StringItem index="3" value="Donde es tu lugar preferido?"/>
-                    <StringItem index="4" value="En ciudad naciste?"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <AuxValues>

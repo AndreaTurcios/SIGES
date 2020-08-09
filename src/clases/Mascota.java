@@ -250,6 +250,4 @@ public class Mascota {
     public String toString() {
         return nombre_mascota; //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 }
