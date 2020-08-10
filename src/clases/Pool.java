@@ -12,8 +12,8 @@ public class Pool {
     public DataSource dataSource;
 
     public String db = "SIGES";
-    public String url = ("jdbc:sqlserver://LAPTOP-1ABIBEI5\\SQLEXPRESS;"
-                    + "databaseName=SIGES;User=SIGES;Password=2020SIGES");
+    public String url = ("jdbc:sqlserver://DESKTOP-TL45EU4\\SQLEXPRESS;"
+                    + "databaseName=SIGES;User=SIGES;Password=2020");
 
 
 
