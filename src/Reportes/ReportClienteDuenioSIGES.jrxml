@@ -68,7 +68,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="20" isBold="true"/>
 				</textElement>
-				<text><![CDATA["Registros de los dueños de las mascotas"]]></text>
+				<text><![CDATA[Registros de los dueños de las mascotas]]></text>
 			</staticText>
 		</band>
 	</title>
