@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f573868e-5ce9-4921-903d-40225db47e0a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     nacionalidad."ID_nacionalidad" AS nacionalidad_ID_nacionalidad,
+     nacionalidad."nacionalidad" AS nacionalidad_nacionalidad
+FROM
+     "dbo"."nacionalidad" nacionalidad]]>
+	</queryString>
+	<field name="nacionalidad_ID_nacionalidad" class="java.lang.Integer"/>
+	<field name="nacionalidad_nacionalidad" class="java.lang.String"/>
+	<group name="nacionalidad_ID_nacionalidad">
+		<groupExpression><![CDATA[$F{nacionalidad_ID_nacionalidad}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="79" backcolor="#6666FF" uuid="b154aaf3-0ad3-4579-9ffd-37404b59e892"/>
+			</rectangle>
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+				<reportElement x="715" y="14" width="75" height="57" uuid="b26da09e-28cd-44c8-b5d0-5804a6d18734"/>
+				<imageExpression><![CDATA["C:\\Users\\Nanos\\Documents\\Unlimited_Lost_Code\\Netbeans 8.2\\SIGES\\Recursos_UC1\\Imagenes_UC1\\Logo_SIGES.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="11" y="14" width="441" height="53" forecolor="#FFFFFF" uuid="c7e688eb-f899-4061-b02b-9c9e0ff72d79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registros de nacionalidades]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="497" y="0" width="139" height="25" backcolor="#CCCCFF" uuid="3a4b0346-df4a-4540-bb91-8534c8b7f192"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha de Emision:"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="636" y="0" width="166" height="25" uuid="bb7edfc5-5f94-4e1f-a5ba-be1e867d68cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="144" height="25" backcolor="#CCCCFF" uuid="eca6635f-a4d5-4912-8da3-ef181215044f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Solicitante del Registro:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="107" y="0" width="78" height="40" backcolor="#3F67FB" uuid="d1712d8f-da3c-43a0-a757-2064a8f2ce4f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="185" y="0" width="78" height="40" backcolor="#3F67FB" uuid="505b6ee0-2f75-497e-9b29-8917cebf309a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="263" y="0" width="78" height="40" backcolor="#3F67FB" uuid="814d877f-9abe-43a3-957e-bb88dcc87fcf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="419" y="0" width="78" height="40" backcolor="#3F67FB" uuid="60c2e712-8736-477c-9a95-fce96760dd12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="653" y="0" width="78" height="40" backcolor="#3F67FB" uuid="f2f24981-47e3-49df-b8a5-62354fa9d17b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="29" y="0" width="78" height="40" backcolor="#3F67FB" uuid="24777478-9fb9-4817-948c-bfe82b7bfb79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nacionalidad"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="575" y="0" width="78" height="40" backcolor="#3F67FB" uuid="5842d951-fab6-4d47-bed4-e4df7f8ec84c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="497" y="0" width="78" height="40" backcolor="#3F67FB" uuid="2bd0a47d-5b2a-487f-bdc3-199f8fde8cea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="731" y="0" width="78" height="40" backcolor="#3F67FB" uuid="5c586add-e64e-4351-bb81-6f6c39fd5c3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="341" y="0" width="78" height="40" backcolor="#3F67FB" uuid="352bae16-07c2-41e4-b8c3-c4d033345ef7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="-6" y="0" width="35" height="40" backcolor="#3F67FB" uuid="690cbbc3-4345-4862-a2d5-0d8c24814164"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N°"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="-6" y="5" width="35" height="40" uuid="f1b510ab-e6ae-4286-81e1-83319c2dcd24"/>
+				<textFieldExpression><![CDATA[$F{nacionalidad_ID_nacionalidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="5" width="78" height="40" uuid="5869641e-6c8e-42ea-a755-d6619f97d61e"/>
+				<textFieldExpression><![CDATA[$F{nacionalidad_nacionalidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="672" y="18" width="80" height="20" uuid="c5359dde-c437-4e86-a03c-282f0ea0927e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="752" y="18" width="40" height="20" uuid="b14038ba-b3f6-43d0-99e0-20a2dc40cc0f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
