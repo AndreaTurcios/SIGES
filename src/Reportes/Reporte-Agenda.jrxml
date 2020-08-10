@@ -30,14 +30,22 @@ FROM
 				<staticText>
 					<reportElement x="147" y="3" width="279" height="43" forecolor="#FFFFFF" uuid="c034da7a-98aa-4e8b-8588-0e1346930995"/>
 					<textElement>
-						<font fontName="Arial" size="30" isBold="true"/>
+						<font fontName="Yu Gothic UI" size="30" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Reporte de Agenda]]></text>
 				</staticText>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="206" y="52" width="113" height="20" uuid="3e3ff71b-cc73-4db3-9632-056fdc3be896"/>
+					<reportElement x="206" y="52" width="113" height="20" forecolor="#FFFFFF" uuid="3e3ff71b-cc73-4db3-9632-056fdc3be896"/>
 					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 				</textField>
+				<image>
+					<reportElement x="487" y="12" width="51" height="60" uuid="278b98db-28e2-40d6-b06e-46f3eab65311"/>
+					<imageExpression><![CDATA["C:\\Users\\cvera\\OneDrive\\Documentos\\NetBeansProjects\\SIGES-2\\SIGES\\src\\imagenes\\agenda.png"]]></imageExpression>
+				</image>
+				<image>
+					<reportElement x="28" y="4" width="78" height="68" uuid="ff689a3c-7eb0-455a-a012-94e8a22946ea"/>
+					<imageExpression><![CDATA["C:\\Users\\cvera\\OneDrive\\Documentos\\NetBeansProjects\\SIGES-2\\SIGES\\src\\imagenes\\reporte.png"]]></imageExpression>
+				</image>
 			</frame>
 		</band>
 	</title>
@@ -47,23 +55,23 @@ FROM
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="20" uuid="e0751cb5-c784-4559-9467-537841856867"/>
+				<reportElement mode="Opaque" x="0" y="0" width="106" height="20" backcolor="#006699" uuid="e0751cb5-c784-4559-9467-537841856867"/>
 				<text><![CDATA[Fecha de la cita]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="106" y="0" width="100" height="20" uuid="699f00b5-7a5c-4c3d-8297-e109b8c36e79"/>
+				<reportElement mode="Opaque" x="106" y="0" width="113" height="20" backcolor="#006699" uuid="699f00b5-7a5c-4c3d-8297-e109b8c36e79"/>
 				<text><![CDATA[Hora de la cita]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="219" y="0" width="100" height="20" uuid="cd210b9a-4820-4b08-b1c9-e6116ba1b3d8"/>
+				<reportElement mode="Opaque" x="219" y="0" width="128" height="20" backcolor="#006699" uuid="cd210b9a-4820-4b08-b1c9-e6116ba1b3d8"/>
 				<text><![CDATA[ID DUI]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="347" y="0" width="100" height="20" uuid="164b29e5-abaa-4bc8-8e48-6cff93f38126"/>
+				<reportElement mode="Opaque" x="347" y="0" width="125" height="20" backcolor="#006699" uuid="164b29e5-abaa-4bc8-8e48-6cff93f38126"/>
 				<text><![CDATA[Fecha de consulta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="472" y="0" width="100" height="20" uuid="bad4d985-dcfa-47d2-a632-1b7c7e6cdc87"/>
+				<reportElement mode="Opaque" x="472" y="0" width="100" height="20" backcolor="#006699" uuid="bad4d985-dcfa-47d2-a632-1b7c7e6cdc87"/>
 				<text><![CDATA[Hora de consulta]]></text>
 			</staticText>
 		</band>
