@@ -373,7 +373,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         {
             java.sql.Connection con = conexion.conectar();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\ReporteBaseSIGES.jasper";
+            String path = "src\\Reportes\\Prueba.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint, false);
