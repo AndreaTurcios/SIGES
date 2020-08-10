@@ -89,7 +89,6 @@ public class TipoPago extends javax.swing.JInternalFrame {
         btnImprimir = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -97,6 +96,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         txtNombre_Tipo_Pago = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        BtnCerrar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(744, 560));
         getContentPane().setLayout(null);
@@ -165,11 +165,6 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(157, 34, 202));
         jPanel3.setLayout(null);
 
-        jPanel4.setBackground(new java.awt.Color(204, 102, 255));
-        jPanel4.setLayout(null);
-        jPanel3.add(jPanel4);
-        jPanel4.setBounds(320, 0, 270, 60);
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -207,7 +202,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel2.setLayout(null);
         jPanel2.add(txtNombre_Tipo_Pago);
-        txtNombre_Tipo_Pago.setBounds(40, 60, 290, 22);
+        txtNombre_Tipo_Pago.setBounds(40, 60, 290, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nombre del tipo de pago:");
@@ -216,6 +211,16 @@ public class TipoPago extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(200, 70, 390, 290);
+
+        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
+        BtnCerrar.setToolTipText("");
+        BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnCerrar);
+        BtnCerrar.setBounds(0, 0, 65, 41);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -271,8 +276,14 @@ public class TipoPago extends javax.swing.JInternalFrame {
         */
     }//GEN-LAST:event_btnImprimirActionPerformed
 
+    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_BtnCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrar;
+    private javax.swing.JButton BtnCerrar2;
     private javax.swing.JButton btnGuardar_Tipo_Pago;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnModificar_Tipo_Pago;
@@ -282,7 +293,6 @@ public class TipoPago extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

@@ -72,99 +72,148 @@ public class frmConsultas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JPConsultas = new javax.swing.JPanel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel4 = new javax.swing.JLabel();
         BtnCerrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        BtnCerrar1 = new javax.swing.JButton();
-        JPGestionConsultas = new javax.swing.JPanel();
-        btnGuardar_Consulta = new javax.swing.JButton();
-        btnMostrar_Consulta = new javax.swing.JButton();
-        btnModificar_Consulta = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        btnMostrar_Consulta1 = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
-        jPTablaDatosConsultas = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbConsultas = new javax.swing.JTable();
-        jPIngresoConsultas = new javax.swing.JPanel();
-        CmbTurno = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        cndFecha = new rojeru_san.componentes.RSDateChooser();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        CmbTipo_Cita = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        Spinner_Segundo = new javax.swing.JSpinner();
+        jLabel3 = new javax.swing.JLabel();
         Spinner_Hora = new javax.swing.JSpinner();
         Spinner_Minuto = new javax.swing.JSpinner();
-        cndFecha = new rojeru_san.componentes.RSDateChooser();
+        jLabel6 = new javax.swing.JLabel();
+        CmbTurno = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        txtDUI = new javax.swing.JTextField();
+        CmbTipo_Cita = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jcbDUI = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        btnGuardar_Consulta = new javax.swing.JButton();
+        btnMostrar_Consulta1 = new javax.swing.JButton();
+        btnModificar_Consulta = new javax.swing.JButton();
+        btnMostrar_Consulta = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbConsultas = new javax.swing.JTable();
 
-        JPConsultas.setBackground(new java.awt.Color(157, 34, 202));
-        JPConsultas.setForeground(new java.awt.Color(153, 204, 255));
-        JPConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBorder(null);
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
+        kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Consultas");
-        JPConsultas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
         BtnCerrar.setToolTipText("");
         BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarActionPerformed(evt);
             }
         });
-        JPConsultas.add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 27, 25));
 
-        jPanel1.setBackground(new java.awt.Color(204, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.setBackground(new java.awt.Color(204, 102, 255));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        BtnCerrar1.setToolTipText("");
-        BtnCerrar1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText("Fecha:");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setText("Minuto:");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setText("Hora:");
+
+        Spinner_Hora.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+
+        Spinner_Minuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText("Turno:");
+
+        CmbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
+        CmbTurno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrar1ActionPerformed(evt);
+                CmbTurnoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setText("Seleccione el tipo de cita:");
+
+        CmbTipo_Cita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setText("DUI del solicitante de la consulta:");
+
+        jcbDUI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(99, 99, 99))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cndFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(Spinner_Hora, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Spinner_Minuto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(58, 58, 58)
+                                        .addComponent(jLabel5)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CmbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CmbTipo_Cita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jcbDUI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cndFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CmbTipo_Cita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Spinner_Hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Spinner_Minuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CmbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbDUI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        JPConsultas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 240, -1));
-
-        JPGestionConsultas.setBackground(new java.awt.Color(255, 255, 255));
-        JPGestionConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
-        JPGestionConsultas.setPreferredSize(new java.awt.Dimension(222, 330));
-        JPGestionConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGuardar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
         btnGuardar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnGuardar_Consulta.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar_Consulta.setText("Guardar");
         btnGuardar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
         btnGuardar_Consulta.addActionListener(new java.awt.event.ActionListener() {
@@ -172,32 +221,9 @@ public class frmConsultas extends javax.swing.JInternalFrame {
                 btnGuardar_ConsultaActionPerformed(evt);
             }
         });
-        JPGestionConsultas.add(btnGuardar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 50));
-
-        btnMostrar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
-        btnMostrar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnMostrar_Consulta.setForeground(new java.awt.Color(255, 255, 255));
-        btnMostrar_Consulta.setText("Imprimir");
-        btnMostrar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnMostrar_Consulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrar_ConsultaActionPerformed(evt);
-            }
-        });
-        JPGestionConsultas.add(btnMostrar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 200, 50));
-
-        btnModificar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
-        btnModificar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnModificar_Consulta.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar_Consulta.setText("Modificar");
-        btnModificar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
-        JPGestionConsultas.add(btnModificar_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 190, 50));
-        JPGestionConsultas.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 220, 20));
-        JPGestionConsultas.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 220, 10));
 
         btnMostrar_Consulta1.setBackground(new java.awt.Color(0, 136, 130));
         btnMostrar_Consulta1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnMostrar_Consulta1.setForeground(new java.awt.Color(255, 255, 255));
         btnMostrar_Consulta1.setText("Mostrar");
         btnMostrar_Consulta1.setPreferredSize(new java.awt.Dimension(90, 60));
         btnMostrar_Consulta1.addActionListener(new java.awt.event.ActionListener() {
@@ -205,12 +231,48 @@ public class frmConsultas extends javax.swing.JInternalFrame {
                 btnMostrar_Consulta1ActionPerformed(evt);
             }
         });
-        JPGestionConsultas.add(btnMostrar_Consulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 200, 50));
-        JPGestionConsultas.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 220, 10));
 
-        jPTablaDatosConsultas.setBackground(new java.awt.Color(255, 255, 255));
-        jPTablaDatosConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
-        jPTablaDatosConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnModificar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
+        btnModificar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnModificar_Consulta.setText("Modificar");
+        btnModificar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
+
+        btnMostrar_Consulta.setBackground(new java.awt.Color(0, 136, 130));
+        btnMostrar_Consulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnMostrar_Consulta.setText("Imprimir");
+        btnMostrar_Consulta.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnMostrar_Consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrar_ConsultaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(btnGuardar_Consulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMostrar_Consulta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnModificar_Consulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMostrar_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMostrar_Consulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificar_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMostrar_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
 
         tbConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -225,118 +287,80 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(tbConsultas);
 
-        jPTablaDatosConsultas.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 710, 170));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
 
-        jPIngresoConsultas.setBackground(new java.awt.Color(255, 255, 255));
-        jPIngresoConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las consultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
-        jPIngresoConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CmbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
-        jPIngresoConsultas.add(CmbTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 70, -1));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("DUI del solicitante de la consulta:");
-        jPIngresoConsultas.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText("Hora:");
-        jPIngresoConsultas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, 20));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("Fecha:");
-        jPIngresoConsultas.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("Minuto:");
-        jPIngresoConsultas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, 20));
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText("Turno:");
-        jPIngresoConsultas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, 20));
-
-        CmbTipo_Cita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPIngresoConsultas.add(CmbTipo_Cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 370, -1));
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel8.setText("Segundo:");
-        jPIngresoConsultas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, 20));
-
-        Spinner_Segundo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        jPIngresoConsultas.add(Spinner_Segundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 70, -1));
-
-        Spinner_Hora.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
-        jPIngresoConsultas.add(Spinner_Hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 70, -1));
-
-        Spinner_Minuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        jPIngresoConsultas.add(Spinner_Minuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 70, -1));
-        jPIngresoConsultas.add(cndFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 310, -1));
-
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel9.setText("Seleccione el tipo de cita:");
-        jPIngresoConsultas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
-        jPIngresoConsultas.add(txtDUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 230, -1));
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(284, 284, 284)
+                .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(238, Short.MAX_VALUE)
-                .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(JPConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(JPGestionConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPTablaDatosConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jPIngresoConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(JPConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(20, 20, 20)
-                    .addComponent(JPGestionConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(10, 10, 10)
-                    .addComponent(jPTablaDatosConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
-        this.dispose ();
-    }//GEN-LAST:event_BtnCerrarActionPerformed
-
-    private void BtnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar1ActionPerformed
-        this.dispose ();
-    }//GEN-LAST:event_BtnCerrar1ActionPerformed
 
     private void btnGuardar_ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar_ConsultaActionPerformed
        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
        crud_consulta obj = new crud_consulta();
        String Hora = Spinner_Hora.getToolTipText();
        String Minuto = Spinner_Minuto.getToolTipText();
-       String Segundo = Spinner_Segundo.getToolTipText();
        String Turno = CmbTurno.getActionCommand();
-       String Hora_Exacta = Hora + ":" + Minuto + ":" + Segundo;
+       String Hora_Exacta = Hora + ":" + Minuto + ":" ;
        obj.setconsulta_fecha(Integer.parseInt(cndFecha.getFormatoFecha()));
        obj.setconsulta_hora(Integer.parseInt(Hora_Exacta));
        obj.setID_tipoConsulta((Integer) CmbTipo_Cita.getSelectedItem());
-       int DUI= Integer.parseInt(txtDUI.getText());
-       obj.setID_DUI(DUI);
+       
        if (obj.Guardar_Consulta()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
         }else{
@@ -386,17 +410,21 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMostrar_Consulta1ActionPerformed
 
+    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_BtnCerrarActionPerformed
+
+    private void CmbTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbTurnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CmbTurnoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
-    private javax.swing.JButton BtnCerrar1;
     public javax.swing.JComboBox<String> CmbTipo_Cita;
     public javax.swing.JComboBox<String> CmbTurno;
-    private javax.swing.JPanel JPConsultas;
-    private javax.swing.JPanel JPGestionConsultas;
     public javax.swing.JSpinner Spinner_Hora;
     public javax.swing.JSpinner Spinner_Minuto;
-    public javax.swing.JSpinner Spinner_Segundo;
     private javax.swing.JButton btnGuardar_Consulta;
     private javax.swing.JButton btnModificar_Consulta;
     private javax.swing.JButton btnMostrar_Consulta;
@@ -408,17 +436,13 @@ public class frmConsultas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPIngresoConsultas;
-    private javax.swing.JPanel jPTablaDatosConsultas;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> jcbDUI;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTable tbConsultas;
-    private javax.swing.JTextField txtDUI;
     // End of variables declaration//GEN-END:variables
 }
