@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
  *
  * @author Nanos
  */
-public class crud_consulta 
+public class Consulta 
 {
     private Connection cn;
     private Integer ID_consulta;

@@ -1,7 +1,7 @@
 
 package ptcproyecto;
 
-import clases.usuarios;
+import clases.Usuarios;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -335,7 +335,7 @@ public class primer_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTfContraseñaActionPerformed
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
-//        usuarios obj = new usuarios();
+//        Usuarios obj = new Usuarios();
 //        if (obj.consultarUsuario()) {
 //        obj.setnombre_empleado(jTfNombre.getText());
 //        obj.setempleado_apellidos(jTApellido.getText());
@@ -351,7 +351,7 @@ public class primer_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jtbConsultarActionPerformed
 
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
-        usuarios obj = new usuarios();
+        Usuarios obj = new Usuarios();
         obj.setnombre_empleado(jTfNombre.getText());
         obj.setempleado_apellidos(jTApellido.getText());
         obj.setempleado_telefono(jTfTelefono.getText());
@@ -368,7 +368,7 @@ public class primer_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
     private void jtbModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbModificar1ActionPerformed
-        usuarios obj = new usuarios();
+        Usuarios obj = new Usuarios();
         obj.setnombre_empleado(jTfNombre.getText());
         obj.setempleado_apellidos(jTApellido.getText());
         obj.setempleado_telefono(jTfTelefono.getText());

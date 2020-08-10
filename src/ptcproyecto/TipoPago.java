@@ -240,7 +240,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\ReporteTipoPagoSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
@@ -260,7 +260,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         {
             path = getClass().getResource("src/Reportes/Reporte_Tipo_Pago_SIGES.jasper").getPath();
             path = URLDecoder.decode(path, "UTF-8");
-            Connection cn = new conexion().conectar();
+            Connection cn = new Conexion().conectar();
             Map parametros = new HashMap();
             JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);

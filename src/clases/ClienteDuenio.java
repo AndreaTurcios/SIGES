@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class ClienteDuenio {
 
     private Connection cn;
-    private conexion conexion;
+    private Conexion conexion;
     private Integer ID_DUI;
     private String duenio_nombre;
     private String duenio_apellidos;
@@ -24,14 +24,14 @@ public class ClienteDuenio {
     private Date Fecha_e_DUI;
     private String nacionalidad;
     private int nacionalidad_id;
-    private controlNacionalidad nacionalidad2;
+    private ControlNacionalidad nacionalidad2;
     private Integer codigo_zona;
     private Integer ID_tipoCliente;
     private Integer ID_Mascota;
     
     public ClienteDuenio() {
-        //estableciendo la conexion 
-       clases.conexion con = new clases.conexion();
+        //estableciendo la Conexion 
+       clases.Conexion con = new clases.Conexion();
        cn = con.conectar();
        }
     public String getDuenio_nombre() {
@@ -133,7 +133,7 @@ public class ClienteDuenio {
     public boolean modificarCliente() {
         boolean resp = false;
         try {//realizando consulta update
-            // conexion = new conexion();
+            // Conexion = new Conexion();
             System.err.println("conexion" + cn);
             String sql = "UPDATE Cliente_duenio SET ID_DUI=?,duenio_nombre=?, duenio_apellidos=?, "
                     + "duenio_telefono=?, duenio_domicilio=?, duenio_correo=?,Fecha_e_DUI=?,nacionalidad=?,codigo_zona=?,ID_tipoCliente=? WHERE ID_Mascota=?";
@@ -307,7 +307,7 @@ public class ClienteDuenio {
     Pool metodospool = new Pool();
     
     public void listarDuenios(Connection cn, JTable tabla) {
-        //cn = conexion.conectar();
+        //cn = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente", "Mascota"};
         model = new DefaultTableModel(null, columnas);
@@ -381,7 +381,7 @@ public class ClienteDuenio {
             resultado = st.executeQuery();
             cbox_duenios.addItem("Seleccione una opción");
             while (resultado.next()) {
-                controlNacionalidad c = new controlNacionalidad();
+                ControlNacionalidad c = new ControlNacionalidad();
                 c.setID_nacionalidad(resultado.getInt("ID_nacionalidad"));
                 c.setnacionalidad(resultado.getString("nacionalidad"));
                 cbox_duenios.addItem(c);
@@ -444,7 +444,7 @@ public class ClienteDuenio {
             resultado = st.executeQuery();
             cbox_clientet.addItem("Seleccione una opción");
             while (resultado.next()) {
-                tipoCliente d = new tipoCliente();
+                TipoCliente d = new TipoCliente();
                 d.setID_tipoCliente(resultado.getInt("ID_tipoCliente"));
                 d.setTipo_cliente(resultado.getString("tipo_cliente"));
                 cbox_clientet.addItem(d);
@@ -476,7 +476,7 @@ public class ClienteDuenio {
             resultado = st.executeQuery();
             cbox_zona.addItem("Seleccione una opción");
             while (resultado.next()) {
-                controlCodigoZona cz = new controlCodigoZona();
+                ControlCodigoZona cz = new ControlCodigoZona();
                 cz.setID_codigo(resultado.getInt("ID_codigo"));
                 cz.setcodigo_zona(resultado.getInt("codigo_zona"));
                 cbox_zona.addItem(cz);
@@ -533,11 +533,11 @@ public class ClienteDuenio {
         this.nacionalidad_id = nacionalidad_id;
     }
 
-    public controlNacionalidad getNacionalidad2() {
+    public ControlNacionalidad getNacionalidad2() {
         return nacionalidad2;
     }
 
-    public void setNacionalidad2(controlNacionalidad nacionalidad2) {
+    public void setNacionalidad2(ControlNacionalidad nacionalidad2) {
         this.nacionalidad2 = nacionalidad2;
     }
 

@@ -260,7 +260,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
         
     public void ListarNacionalidad(){
-        controlNacionalidad obj = new controlNacionalidad();
+        ControlNacionalidad obj = new ControlNacionalidad();
         obj.CargarNacionalidades(tb_Nacionalidad);
     }
         
@@ -272,7 +272,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         }
         else
         {
-            controlNacionalidad obj = new controlNacionalidad();
+            ControlNacionalidad obj = new ControlNacionalidad();
             obj.setnacionalidad(txtNacionalidad.getText());
             if (obj.guardar())
             {
@@ -293,7 +293,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         else
         {
 
-            controlNacionalidad obj = new controlNacionalidad();
+            ControlNacionalidad obj = new ControlNacionalidad();
             obj.setnacionalidad(txtNacionalidad.getText());
             if (obj.modificar())
             {
@@ -318,7 +318,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     private void btnImprimirNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirNacionalidadActionPerformed
         try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\ReporteNacionalidadSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
@@ -337,7 +337,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         {
             path = getClass().getResource("reportes/Reporte_Nacionalidad_SIGES.jasper").getPath();
             path = URLDecoder.decode(path, "UTF-8");
-            Connection cn = new conexion().conectar();
+            Connection cn = new Conexion().conectar();
             Map parametros = new HashMap();
             JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);

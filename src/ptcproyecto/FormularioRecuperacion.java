@@ -1,6 +1,6 @@
 package ptcproyecto;
 
-import clases.usuarios;
+import clases.Usuarios;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,7 +18,7 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
         CargarCombo();
     }
     public void CargarCombo(){
-        usuarios obj = new usuarios();
+        Usuarios obj = new Usuarios();
         obj.consultarUsuario(cmbUsuario);
         obj.consultarPreguntas(jComboBox2);
     }

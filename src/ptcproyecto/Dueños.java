@@ -1,7 +1,7 @@
 package ptcproyecto;
 
 import clases.*;
-import clases.tipoCliente;
+import clases.TipoCliente;
 import java.net.URLDecoder;
 import java.sql.Connection;
 import java.util.HashMap;
@@ -418,7 +418,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         obj.CargarDuenio(jTable1);
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controlNacionalidad n = new controlNacionalidad();
+        ControlNacionalidad n = new ControlNacionalidad();
         n.Consultar();
         ClienteDuenio obj = new ClienteDuenio();
         int DUI= Integer.parseInt(tfDUI.getText());
@@ -443,7 +443,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         //obj.setFecha_e_DUI(fecha);
         //obj.setFecha_e_DUI(new java.sql.Date(f));
         obj.setFecha_e_DUI(new java.sql.Date(calendar.getDatoFecha().getTime()));
-        controlNacionalidad nac = (controlNacionalidad)cmbNacionalidad.getSelectedItem();
+        ControlNacionalidad nac = (ControlNacionalidad)cmbNacionalidad.getSelectedItem();
         System.out.println("Item " + nac.getID_nacionalidad());
         System.out.println("Item " +cmbNacionalidad.getSelectedObjects().getClass());
         //obj.setNacionalidad(nac.getID_nacionalidad());
@@ -454,11 +454,11 @@ public class Dueños extends javax.swing.JInternalFrame {
         System.out.println("Mascota " + ma.getID_mascota());
         obj.setID_Mascota(ma.getID_mascota());
         
-        tipoCliente ti = (tipoCliente)cmbTipoCliente.getSelectedItem();
+        TipoCliente ti = (TipoCliente)cmbTipoCliente.getSelectedItem();
         System.out.println("Cliente tipo " + ti.getID_tipoCliente());
         obj.setID_tipoCliente(ti.getID_tipoCliente());
         
-        controlCodigoZona coza = (controlCodigoZona)cmbZona.getSelectedItem();
+        ControlCodigoZona coza = (ControlCodigoZona)cmbZona.getSelectedItem();
         System.out.println("Codigo zona " + coza.getID_codigo());
         obj.setCodigo_zona(coza.getID_codigo());
 //        
@@ -489,7 +489,7 @@ public class Dueños extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\ReporteClienteDuenioSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
@@ -508,7 +508,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         {
             path = getClass().getResource("reportes/Reporte_Cliente_Duenio.jasper").getPath();
             path = URLDecoder.decode(path, "UTF-8");
-            Connection cn = new conexion().conectar();
+            Connection cn = new Conexion().conectar();
             Map parametros = new HashMap();
             JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);
@@ -526,7 +526,7 @@ public class Dueños extends javax.swing.JInternalFrame {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;

@@ -5,8 +5,8 @@
  */
 package ptcproyecto;
 
-import clases.conexion;
-import static clases.conexion.conectar;
+import clases.Conexion;
+import static clases.Conexion.conectar;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -303,7 +303,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
     private void btnreporteActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnreporteActionPerformed
         try {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;

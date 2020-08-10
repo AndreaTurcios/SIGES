@@ -9,6 +9,6 @@ package clases;
  *
  * @author Nanos
  */
-public class crud_tipo_consulta {
+public class TipoConsulta {
     
 }

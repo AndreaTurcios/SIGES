@@ -25,7 +25,7 @@ public class Agenda {
     private Integer Citas_Co = 2;
     private Integer Citas_Ca = 3;
       public Agenda(){
-        conexion con = new conexion();
+        Conexion con = new Conexion();
         cn = con.conectar(); 
         Calendar fecha = new GregorianCalendar();
         int año = fecha.get(Calendar.YEAR);

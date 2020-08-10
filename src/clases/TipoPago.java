@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
  *
  * @author Nanos
  */
-public class crud_tipo_pago 
+public class TipoPago 
 {
     private Connection cn;
     private Integer ID_tipoPago;

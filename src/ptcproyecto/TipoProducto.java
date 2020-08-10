@@ -6,8 +6,8 @@
 package ptcproyecto;
 
 
-import clases.tipoProductos;
-import clases.conexion;
+import clases.TipoProductos;
+import clases.Conexion;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -216,7 +216,7 @@ public class TipoProducto extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else {
-            tipoProductos obj = new tipoProductos();
+            TipoProductos obj = new TipoProductos();
             obj.setTipo_Producto(JTTIPO.getText());
             if (obj.guardar()) {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
@@ -234,7 +234,7 @@ public class TipoProducto extends javax.swing.JInternalFrame {
         }
         else{
 
-            tipoProductos obj = new tipoProductos();
+            TipoProductos obj = new TipoProductos();
             obj.setTipo_Producto(JTTIPO.getText());
             if (obj.modificar()) {
                 JOptionPane.showMessageDialog(this, "Datos modificados");
@@ -259,7 +259,7 @@ public class TipoProducto extends javax.swing.JInternalFrame {
     private void JBImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBImprimirActionPerformed
         try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-tipoProducto(D).jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);

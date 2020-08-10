@@ -144,7 +144,7 @@ public class Usuario {
     }
     
     public Usuario() {
-        conexion u = new conexion();
+        Conexion u = new Conexion();
         cn = u.conectar();
     }
     

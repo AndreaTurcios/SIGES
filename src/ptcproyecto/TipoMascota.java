@@ -1,6 +1,6 @@
 package ptcproyecto;
 
-import clases.conexion;
+import clases.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -234,7 +234,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         String tipo_animal = txtTipomascota.getText();
 
         try {
-            Connection cn = conexion.conectar();
+            Connection cn = Conexion.conectar();
             PreparedStatement ps = cn.prepareStatement("INSERT INTO Tipo_mascota (tipo_animal) VALUES(?)");
             ps.setString(1, tipo_animal);
             ps.executeUpdate();
@@ -255,7 +255,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             PreparedStatement ps;
             ResultSet rs;
 
-            Connection cn = conexion.conectar();
+            Connection cn = Conexion.conectar();
             ps = cn.prepareStatement("SELECT  tipo_animal FROM Tipo_mascota WHERE id=?");
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -273,7 +273,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         String tipo_animal = txtTipomascota.getText();
 
         try {
-            Connection cn = conexion.conectar();
+            Connection cn = Conexion.conectar();
             PreparedStatement ps = cn.prepareStatement("UPDATE Tipo_mascota SET tipo_animal=? WHERE id= ?");
 //            ps.setString(1, tipo_animal);
             ps.executeUpdate();
@@ -289,7 +289,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
-            Connection cn = conexion.conectar();
+            Connection cn = Conexion.conectar();
             PreparedStatement ps = cn.prepareStatement("DELETE FROM Tipo_mascota WHERE id= ?");
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro registro eliminado");
@@ -308,7 +308,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
@@ -348,7 +348,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         }
 
         try {
-            Connection cn = conexion.conectar();
+            Connection cn = Conexion.conectar();
             ps = cn.prepareStatement("SELECT ID_tipoMascota, tipo_animal FROM Tipo_mascota ORDER BY ID_tipoMascota");
             rs = ps.executeQuery();
             rsmd = rs.getMetaData();

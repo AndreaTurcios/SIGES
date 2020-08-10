@@ -5,8 +5,8 @@
  */
 package ptcproyecto;
 
-import clases.conexion;
-import clases.controlCodigoZona;
+import clases.Conexion;
+import clases.ControlCodigoZona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -221,7 +221,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
         int codigo_zona = Integer.parseInt (txtcodigozona.getText());
         try
         {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
             PreparedStatement ps = con.prepareStatement("INSERT INTO codigo_zona(codigo_zona) VALUES (?)");
             ps.setInt(1, codigo_zona);
             ps.executeUpdate();
@@ -240,7 +240,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
         int codigo_zona = Integer.parseInt (txtcodigozona.getText());
         try
         {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
             PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona = ? WHERE id = ?");
             ps.setInt(1, codigo_zona);
             ps.executeUpdate();
@@ -262,7 +262,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
 //        int idCodigoZona = Integer.parseInt(txtid.getText());
 //        try
 //        {
-//            Connection con = conexion.conectar();
+//            Connection con = Conexion.conectar();
 //            PreparedStatement ps = con.prepareStatement("DELETE FROM  codigo_zona WHERE id =?");
 //            ps.executeUpdate();
 //            JOptionPane.showMessageDialog(null, "Registro Eliminado");
