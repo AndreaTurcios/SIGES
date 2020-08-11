@@ -52,13 +52,12 @@ public class ControlRespuestas {
     
      public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO respuestas(ID_respuesta, respuesta, ID_pregunta)"+" VALUES (?, ?, ?)";
+        try {String sql = "INSERT INTO respuestas(respuesta, ID_pregunta)"+" VALUES (?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
-        cmd.setInt(1, ID_respuesta);
-        cmd.setString(2, respuesta);
-        cmd.setInt(3,ID_pregunta );
+        cmd.setString(1, respuesta);
+        cmd.setInt(2,ID_pregunta );
         
         if (!cmd.execute()) {
             resp = true;

@@ -443,7 +443,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
 //        obj.setPregunta((Integer) JCBPregunta.getSelectedItem());
 //        obj.setRespuesta(jtfRespuesta.getText());
-        
         if (obj.modificar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
         }else{

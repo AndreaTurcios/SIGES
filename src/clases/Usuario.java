@@ -10,6 +10,7 @@ public class Usuario {
     private Connection cn;
     private Integer ID_usuario;
     private String nombre_usuario;
+    private String nombre_empleado ;
     private String empleado_apellidos ;
 
     public String getEmpleado_apellidos() {
@@ -211,18 +212,17 @@ public class Usuario {
 
     public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO Usuarios(ID_usuario, nombre_usuario, contrasenia_usuario"
+        try {String sql = "INSERT INTO Usuarios(nombre_usuario, contrasenia_usuario"
                 + " nombre_empleado, empleado_apPaterno, empleadoapMaterno, empleado_telefono "
-                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
-        cmd.setInt(1, ID_usuario);
-        cmd.setString(2, nombre_usuario);
-        cmd.setString(3,empleado_apellidos );
-        cmd.setInt(4,telefono);
-        cmd.setString(5, correo);
-        cmd.setString(2, domicilio);
+        cmd.setString(1, nombre_usuario);
+        cmd.setString(2,empleado_apellidos );
+        cmd.setInt(3,telefono);
+        cmd.setString(4, correo);
+        cmd.setString(5, domicilio);
         cmd.setString(6, Usuario);
         cmd.setString(7, Contraseña);
         cmd.setInt(8, ID_tipoUsuario);

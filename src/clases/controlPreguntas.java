@@ -55,13 +55,12 @@ public class controlPreguntas {
     
     public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO preguntas(ID_pregunta, pregunta, ID_usuario)"+" VALUES (?, ?)";
+        try {String sql = "INSERT INTO preguntas(pregunta, ID_usuario)"+" VALUES (?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
-        cmd.setInt(1, ID_pregunta);
-        cmd.setString(2, pregunta);
-        cmd.setInt(3, ID_usuario);
+        cmd.setString(1, pregunta);
+        cmd.setInt(2, ID_usuario);
         
         if (!cmd.execute()) {
             resp = true;

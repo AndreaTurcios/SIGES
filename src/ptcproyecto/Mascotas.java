@@ -383,25 +383,21 @@ public class Mascotas extends javax.swing.JInternalFrame {
         String mascot = String.valueOf(cmbGenero.getSelectedItem());
         obj.setMascota_genero(mascot);
         System.out.println("genero " + obj.getMascota_genero());
-        
         obj.setMascota_razon(tfRazon.getText());
         System.out.println("razon " + obj.getMascota_razon());
         obj.setMascota_medicinas(tfMedicinas.getText());
         System.out.println("medicinas " + obj.getMascota_medicinas());
         obj.setMascota_horarioReserva(tfHorarios.getText());
         System.out.println("horario " + obj.getMascota_horarioReserva());
-       
         tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
         obj.setID_tipoMascota(tima.getID_tipoMascota());
         System.out.println("tipo mascota " + tima.getID_tipoMascota());
-        
         System.out.println("guardar mascota " + obj.guardarMascota(obj));
         if (obj.guardarMascota(obj)) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarMascota();
            }else{ 
-           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
-      
+           ListarMascota();
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
