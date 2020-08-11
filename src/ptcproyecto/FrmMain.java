@@ -67,6 +67,16 @@ public class FrmMain extends javax.swing.JFrame {
         panelArriba.setBackground(new java.awt.Color(255, 255, 255));
         panelArriba.setMaximumSize(new java.awt.Dimension(32767, 32780));
         panelArriba.setPreferredSize(new java.awt.Dimension(661, 623));
+        panelArriba.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panelArribaMouseDragged(evt);
+            }
+        });
+        panelArriba.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelArribaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelArribaLayout = new javax.swing.GroupLayout(panelArriba);
         panelArriba.setLayout(panelArribaLayout);
@@ -82,6 +92,21 @@ public class FrmMain extends javax.swing.JFrame {
         kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel1.setkGradientFocus(600);
         kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
+        kGradientPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MouseDragged(evt);
+            }
+        });
+        kGradientPanel1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                kGradientPanel1MouseWheelMoved(evt);
+            }
+        });
+        kGradientPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MousePressed(evt);
+            }
+        });
 
         btnCerrar.setBackground(new java.awt.Color(255, 102, 102));
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
@@ -108,6 +133,16 @@ public class FrmMain extends javax.swing.JFrame {
         kGradientPanel2.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel2.setkGradientFocus(50);
         kGradientPanel2.setkStartColor(new java.awt.Color(1, 163, 201));
+        kGradientPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kGradientPanel2MouseDragged(evt);
+            }
+        });
+        kGradientPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                kGradientPanel2MouseClicked(evt);
+            }
+        });
 
         jLabel0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/person_icon-icons.com_50075.png"))); // NOI18N
         jLabel0.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -892,6 +927,46 @@ public class FrmMain extends javax.swing.JFrame {
         panelArriba.add(fich);
         fich.show();
     }//GEN-LAST:event_btntipoCliente1MouseClicked
+ int xx,xy;
+    private void kGradientPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MousePressed
+        xy=evt.getX();
+        xy=evt.getY();
+    }//GEN-LAST:event_kGradientPanel1MousePressed
+
+    private void kGradientPanel1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseWheelMoved
+       
+    }//GEN-LAST:event_kGradientPanel1MouseWheelMoved
+
+    private void kGradientPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseDragged
+        int x = evt.getXOnScreen();
+       int y = evt.getYOnScreen();
+       
+       this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_kGradientPanel1MouseDragged
+
+    private void kGradientPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel2MouseClicked
+        xy=evt.getX();
+        xy=evt.getY();
+    }//GEN-LAST:event_kGradientPanel2MouseClicked
+
+    private void kGradientPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel2MouseDragged
+        int x = evt.getXOnScreen();
+       int y = evt.getYOnScreen();
+       
+       this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_kGradientPanel2MouseDragged
+
+    private void panelArribaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelArribaMouseClicked
+        xy=evt.getX();
+        xy=evt.getY();
+    }//GEN-LAST:event_panelArribaMouseClicked
+
+    private void panelArribaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelArribaMouseDragged
+        int x = evt.getXOnScreen();
+       int y = evt.getYOnScreen();
+       
+       this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_panelArribaMouseDragged
         
         
     /**
