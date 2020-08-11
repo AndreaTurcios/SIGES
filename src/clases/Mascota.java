@@ -200,7 +200,7 @@ public class Mascota {
         boolean resp = false;
         try{//realizando consulta insert
             String sql = "INSERT INTO Mascota (nombre_mascota=?, mascota_genero=?, " 
-            + "mascota_razon=?, mascota_medicinas=?, mascota_horarioReserva=?)"+"VALUES(?,?,?,?,?,?)";
+            + "mascota_razon=?, mascota_medicinas=?, mascota_horarioReserva=?)"+"VALUES(?,?,?,?,?,?,?)";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setString(1, a.nombre_mascota );
             cmd.setString(2, a.mascota_genero );

@@ -87,14 +87,13 @@ public class Mascotas extends javax.swing.JInternalFrame {
         btnModificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        rbF = new javax.swing.JRadioButton();
-        rbM = new javax.swing.JRadioButton();
         tipo_mascota = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        cmbGenero = new javax.swing.JComboBox<>();
 
         setBorder(null);
 
@@ -186,14 +185,6 @@ public class Mascotas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        rbF.setBackground(new java.awt.Color(153, 204, 255));
-        GeneroBtnG.add(rbF);
-        rbF.setText("F");
-
-        rbM.setBackground(new java.awt.Color(153, 204, 255));
-        GeneroBtnG.add(rbM);
-        rbM.setText("M");
-
         tipo_mascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipo_mascotaActionPerformed(evt);
@@ -227,6 +218,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+
+        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "F", "M" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -267,16 +260,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2)
                                         .addComponent(jLabel3))
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(85, 85, 85)
-                                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(116, 116, 116)
-                                            .addComponent(rbF)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(rbM)
-                                            .addGap(45, 45, 45))))
+                                    .addGap(85, 85, 85)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4)
@@ -302,8 +289,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(rbF)
-                    .addComponent(rbM))
+                    .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -383,21 +369,32 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Mascota obj = new Mascota();
         obj.setNombre_mascota(tfNombre.getText());
-        if (rbF.isSelected()) {
-            obj.setMascota_genero("F");
-            System.out.println("genero mascota " + obj.getMascota_genero());
-        }else{ 
-           if (rbM.isSelected()) {
-            obj.setMascota_genero("M"); 
-            System.out.println("genero mascota " + obj.getMascota_genero());
-        }  
-           }
+        System.out.println("genero " + obj.getMascota_genero());
+//        if (rbF.isSelected()) {
+//            obj.setMascota_genero("F");
+//            System.out.println("genero mascota " + obj.getMascota_genero());
+//        }else{ 
+//           if (rbM.isSelected()) {
+//            obj.setMascota_genero("M"); 
+//            System.out.println("genero mascota " + obj.getMascota_genero());
+//        }  
+//           }
+        String mascot = String.valueOf(cmbGenero.getSelectedItem());
+        System.out.println("genero " + obj.getMascota_genero());
+        obj.setMascota_genero(mascot);
+        
+        System.out.println("genero " + obj.getMascota_genero());
         obj.setMascota_razon(tfRazon.getText());
+        System.out.println("razon " + obj.getMascota_razon());
         obj.setMascota_medicinas(tfMedicinas.getText());
+        System.out.println("medicinas " + obj.getMascota_medicinas());
         obj.setMascota_horarioReserva(tfHorarios.getText());
-        obj.setID_tipoMascota(tipo_mascota.getSelectedIndex()); 
-        System.out.println("Tipo mascota " + obj.getID_tipoMascota());
-        obj.setID_tipoMascota(obj.getID_tipoMascota());
+        System.out.println("tipo mascota " + obj.getMascota_horarioReserva());
+       
+        tipoMascota tipm = (tipoMascota)tipo_mascota.getSelectedItem();
+        System.out.println("tipo mascota " + tipm.getID_tipoMascota());
+        obj.setID_tipoMascota(tipm.getID_tipoMascota());
+        
         System.out.println("guardar mascota " + obj.guardarMascota(obj));
         if (obj.guardarMascota(obj)) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
@@ -414,18 +411,20 @@ public class Mascotas extends javax.swing.JInternalFrame {
     obj.setMascota_razon(tfRazon.getText());
     obj.setMascota_medicinas(tfMedicinas.getText());
     obj.setMascota_horarioReserva(tfHorarios.getText());
-        if (rbF.isSelected()) {
-            obj.setMascota_genero("F");
-        }else{ 
-           if (rbM.isSelected()) {
-            obj.setMascota_genero("M"); 
-        } else{ JOptionPane.showMessageDialog(this,"Debe seleccionar el genero de la mascota"); }  
+//        if (rbF.isSelected()) {
+//            obj.setMascota_genero("F");
+//        }else{ 
+//           if (rbM.isSelected()) {
+//            obj.setMascota_genero("M"); 
+//        } else{ JOptionPane.showMessageDialog(this,"Debe seleccionar el genero de la mascota"); 
+//           }  
           
            if (obj.modificarMascota()) {
             JOptionPane.showMessageDialog(this,"Datos modificados"); 
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al modificar la informacion"); 
-          }  
+          
+           
            }  
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -513,6 +512,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JComboBox<String> cmbGenero;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -525,8 +525,6 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JRadioButton rbF;
-    private javax.swing.JRadioButton rbM;
     private javax.swing.JTextField tfHorarios;
     private javax.swing.JTextField tfMedicinas;
     private javax.swing.JTextField tfNombre;
