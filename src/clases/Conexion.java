@@ -9,7 +9,7 @@ public class Conexion {
         Connection con=null;
         try
         {
-            //QUEDATE QUIETA >:V
+            //QUEDATE QUIETA >:V 
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
             con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-TL45EU4\\SQLEXPRESS;"
