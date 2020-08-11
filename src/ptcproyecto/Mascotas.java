@@ -383,25 +383,29 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Mascota obj = new Mascota();
         obj.setNombre_mascota(tfNombre.getText());
+        if (rbF.isSelected()) {
+            obj.setMascota_genero("F");
+            System.out.println("genero mascota " + obj.getMascota_genero());
+        }else{ 
+           if (rbM.isSelected()) {
+            obj.setMascota_genero("M"); 
+            System.out.println("genero mascota " + obj.getMascota_genero());
+        }  
+           }
         obj.setMascota_razon(tfRazon.getText());
         obj.setMascota_medicinas(tfMedicinas.getText());
         obj.setMascota_horarioReserva(tfHorarios.getText());
         obj.setID_tipoMascota(tipo_mascota.getSelectedIndex()); 
-        obj.setMascota_genero("F");
-        JOptionPane.showMessageDialog(this,"Pasamos de los obj"); 
-        if (rbF.isSelected()) {
-            obj.setMascota_genero("F");
-            JOptionPane.showMessageDialog(this,"Genero F"); 
-        }else{ if (rbM.isSelected()) {
-            obj.setMascota_genero("M"); 
-        } else{ JOptionPane.showMessageDialog(this,"Debe seleccionar el genero de la mascota"); }  
-        JOptionPane.showMessageDialog(this,"Casi llegamos a if"); 
+        System.out.println("Tipo mascota " + obj.getID_tipoMascota());
+        obj.setID_tipoMascota(obj.getID_tipoMascota());
+        System.out.println("guardar mascota " + obj.guardarMascota(obj));
         if (obj.guardarMascota(obj)) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           ListarMascota();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+      
         }
-      }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
