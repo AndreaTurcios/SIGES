@@ -60,7 +60,7 @@ public class primerUso extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jtbModificar = new javax.swing.JToggleButton();
         jtbGuardar = new javax.swing.JToggleButton();
-        jtbConsultar = new javax.swing.JToggleButton();
+        btnEliminar = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         BtnCerrar = new javax.swing.JButton();
@@ -270,12 +270,12 @@ public class primerUso extends javax.swing.JFrame {
             }
         });
 
-        jtbConsultar.setBackground(new java.awt.Color(0, 153, 153));
-        jtbConsultar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jtbConsultar.setText("Consultar");
-        jtbConsultar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setBackground(new java.awt.Color(0, 153, 153));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbConsultarActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -287,7 +287,7 @@ public class primerUso extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
-                .addComponent(jtbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(84, 84, 84)
                 .addComponent(jtbModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                 .addGap(62, 62, 62))
@@ -298,7 +298,7 @@ public class primerUso extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtbGuardar)
-                    .addComponent(jtbConsultar)
+                    .addComponent(btnEliminar)
                     .addComponent(jtbModificar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -492,23 +492,23 @@ public class primerUso extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
-    private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
-        Usuario obj = new Usuario();
-        if (obj.Consultar()) {
-            obj.setNombre_usuario(jtfNombre.getText());
-            obj.setEmpleado_apellidos(jtfApellido.getText());
-            obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
-            obj.setCorreo(jtfEmail.getText());
-            obj.setDomicilio(jtfDireccion.getText());
-            obj.setUsuario(jtfUsuario.getText());
-            obj.setContraseña(jtfContraseña.getText());
-            obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
-            //        obj.setPregunta((Integer) JCBPregunta.getSelectedItem());
-            //        obj.setRespuesta(jtfRespuesta.getText());
-        }else{
-            JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
-        }
-    }//GEN-LAST:event_jtbConsultarActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+//        Usuario obj = new Usuario();
+//        if (obj.Consultar()) {
+//            obj.setNombre_usuario(jtfNombre.getText());
+//            obj.setEmpleado_apellidos(jtfApellido.getText());
+//            obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
+//            obj.setCorreo(jtfEmail.getText());
+//            obj.setDomicilio(jtfDireccion.getText());
+//            obj.setUsuario(jtfUsuario.getText());
+//            obj.setContraseña(jtfContraseña.getText());
+//            obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
+//            //        obj.setPregunta((Integer) JCBPregunta.getSelectedItem());
+//            //        obj.setRespuesta(jtfRespuesta.getText());
+//        }else{
+//            JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
+//        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
@@ -563,6 +563,7 @@ public class primerUso extends javax.swing.JFrame {
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JComboBox<String> JCBPregunta;
     private javax.swing.JComboBox<String> JCBcargoE;
+    private javax.swing.JToggleButton btnEliminar;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -579,7 +580,6 @@ public class primerUso extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JToggleButton jtbConsultar;
     private javax.swing.JToggleButton jtbGuardar;
     private javax.swing.JToggleButton jtbModificar;
     private javax.swing.JTextField jtfApellido;
