@@ -131,8 +131,9 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel17.setBackground(new java.awt.Color(51, 51, 51));
         jLabel17.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(240, 240, 240));
         jLabel17.setText("   Ficha clínica");
-        jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel17MouseClicked(evt);
@@ -140,18 +141,19 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         btntipoCliente.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        btntipoCliente.setForeground(new java.awt.Color(240, 240, 240));
         btntipoCliente.setText("   Tipo cliente");
-        btntipoCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btntipoCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 1, true));
         btntipoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btntipoClienteMouseClicked(evt);
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
         jLabel2.setText("   Agenda");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel2.setMaximumSize(new java.awt.Dimension(95, 20));
         jLabel2.setMinimumSize(new java.awt.Dimension(95, 20));
         jLabel2.setPreferredSize(new java.awt.Dimension(95, 20));
@@ -162,8 +164,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel16.setText("Tipo empleado");
-        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel16.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel16.setText("  Tipo empleado");
+        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel16.setMaximumSize(new java.awt.Dimension(95, 20));
         jLabel16.setMinimumSize(new java.awt.Dimension(95, 20));
         jLabel16.setPreferredSize(new java.awt.Dimension(95, 20));
@@ -174,8 +177,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(240, 240, 240));
         jLabel4.setText("   Citas");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel4.setMaximumSize(new java.awt.Dimension(95, 20));
         jLabel4.setMinimumSize(new java.awt.Dimension(95, 20));
         jLabel4.setPreferredSize(new java.awt.Dimension(95, 20));
@@ -186,8 +190,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel15.setText(" Tipo cita");
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel15.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel15.setText("  Tipo cita");
+        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel15.setMaximumSize(new java.awt.Dimension(95, 20));
         jLabel15.setMinimumSize(new java.awt.Dimension(95, 20));
         jLabel15.setPreferredSize(new java.awt.Dimension(95, 20));
@@ -198,8 +203,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(240, 240, 240));
         jLabel5.setText("  Consultas");
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel5.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel5.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel5.setName(""); // NOI18N
@@ -211,8 +217,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         btntipoCliente1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        btntipoCliente1.setText(" Tipo consultas");
-        btntipoCliente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btntipoCliente1.setForeground(new java.awt.Color(240, 240, 240));
+        btntipoCliente1.setText("  Tipo consultas");
+        btntipoCliente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         btntipoCliente1.setMaximumSize(new java.awt.Dimension(95, 20));
         btntipoCliente1.setMinimumSize(new java.awt.Dimension(95, 20));
         btntipoCliente1.setPreferredSize(new java.awt.Dimension(95, 20));
@@ -223,8 +230,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel12.setText(" Tipo pago");
-        jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLabel12.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel12.setText("  Tipo pago");
+        jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 1, true));
         jLabel12.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel12.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel12.setPreferredSize(new java.awt.Dimension(159, 20));
@@ -235,8 +243,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel6.setText("Dueños");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel6.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel6.setText("  Dueños");
+        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel6.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel6.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel6.setName(""); // NOI18N
@@ -248,8 +257,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel7.setText("Mascotas");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel7.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel7.setText("  Mascotas");
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel7.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel7.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel7.setName(""); // NOI18N
@@ -261,8 +271,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel8.setText(" Tipo mascota");
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLabel8.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel8.setText("  Tipo mascota");
+        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 1, true));
         jLabel8.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel8.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel8.setName(""); // NOI18N
@@ -274,8 +285,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel13.setText(" Tipo producto");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel13.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel13.setText("  Tipo producto");
+        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -283,8 +295,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
         jLabel3.setText("   Productos");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel3.setMaximumSize(new java.awt.Dimension(95, 20));
         jLabel3.setMinimumSize(new java.awt.Dimension(95, 20));
         jLabel3.setName(""); // NOI18N
@@ -296,8 +309,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(240, 240, 240));
         jLabel9.setText("    Usuarios");
-        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel9.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel9.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel9.setName(""); // NOI18N
@@ -309,8 +323,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jLabel14.setText(" Codigo zona");
-        jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLabel14.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel14.setText("  Codigo zona");
+        jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 1, true));
         jLabel14.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel14.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel14.setPreferredSize(new java.awt.Dimension(159, 20));
@@ -321,8 +336,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("   Nacionalidad");
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jLabel11.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel11.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel11.setPreferredSize(new java.awt.Dimension(159, 20));
@@ -333,8 +349,9 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(240, 240, 240));
         jLabel10.setText("   Preguntas");
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240)));
         jLabel10.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel10.setMinimumSize(new java.awt.Dimension(159, 20));
         jLabel10.setName(""); // NOI18N
