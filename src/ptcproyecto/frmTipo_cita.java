@@ -6,7 +6,7 @@
 package ptcproyecto;
 
 import clases.Tipocita;
-import clases.conexion;
+import clases.Conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -250,7 +250,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
 
     private void jtbImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbImprimirActionPerformed
         try {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;

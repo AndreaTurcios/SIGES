@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import ptcproyecto.FrmMain;
-import clases.conexion;
+import clases.Conexion;
 
 
 public class LoginMetodo {
@@ -22,7 +22,7 @@ public class LoginMetodo {
     
     public LoginMetodo() {
         //estableciendo la conexion
-       conexion con = new conexion();
+       Conexion con = new Conexion();
        cn = con.conectar();
        }
     public Date getCita_fecha() {
@@ -225,7 +225,7 @@ public class LoginMetodo {
             consulta = "Select * from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
 
             PreparedStatement Prepared;
-            conexion con = new conexion();
+            Conexion con = new Conexion();
 
             Prepared = con.conectar().prepareStatement(consulta);
             Prepared.setString(1, usuario);

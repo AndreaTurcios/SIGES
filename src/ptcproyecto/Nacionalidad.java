@@ -318,7 +318,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     private void btnImprimirNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirNacionalidadActionPerformed
         try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\ReporteNacionalidadSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);

@@ -371,7 +371,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
     private void btnMostrar_ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_ConsultaActionPerformed
         try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\ReporteBaseSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);

@@ -7,7 +7,7 @@ package ptcproyecto;
 
 
 import clases.tipoProductos;
-import clases.conexion;
+import clases.Conexion;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -259,7 +259,7 @@ public class TipoProducto extends javax.swing.JInternalFrame {
     private void JBImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBImprimirActionPerformed
         try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-tipoProducto(D).jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);

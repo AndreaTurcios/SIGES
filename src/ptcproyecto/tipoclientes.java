@@ -5,7 +5,7 @@
  */
 package ptcproyecto;
 
-import clases.conexion;
+import clases.Conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,7 +70,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
             //            Connection conn = con.getConexion();
 
             JasperReport reporte = null;

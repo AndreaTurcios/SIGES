@@ -489,7 +489,7 @@ public class Dueños extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\ReporteClienteDuenioSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
@@ -526,7 +526,7 @@ public class Dueños extends javax.swing.JInternalFrame {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;

@@ -1,6 +1,6 @@
 package ptcproyecto;
 
-import clases.conexion;
+import clases.Conexion;
 import clases.LoginMetodo;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-    conexion cc =new conexion();
+    Conexion cc =new Conexion();
     Connection con = cc.conectar();
     public Login() {
         initComponents();

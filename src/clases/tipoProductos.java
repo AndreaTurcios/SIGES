@@ -1,5 +1,5 @@
 package clases;
-import clases.conexion;
+import clases.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +32,7 @@ public class tipoProductos {
     }
     
     public tipoProductos(){
-        conexion con = new conexion();
+        Conexion con = new Conexion();
         cn = con.conectar();
     }
     

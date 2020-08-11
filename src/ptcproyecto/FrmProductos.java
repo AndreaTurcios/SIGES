@@ -3,7 +3,7 @@ package ptcproyecto;
 
 import clases.CargarTipoProducto;
 import clases.MtoProductos;
-import clases.conexion;
+import clases.Conexion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -453,7 +453,7 @@ public class FrmProductos extends javax.swing.JFrame {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
 //            java.sql.Connection conn = con.getConexion();
             
             JasperReport reporte = null;

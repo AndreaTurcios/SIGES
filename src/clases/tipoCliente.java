@@ -13,7 +13,7 @@ import java.sql.Connection;
  */
 public class tipoCliente {
     private Connection cn;
-    private conexion conexion;
+    private Conexion conexion;
     private Integer ID_tipoCliente;
     private String tipo_cliente;
 
@@ -25,11 +25,11 @@ public class tipoCliente {
         this.cn = cn;
     }
 
-    public conexion getConexion() {
+    public Conexion getConexion() {
         return conexion;
     }
 
-    public void setConexion(conexion conexion) {
+    public void setConexion(Conexion conexion) {
         this.conexion = conexion;
     }
 

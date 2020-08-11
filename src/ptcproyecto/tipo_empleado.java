@@ -5,7 +5,7 @@
  */
 package ptcproyecto;
 
-import clases.conexion;
+import clases.Conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,7 +69,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
          try {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;

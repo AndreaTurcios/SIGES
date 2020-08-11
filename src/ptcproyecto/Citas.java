@@ -5,7 +5,7 @@
  */
 package ptcproyecto;
 import clases.Cita;
-import clases.conexion;
+import clases.Conexion;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.Date;
@@ -274,7 +274,7 @@ public class Citas extends javax.swing.JInternalFrame {
     private void JbtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnImprimirActionPerformed
          try 
         {
-            java.sql.Connection con = conexion.conectar();
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-cita(D).jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
@@ -291,7 +291,7 @@ public class Citas extends javax.swing.JInternalFrame {
 
     private void JbtnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnModificar1ActionPerformed
         try {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;

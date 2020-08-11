@@ -31,7 +31,7 @@ public class ClienteDuenio {
     
     public ClienteDuenio() {
         //estableciendo la conexion 
-       clases.conexion con = new clases.conexion();
+       clases.Conexion con = new clases.Conexion();
        cn = con.conectar();
        }
     public String getDuenio_nombre() {

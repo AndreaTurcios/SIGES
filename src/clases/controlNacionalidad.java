@@ -56,7 +56,7 @@ public class controlNacionalidad
     }
     
     public controlNacionalidad() {
-    conexion o = new conexion();
+    Conexion o = new Conexion();
     Con = o.conectar();
     }
 

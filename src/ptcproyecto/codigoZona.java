@@ -5,7 +5,7 @@
  */
 package ptcproyecto;
 
-import clases.conexion;
+import clases.Conexion;
 import clases.controlCodigoZona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -221,7 +221,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
         int codigo_zona = Integer.parseInt (txtcodigozona.getText());
         try
         {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
             PreparedStatement ps = con.prepareStatement("INSERT INTO codigo_zona(codigo_zona) VALUES (?)");
             ps.setInt(1, codigo_zona);
             ps.executeUpdate();
@@ -240,7 +240,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
         int codigo_zona = Integer.parseInt (txtcodigozona.getText());
         try
         {
-            Connection con = conexion.conectar();
+            Connection con = Conexion.conectar();
             PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona = ? WHERE id = ?");
             ps.setInt(1, codigo_zona);
             ps.executeUpdate();
