@@ -380,10 +380,9 @@ public class Mascotas extends javax.swing.JInternalFrame {
 //        }  
 //           }
         String mascot = String.valueOf(cmbGenero.getSelectedItem());
-        System.out.println("genero " + obj.getMascota_genero());
         obj.setMascota_genero(mascot);
-        
         System.out.println("genero " + obj.getMascota_genero());
+        
         obj.setMascota_razon(tfRazon.getText());
         System.out.println("razon " + obj.getMascota_razon());
         obj.setMascota_medicinas(tfMedicinas.getText());
