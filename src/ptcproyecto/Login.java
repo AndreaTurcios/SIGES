@@ -90,6 +90,16 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 0, 255));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         jLabel2.setText("Usuario");
@@ -181,6 +191,16 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 204, 255));
         jPanel2.setAutoscrolls(true);
+        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel2MouseDragged(evt);
+            }
+        });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(75, 165, 195));
 
@@ -382,6 +402,30 @@ public class Login extends javax.swing.JFrame {
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         // TODO add your handling code here:z
     }//GEN-LAST:event_btnIngresarMouseClicked
+ int xx,xy;
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+       xy=evt.getX();
+        xy=evt.getY();
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+       int x = evt.getXOnScreen();
+       int y = evt.getYOnScreen();
+       
+       this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        xy=evt.getX();
+        xy=evt.getY();
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+       int x = evt.getXOnScreen();
+       int y = evt.getYOnScreen();
+       
+       this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_jPanel2MouseDragged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
