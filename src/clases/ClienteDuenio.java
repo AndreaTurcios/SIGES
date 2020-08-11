@@ -416,7 +416,7 @@ public class ClienteDuenio {
                 m.setID_mascota(resultado.getInt("ID_mascota"));
                 m.setNombre_mascota(resultado.getString("nombre_mascota"));
                 cboxMascota.addItem(m);
-                JOptionPane.showMessageDialog(null, "es "+m);
+//                JOptionPane.showMessageDialog(null, "es "+m);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
