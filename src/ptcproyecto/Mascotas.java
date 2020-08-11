@@ -397,6 +397,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarMascota();
            }else{ 
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarMascota();
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
