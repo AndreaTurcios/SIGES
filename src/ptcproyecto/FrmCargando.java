@@ -46,7 +46,7 @@ public class FrmCargando extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(barraprogreso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 390, -1));
+        getContentPane().add(barraprogreso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 194, 390, 30));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Dubai Light", 1, 24)); // NOI18N
