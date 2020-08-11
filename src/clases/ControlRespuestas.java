@@ -6,6 +6,7 @@
 package clases;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -47,5 +48,26 @@ public class ControlRespuestas {
 
     public void setID_pregunta(Integer ID_pregunta) {
         this.ID_pregunta = ID_pregunta;
+    }
+    
+     public boolean guardar() {
+        boolean resp = false;
+        try {String sql = "INSERT INTO respuestas(ID_respuesta, respuesta, ID_pregunta)"+" VALUES (?, ?, ?)";
+        
+        PreparedStatement cmd = cn.prepareStatement(sql);
+        
+        cmd.setInt(1, ID_respuesta);
+        cmd.setString(2, respuesta);
+        cmd.setInt(3,ID_pregunta );
+        
+        if (!cmd.execute()) {
+            resp = true;
+        }
+        cmd.close();
+        cn.close();
+        }catch(Exception e) {
+            System.out.println(e.toString());
+        }
+        return resp;
     }
 }

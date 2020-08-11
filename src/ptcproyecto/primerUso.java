@@ -466,14 +466,29 @@ public class primerUso extends javax.swing.JFrame {
         controlPreguntas preg = (controlPreguntas)JCBPregunta.getSelectedItem();
         System.out.println("Item " + preg.getID_pregunta());
         System.out.println("Item " +JCBPregunta.getSelectedObjects().getClass());
-        conPreg.setID_pregunta(preg.getID_usuario());
+        conPreg.setID_usuario(obj.getId_usuario());
+        conPreg.setID_pregunta(preg.getID_pregunta());
          //respuesta 10
        resp.setRespuesta(jtfRespuesta.getText());
        resp.setID_pregunta(conPreg.getID_pregunta());
-        if (obj.guardar()) {
-            JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
+       //pregunta
+        if (preg.guardar()) {
+            JOptionPane.showMessageDialog(this, "Los datos han sido guardados preguntas");
         }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+            JOptionPane.showMessageDialog(this, "Error al guardar los datos preguntas");
+        }
+        //respuesta
+        if (resp.guardar()) {
+           JOptionPane.showMessageDialog(this, "Los datos han sido guardados respuestas");
+        }else{
+            JOptionPane.showMessageDialog(this, "Error al guardar los datos respuestas");
+        } 
+        //usuario
+        if (obj.guardar()) {
+            JOptionPane.showMessageDialog(this, "Los datos han sido guardados usuario");
+            ListarUsuarios();
+        }else{
+            JOptionPane.showMessageDialog(this, "Error al guardar los datos usuario");
         }
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
