@@ -2,6 +2,8 @@ package ptcproyecto;
 
 import clases.Conexion;
 import clases.LoginMetodo;
+import clases.usuarios;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -136,6 +138,11 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         txtContrasenia.setBorder(null);
+        txtContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContraseniaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -426,6 +433,10 @@ public class Login extends javax.swing.JFrame {
        
        this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel2MouseDragged
+
+    private void txtContraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseniaKeyPressed
+       
+    }//GEN-LAST:event_txtContraseniaKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

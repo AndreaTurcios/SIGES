@@ -103,7 +103,22 @@ public class usuarios {
     public void setcontrasenia_usuario(String contrasenia_usuario){
         this.contrasenia_usuario = contrasenia_usuario;
     }
-
+    public String md5(String md5){
+       try{
+           java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+           byte[] array = md.digest(md5.getBytes());
+           StringBuffer sb = new StringBuffer();  
+           for (int i = 0; i < array.length; i++) {
+               sb.append(Integer.toHexString((array[i] & 0xFF ) | 0x100).substring(1,3));
+           }
+           return sb.toString();
+       }catch(java.security.NoSuchAlgorithmException c){
+           
+       }
+    return null;
+    }
+    
+    
     public boolean guardar() {
         boolean resp = false;
         try {String sql = "INSERT INTO Usuarios(ID_usuario, nombre_usuario, contrasenia_usuario"
@@ -137,6 +152,37 @@ public class usuarios {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     Pool metodospool = new Pool();
+    public void consultarCargos (JComboBox cbox_cargos) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_tipoUsuarios, tipo_empleado FROM Tipo_usuarios ORDER BY ID_tipoUsuarios";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_cargos.addItem("Seleccione una opcion");
+            while (resultado.next()) {
+                TipoUsuario tipouser = new TipoUsuario();
+                tipouser.setID_usuario(resultado.getInt("ID_tipoUsuarios"));
+                tipouser.setTipo_empleado(resultado.getString("tipo_empleado"));
+                cbox_cargos.addItem(tipouser);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+         }
+            }
+        }
+            
     public void consultarPreguntas (JComboBox cbox_preguntas) {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
