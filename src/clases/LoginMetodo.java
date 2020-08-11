@@ -21,7 +21,7 @@ public class LoginMetodo {
     private Integer ID_tipoCita;
     
     public LoginMetodo() {
-        //estableciendo la Conexion
+        //estableciendo la conexion
        conexion con = new conexion();
        cn = con.conectar();
        }
@@ -73,7 +73,7 @@ public class LoginMetodo {
 //        String Sentencia_Guardar = ("INSERT INTO Usuarios (nombre_usuario, contrasenia_usuario, nombre_empleado, empleado_apMaterno, empleado_apPaterno, empleado_telefono, empleado_domicilio, empleado_correo, foto_empleado) VALUES (?,?,?,?,?,?,?,?,?)");
 //        try 
 //        {
-//            conexion_UC1 = Conexion.conectar();
+//            conexion_UC1 = conexion.conectar();
 //            sentencia_preparada = conexion_UC1.prepareStatement(Sentencia_Guardar);
 //            sentencia_preparada.setString(1, nombre_usuario);
 //            sentencia_preparada.setString(2, contrasenia_usuario);
@@ -111,7 +111,7 @@ public class LoginMetodo {
 //        Connection conexion_UC1 = null;
 //        try 
 //        {
-//            conexion_UC1= Conexion.conectar();
+//            conexion_UC1= conexion.conectar();
 //            String Sentencia_Buscar_Nombre = ("SELECT nombre_empleado, empleado_apMaterno, empleado_apPaterno FROM Usuarios WHERE nombre_usuario = '"+nombre_usuario+"'");
 //            sentencia_preparada = conexion_UC1.prepareStatement(Sentencia_Buscar_Nombre);
 //            resultado = sentencia_preparada.executeQuery();
@@ -149,7 +149,7 @@ public class LoginMetodo {
 //        Connection conexion_UC1 = null;
 //        try 
 //        {
-//            conexion_UC1 = Conexion.conectar();
+//            conexion_UC1 = conexion.conectar();
 //            String Sentencia_Buscar_Usuario = ("SELECT nombre_usuario, contrasenia_usuario, nombre_empleado FROM Usuarios WHERE nombre_usuario = '"+nombre_usuario+"' && contrasenia_usuario = '"+contrasenia_usuario+"'");
 //            sentencia_preparada = conexion_UC1.prepareStatement(Sentencia_Buscar_Usuario);
 //            resultado = sentencia_preparada.executeQuery();
@@ -185,7 +185,7 @@ public class LoginMetodo {
 //        Connection conexion_UC1 = null;
 //        try 
 //        {
-//            conexion_UC1 = Conexion.conectar();
+//            conexion_UC1 = conexion.conectar();
 //            String Sentencia_Buscar_Usuario = ("SELECT nombre_usuario, contrasenia_usuario, nombre_empleado FROM Usuarios WHERE nombre_usuario = '"+nombre_usuario+"' && contrasenia_usuario = '"+contrasenia_usuario+"'");
 //            sentencia_preparada = conexion_UC1.prepareStatement(Sentencia_Buscar_Usuario);
 //            resultado = sentencia_preparada.executeQuery();

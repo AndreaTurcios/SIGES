@@ -6,7 +6,7 @@
 package ptcproyecto;
 
 import clases.conexion;
-import clases.ControlCodigoZona;
+import clases.controlCodigoZona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -26,6 +26,14 @@ public class controlNacionalidad
     }
     private Integer ID_nacionalidad;
     private String nacionalidad;
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
     
     public Integer getID_nacionalidad()
     {

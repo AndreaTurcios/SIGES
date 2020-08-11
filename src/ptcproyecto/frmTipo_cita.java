@@ -5,7 +5,7 @@
  */
 package ptcproyecto;
 
-import clases.TipoCita;
+import clases.Tipocita;
 import clases.conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
@@ -215,7 +215,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
-        TipoCita obj = new TipoCita();
+        Tipocita obj = new Tipocita();
         obj.settipo_cita(jtfTipocita.getText());
         if (obj.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
@@ -225,7 +225,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
     private void jtbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbModificarActionPerformed
-        TipoCita obj = new TipoCita();
+        Tipocita obj = new Tipocita();
         obj.settipo_cita(jtfTipocita.getText());
 
         if (obj.modificar()) {
@@ -236,7 +236,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtbModificarActionPerformed
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
-        TipoCita obj = new TipoCita();
+        Tipocita obj = new Tipocita();
         if (obj.Consultar()) {
            obj.settipo_cita(jtfTipocita.getText());
         }else{

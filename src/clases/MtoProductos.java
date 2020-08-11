@@ -54,7 +54,7 @@ public class MtoProductos {
             if (!cmd.execute()) {
                 resp = true;
             }
-            //cerrando Conexion
+            //cerrando conexion
             cmd.close();
             cn.close();            
         }

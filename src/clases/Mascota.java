@@ -100,7 +100,7 @@ public class Mascota {
             resultado = st.executeQuery();
             cbox_mascotat.addItem("Seleccione una opción");
             while (resultado.next()) {
-                TipoMascota tm = new TipoMascota();
+                tipoMascota tm = new tipoMascota();
                 tm.setID_tipoMascota(resultado.getInt("ID_tipoMascota"));
                 tm.setTipo_animal(resultado.getString("tipo_animal"));
                 cbox_mascotat.addItem(tm);
@@ -151,7 +151,7 @@ public class Mascota {
     }
     
     public Mascota() {
-        //estableciendo la Conexion 
+        //estableciendo la conexion 
        clases.conexion con = new clases.conexion();
        cn = con.conectar();
        }

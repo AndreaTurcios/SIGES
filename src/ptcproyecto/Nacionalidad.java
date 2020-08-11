@@ -260,7 +260,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
         
     public void ListarNacionalidad(){
-        ControlNacionalidad obj = new ControlNacionalidad();
+        controlNacionalidad obj = new controlNacionalidad();
         obj.CargarNacionalidades(tb_Nacionalidad);
     }
         
@@ -272,7 +272,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         }
         else
         {
-            ControlNacionalidad obj = new ControlNacionalidad();
+            controlNacionalidad obj = new controlNacionalidad();
             obj.setnacionalidad(txtNacionalidad.getText());
             if (obj.guardar())
             {
@@ -293,7 +293,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         else
         {
 
-            ControlNacionalidad obj = new ControlNacionalidad();
+            controlNacionalidad obj = new controlNacionalidad();
             obj.setnacionalidad(txtNacionalidad.getText());
             if (obj.modificar())
             {

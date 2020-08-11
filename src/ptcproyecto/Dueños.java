@@ -418,7 +418,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         obj.CargarDuenio(jTable1);
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ControlNacionalidad n = new ControlNacionalidad();
+        controlNacionalidad n = new controlNacionalidad();
         n.Consultar();
         ClienteDuenio obj = new ClienteDuenio();
         int DUI= Integer.parseInt(tfDUI.getText());
@@ -443,7 +443,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         //obj.setFecha_e_DUI(fecha);
         //obj.setFecha_e_DUI(new java.sql.Date(f));
         obj.setFecha_e_DUI(new java.sql.Date(calendar.getDatoFecha().getTime()));
-        ControlNacionalidad nac = (ControlNacionalidad)cmbNacionalidad.getSelectedItem();
+        controlNacionalidad nac = (controlNacionalidad)cmbNacionalidad.getSelectedItem();
         System.out.println("Item " + nac.getID_nacionalidad());
         System.out.println("Item " +cmbNacionalidad.getSelectedObjects().getClass());
         //obj.setNacionalidad(nac.getID_nacionalidad());
@@ -458,7 +458,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         System.out.println("Cliente tipo " + ti.getID_tipoCliente());
         obj.setID_tipoCliente(ti.getID_tipoCliente());
         
-        ControlCodigoZona coza = (ControlCodigoZona)cmbZona.getSelectedItem();
+        controlCodigoZona coza = (controlCodigoZona)cmbZona.getSelectedItem();
         System.out.println("Codigo zona " + coza.getID_codigo());
         obj.setCodigo_zona(coza.getID_codigo());
 //        
@@ -508,7 +508,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         {
             path = getClass().getResource("reportes/Reporte_Cliente_Duenio.jasper").getPath();
             path = URLDecoder.decode(path, "UTF-8");
-            Connection cn = new Conexion().conectar();
+            Connection cn = new conexion().conectar();
             Map parametros = new HashMap();
             JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);
