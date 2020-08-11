@@ -20,6 +20,7 @@ public class primerusoConfig extends javax.swing.JFrame {
     public primerusoConfig() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -217,10 +218,10 @@ public class primerusoConfig extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         JOptionPane.showMessageDialog(null,"Ingreso exitoso");
-        primer_usuario llamar = new primer_usuario();
+        primerUso llamar = new primerUso();
         llamar.setVisible(true);
         llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dispose();
+        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

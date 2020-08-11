@@ -168,6 +168,34 @@ public class usuarios {
        
          }
     }
+    public void CargarUsuarios(Connection cn, JTable tabla){
+        cn = Conexion.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID_usuario", "usuario","contrasenia","nombre","apellidos", "telefono", "domicilio", "correo", "tipo usuario","id consulta", "id cita"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM Usuarios ORDER BY ID_usuario";
+        String [] filas = new String[11];
+        Statement st = null;
+        ResultSet rs = null;     
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            System.out.println("datos obtenidos "+rs);
+            while (rs.next()){
+                for (int i = 0; i < 11; i++) {
+                    filas[i] = rs.getString(i+1);
+                }
+                model.addRow(filas);
+            }
+            tabla.setModel(model);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
+        }
+    }   
+    public void CargarUsuario(JTable tabla) {
+        CargarUsuarios(cn ,tabla);
+    }
     public void consultarUsuario(JComboBox cbox_usuario) {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
