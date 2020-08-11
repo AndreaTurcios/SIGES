@@ -409,6 +409,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         obj.CargarDuenio(jTable1);
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         controlNacionalidad n = new controlNacionalidad();
         n.Consultar();
         ClienteDuenio obj = new ClienteDuenio();
@@ -462,6 +463,7 @@ public class Dueños extends javax.swing.JInternalFrame {
 
         if (obj.guardarCliente()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           ListarDuenios();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }/**/
