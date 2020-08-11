@@ -262,7 +262,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
 //        int idCodigoZona = Integer.parseInt(txtid.getText());
 //        try
 //        {
-//            Connection con = Conexion.conectar();
+//            Connection con = conexion.conectar();
 //            PreparedStatement ps = con.prepareStatement("DELETE FROM  codigo_zona WHERE id =?");
 //            ps.executeUpdate();
 //            JOptionPane.showMessageDialog(null, "Registro Eliminado");

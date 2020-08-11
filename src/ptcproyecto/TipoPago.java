@@ -260,7 +260,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         {
             path = getClass().getResource("src/Reportes/Reporte_Tipo_Pago_SIGES.jasper").getPath();
             path = URLDecoder.decode(path, "UTF-8");
-            Connection cn = new Conexion().conectar();
+            Connection cn = new conexion().conectar();
             Map parametros = new HashMap();
             JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);

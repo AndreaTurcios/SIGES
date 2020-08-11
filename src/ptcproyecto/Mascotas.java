@@ -459,7 +459,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         {
             path = getClass().getResource("reportes/Reporte_Mascota_SIGES.jasper").getPath();
             path = URLDecoder.decode(path, "UTF-8");
-            Connection cn = new Conexion().conectar();
+            Connection cn = new conexion().conectar();
             Map parametros = new HashMap();
             JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);

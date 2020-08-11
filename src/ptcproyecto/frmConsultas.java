@@ -352,7 +352,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
 
     private void btnGuardar_ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar_ConsultaActionPerformed
        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
-       Consulta obj = new Consulta();
+       crud_consulta obj = new crud_consulta();
        String Hora = Spinner_Hora.getToolTipText();
        String Minuto = Spinner_Minuto.getToolTipText();
        String Turno = CmbTurno.getActionCommand();
@@ -390,7 +390,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         {
             path = getClass().getResource("reportes/Reporte_Base_SIGES.jasper").getPath();
             path = URLDecoder.decode(path, "UTF-8");
-            Connection cn = new Conexion().conectar();
+            Connection cn = new conexion().conectar();
             Map parametros = new HashMap();
             JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);

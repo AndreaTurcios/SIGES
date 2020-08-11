@@ -335,7 +335,7 @@ public class primer_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTfContraseñaActionPerformed
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
-//        Usuarios obj = new Usuarios();
+//        usuarios obj = new usuarios();
 //        if (obj.consultarUsuario()) {
 //        obj.setnombre_empleado(jTfNombre.getText());
 //        obj.setempleado_apellidos(jTApellido.getText());
