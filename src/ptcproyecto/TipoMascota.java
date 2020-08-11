@@ -1,6 +1,6 @@
 package ptcproyecto;
 
-import clases.Conexion;
+import clases.conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -153,9 +153,9 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                                 .addComponent(btnEliminar))
                             .addComponent(btnLimpiar)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(316, Short.MAX_VALUE))
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,9 +173,9 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReporte)
                     .addComponent(btnLimpiar))
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
@@ -193,7 +193,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 429, Short.MAX_VALUE)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
@@ -216,7 +216,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +234,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         String tipo_animal = txtTipomascota.getText();
 
         try {
-            Connection cn = Conexion.conectar();
+            Connection cn = conexion.conectar();
             PreparedStatement ps = cn.prepareStatement("INSERT INTO Tipo_mascota (tipo_animal) VALUES(?)");
             ps.setString(1, tipo_animal);
             ps.executeUpdate();
@@ -255,7 +255,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             PreparedStatement ps;
             ResultSet rs;
 
-            Connection cn = Conexion.conectar();
+            Connection cn = conexion.conectar();
             ps = cn.prepareStatement("SELECT  tipo_animal FROM Tipo_mascota WHERE id=?");
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -273,7 +273,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         String tipo_animal = txtTipomascota.getText();
 
         try {
-            Connection cn = Conexion.conectar();
+            Connection cn = conexion.conectar();
             PreparedStatement ps = cn.prepareStatement("UPDATE Tipo_mascota SET tipo_animal=? WHERE id= ?");
 //            ps.setString(1, tipo_animal);
             ps.executeUpdate();
@@ -289,7 +289,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
-            Connection cn = Conexion.conectar();
+            Connection cn = conexion.conectar();
             PreparedStatement ps = cn.prepareStatement("DELETE FROM Tipo_mascota WHERE id= ?");
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro registro eliminado");
@@ -308,7 +308,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
-            Connection con = Conexion.conectar();
+            Connection con = conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
@@ -348,7 +348,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         }
 
         try {
-            Connection cn = Conexion.conectar();
+            Connection cn = conexion.conectar();
             ps = cn.prepareStatement("SELECT ID_tipoMascota, tipo_animal FROM Tipo_mascota ORDER BY ID_tipoMascota");
             rs = ps.executeQuery();
             rsmd = rs.getMetaData();

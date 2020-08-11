@@ -1,7 +1,7 @@
 package ptcproyecto;
 
 import clases.*;
-import clases.TipoCliente;
+import clases.tipoCliente;
 import java.net.URLDecoder;
 import java.sql.Connection;
 import java.util.HashMap;
@@ -454,7 +454,7 @@ public class Dueños extends javax.swing.JInternalFrame {
         System.out.println("Mascota " + ma.getID_mascota());
         obj.setID_Mascota(ma.getID_mascota());
         
-        TipoCliente ti = (TipoCliente)cmbTipoCliente.getSelectedItem();
+        tipoCliente ti = (tipoCliente)cmbTipoCliente.getSelectedItem();
         System.out.println("Cliente tipo " + ti.getID_tipoCliente());
         obj.setID_tipoCliente(ti.getID_tipoCliente());
         
@@ -489,7 +489,7 @@ public class Dueños extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try 
         {
-            java.sql.Connection con = Conexion.conectar();
+            java.sql.Connection con = conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\ReporteClienteDuenioSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
@@ -526,7 +526,7 @@ public class Dueños extends javax.swing.JInternalFrame {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         try {
-            Connection con = Conexion.conectar();
+            Connection con = conexion.conectar();
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;

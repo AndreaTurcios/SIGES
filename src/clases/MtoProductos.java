@@ -29,7 +29,7 @@ public class MtoProductos {
         private Integer Tipo_producto;
         
     public MtoProductos(){
-        Conexion con = new Conexion();
+        conexion con = new conexion();
         cn = con.conectar();
     }
     public boolean guardar(){

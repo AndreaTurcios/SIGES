@@ -8,7 +8,7 @@ package ptcproyecto;
 import javax.swing.JOptionPane;
 import clases.CargarTipoProducto;
 import clases.MtoProductos;
-import clases.Conexion;
+import clases.conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -432,7 +432,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
     private void JBImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBImprimirActionPerformed
         try {
-            Connection con = Conexion.conectar();
+            Connection con = conexion.conectar();
 
             
             JasperReport reporte = null;

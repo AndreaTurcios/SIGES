@@ -6,7 +6,7 @@
 package ptcproyecto;
 
 import clases.ClienteDuenio;
-import clases.Conexion;
+import clases.conexion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
@@ -249,7 +249,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
     private void jbtImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtImprimirActionPerformed
         try 
         {
-            java.sql.Connection con = Conexion.conectar();
+            java.sql.Connection con = conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\Reporte-preguntas(D).jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);

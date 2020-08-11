@@ -240,7 +240,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         try 
         {
-            java.sql.Connection con = Conexion.conectar();
+            java.sql.Connection con = conexion.conectar();
             JasperReport reporte = null;
             String path = "src\\Reportes\\ReporteTipoPagoSIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);

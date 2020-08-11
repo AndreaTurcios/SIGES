@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class ClienteDuenio {
 
     private Connection cn;
-    private Conexion conexion;
+    private conexion conexion;
     private Integer ID_DUI;
     private String duenio_nombre;
     private String duenio_apellidos;
@@ -31,7 +31,7 @@ public class ClienteDuenio {
     
     public ClienteDuenio() {
         //estableciendo la Conexion 
-       clases.Conexion con = new clases.Conexion();
+       clases.conexion con = new clases.conexion();
        cn = con.conectar();
        }
     public String getDuenio_nombre() {
@@ -444,7 +444,7 @@ public class ClienteDuenio {
             resultado = st.executeQuery();
             cbox_clientet.addItem("Seleccione una opción");
             while (resultado.next()) {
-                TipoCliente d = new TipoCliente();
+                tipoCliente d = new tipoCliente();
                 d.setID_tipoCliente(resultado.getInt("ID_tipoCliente"));
                 d.setTipo_cliente(resultado.getString("tipo_cliente"));
                 cbox_clientet.addItem(d);
