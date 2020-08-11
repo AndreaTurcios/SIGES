@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class ClienteDuenio {
 
     private Connection cn;
-    private conexion conexion;
+    private Conexion conexion;
     private Integer ID_DUI;
     private String duenio_nombre;
     private String duenio_apellidos;
