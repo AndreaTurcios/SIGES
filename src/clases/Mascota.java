@@ -199,16 +199,14 @@ public class Mascota {
     public boolean guardarMascota(Mascota a){
         boolean resp = false;
         try{//realizando consulta insert
-            String sql = "INSERT INTO Mascota (ID_mascota=?,nombre_mascota=?, mascota_genero=?, " 
-            + "mascota_razon=?, mascota_medicinas=?, mascota_horarioReserva=?, ID_tipoMascota=?)"+"VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Mascota (nombre_mascota, mascota_genero, mascota_razon, mascota_medicinas, mascota_horarioReserva, ID_tipoMascota)"+"VALUES(?,?,?,?,?,?)";
             PreparedStatement cmd= cn.prepareStatement(sql);
-            cmd.setInt(1, a.ID_mascota);
-            cmd.setString(2, a.nombre_mascota );
-            cmd.setString(3, a.mascota_genero );
-            cmd.setString(4, a.mascota_razon );
-            cmd.setString(5, a.mascota_medicinas );
-            cmd.setString(6, a.mascota_horarioReserva );
-            cmd.setInt(7, a.ID_tipoMascota );
+            cmd.setString(1, a.nombre_mascota );
+            cmd.setString(2, a.mascota_genero );
+            cmd.setString(3, a.mascota_razon );
+            cmd.setString(4, a.mascota_medicinas );
+            cmd.setString(5, a.mascota_horarioReserva );
+            cmd.setInt(6, a.ID_tipoMascota );
             if (!cmd.execute()) {
                 resp=true;
             }
@@ -217,8 +215,7 @@ public class Mascota {
         }catch(Exception ex){
             System.out.println(ex.toString());
         }
-        return resp;
-        
+        return false;
     }
     
     public boolean consultarMascota(){
@@ -250,5 +247,9 @@ public class Mascota {
     @Override
     public String toString() {
         return nombre_mascota; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Integer getTipo_mascota() {
+        return ID_tipoMascota;
     }
 }

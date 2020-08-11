@@ -238,7 +238,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -368,8 +368,9 @@ public class Mascotas extends javax.swing.JInternalFrame {
     }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Mascota obj = new Mascota();
+        
         obj.setNombre_mascota(tfNombre.getText());
-        System.out.println("genero " + obj.getMascota_genero());
+        System.out.println("nombre " + obj.getNombre_mascota());
 //        if (rbF.isSelected()) {
 //            obj.setMascota_genero("F");
 //            System.out.println("genero mascota " + obj.getMascota_genero());
@@ -388,11 +389,11 @@ public class Mascotas extends javax.swing.JInternalFrame {
         obj.setMascota_medicinas(tfMedicinas.getText());
         System.out.println("medicinas " + obj.getMascota_medicinas());
         obj.setMascota_horarioReserva(tfHorarios.getText());
-        System.out.println("tipo mascota " + obj.getMascota_horarioReserva());
+        System.out.println("horario " + obj.getMascota_horarioReserva());
        
-        tipoMascota tipm = (tipoMascota)tipo_mascota.getSelectedItem();
-        System.out.println("tipo mascota " + tipm.getID_tipoMascota());
-        obj.setID_tipoMascota(tipm.getID_tipoMascota());
+        tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
+        obj.setID_tipoMascota(tima.getID_tipoMascota());
+        System.out.println("tipo mascota " + tima.getID_tipoMascota());
         
         System.out.println("guardar mascota " + obj.guardarMascota(obj));
         if (obj.guardarMascota(obj)) {

@@ -236,7 +236,7 @@ public class ClienteDuenio {
             cmd.setString(6, duenio_correo);
             System.out.println(duenio_correo);
             cmd.setDate(7, Fecha_e_DUI);
-            System.out.println("feca" + Fecha_e_DUI);
+            System.out.println("fecha" + Fecha_e_DUI);
             //8-Nacinalidad Integer
             //cmd.setInt(8, nacionalidad_id);
             cmd.setInt(8, nacionalidad2.getID_nacionalidad());
