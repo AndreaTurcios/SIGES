@@ -14,7 +14,7 @@ import java.sql.Connection;
 public class TipoUsuario {
     private Connection cn;
     private Conexion conexion;
-    private Integer ID_usuario;
+    private Integer ID_TipoUsuario;
     private String tipo_empleado;
 
     public Connection getCn() {
@@ -33,12 +33,12 @@ public class TipoUsuario {
         this.conexion = conexion;
     }
 
-    public Integer getID_usuario() {
-        return ID_usuario;
+    public Integer getID_TipoUsuario() {
+        return ID_TipoUsuario;
     }
 
-    public void setID_usuario(Integer ID_usuario) {
-        this.ID_usuario = ID_usuario;
+    public void setID_TipoUsuario(Integer ID_usuario) {
+        this.ID_TipoUsuario = ID_usuario;
     }
 
     public String getTipo_empleado() {

@@ -164,7 +164,7 @@ public class usuarios {
             cbox_cargos.addItem("Seleccione una opcion");
             while (resultado.next()) {
                 TipoUsuario tipouser = new TipoUsuario();
-                tipouser.setID_usuario(resultado.getInt("ID_tipoUsuarios"));
+                tipouser.setID_TipoUsuario(resultado.getInt("ID_tipoUsuarios"));
                 tipouser.setTipo_empleado(resultado.getString("tipo_empleado"));
                 cbox_cargos.addItem(tipouser);
             }

@@ -15,6 +15,15 @@ public class controlPreguntas {
     private Connection cn;
     private Integer ID_pregunta;
     private String pregunta;
+    private Integer ID_usuario;
+
+    public Integer getID_usuario() {
+        return ID_usuario;
+    }
+
+    public void setID_usuario(Integer ID_usuario) {
+        this.ID_usuario = ID_usuario;
+    }
 
     public Connection getCn() {
         return cn;

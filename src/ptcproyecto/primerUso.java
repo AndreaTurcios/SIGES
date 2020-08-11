@@ -437,6 +437,9 @@ public class primerUso extends javax.swing.JFrame {
 
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
         Usuario obj = new Usuario();
+        controlPreguntas conPreg = new controlPreguntas();
+        ControlRespuestas resp = new ControlRespuestas();
+        
         obj.setnombre_usuario(jtfNombre.getText());
         obj.setEmpleado_apellidos(jtfApellido.getText());
         
@@ -447,10 +450,31 @@ public class primerUso extends javax.swing.JFrame {
         obj.setCorreo(jtfEmail.getText());
         obj.setDomicilio(jtfDireccion.getText());
         obj.setUsuario(jtfUsuario.getText());
+        
         usuarios u = new usuarios();
         String password = jtfContraseña.getText();
         obj.setContraseña(u.md5(password));
         JOptionPane.showMessageDialog(this, "contraseña encriptada "+u.md5(password));
+        
+        TipoUsuario tipouser = (TipoUsuario)JCBcargoE.getSelectedItem();
+        System.out.println("Item " + tipouser.getID_TipoUsuario());
+        System.out.println("Item " +JCBcargoE.getSelectedObjects().getClass());
+        obj.setID_tipoUsuario(tipouser.getID_TipoUsuario());
+        
+        controlPreguntas preg = (controlPreguntas)JCBPregunta.getSelectedItem();
+        System.out.println("Item " + preg.getID_pregunta());
+        System.out.println("Item " +JCBPregunta.getSelectedObjects().getClass());
+        conPreg.setID_pregunta(preg.getID_usuario());
+        
+        //jtfRespuesta
+       
+        resp.setRespuesta(jtfRespuesta.getText());
+        resp.setID_pregunta(conPreg.getID_pregunta());
+        
+        
+        System.out.println("Item " + preg.getID_pregunta());
+        System.out.println("Item " +JCBPregunta.getSelectedObjects().getClass());
+        conPreg.setID_pregunta(preg.getID_usuario());
         
         
 //        obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
