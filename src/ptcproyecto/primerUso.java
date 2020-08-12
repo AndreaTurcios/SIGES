@@ -72,6 +72,19 @@ public class primerUso extends javax.swing.JFrame {
 
         kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
+        kGradientPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MouseDragged(evt);
+            }
+        });
+        kGradientPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MousePressed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -458,10 +471,12 @@ public class primerUso extends javax.swing.JFrame {
         obj.setContraseña(u.md5(password));
         JOptionPane.showMessageDialog(this, "contraseña encriptada "+u.md5(password));
         //tipo usuario 8
-        TipoUsuario tipouser = (TipoUsuario)JCBcargoE.getSelectedItem();
-        System.out.println("Item " + tipouser.getID_TipoUsuario());
-        System.out.println("Item " +JCBcargoE.getSelectedObjects().getClass());
-        obj.setID_tipoUsuario(tipouser.getID_TipoUsuario());
+//        TipoUsuario tipouser = (TipoUsuario)JCBcargoE.getSelectedItem();
+        int tipouser = (int) JCBcargoE.getSelectedItem();
+        String user = Integer.toString(tipouser); 
+        System.out.println("Item " + user);
+        System.out.println("Item " + tipouser);
+        obj.setID_tipoUsuario(tipouser);
         //pregunta 9
         controlPreguntas preg = (controlPreguntas)JCBPregunta.getSelectedItem();
         System.out.println("Item " + preg.getID_pregunta());
@@ -472,7 +487,9 @@ public class primerUso extends javax.swing.JFrame {
        resp.setRespuesta(jtfRespuesta.getText());
        resp.setID_pregunta(conPreg.getID_pregunta());
        //pregunta
-        if (preg.guardar()) {
+        
+       
+       if (preg.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados preguntas");
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos preguntas");
@@ -523,6 +540,23 @@ public class primerUso extends javax.swing.JFrame {
           
         }
     }//GEN-LAST:event_jtfContraseñaKeyPressed
+    int xx,xy;
+    private void kGradientPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseDragged
+        int x = evt.getXOnScreen();
+       int y = evt.getYOnScreen();
+       
+       this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_kGradientPanel1MouseDragged
+
+    private void kGradientPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MousePressed
+        xy=evt.getX();
+        xy=evt.getY();
+    }//GEN-LAST:event_kGradientPanel1MousePressed
+
+    private void kGradientPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseClicked
+        xy=evt.getX();
+        xy=evt.getY();
+    }//GEN-LAST:event_kGradientPanel1MouseClicked
 
     /**
      * @param args the command line arguments

@@ -240,4 +240,27 @@ public class LoginMetodo {
           }   
           return retorno;
       }
+    public boolean loginadmin (String usuario, String contrasenia) {
+        boolean retorno = false;
+        try {
+            String consulta;
+            consulta = "Select * from Usuarios where ID_tipoUsuarios=1 and nombre_usuario = ? and contrasenia_usuario = ?;";
+
+            PreparedStatement Prepared;
+            Conexion con = new Conexion();
+
+            Prepared = con.conectar().prepareStatement(consulta);
+            Prepared.setString(1, usuario);
+            Prepared.setString(2, contrasenia);
+            
+
+            ResultSet Resultado = Prepared.executeQuery();
+        if (Resultado.next()) {
+                  retorno = true;
+              }
+          } catch (Exception ex) {
+          JOptionPane.showMessageDialog(null, "Ha ocurrido un error, consulte a un tecnico para resolver el problema "+ex);
+          }   
+          return retorno;
+      }
 }
