@@ -435,7 +435,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
        Usuario obj = new Usuario();
         obj.setNombre_usuario(jtfNombre.getText());
         obj.setEmpleado_apellidos(jtfApellido.getText());
-        obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
         obj.setCorreo(jtfEmail.getText());
         obj.setDomicilio(jtfDireccion.getText());
         obj.setUsuario(jtfUsuario.getText());

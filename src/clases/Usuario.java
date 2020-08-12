@@ -11,7 +11,33 @@ public class Usuario {
     private Integer ID_usuario;
     private String nombre_usuario;
     private String nombre_empleado ;
+
+    public String getNombre_empleado() {
+        return nombre_empleado;
+    }
+
+    public void setNombre_empleado(String nombre_empleado) {
+        this.nombre_empleado = nombre_empleado;
+    }
+
+    public Integer getID_consulta() {
+        return ID_consulta;
+    }
+
+    public void setID_consulta(Integer ID_consulta) {
+        this.ID_consulta = ID_consulta;
+    }
+
+    public Integer getID_cita() {
+        return ID_cita;
+    }
+
+    public void setID_cita(Integer ID_cita) {
+        this.ID_cita = ID_cita;
+    }
     private String empleado_apellidos ;
+    private Integer ID_consulta;
+    private Integer ID_cita;
 
     public String getEmpleado_apellidos() {
         return empleado_apellidos;
@@ -152,7 +178,7 @@ public class Usuario {
     public boolean modificar() {
          boolean resp = false;
         try {String sql = "UPDATE SET Usuarios , nombre_usuario = ?, contrasenia_usuario = = ?"
-                + " nombre_empleado = ?, empleado_apellidos = ?, empleado_telefono = ? "
+                + " nombre_empleado = ?, empleado_apellidos = ?,"
                 + "empleado_domicilio = ?, empleado_correo = ?, ID_tipoUsuarios = ? ,ID_usuario = ?";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
@@ -178,12 +204,48 @@ public class Usuario {
         return resp;
     }
 
+      public Usuario ConsultarUser() {
+        boolean resp = false;
+        Usuario u = new Usuario();
+        try {String sql = "SELECT ID_usuario, nombre_usuario, contrasenia_usuario"
+                + " nombre_empleado, empleado_apellidos,"
+                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios "
+                +"FROM Usuarios where nombre_usuario = ? and contrasenia_usuario = ? ";
+        
+        PreparedStatement cmd = cn.prepareStatement(sql);
+        cmd.setString(1, nombre_usuario);
+        cmd.setString(1, Contraseña);
+        
+        ResultSet rs = cmd.executeQuery();
+        
+        if (rs.next()) {
+            resp = true;
+             //ID_usuario = ;
+             u.setID_usuario(rs.getInt(1));
+             u.setNombre_usuario(rs.getString(1));
+             //nombre_usuario = ;
+             //empleado_apellidos = rs.getString(2);
+             //u.setEmpleado_apellidos();
+             //correo = rs.getString(3);
+             //domicilio = rs.getString(4);
+             //Usuario = rs.getString(5);
+             u.setContraseña(rs.getString(3));
+             //Contraseña = ;
+             //ID_tipoUsuario = rs.getInt(7);
+        }
+        cmd.close();
+        cn.close();
+        }catch(Exception e) {
+            System.out.println(e.toString());
+        }
+        return u;
+        }
     
     public boolean Consultar() {
         boolean resp = false;
         try {String sql = "SELECT ID_usuario, nombre_usuario, contrasenia_usuario"
-                + " nombre_empleado, empleado_apellidos, empleado_telefono "
-                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios FROM Usuarios WERE ID_usuario = ? ";
+                + " nombre_empleado, empleado_apellidos,"
+                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios FROM Usuarios WHERE ID_usuario = ? ";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         cmd.setInt(1, ID_usuario);
@@ -195,12 +257,11 @@ public class Usuario {
              ID_usuario = rs.getInt(1);
              nombre_usuario = rs.getString(1);
              empleado_apellidos = rs.getString(2);
-             telefono = rs.getInt(3);
-             correo = rs.getString(4);
-             domicilio = rs.getString(5);
-             Usuario = rs.getString(6);
-             Contraseña = rs.getString(7);
-             ID_tipoUsuario = rs.getInt(8);
+             correo = rs.getString(3);
+             domicilio = rs.getString(4);
+             Usuario = rs.getString(5);
+             Contraseña = rs.getString(6);
+             ID_tipoUsuario = rs.getInt(7);
         }
         cmd.close();
         cn.close();
@@ -212,20 +273,24 @@ public class Usuario {
 
     public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO Usuarios(nombre_usuario, contrasenia_usuario"
-                + " nombre_empleado, empleado_apPaterno, empleadoapMaterno, empleado_telefono "
-                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        //en la tabla tenemos los campos id cita e id consulta, el problema radica en que aqui yo estoy queriendo guardar un usuario, no una 
+        //consulta ni cita, asi que no lo tomare en cuenta aqui (, ID_consulta, ID_cita)
+        try {String sql = "INSERT INTO Usuarios(nombre_usuario, contrasenia_usuario,"
+                + " nombre_empleado, empleado_apellidos, "
+                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
         cmd.setString(1, nombre_usuario);
-        cmd.setString(2,empleado_apellidos );
-        cmd.setInt(3,telefono);
-        cmd.setString(4, correo);
+        cmd.setString(2, Contraseña);
+        cmd.setString(3, nombre_empleado);
+        cmd.setString(4,empleado_apellidos );
         cmd.setString(5, domicilio);
-        cmd.setString(6, Usuario);
-        cmd.setString(7, Contraseña);
-        cmd.setInt(8, ID_tipoUsuario);
+        cmd.setString(6, correo);
+        cmd.setInt(7, ID_tipoUsuario);
+//        cmd.setInt(8, ID_consulta);
+//        cmd.setInt(9, ID_cita);
+       
         
         if (!cmd.execute()) {
             resp = true;
@@ -233,7 +298,7 @@ public class Usuario {
         cmd.close();
         cn.close();
         }catch(Exception e) {
-            System.out.println(e.toString());
+            System.out.println("Error en el metodo guardar"+e.toString());
         }
         return resp;
     }

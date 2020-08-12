@@ -432,7 +432,6 @@ public class primerUso extends javax.swing.JFrame {
         Usuario obj = new Usuario();
         obj.setNombre_usuario(jtfNombre.getText());
         obj.setEmpleado_apellidos(jtfApellido.getText());
-        obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
         obj.setCorreo(jtfEmail.getText());
         obj.setDomicilio(jtfDireccion.getText());
         obj.setUsuario(jtfUsuario.getText());
@@ -450,21 +449,19 @@ public class primerUso extends javax.swing.JFrame {
 
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
         Usuario obj = new Usuario();
+        Usuario cons = new Usuario();
         controlPreguntas conPreg = new controlPreguntas();
         ControlRespuestas resp = new ControlRespuestas();
         //nombre usuario 1
-        obj.setnombre_usuario(jtfNombre.getText());
+        obj.setnombre_usuario(jtfUsuario.getText());
         //apellidos 2 
         obj.setEmpleado_apellidos(jtfApellido.getText());
-        //telefono 3
-        int Telefono= Integer.parseInt(jtfTelefono.getText());
-        obj.setTelefono(Telefono);
         //correo 4
         obj.setCorreo(jtfEmail.getText());
         //domicilio 5
         obj.setDomicilio(jtfDireccion.getText());
         //usuario 6
-        obj.setUsuario(jtfUsuario.getText());
+        obj.setNombre_empleado(jtfNombre.getText());
         //contraseña encriptada 7
         usuarios u = new usuarios();
         String password = jtfContraseña.getText();
@@ -472,11 +469,12 @@ public class primerUso extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "contraseña encriptada "+u.md5(password));
         //tipo usuario 8
 //        TipoUsuario tipouser = (TipoUsuario)JCBcargoE.getSelectedItem();
-        int tipouser = (int) JCBcargoE.getSelectedItem();
-        String user = Integer.toString(tipouser); 
-        System.out.println("Item " + user);
+        //int tipouser = (int) JCBcargoE.getSelectedItem();
+        TipoUsuario tipouser = (TipoUsuario) JCBcargoE.getSelectedItem();
+//        String user = Integer.toString(tipouser); 
+//        System.out.println("Item " + user);
         System.out.println("Item " + tipouser);
-        obj.setID_tipoUsuario(tipouser);
+        obj.setID_tipoUsuario(tipouser.getID_TipoUsuario());
         //pregunta 9
         controlPreguntas preg = (controlPreguntas)JCBPregunta.getSelectedItem();
         System.out.println("Item " + preg.getID_pregunta());
@@ -486,9 +484,18 @@ public class primerUso extends javax.swing.JFrame {
          //respuesta 10
        resp.setRespuesta(jtfRespuesta.getText());
        resp.setID_pregunta(conPreg.getID_pregunta());
-       //pregunta
-        
        
+        //usuario
+        System.out.println("Entrando a guardar objeto");
+        if (obj.guardar()) {
+            JOptionPane.showMessageDialog(this, "Los datos han sido guardados usuario");
+            cons = obj.ConsultarUser();
+            System.err.println("consulta" + cons.ID_tipoUsuario());
+            ListarUsuarios();
+        }else{
+            JOptionPane.showMessageDialog(this, "Error al guardar los datos usuario");
+        }
+       //pregunta   
        if (preg.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados preguntas");
         }else{
@@ -500,13 +507,7 @@ public class primerUso extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos respuestas");
         } 
-        //usuario
-        if (obj.guardar()) {
-            JOptionPane.showMessageDialog(this, "Los datos han sido guardados usuario");
-            ListarUsuarios();
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los datos usuario");
-        }
+      
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
