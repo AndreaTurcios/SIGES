@@ -207,6 +207,7 @@ public class Usuario {
       public Usuario ConsultarUser() {
         boolean resp = false;
         Usuario u = new Usuario();
+        String encriptada = md5(Contraseña);
         try {String sql = "SELECT ID_usuario, nombre_usuario, contrasenia_usuario"
                 + " nombre_empleado, empleado_apellidos,"
                 + "empleado_domicilio, empleado_correo, ID_tipoUsuarios "
@@ -214,7 +215,7 @@ public class Usuario {
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         cmd.setString(1, nombre_usuario);
-        cmd.setString(1, Contraseña);
+        cmd.setString(1, encriptada);
         
         ResultSet rs = cmd.executeQuery();
         
@@ -308,7 +309,20 @@ public class Usuario {
         return Usuario;
     }
     
-    
+        public String md5(String md5){
+       try{
+           java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+           byte[] array = md.digest(md5.getBytes());
+           StringBuffer sb = new StringBuffer();  
+           for (int i = 0; i < array.length; i++) {
+               sb.append(Integer.toHexString((array[i] & 0xFF ) | 0x100).substring(1,3));
+           }
+           return sb.toString();
+       }catch(java.security.NoSuchAlgorithmException c){
+           
+       }
+    return null;
+    }
     
     }
 

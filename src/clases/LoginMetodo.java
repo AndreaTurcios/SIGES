@@ -222,6 +222,8 @@ public class LoginMetodo {
         boolean retorno = false;
         try {
             String consulta;
+            
+            String encriptada = md5(clave);
             consulta = "Select * from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
 
             PreparedStatement Prepared;
@@ -229,7 +231,7 @@ public class LoginMetodo {
 
             Prepared = con.conectar().prepareStatement(consulta);
             Prepared.setString(1, usuario);
-            Prepared.setString(2, clave);
+            Prepared.setString(2, encriptada);
 
             ResultSet Resultado = Prepared.executeQuery();
         if (Resultado.next()) {
@@ -243,6 +245,7 @@ public class LoginMetodo {
     public boolean loginadmin (String usuario, String contrasenia) {
         boolean retorno = false;
         try {
+            String encriptada = md5(contrasenia);
             String consulta;
             consulta = "Select * from Usuarios where ID_tipoUsuarios=1 and nombre_usuario = ? and contrasenia_usuario = ?;";
 
@@ -251,7 +254,7 @@ public class LoginMetodo {
 
             Prepared = con.conectar().prepareStatement(consulta);
             Prepared.setString(1, usuario);
-            Prepared.setString(2, contrasenia);
+            Prepared.setString(2, encriptada);
             
 
             ResultSet Resultado = Prepared.executeQuery();
@@ -263,4 +266,19 @@ public class LoginMetodo {
           }   
           return retorno;
       }
+    
+        public String md5(String md5){
+       try{
+           java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+           byte[] array = md.digest(md5.getBytes());
+           StringBuffer sb = new StringBuffer();  
+           for (int i = 0; i < array.length; i++) {
+               sb.append(Integer.toHexString((array[i] & 0xFF ) | 0x100).substring(1,3));
+           }
+           return sb.toString();
+       }catch(java.security.NoSuchAlgorithmException c){
+           
+       }
+    return null;
+    }
 }

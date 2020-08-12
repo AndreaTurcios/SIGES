@@ -490,12 +490,14 @@ public class primerUso extends javax.swing.JFrame {
         if (obj.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados usuario");
             cons = obj.ConsultarUser();
-            System.err.println("consulta" + cons.ID_tipoUsuario());
+            System.err.println("consulta " + cons.ID_tipoUsuario());
+            preg.setID_usuario(cons.getId_usuario());
             ListarUsuarios();
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos usuario");
         }
        //pregunta   
+       
        if (preg.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados preguntas");
         }else{
@@ -531,16 +533,6 @@ public class primerUso extends javax.swing.JFrame {
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
-
-    private void jtfContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfContraseñaKeyPressed
-         int var = evt.getKeyCode();
-        if (var==KeyEvent.VK_ENTER) {
-          String password = jtfContraseña.getText();
-          
-          usuarios u = new usuarios();
-          
-        }
-    }//GEN-LAST:event_jtfContraseñaKeyPressed
     int xx,xy;
     private void kGradientPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseDragged
         int x = evt.getXOnScreen();
@@ -558,6 +550,16 @@ public class primerUso extends javax.swing.JFrame {
         xy=evt.getX();
         xy=evt.getY();
     }//GEN-LAST:event_kGradientPanel1MouseClicked
+
+    private void jtfContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfContraseñaKeyPressed
+        int var = evt.getKeyCode();
+        if (var==KeyEvent.VK_ENTER) {
+            String password = jtfContraseña.getText();
+
+            usuarios u = new usuarios();
+
+        }
+    }//GEN-LAST:event_jtfContraseñaKeyPressed
 
     /**
      * @param args the command line arguments
