@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdf39bb9-92c3-420e-bfff-669f8b292c24">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Cliente_duenio."ID_DUI" AS Cliente_duenio_ID_DUI,
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos,
+     Cliente_duenio."duenio_telefono" AS Cliente_duenio_duenio_telefono,
+     Cliente_duenio."duenio_domicilio" AS Cliente_duenio_duenio_domicilio,
+     Cliente_duenio."duenio_correo" AS Cliente_duenio_duenio_correo,
+     Cliente_duenio."Fecha_e_DUI" AS Cliente_duenio_Fecha_e_DUI,
+     Tipo_cliente."tipo_cliente" AS Tipo_cliente_tipo_cliente,
+     Mascota."nombre_mascota" AS Mascota_nombre_mascota,
+     codigo_zona."codigo_zona" AS codigo_zona_codigo_zona,
+     nacionalidad."nacionalidad" AS nacionalidad_nacionalidad
+FROM
+     "dbo"."Tipo_cliente" Tipo_cliente INNER JOIN "dbo"."Cliente_duenio" Cliente_duenio ON Tipo_cliente."ID_tipoCliente" = Cliente_duenio."ID_tipoCliente"
+     INNER JOIN "dbo"."Mascota" Mascota ON Cliente_duenio."ID_Mascota" = Mascota."ID_mascota"
+     INNER JOIN "dbo"."codigo_zona" codigo_zona ON Cliente_duenio."codigo_zona" = codigo_zona."ID_codigo"
+     INNER JOIN "dbo"."nacionalidad" nacionalidad ON Cliente_duenio."nacionalidad" = nacionalidad."ID_nacionalidad"]]>
+	</queryString>
+	<field name="Cliente_duenio_ID_DUI" class="java.lang.Integer"/>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_telefono" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_domicilio" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_correo" class="java.lang.String"/>
+	<field name="Cliente_duenio_Fecha_e_DUI" class="java.sql.Date"/>
+	<field name="Tipo_cliente_tipo_cliente" class="java.lang.String"/>
+	<field name="Mascota_nombre_mascota" class="java.lang.String"/>
+	<field name="codigo_zona_codigo_zona" class="java.lang.Integer"/>
+	<field name="nacionalidad_nacionalidad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="581" y="34" width="100" height="20" uuid="75c0ef05-60bb-46f2-8404-0352c61163f1"/>
+				<text><![CDATA[Cliente_duenio_duenio_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="625" y="34" width="100" height="20" uuid="cc89e656-211e-47b6-ad12-6b96501300f5"/>
+				<text><![CDATA[Cliente_duenio_ID_DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="595" y="17" width="100" height="20" uuid="9c0d4892-ef90-4075-a717-39c345ad3b34"/>
+				<text><![CDATA[Cliente_duenio_duenio_apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="595" y="54" width="100" height="20" uuid="a25db30b-2e5d-4bee-b22c-e107feff2a3f"/>
+				<text><![CDATA[Cliente_duenio_duenio_domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="595" y="44" width="100" height="20" uuid="a1d9b3ba-1acd-4ee2-b11e-610e6234d0e6"/>
+				<text><![CDATA[Cliente_duenio_duenio_telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="646" y="17" width="100" height="20" uuid="88b22c36-1e26-4a87-a77e-1968459e5ca2"/>
+				<text><![CDATA[Cliente_duenio_duenio_correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="681" y="17" width="100" height="20" uuid="2ab92e6e-baf9-42d4-bcc8-76e5f52f1cc4"/>
+				<text><![CDATA[Cliente_duenio_Fecha_e_DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="695" y="37" width="100" height="20" uuid="f2deb64a-022f-4a8a-92c0-6e65bc921502"/>
+				<text><![CDATA[Cliente_duenio_nacionalidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="646" y="44" width="100" height="20" uuid="e3d458bc-00ae-4679-962b-8637ca2b8f1b"/>
+				<text><![CDATA[Mascota_nombre_mascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="656" y="24" width="100" height="20" uuid="d9f96cf6-627c-4e25-b979-781f36b07462"/>
+				<text><![CDATA[Cliente_duenio_codigo_zona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="656" y="57" width="100" height="20" uuid="c0d8b03e-c198-4ef5-a2f3-3232920ca1f5"/>
+				<text><![CDATA[Cliente_duenio_nacionalidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="646" y="44" width="100" height="20" uuid="92fb03d3-3206-4ad8-9284-a4e79e5b8471"/>
+				<text><![CDATA[Tipo_cliente_tipo_cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="686" y="24" width="100" height="20" uuid="54c280a5-93c6-4003-9f61-6e82ef3361e2"/>
+				<text><![CDATA[nacionalidad_nacionalidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="625" y="37" width="100" height="20" uuid="90d1f1c4-e9fa-4c38-86ec-968262ac4083"/>
+				<text><![CDATA[codigo_zona_codigo_zona]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="79" backcolor="#6666FF" uuid="1e0f73d7-607b-4afc-9abf-79bfd1a9562a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="17" width="476" height="47" forecolor="#FFFFFF" uuid="6ee71b48-9a42-427c-bc33-d98a385505da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registros de los dueños de las mascotas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="8124fb57-93ab-496e-ab08-2b1f6820dedc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de solicitante del registro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="512" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="17a2b130-f858-4289-8498-63b1417b54ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de emision del registro:]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="646" y="0" width="156" height="40" uuid="10249df4-6e69-405b-ae50-5b5aeaee19ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="5" y="0" width="72" height="50" backcolor="#3F67FB" uuid="6ca28f58-1661-4b10-bf0e-9dfe6352534d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="77" y="0" width="72" height="50" backcolor="#3F67FB" uuid="16240795-c258-4b61-b6bf-402142a503d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="149" y="0" width="72" height="50" backcolor="#3F67FB" uuid="10004e64-3b9f-4236-a7c0-bb0d4113263e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="221" y="0" width="72" height="50" backcolor="#3F67FB" uuid="d686b4a2-1715-43b8-8099-dac709551687"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="293" y="0" width="72" height="50" backcolor="#3F67FB" uuid="6dbb923f-562f-4c95-b391-34347428a04d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="365" y="0" width="72" height="50" backcolor="#3F67FB" uuid="7915b377-68ff-4d94-90d1-f0df8474f575"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="437" y="0" width="72" height="50" backcolor="#3F67FB" uuid="9dab5ed6-6a8f-427a-9af2-cce4d85c90a7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Emision del DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="509" y="0" width="72" height="50" backcolor="#3F67FB" uuid="e4991a8e-f8fb-4c94-a29e-e8d826ea0d18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Codigo de la zona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="581" y="0" width="72" height="50" backcolor="#3F67FB" uuid="14cfbf62-917f-4e83-84ee-90424b8de108"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre de la masota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="653" y="0" width="72" height="50" backcolor="#3F67FB" uuid="3e7035cb-582c-4509-aeb1-0aafb5ff42d0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Nacionalidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="725" y="0" width="72" height="50" backcolor="#3F67FB" uuid="1ddd080d-6f0c-4d06-b828-ee512921bdf7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Tipo de cliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="84" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="15" width="72" height="50" uuid="cb6edbe7-d25e-45b5-8aeb-312e5a73caac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_ID_DUI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="15" width="72" height="50" uuid="f884f32d-8326-4fab-b1a6-93ea1e0d8575"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="15" width="72" height="50" uuid="e3053ca0-eb59-49e8-8706-219e5ae0db2e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="15" width="72" height="50" uuid="079dd7d5-c60c-4b02-8fe7-94c70151e3b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="15" width="72" height="50" uuid="ae0a59b0-1fc1-4378-956e-16a25ba35590"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_domicilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="15" width="72" height="50" uuid="29dbaf03-d349-4c0a-bdcc-13cdeb252cfc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_correo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="15" width="72" height="50" uuid="d2068eff-a9c4-43d5-9fbe-1b9a95aeedc8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_Fecha_e_DUI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="581" y="15" width="72" height="50" uuid="8023f6e9-d5de-478c-847f-fd39fe4cbdda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="725" y="15" width="70" height="50" uuid="ce49bba9-8761-4192-bb7a-58e007da600e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tipo_cliente_tipo_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="512" y="15" width="69" height="50" uuid="b8fb4b99-2c70-4c86-9ab1-ad86e72ae211"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo_zona_codigo_zona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="653" y="15" width="72" height="50" uuid="1c780dc5-e373-4b5e-a402-a4e95e623ed6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nacionalidad_nacionalidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="666" y="15" width="80" height="20" uuid="ecd86e3f-3f19-4ee2-86c0-c5b4cb4152f8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="746" y="15" width="40" height="20" uuid="83d2e26d-a056-4db9-a752-83d3fe1f7b72"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -447,7 +447,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         {
             java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\ReporteMascotaSIGES.jasper";
+            String path = "src\\Reportes\\Reporte-Mascotas-SIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint, false);

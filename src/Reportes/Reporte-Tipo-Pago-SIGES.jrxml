@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1511270-a515-43cb-acbc-9b9c324737d8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Tipo_pago."ID_tipoPago" AS Tipo_pago_ID_tipoPago,
+     Tipo_pago."tipo_pago" AS Tipo_pago_tipo_pago
+FROM
+     "dbo"."Tipo_pago" Tipo_pago]]>
+	</queryString>
+	<field name="Tipo_pago_ID_tipoPago" class="java.lang.Integer"/>
+	<field name="Tipo_pago_tipo_pago" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="653" y="28" width="100" height="20" uuid="ed9218eb-8a73-43a8-bd08-72b62024d585"/>
+				<text><![CDATA[Tipo_pago_ID_tipoPago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="625" y="44" width="100" height="20" uuid="7e099b3c-53af-47a2-b7a4-645494f00d0f"/>
+				<text><![CDATA[Tipo_pago_tipo_pago]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="79" backcolor="#6666FF" uuid="7224b47f-7567-410a-a2fb-903d77d28f68"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="17" width="476" height="47" forecolor="#FFFFFF" uuid="6e5376cb-8383-49bd-9904-e0d263cadda1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registros de los tipos de pagos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="484" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="e5c29f53-8e3e-4b42-a7bb-eeff902dce10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de emision del registro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="edc7df11-b642-45d3-a01e-50dbfa06fcb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de solicitante del registro:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="618" y="0" width="184" height="39" uuid="0137e575-e8ea-4fc5-89e4-14626f7dccfc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="437" y="0" width="72" height="50" backcolor="#3F67FB" uuid="8288f090-64df-4a2d-bd1a-cb0539bce993"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="509" y="0" width="72" height="50" backcolor="#3F67FB" uuid="aefe9e4d-8873-4145-9c77-cbd71da6ba0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="78" y="0" width="72" height="50" backcolor="#3F67FB" uuid="4529c04f-8001-4cce-82f3-277d8bbecdd2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Tipo de pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="725" y="0" width="72" height="50" backcolor="#3F67FB" uuid="1a29a0ae-cbad-4326-9690-f021c7aa484c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="653" y="0" width="72" height="50" backcolor="#3F67FB" uuid="77a6805b-06e2-4a96-bcd0-38b7334c5827"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="365" y="0" width="72" height="50" backcolor="#3F67FB" uuid="cbad5beb-c4e3-4a23-b96a-d994b55d08bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="581" y="0" width="72" height="50" backcolor="#3F67FB" uuid="8de0947d-12ca-4069-93da-3d0ced649184"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="150" y="0" width="72" height="50" backcolor="#3F67FB" uuid="bfa559ee-e571-44f6-888d-55e2170d4a09"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="222" y="0" width="72" height="50" backcolor="#3F67FB" uuid="37689f7a-85dc-4d11-8afc-81688c8869c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6" y="0" width="72" height="50" backcolor="#3F67FB" uuid="da69fe4e-9cf0-4df7-9ac1-19c8ee22d15d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="293" y="0" width="72" height="50" backcolor="#3F67FB" uuid="e08b9e80-6048-4aad-a8cf-b97fe4c652d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="85" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="11" width="72" height="50" uuid="e35b665f-1eab-4f83-929b-4bb309a2fcfb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Tipo_pago_ID_tipoPago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="11" width="72" height="50" uuid="c104450f-9b5a-4299-b6e6-6f9f5a9aa4d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Tipo_pago_tipo_pago}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="668" y="16" width="80" height="20" uuid="6f3d8713-3f72-4c41-ae22-d5e41a5b350b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="748" y="16" width="40" height="20" uuid="6025ee8e-5eca-4dfe-beec-336b1e81ac18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

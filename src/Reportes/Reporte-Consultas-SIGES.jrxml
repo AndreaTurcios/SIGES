@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a451b160-8244-48e8-8815-02808a06cf16">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Consulta."ID_consulta" AS Consulta_ID_consulta,
+     Consulta."consulta_fecha" AS Consulta_consulta_fecha,
+     Consulta."consulta_hora" AS Consulta_consulta_hora,
+     tipo_estado."estado" AS tipo_estado_estado,
+     Cliente_duenio."ID_DUI" AS Cliente_duenio_ID_DUI,
+     Tipo_consulta."tipo_consulta" AS Tipo_consulta_tipo_consulta
+FROM
+     "dbo"."tipo_estado" tipo_estado INNER JOIN "dbo"."Consulta" Consulta ON tipo_estado."ID_estado" = Consulta."ID_estado"
+     INNER JOIN "dbo"."Cliente_duenio" Cliente_duenio ON Consulta."ID_DUI" = Cliente_duenio."ID_DUI"
+     INNER JOIN "dbo"."Tipo_consulta" Tipo_consulta ON Consulta."ID_tipoConsulta" = Tipo_consulta."ID_tipoConsulta"]]>
+	</queryString>
+	<field name="Consulta_ID_consulta" class="java.lang.Integer"/>
+	<field name="Consulta_consulta_fecha" class="java.sql.Date"/>
+	<field name="Consulta_consulta_hora" class="java.sql.Time"/>
+	<field name="tipo_estado_estado" class="java.lang.String"/>
+	<field name="Cliente_duenio_ID_DUI" class="java.lang.Integer"/>
+	<field name="Tipo_consulta_tipo_consulta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="553" y="19" width="100" height="20" uuid="5e72709f-bb06-4e06-86b3-8b85431ee775"/>
+				<text><![CDATA[Consulta_ID_consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="2" width="100" height="20" uuid="18622205-57f4-49d2-84d5-fef644f5c1f2"/>
+				<text><![CDATA[Tipo_consulta_tipo_consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="581" y="46" width="100" height="20" uuid="6653a749-018b-40c3-a71c-12beb209a867"/>
+				<text><![CDATA[Cliente_duenio_ID_DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="681" y="2" width="100" height="20" uuid="c9628417-ceae-41a1-9e99-2aeb48540e9b"/>
+				<text><![CDATA[tipo_estado_estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="697" y="39" width="100" height="20" uuid="5e6cc65e-0a4c-4cd2-ac87-13ce924a0a5f"/>
+				<text><![CDATA[Consulta_consulta_hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="528" y="46" width="100" height="20" uuid="40002687-41a3-4daf-a39e-35ee5bbcd4f2"/>
+				<text><![CDATA[Consulta_consulta_fecha]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="79" backcolor="#6666FF" uuid="a0b08e04-5f38-49ef-90b4-b52125bba039"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="19" width="476" height="47" forecolor="#FFFFFF" uuid="1dc53e8a-ffdf-4b9b-afa0-65d3f60bac43"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registro de consultas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="2f816acc-b62c-4f4b-91be-48824492e5ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de solicitante del registro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="494" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="a979f588-0e3b-4843-a4d1-d0b4c73d8f24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de emision del registro:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="628" y="0" width="174" height="40" uuid="03655844-d160-4a92-86c4-743dfe5a70d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="653" y="0" width="72" height="50" backcolor="#3F67FB" uuid="602d95f2-d42a-4453-acac-44aa6b6a5769"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="509" y="0" width="72" height="50" backcolor="#3F67FB" uuid="5a85f49f-bfd4-43f2-8f3b-1000c567889b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="221" y="0" width="72" height="50" backcolor="#3F67FB" uuid="eb706d74-270e-490a-8316-a7c2cd804db1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Estado de la consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="77" y="0" width="72" height="50" backcolor="#3F67FB" uuid="c580e2a3-c727-46b8-9dc4-fed1b9b1a6d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha reservada la consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="365" y="0" width="72" height="50" backcolor="#3F67FB" uuid="b89ca87d-57bf-4c4a-bdfa-a4a2884c58ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[DUI del dueño ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="725" y="0" width="72" height="50" backcolor="#3F67FB" uuid="a2e3b76f-bac7-424e-8472-3d9be364397e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="149" y="0" width="72" height="50" backcolor="#3F67FB" uuid="ebedb6ed-3f1b-43b2-8955-807b5c8d56c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha de la consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="437" y="0" width="72" height="50" backcolor="#3F67FB" uuid="0717b23a-a294-48d9-a633-f1efbe05ba91"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="581" y="0" width="72" height="50" backcolor="#3F67FB" uuid="44dc0557-78d8-4669-85ec-df05ed41334c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="293" y="0" width="72" height="50" backcolor="#3F67FB" uuid="eac958b8-4b8a-4beb-b72b-ba4e90fdda01"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Tipo de consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5" y="0" width="72" height="50" backcolor="#3F67FB" uuid="2bbc30be-89fe-45f6-b2bd-d3b0c3a9fac6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="17" width="72" height="50" uuid="511ad5b2-e587-421a-a102-ec7c053fc74f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Consulta_ID_consulta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="17" width="72" height="50" uuid="4f5fc6a6-2986-438e-9169-fbe9f63d14d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Consulta_consulta_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="17" width="72" height="50" uuid="828acacb-6450-4d07-aafd-d29a2713bc5f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Consulta_consulta_hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="17" width="72" height="50" uuid="c8aebc34-ac13-49ed-9dc9-8e8b96cc3fba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo_estado_estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="17" width="72" height="50" uuid="1cc5f0c4-99b1-41d0-9ac6-d918a4dd9577"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_ID_DUI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="17" width="72" height="50" uuid="bde356a0-0b7d-488f-b7f5-47e87cdb997d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tipo_consulta_tipo_consulta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="675" y="21" width="80" height="20" uuid="d79f088e-c592-4634-ad1a-f34f864bcfc7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="755" y="21" width="40" height="20" uuid="71eca256-351e-4c56-9834-9b96f75f6d6a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

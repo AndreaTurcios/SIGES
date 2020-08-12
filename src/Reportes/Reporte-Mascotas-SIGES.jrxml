@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="46ff8ce1-6a88-41cb-87dc-cd28ffcdf6ff">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Mascota."ID_mascota" AS Mascota_ID_mascota,
+     Mascota."nombre_mascota" AS Mascota_nombre_mascota,
+     Mascota."mascota_genero" AS Mascota_mascota_genero,
+     Mascota."mascota_razon" AS Mascota_mascota_razon,
+     Mascota."mascota_medicinas" AS Mascota_mascota_medicinas,
+     Mascota."mascota_horarioReserva" AS Mascota_mascota_horarioReserva,
+     Tipo_mascota."tipo_animal" AS Tipo_mascota_tipo_animal
+FROM
+     "dbo"."Tipo_mascota" Tipo_mascota INNER JOIN "dbo"."Mascota" Mascota ON Tipo_mascota."ID_tipoMascota" = Mascota."ID_tipoMascota"]]>
+	</queryString>
+	<field name="Mascota_ID_mascota" class="java.lang.Integer"/>
+	<field name="Mascota_nombre_mascota" class="java.lang.String"/>
+	<field name="Mascota_mascota_genero" class="java.lang.String"/>
+	<field name="Mascota_mascota_razon" class="java.lang.String"/>
+	<field name="Mascota_mascota_medicinas" class="java.lang.String"/>
+	<field name="Mascota_mascota_horarioReserva" class="java.lang.String"/>
+	<field name="Tipo_mascota_tipo_animal" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="611" y="31" width="100" height="20" uuid="1e956add-59f4-4bc6-9a21-22d3c6174fb0"/>
+				<text><![CDATA[Mascota_nombre_mascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="554" y="51" width="100" height="20" uuid="bbed69ce-9a30-4444-bd9c-61ec0cf57a9f"/>
+				<text><![CDATA[Mascota_mascota_genero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="528" y="19" width="100" height="20" uuid="fe9be057-f9d0-4642-9550-7b75073bfb5e"/>
+				<text><![CDATA[Mascota_mascota_razon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="674" y="51" width="100" height="20" uuid="b08fb441-7882-4400-b44d-7baae3f858e0"/>
+				<text><![CDATA[Mascota_mascota_medicinas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="674" y="19" width="100" height="20" uuid="587f7a0d-6362-42e9-b8b7-b81c823f4140"/>
+				<text><![CDATA[Mascota_mascota_horarioReserva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="601" y="0" width="100" height="20" uuid="0786492e-2a57-413c-9f84-e9c4725f028a"/>
+				<text><![CDATA[Tipo_mascota_tipo_animal]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="79" backcolor="#6666FF" uuid="9c5b0f6a-bd63-41f4-998d-0178f3a6e862"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="19" width="476" height="47" forecolor="#FFFFFF" uuid="2c16a4be-08bc-48d2-a99c-f9b909380d11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registros de las mascotas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="6cb82072-60cd-4cbc-bdd2-0378ab222781"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de solicitante del registro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="494" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="b2cf461b-65e5-4e83-95e2-1dcd79a6be29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de emision del registro:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="628" y="0" width="174" height="40" uuid="da8a1dda-02a3-43d2-9ca9-5fff82a41644"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="654" y="0" width="72" height="50" backcolor="#3F67FB" uuid="6648d555-2972-4776-9aff-d00e01267a47"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="78" y="0" width="72" height="50" backcolor="#3F67FB" uuid="5fd9f80b-1cc1-4b60-b203-8481f6638f43"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre de la mascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="726" y="0" width="72" height="50" backcolor="#3F67FB" uuid="f78f1ebf-241f-4281-9dd9-e508157f147d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="510" y="0" width="72" height="50" backcolor="#3F67FB" uuid="ef631d77-ddad-46c5-9156-94ae55d45bc9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Horario de la consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="366" y="0" width="144" height="50" backcolor="#3F67FB" uuid="73015f17-8eac-40cb-93fc-adc74e72c027"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Medicamento recetado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="222" y="0" width="144" height="50" backcolor="#3F67FB" uuid="a8b3bb27-8e8d-46b1-8242-b5d10776dc6e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Razon de la consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="582" y="0" width="72" height="50" backcolor="#3F67FB" uuid="e03d334c-881e-4102-bbc9-2138e7149c77"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Tipo de mascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="150" y="0" width="72" height="50" backcolor="#3F67FB" uuid="4ab0e4c8-82a5-43b3-9006-f88a752d7206"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Genero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6" y="0" width="72" height="50" backcolor="#3F67FB" uuid="faae8a71-46b3-471b-bedc-c27a57164296"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="12" width="72" height="50" uuid="df02c8b0-2285-4537-922d-620debd59e20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_ID_mascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="12" width="72" height="50" uuid="2121d6ef-8138-47c4-a0d0-ea57f1923008"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="12" width="72" height="50" uuid="225e04f4-fe6e-4a6f-bde0-5ad97a76de1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_mascota_genero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="12" width="144" height="50" uuid="d859fb65-b517-46d2-bf11-0a1ec5998561"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_mascota_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="12" width="144" height="50" uuid="53eaa947-52db-4891-9cbb-2204ce531dcb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_mascota_medicinas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="12" width="72" height="50" uuid="21813980-1294-447b-a16c-0db886951c48"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_mascota_horarioReserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="582" y="12" width="72" height="50" uuid="1632061e-9ccc-4049-aea0-e3b420244232"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tipo_mascota_tipo_animal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="674" y="16" width="80" height="20" uuid="6aac186a-f31d-4555-b8fb-4279abcc6033"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="754" y="16" width="40" height="20" uuid="843d72cc-271f-4e0c-a58c-5491cec8580e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

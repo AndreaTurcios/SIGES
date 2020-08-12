@@ -487,7 +487,7 @@ public class Dueños extends javax.swing.JInternalFrame {
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-encargadoMascota.jasper";
+            String path = "src\\Reportes\\Reporte-Cliente-Duenio-SIGES.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
