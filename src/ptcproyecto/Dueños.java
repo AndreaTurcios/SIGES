@@ -480,7 +480,6 @@ DefaultTableModel m;
         tfApellidos.setText(" ");
         tfCorreo.setText(" ");
         ListarDuenios();
-        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void cmbZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbZonaActionPerformed

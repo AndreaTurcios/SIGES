@@ -67,6 +67,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         ListarFichas();
         CargarMascota();
         labelNombre.setVisible(false);
+        jTextField2.setEnabled(false);
+        jTextField3.setEnabled(false);
+        jTextField1.setEnabled(false);
+        jComboBox1.setEnabled(false);
+        jButton2.setEnabled(false);
+        btnLimpiar.setEnabled(false);
     }
 
     /**
@@ -142,7 +148,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jLabel14.setForeground(new Color(255, 255, 255));
         jLabel14.setText("Buscar:");
 
-        tfdialogo.setText("                                        INGRESE EL DUI DEL DUEÑO + ENTER");
+        tfdialogo.setText("                                                 INGRESE EL DUI DEL DUEÑO ");
         tfdialogo.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 tfdialogoMouseClicked(evt);
@@ -528,6 +534,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+        if (tfDui.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -546,7 +555,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tfdialogoMouseClicked
 
     private void jButton4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       int fsel = jTable1dialog.getSelectedRow();
+        jTextField2.setEnabled(true);
+        jTextField3.setEnabled(true);
+        jTextField1.setEnabled(true);
+        jComboBox1.setEnabled(true);
+        jButton2.setEnabled(true);
+        btnLimpiar.setEnabled(true);
+        int fsel = jTable1dialog.getSelectedRow();
        String ID, nombre, apellidos;
         if (fsel==-1) {
             
@@ -571,9 +586,21 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
        jTextField3.setText(" ");
        jTextField1.setText(" ");
        ListarFichas();
+        if (tfDui.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
+        }else{
+       labelNombre.setVisible(false);
+       jTextField2.setEnabled(false);
+        jTextField3.setEnabled(false);
+        jTextField1.setEnabled(false);
+        jComboBox1.setEnabled(false);
+        jButton2.setEnabled(false);
+        btnLimpiar.setEnabled(false);
+      }   
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         if (tfdialogo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
         }else{
@@ -595,7 +622,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        tfdialogo.setText("                                        INGRESE EL DUI DEL DUEÑO + ENTER");
+        tfdialogo.setText("                                                 INGRESE EL DUI DEL DUEÑO ");
         ListarDuenios();
     }//GEN-LAST:event_jButton6ActionPerformed
 

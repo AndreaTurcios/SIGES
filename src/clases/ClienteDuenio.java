@@ -349,7 +349,7 @@ public class ClienteDuenio {
         modelo.addColumn("nacionalidad");
         modelo.addColumn("codigo zona");
         modelo.addColumn("tipoCliente");
-        modelo.addColumn("tipo mascota");
+        modelo.addColumn("mascota");
         try {
             String sql = "SELECT * FROM Cliente_duenio WHERE ID_DUI=?";
             Conexion con = new Conexion();

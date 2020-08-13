@@ -144,7 +144,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfdialogo">
               <Properties>
-                <Property name="text" type="java.lang.String" value="                                        INGRESE EL DUI DEL DUE&#xd1;O + ENTER"/>
+                <Property name="text" type="java.lang.String" value="                                                 INGRESE EL DUI DEL DUE&#xd1;O "/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfdialogoMouseClicked"/>
@@ -343,7 +343,7 @@
                           <Component id="btnLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" pref="180" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="188" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
