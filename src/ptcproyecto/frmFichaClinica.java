@@ -97,10 +97,10 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jLabel21 = new JLabel();
         jTextField1 = new JTextField();
         jLabel27 = new JLabel();
-        jComboBox1 = new JComboBox<>();
-        jComboBox2 = new JComboBox<>();
         jButton3 = new JButton();
         btnreporte = new JButton();
+        tfDui = new JTextField();
+        tfMascota = new JTextField();
         jButton1 = new JButton();
         jButton2 = new JButton();
         jScrollPane3 = new JScrollPane();
@@ -135,7 +135,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jLabel14.setForeground(new Color(255, 255, 255));
         jLabel14.setText("Buscar:");
 
-        tfdialogo.setText("                                        INGRESE EL NOMBRE DEL PRODUCTO + ENTER");
+        tfdialogo.setText("                                        INGRESE EL DUI DEL DUEÑO + ENTER");
         tfdialogo.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 tfdialogoMouseClicked(evt);
@@ -270,10 +270,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jLabel27.setFont(new Font("Ubuntu", 0, 14)); // NOI18N
         jLabel27.setText("Mascota:");
 
-        jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton3.setText("Buscar");
         jButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -288,15 +284,16 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
             }
         });
 
+        tfDui.setEditable(false);
+
+        tfMascota.setEditable(false);
+
         GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel23)
@@ -317,12 +314,17 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                                     .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 203, GroupLayout.PREFERRED_SIZE))
                                 .addGap(85, 85, 85))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 211, GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(tfDui, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+                        .addGap(316, 316, 316)
                         .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(85, 85, 85))))
+                        .addGap(85, 85, 85))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(229, 229, 229)
+                                .addComponent(tfMascota, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -332,9 +334,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                     .addComponent(jLabel27))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(tfDui, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfMascota, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
@@ -408,7 +410,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -520,8 +522,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JButton jButton3;
     private JButton jButton4;
     private JButton jButton5;
-    private JComboBox<String> jComboBox1;
-    private JComboBox<String> jComboBox2;
     private JDialog jDialog1;
     private JLabel jLabel12;
     private JLabel jLabel13;
@@ -543,6 +543,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JTextField jTextField3;
     private KGradientPanel kGradientPanel1;
     private KGradientPanel kGradientPanel2;
+    private JTextField tfDui;
+    private JTextField tfMascota;
     private JTextField tfdialogo;
     // End of variables declaration//GEN-END:variables
 }
