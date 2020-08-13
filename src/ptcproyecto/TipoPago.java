@@ -34,6 +34,12 @@ public class TipoPago extends javax.swing.JInternalFrame {
         initComponents();
     }
     
+    public void Listar_Tipo_Pago()
+    {
+        crud_tipo_pago obj = new crud_tipo_pago();
+        obj.Cargar_Tipo_Pago(jTable1);
+    }
+    
     public static void main(String args[]) 
     {
         /* Set the Nimbus look and feel */
@@ -96,6 +102,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         txtNombre_Tipo_Pago = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
         BtnCerrar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(744, 560));
@@ -209,6 +216,18 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel3);
         jLabel3.setBounds(20, 30, 160, 17);
 
+        btnLimpiar.setBackground(new java.awt.Color(0, 136, 130));
+        btnLimpiar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLimpiar);
+        btnLimpiar.setBounds(260, 240, 110, 30);
+
         getContentPane().add(jPanel2);
         jPanel2.setBounds(200, 70, 390, 290);
 
@@ -226,15 +245,36 @@ public class TipoPago extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMostrar_Tipo_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_Tipo_PagoActionPerformed
-        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+        Listar_Tipo_Pago();
     }//GEN-LAST:event_btnMostrar_Tipo_PagoActionPerformed
 
     private void btnGuardar_Tipo_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar_Tipo_PagoActionPerformed
-        // TODO add your handling code here:
+        crud_tipo_pago obj = new crud_tipo_pago();
+        obj.settipo_pago(txtNombre_Tipo_Pago.getText());
+        System.out.println("Nombre" + obj.gettipo_pago());
+        System.out.println("guardar tipo pago" + obj.Guardar_Tipo_Pago(obj));        
+        if (obj.Guardar_Tipo_Pago(obj)) 
+        {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           }
+        else
+        { 
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+        }
     }//GEN-LAST:event_btnGuardar_Tipo_PagoActionPerformed
 
     private void btnModificar_Tipo_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar_Tipo_PagoActionPerformed
         // TODO add your handling code here:
+        crud_tipo_pago obj = new crud_tipo_pago();
+        obj.settipo_pago(txtNombre_Tipo_Pago.getText());
+        if (obj.Modificar_Tipo_Pago()) 
+        {
+           JOptionPane.showMessageDialog(this,"Datos modificados"); 
+        }
+        else
+        { 
+           JOptionPane.showMessageDialog(this,"Error al modificar la informacion");    
+        }  
     }//GEN-LAST:event_btnModificar_Tipo_PagoActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
@@ -280,12 +320,16 @@ public class TipoPago extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtNombre_Tipo_Pago.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
-    private javax.swing.JButton BtnCerrar2;
     private javax.swing.JButton btnGuardar_Tipo_Pago;
     private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar_Tipo_Pago;
     private javax.swing.JButton btnMostrar_Tipo_Pago;
     private javax.swing.JLabel jLabel2;
