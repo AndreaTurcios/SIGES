@@ -89,6 +89,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jButton4 = new JButton();
         jButton5 = new JButton();
         jButton1 = new JButton();
+        jButton6 = new JButton();
         kGradientPanel1 = new KGradientPanel();
         jLabel12 = new JLabel();
         BtnCerrar = new JButton();
@@ -174,11 +175,23 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("SALIR");
+        jButton5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("LIMPIAR TABLA");
+        jButton6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -195,13 +208,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                         .addComponent(tfdialogo, GroupLayout.PREFERRED_SIZE, 423, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 10, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
                         .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton6, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113)))
+                        .addComponent(jButton5, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -217,7 +230,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton5, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -580,6 +594,15 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        tfdialogo.setText("                                        INGRESE EL DUI DEL DUEÑO + ENTER");
+        ListarDuenios();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       jDialog1.setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton BtnCerrar;
@@ -590,6 +613,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JButton jButton3;
     private JButton jButton4;
     private JButton jButton5;
+    private JButton jButton6;
     private JComboBox<String> jComboBox1;
     private JDialog jDialog1;
     private JLabel jLabel12;
