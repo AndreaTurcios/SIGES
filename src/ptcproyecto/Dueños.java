@@ -494,13 +494,13 @@ DefaultTableModel m;
             
    JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
-        m = (DefaultTableModel)jTable1.getModel();
+         m = (DefaultTableModel)jTable1.getModel();
          ID = jTable1.getValueAt(fsel, 0).toString();
          tfDUI.setText(ID);
          
          ClienteDuenio obj = new ClienteDuenio();
         obj.setID_DUI(Integer.parseInt(tfDUI.getText()));
-        int eliminar = JOptionPane.showConfirmDialog(this, "¿Està seguro que desea eliminar?",
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (eliminar == 0) {
             if (obj.EliminarCliente()) {
