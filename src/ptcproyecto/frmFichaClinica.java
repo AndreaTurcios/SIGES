@@ -8,6 +8,7 @@ package ptcproyecto;
 import clases.ClienteDuenio;
 import clases.Conexion;
 import static clases.Conexion.conectar;
+import clases.Mascota;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -498,8 +499,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     
     public void CargarMascota(){
         ClienteDuenio obj = new ClienteDuenio();
-        obj.consultarMascotaF(jComboBox1);
-        
+        obj.consultarMascota(jComboBox1);
     }
     public void ListarFichas(){
         ClienteDuenio obj = new ClienteDuenio();
@@ -564,7 +564,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         int fsel = jTable1dialog.getSelectedRow();
        String ID, nombre, apellidos;
         if (fsel==-1) {
-            
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
         m = (DefaultTableModel)jTable1dialog.getModel();
@@ -577,6 +576,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
          labelNombre.setText(nombre+" "+apellidos);
          
          jDialog1.setVisible(false);
+        
+//         if (tfdialogo.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
+//        }else{
+//            ClienteDuenio dui = new ClienteDuenio();
+//            jTable1dialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
+//            }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 

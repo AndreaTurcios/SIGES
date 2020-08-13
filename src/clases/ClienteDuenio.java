@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ClienteDuenio {
 
-    private Connection cn;
+    private Connection cn; 
     private Conexion conexion;
     private Integer ID_DUI;
     private String duenio_nombre;
@@ -523,6 +523,7 @@ public class ClienteDuenio {
             }
         }
     }
+    
     public void consultarMascotaF(JComboBox cboxMascota) {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
