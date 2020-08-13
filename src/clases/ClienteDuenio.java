@@ -197,7 +197,7 @@ public class ClienteDuenio {
             cn = conexion.conectar();
             System.err.println("Estado " + cn.getClientInfo());
             String sql = "INSERT INTO Cliente_duenio (ID_DUI,duenio_nombre, duenio_apellidos, "
-                    + "duenio_telefono, duenio_domicilio, duenio_correo,Fecha_e_DUI,nacionalidad,codigo_zona,ID_tipoCliente,ID_Mascota)" + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+                    + "duenio_telefono, duenio_domicilio, duenio_correo,Fecha_e_DUI,nacionalidad,codigo_zona,ID_tipoCliente)" + "VALUES(?,?,?,?,?,?,?,?,?,?)";
             String sql2 = "INSERT INTO Cliente_duenio"
                     + "           (ID_DUI"
                     + "           ,duenio_nombre"
@@ -208,15 +208,13 @@ public class ClienteDuenio {
                     + "           ,Fecha_e_DUI"
                     + "           ,nacionalidad"
                     + "           ,codigo_zona"
-                    + "           ,ID_tipoCliente"
-                    + "           ,ID_Mascota)"
+                    + "           ,ID_tipoCliente)"
                     + "     VALUES"
                     + "           (?"
                     + "           ,?"
                     + "           ,?"
                     + "           ,?"
                     + "		   ,?"
-                    + "           ,?"
                     + "           ,?"
                     + "           ,?"
                     + "           ,?"
@@ -246,8 +244,6 @@ public class ClienteDuenio {
             System.out.println("cod zona" + codigo_zona);
             cmd.setInt(10, ID_tipoCliente);
             System.out.println("TIPO " + ID_tipoCliente);
-            cmd.setInt(11, ID_Mascota);
-            System.out.println("mas " + ID_Mascota);
             /*cmd.setInt(1, ID_DUI);
             cmd.setString(2, duenio_nombre);
             cmd.setString(3, duenio_apellidos);
@@ -382,10 +378,10 @@ public class ClienteDuenio {
     public void listarDueniosT(Connection cn, JTable tabla){
         cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente", "tipo mascota"};
+        String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM Cliente_duenio ORDER BY ID_DUI";
-        String [] filas = new String[11];
+        String [] filas = new String[10];
         Statement st = null;
         ResultSet rs = null;
         
@@ -394,7 +390,7 @@ public class ClienteDuenio {
             rs = st.executeQuery(sql);
             System.out.println("datos obtenidos "+rs);
             while (rs.next()){
-                for (int i = 0; i < 11; i++) {
+                for (int i = 0; i < 10; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);

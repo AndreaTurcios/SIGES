@@ -21,6 +21,23 @@ public class Mascota {
     private String mascota_medicinas;
     private String mascota_horarioReserva;
     private Integer ID_tipoMascota;
+    private Integer ID_DUI;
+
+    public Integer getID_DUI() {
+        return ID_DUI;
+    }
+
+    public void setID_DUI(Integer ID_DUI) {
+        this.ID_DUI = ID_DUI;
+    }
+
+    public Pool getMetodospool() {
+        return metodospool;
+    }
+
+    public void setMetodospool(Pool metodospool) {
+        this.metodospool = metodospool;
+    }
     
 
     public Integer getID_tipoMascota() {
@@ -121,10 +138,10 @@ public class Mascota {
     }
     public void CargarMascota(Connection cn, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID_mascota", "nombre_mascota", "mascota_genero", "mascota_razon", "mascota_medicinas", "mascota_horarioReserva", "ID_tipoMascota"};
+        String [] columnas = {"ID_mascota", "nombre_mascota", "mascota_genero", "mascota_razon", "mascota_medicinas", "mascota_horarioReserva", "ID_tipoMascota", "ID_DUI"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM Mascota ORDER BY ID_mascota";
-        String [] filas = new String[7];
+        String [] filas = new String[8];
         Statement st = null;
         
         ResultSet rs = null;
@@ -134,7 +151,7 @@ public class Mascota {
             rs = st.executeQuery(sql);
             System.out.println("datos obtenidos "+rs);
             while (rs.next()){
-                for (int i = 0; i < 7; i++) {
+                for (int i = 0; i < 8; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
@@ -199,7 +216,7 @@ public class Mascota {
     public boolean guardarMascota(Mascota a){
         boolean resp = false;
         try{//realizando consulta insert
-            String sql = "INSERT INTO Mascota (nombre_mascota, mascota_genero, mascota_razon, mascota_medicinas, mascota_horarioReserva, ID_tipoMascota)"+"VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO Mascota (nombre_mascota, mascota_genero, mascota_razon, mascota_medicinas, mascota_horarioReserva, ID_tipoMascota, ID_DUI)"+"VALUES(?,?,?,?,?,?,?)";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setString(1, a.nombre_mascota );
             cmd.setString(2, a.mascota_genero );
@@ -207,6 +224,7 @@ public class Mascota {
             cmd.setString(4, a.mascota_medicinas );
             cmd.setString(5, a.mascota_horarioReserva );
             cmd.setInt(6, a.ID_tipoMascota );
+            cmd.setInt(7, a.ID_DUI);
             if (!cmd.execute()) {
                 resp=true;
             }
