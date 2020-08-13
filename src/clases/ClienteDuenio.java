@@ -345,7 +345,6 @@ public class ClienteDuenio {
         modelo.addColumn("nacionalidad");
         modelo.addColumn("codigo zona");
         modelo.addColumn("tipoCliente");
-        modelo.addColumn("mascota");
         try {
             String sql = "SELECT * FROM Cliente_duenio WHERE ID_DUI=?";
             Conexion con = new Conexion();
@@ -365,7 +364,6 @@ public class ClienteDuenio {
                 cas[7] = rs.getString(8);
                 cas[8] = rs.getDouble(9);
                 cas[9] = rs.getInt(10);
-                cas[10] = rs.getDouble(11);
                 modelo.addRow(cas);
             }
             cn.close();
