@@ -64,6 +64,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         initComponents();
         ListarDuenios();
         ListarFichas();
+        CargarMascota();
         labelNombre.setVisible(false);
     }
 
@@ -297,8 +298,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
         tfDui.setEditable(false);
 
-        jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         labelNombre.setText("jLabel1");
 
         GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
@@ -464,6 +463,11 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     public void ListarDuenios(){
         ClienteDuenio obj = new ClienteDuenio();
         obj.CargarDuenio(jTable1dialog);
+    }
+    public void CargarMascota(){
+        ClienteDuenio obj = new ClienteDuenio();
+        obj.consultarMascotaF(jComboBox1);
+        
     }
     public void ListarFichas(){
         ClienteDuenio obj = new ClienteDuenio();

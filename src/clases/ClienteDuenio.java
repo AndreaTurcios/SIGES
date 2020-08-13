@@ -463,7 +463,37 @@ public class ClienteDuenio {
             }
         }
     }
-
+    public void consultarMascotaF(JComboBox cboxMascota) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_mascota, nombre_mascota FROM Mascota ORDER BY ID_mascota";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cboxMascota.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                Mascota m = new Mascota();
+                m.setID_mascota(resultado.getInt("ID_mascota"));
+                m.setNombre_mascota(resultado.getString("nombre_mascota"));
+                cboxMascota.addItem(m);
+//                JOptionPane.showMessageDialog(null, "es "+m);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
     public void consultarTipoC(JComboBox cbox_clientet) {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
