@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractListModel;
@@ -175,6 +176,11 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jButton5.setText("SALIR");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -464,6 +470,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         ClienteDuenio obj = new ClienteDuenio();
         obj.CargarDuenio(jTable1dialog);
     }
+    
+    public void ListarDueniosD(){
+        ClienteDuenio obj = new ClienteDuenio();
+        
+    }
+    
     public void CargarMascota(){
         ClienteDuenio obj = new ClienteDuenio();
         obj.consultarMascotaF(jComboBox1);
@@ -501,7 +513,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnreporteActionPerformed
 
     private void jButton2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+//        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -546,6 +558,27 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
        jTextField1.setText(" ");
        ListarFichas();
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (tfdialogo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
+        }else{
+            ClienteDuenio dui = new ClienteDuenio();
+            jTable1dialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
+//            ClienteDuenio obj = new ClienteDuenio();
+//            int fse = jTable1dialog.getSelectedRow();
+//            String dato = tfdialogo.getText();
+//            String b = jTable1dialog.getValueAt(fse, 0).toString();
+//            
+//            if (dato==b) {
+//                try {
+//                    obj.BuscarDuenio(Integer.parseInt(jTable1dialog.getValueAt(fse, 0).toString()));
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

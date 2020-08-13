@@ -1,5 +1,6 @@
 package clases;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -336,7 +337,47 @@ public class ClienteDuenio {
             JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
         }
     }
-
+     public DefaultTableModel BuscarTabla(String busqueda) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("nombre");
+        modelo.addColumn("apellidos");
+        modelo.addColumn("telefono");
+        modelo.addColumn("domicilio");
+        modelo.addColumn("correo");
+        modelo.addColumn("Expiracion");
+        modelo.addColumn("nacionalidad");
+        modelo.addColumn("codigo zona");
+        modelo.addColumn("tipoCliente");
+        modelo.addColumn("tipo mascota");
+        try {
+            String sql = "SELECT * FROM Cliente_duenio WHERE ID_DUI=?";
+            Conexion con = new Conexion();
+            cn = con.conectar();
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setString(1, busqueda);
+            ResultSet rs = ps.executeQuery();
+            Object[] cas = new Object[11];
+            while (rs.next()) {
+                cas[0] = rs.getInt(1);
+                cas[1] = rs.getString(2);
+                cas[2] = rs.getString(3);
+                cas[3] = rs.getString(4);
+                cas[4] = rs.getString(5);
+                cas[5] = rs.getString(6);
+                cas[6] = rs.getString(7);
+                cas[7] = rs.getString(8);
+                cas[8] = rs.getDouble(9);
+                cas[9] = rs.getInt(10);
+                cas[10] = rs.getDouble(11);
+                modelo.addRow(cas);
+            }
+            cn.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return modelo;
+    }
     
     public void listarDueniosT(Connection cn, JTable tabla){
         cn = conexion.conectar();
@@ -399,6 +440,25 @@ public class ClienteDuenio {
     public void CargarFicha(JTable tabla) {
         listarFichas(cn ,tabla);
     }
+    
+    public int Cargarduis(String DUI) {
+        int ret = 0;
+        cn = conexion.conectar();
+        try{
+        String sql = "SELECT * FROM Cliente_duenio ORDER BY ID_DUI WHERE ID_DUI=?";
+          PreparedStatement st = cn.prepareStatement(sql);
+            st.setString(1, DUI);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                ret = rs.getInt(1);
+            }
+            cn.close();
+            rs.close();
+         } catch (Exception e) {
+        }
+        return ret;
+        } 
+    
 
     public void consultarNacionalidad(JComboBox cbox_duenios) {
         java.sql.Connection cn = null;
@@ -524,6 +584,16 @@ public class ClienteDuenio {
             }
         }
     }
+    
+    public static void BuscarDuenio(int a) throws SQLException{
+        CallableStatement entrada = Conexion.conectar().prepareCall("(call BuscarDuenio (?))");
+        entrada.setInt(1, a);
+        entrada.execute();
+    }
+    
+//    public void BuscarporDUI(String str){
+//        List<Cliente> li = 
+//    }
 
     public void ConsultarCodigozona(JComboBox cbox_zona) {
         java.sql.Connection cn = null;
