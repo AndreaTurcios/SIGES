@@ -5,6 +5,7 @@
  */
 package ptcproyecto;
 
+import clases.ClienteDuenio;
 import clases.Conexion;
 import static clases.Conexion.conectar;
 import java.awt.Color;
@@ -13,6 +14,10 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +39,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.table.DefaultTableModel;
@@ -56,6 +62,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
      */
     public frmFichaClinica() {
         initComponents();
+        ListarDuenios();
     }
 
     /**
@@ -71,6 +78,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         kGradientPanel2 = new KGradientPanel();
         jLabel13 = new JLabel();
         jPanel1 = new JPanel();
+        jLabel14 = new JLabel();
+        tfdialogo = new JTextField();
+        jScrollPane1 = new JScrollPane();
+        jTable1dialog = new JTable();
+        jButton4 = new JButton();
+        jButton5 = new JButton();
         kGradientPanel1 = new KGradientPanel();
         jLabel12 = new JLabel();
         BtnCerrar = new JButton();
@@ -107,7 +120,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
             .addGroup(GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel13)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(kGradientPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
@@ -118,13 +131,71 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new Color(153, 153, 255));
 
+        jLabel14.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel14.setForeground(new Color(255, 255, 255));
+        jLabel14.setText("Buscar:");
+
+        tfdialogo.setText("                                        INGRESE EL NOMBRE DEL PRODUCTO + ENTER");
+        tfdialogo.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                tfdialogoMouseClicked(evt);
+            }
+        });
+        tfdialogo.addPropertyChangeListener(new PropertyChangeListener() {
+            public void propertyChange(PropertyChangeEvent evt) {
+                tfdialogoPropertyChange(evt);
+            }
+        });
+
+        jTable1dialog.setModel(new DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1dialog);
+
+        jButton4.setText("AGREGAR");
+
+        jButton5.setText("SALIR");
+
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfdialogo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(tfdialogo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         GroupLayout jDialog1Layout = new GroupLayout(jDialog1.getContentPane());
@@ -362,7 +433,10 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void ListarDuenios(){
+        ClienteDuenio obj = new ClienteDuenio();
+        obj.CargarDuenio(jTable1dialog);
+    }
     private void BtnCerrarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
@@ -399,10 +473,19 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jDialog1.setMinimumSize(new Dimension (519, 460));
+        jDialog1.setMinimumSize(new Dimension (800, 600));
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tfdialogoPropertyChange(PropertyChangeEvent evt) {//GEN-FIRST:event_tfdialogoPropertyChange
+      JTextField t = new JTextField();
+      t.setHorizontalAlignment(JTextField.CENTER);
+    }//GEN-LAST:event_tfdialogoPropertyChange
+
+    private void tfdialogoMouseClicked(MouseEvent evt) {//GEN-FIRST:event_tfdialogoMouseClicked
+        tfdialogo.setText(" ");
+    }//GEN-LAST:event_tfdialogoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -411,11 +494,14 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
+    private JButton jButton4;
+    private JButton jButton5;
     private JComboBox<String> jComboBox1;
     private JComboBox<String> jComboBox2;
     private JDialog jDialog1;
     private JLabel jLabel12;
     private JLabel jLabel13;
+    private JLabel jLabel14;
     private JLabel jLabel21;
     private JLabel jLabel22;
     private JLabel jLabel23;
@@ -424,12 +510,15 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JPanel jPanel1;
     private JPanel jPanel3;
     private JPanel jPanel4;
+    private JScrollPane jScrollPane1;
     private JScrollPane jScrollPane3;
+    private JTable jTable1dialog;
     private JTable jTable3;
     private JTextField jTextField1;
     private JTextField jTextField2;
     private JTextField jTextField3;
     private KGradientPanel kGradientPanel1;
     private KGradientPanel kGradientPanel2;
+    private JTextField tfdialogo;
     // End of variables declaration//GEN-END:variables
 }
