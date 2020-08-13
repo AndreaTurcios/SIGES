@@ -495,7 +495,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     
     public void CargarMascota(){
         ClienteDuenio obj = new ClienteDuenio();
-        obj.consultarMascota(jComboBox1);
+        obj.consultarMascotaF(jComboBox1);
     }
     public void ListarFichas(){
         ClienteDuenio obj = new ClienteDuenio();

@@ -235,38 +235,7 @@ public class Mascota {
         }
         return false;
     }
-    public void consultarMascotaF(JComboBox cboxMascota) {
-        java.sql.Connection cn = null;
-        PreparedStatement st = null;
-        ResultSet resultado = null;
-        String SSQL = "SELECT ID_mascota, nombre_mascota FROM Mascota ORDER BY ID_mascota";
-        try {
-            cn = metodospool.dataSource.getConnection();
-            st = cn.prepareStatement(SSQL);
-            resultado = st.executeQuery();
-            cboxMascota.addItem("Seleccione una opción");
-            while (resultado.next()) {
-                ClienteDuenio m = new ClienteDuenio();
-                m.setID_Mascota(resultado.getInt("ID_mascota"));
-                setNombre_mascota(resultado.getString("nombre_mascota"));
-                
-                cboxMascota.addItem(m);
-//                JOptionPane.showMessageDialog(null, "es "+m);
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            if (cn != null) {
-                try {
-                    cn.close();
-                    resultado.close();
-                    resultado = null;
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, ex);
-                }
-            }
-        }
-    }
+   
     public boolean consultarMascota(){
         boolean resp = false;
         try{//realizando consulta insert

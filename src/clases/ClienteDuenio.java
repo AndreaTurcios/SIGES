@@ -522,7 +522,7 @@ public class ClienteDuenio {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
         ResultSet resultado = null;
-        String SSQL = "SELECT ID_mascota, nombre_mascota FROM Mascota ORDER BY ID_mascota";
+        String SSQL = "SELECT ID_mascota, nombre_mascota FROM Mascota";
         try {
             cn = metodospool.dataSource.getConnection();
             st = cn.prepareStatement(SSQL);
@@ -532,6 +532,7 @@ public class ClienteDuenio {
                 Mascota m = new Mascota();
                 m.setID_mascota(resultado.getInt("ID_mascota"));
                 m.setNombre_mascota(resultado.getString("nombre_mascota"));
+//                m.setID_DUI(ID_DUI);
                 cboxMascota.addItem(m);
 //                JOptionPane.showMessageDialog(null, "es "+m);
             }
