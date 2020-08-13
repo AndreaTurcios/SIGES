@@ -63,6 +63,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     public frmFichaClinica() {
         initComponents();
         ListarDuenios();
+        labelNombre.setVisible(false);
     }
 
     /**
@@ -84,6 +85,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jTable1dialog = new JTable();
         jButton4 = new JButton();
         jButton5 = new JButton();
+        jButton1 = new JButton();
         kGradientPanel1 = new KGradientPanel();
         jLabel12 = new JLabel();
         BtnCerrar = new JButton();
@@ -101,7 +103,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         btnreporte = new JButton();
         tfDui = new JTextField();
         jComboBox1 = new JComboBox<>();
-        jButton1 = new JButton();
+        labelNombre = new JLabel();
         jButton2 = new JButton();
         jScrollPane3 = new JScrollPane();
         jTable3 = new JTable();
@@ -120,7 +122,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
             .addGroup(GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel13)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(kGradientPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
@@ -169,6 +171,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
         jButton5.setText("SALIR");
 
+        jButton1.setText("Buscar");
+
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -179,7 +183,10 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfdialogo))
+                        .addComponent(tfdialogo, GroupLayout.PREFERRED_SIZE, 423, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
@@ -193,7 +200,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
-                    .addComponent(tfdialogo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfdialogo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1)))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -288,6 +297,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
         jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        labelNombre.setText("jLabel1");
+
         GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -297,7 +308,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel23)
-                            .addComponent(jLabel25)
                             .addComponent(jTextField2, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
                             .addComponent(jTextField1))
                         .addGap(18, 18, Short.MAX_VALUE)
@@ -316,25 +326,32 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                                 .addGap(85, 85, 85))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(tfDui, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67)
+                                .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel25)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(tfDui, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(labelNombre, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel27)
-                                .addGap(40, 40, 40)
-                                .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel21))
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
+                        .addGap(221, 221, 221))))
         );
         jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel25)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(tfDui, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(tfDui, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
-                    .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNombre))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
@@ -354,13 +371,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                         .addComponent(btnreporte, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)))
                 .addGap(5, 5, 5))
         );
-
-        jButton1.setText("Buscar mascota");
-        jButton1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton2.setFont(new Font("Ubuntu Mono", 0, 14)); // NOI18N
         jButton2.setText("Guardar ");
@@ -386,17 +396,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jButton2)
-                .addGap(342, 342, 342))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 607, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, 607, GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 607, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, 607, GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -404,11 +410,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton2)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -449,10 +453,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private void BtnCerrarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnreporteActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnreporteActionPerformed
         try {
@@ -497,9 +497,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tfdialogoMouseClicked
 
     private void jButton4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int fsel = jTable1dialog.getSelectedRow();
-       String ID, nombre, apellidos, telefono,domicilio, correo, duiexpiracion, nacionalidad, 
-               codigozona, tipocliente, tipomascota;
+       int fsel = jTable1dialog.getSelectedRow();
+       String ID, nombre, apellidos;
         if (fsel==-1) {
             
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
@@ -507,7 +506,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         m = (DefaultTableModel)jTable1dialog.getModel();
         ID = jTable1dialog.getValueAt(fsel, 0).toString();
          nombre = jTable1dialog.getValueAt(fsel, 1).toString();
-         JOptionPane.showMessageDialog(null, ID+nombre);
+         apellidos = jTable1dialog.getValueAt(fsel, 2).toString();
+         
+         tfDui.setText(ID);
+         labelNombre.setVisible(true);
+         labelNombre.setText(nombre+" "+apellidos);
+         
+         jDialog1.setVisible(false);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -542,6 +547,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JTextField jTextField3;
     private KGradientPanel kGradientPanel1;
     private KGradientPanel kGradientPanel2;
+    private JLabel labelNombre;
     private JTextField tfDui;
     private JTextField tfdialogo;
     // End of variables declaration//GEN-END:variables
