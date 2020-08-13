@@ -13,7 +13,7 @@ public class RecuperacionContrasenia {
         boolean retorno = false;
         try {
             String consulta;
-            consulta = "Select * from respuestas where ID_Pregunta= ? and respuesta = ?";
+            consulta = "Select * from respuestas where respuesta = ? and ID_Pregunta= ?";
             PreparedStatement Prepared;
             Conexion con = new Conexion();
 
