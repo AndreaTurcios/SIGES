@@ -20,7 +20,6 @@ public class Pool {
         inicializaDataSource();
 
     }
-
     private void inicializaDataSource(){
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setDriverClassName("org.gjt.mm.mysql.Driver");
