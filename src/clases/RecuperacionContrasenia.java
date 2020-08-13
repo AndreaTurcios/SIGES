@@ -21,6 +21,7 @@ public class RecuperacionContrasenia {
             Prepared.setString(1, respuesta);
             Prepared.setInt(2, ID_Pregunta);
             ResultSet Resultado = Prepared.executeQuery();
+            
         if (Resultado.next()) {
                   retorno = true;
               }
@@ -28,5 +29,7 @@ public class RecuperacionContrasenia {
           JOptionPane.showMessageDialog(null, "Error "+ex);
           }   
           return retorno;
+          
       }
+     
 }

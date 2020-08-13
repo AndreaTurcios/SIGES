@@ -1,6 +1,7 @@
 package ptcproyecto;
 
 import clases.DetalleFacturas;
+import clases.*;
 import clases.RecuperacionContrasenia;
 import clases.controlPreguntas;
 import clases.usuarios;
@@ -272,21 +273,27 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
 //        int Pregunta = (Integer) jComboBox2.getSelectedItem();
 //        controlPreguntas Pregunt = (controlPreguntas)jComboBox2.getSelectedItem();
 //        String ID_Pregunta = Pregunt .toString();
+        LoginMetodo logi = new LoginMetodo();
         controlPreguntas ti = (controlPreguntas)jComboBox2.getSelectedItem();
         int ID_Pregunta = ti.getID_pregunta();
+        
+        Usuario us = (Usuario)cmbUsuario.getSelectedItem();
+        int ID_usuario = us.getId_usuario();
 //        int ID_Pregunta = (Integer) jComboBox2.getSelectedItem();
        
 //        int ID_Usuario = (Integer) cmbUsuario.getSelectedItem();
         String respuesta = jTextField1.getText();
         RecuperacionContrasenia recuperacionc = new RecuperacionContrasenia();
         
-        if (recuperacionc.recuperacion(ID_Pregunta, respuesta)) {
-        jTextField2.setEnabled(true);
-        jTextField3.setEnabled(true);
-        jButton2.setEnabled(true);
+        if (logi.loginR(ID_usuario, ID_Pregunta) && recuperacionc.recuperacion(ID_Pregunta, respuesta)) {
+           jTextField2.setEnabled(true);
+           jTextField3.setEnabled(true);
+           jButton2.setEnabled(true);
         }else{
-                JOptionPane.showMessageDialog(null,"Se deben verificar los datos llenados con anterioridad");
-       }    
+          JOptionPane.showMessageDialog(null,"Se deben verificar los datos llenados con anterioridad");
+           
+    }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -242,6 +242,29 @@ public class LoginMetodo {
           }   
           return retorno;
       }
+     public boolean loginR(Integer ID_usuario, Integer ID_pregunta) {
+        boolean retorno = false;
+        try {
+            String consulta;
+            
+            consulta = "Select * from preguntas where ID_usuario = ? and ID_pregunta = ?";
+
+            PreparedStatement Prepared;
+            Conexion con = new Conexion();
+
+            Prepared = con.conectar().prepareStatement(consulta);
+            Prepared.setInt(1, ID_usuario);
+            Prepared.setInt(2, ID_pregunta);
+
+            ResultSet Resultado = Prepared.executeQuery();
+        if (Resultado.next()) {
+                  retorno = true;
+              }
+          } catch (Exception ex) {
+          JOptionPane.showMessageDialog(null, "Error"+ex);
+          }   
+          return retorno;
+      }
     public boolean loginadmin (String usuario, String contrasenia) {
         boolean retorno = false;
         try {
