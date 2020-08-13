@@ -188,7 +188,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton6.setText("LIMPIAR TABLA");
+        jButton6.setText("NUEVA BUSQUEDA");
         jButton6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton6ActionPerformed(evt);
