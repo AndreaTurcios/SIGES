@@ -14,6 +14,8 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -33,7 +35,6 @@ public class Citas extends javax.swing.JInternalFrame {
      */
     public Citas() {
         initComponents();
-        this.setPreferredSize(new Dimension(760,714));
     }
 
     /**
@@ -45,77 +46,32 @@ public class Citas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JPCitas = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        BtnCerrar1 = new javax.swing.JButton();
         JPIngresoCitas = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tfHora = new javax.swing.JTextField();
         cbTipoCita = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        tfFecha = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jcbDUI = new javax.swing.JComboBox<>();
+        rSDateChooser1 = new rojeru_san.componentes.RSDateChooser();
+        jSHora = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        jSMinuto = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         JbtGuardar = new javax.swing.JButton();
         JbtnConsultar = new javax.swing.JButton();
         JbtnImprimir = new javax.swing.JButton();
         JbtnModificar1 = new javax.swing.JButton();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(760, 714));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        JPCitas.setBackground(new java.awt.Color(157, 34, 202));
-        JPCitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Citas");
-        JPCitas.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-
-        jPanel1.setBackground(new java.awt.Color(204, 102, 255));
-
-        jTextField1.setBackground(new java.awt.Color(204, 102, 255));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-
-        BtnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
-        BtnCerrar1.setToolTipText("");
-        BtnCerrar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrar1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(BtnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        JPCitas.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 270, 50));
-
-        getContentPane().add(JPCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 50));
 
         JPIngresoCitas.setBackground(new java.awt.Color(255, 255, 255));
         JPIngresoCitas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de las citas ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -141,46 +97,77 @@ public class Citas extends javax.swing.JInternalFrame {
 
         jcbDUI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel6.setText("Hora:");
+
+        jLabel7.setText("Minuto:");
+
         javax.swing.GroupLayout JPIngresoCitasLayout = new javax.swing.GroupLayout(JPIngresoCitas);
         JPIngresoCitas.setLayout(JPIngresoCitasLayout);
         JPIngresoCitasLayout.setHorizontalGroup(
             JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPIngresoCitasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(tfFecha)
-                    .addComponent(tfHora)
-                    .addComponent(cbTipoCita, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jcbDUI, 0, 180, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(rSDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(cbTipoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(59, 59, 59))
+                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcbDUI, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPIngresoCitasLayout.createSequentialGroup()
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                                    .addComponent(jSHora, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jSMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         JPIngresoCitasLayout.setVerticalGroup(
             JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPIngresoCitasLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(4, 4, 4)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel3)
+                .addGap(3, 3, 3)
+                .addComponent(rSDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbTipoCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTipoCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbDUI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(4, 4, 4)
+                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 230, 280));
+        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 470, 260));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,7 +182,7 @@ public class Citas extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 430, 180));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 630, 180));
 
         JbtGuardar.setBackground(new java.awt.Color(0, 153, 153));
         JbtGuardar.setText("Guardar");
@@ -204,16 +191,16 @@ public class Citas extends javax.swing.JInternalFrame {
                 JbtGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(JbtGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 130, 40));
+        getContentPane().add(JbtGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 130, 40));
 
         JbtnConsultar.setBackground(new java.awt.Color(0, 153, 153));
-        JbtnConsultar.setText("Mostrar");
+        JbtnConsultar.setText("Actualizar");
         JbtnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JbtnConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(JbtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 163, 130, 40));
+        getContentPane().add(JbtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 130, 40));
 
         JbtnImprimir.setBackground(new java.awt.Color(0, 153, 153));
         JbtnImprimir.setText("Imprimir");
@@ -222,7 +209,7 @@ public class Citas extends javax.swing.JInternalFrame {
                 JbtnImprimirActionPerformed(evt);
             }
         });
-        getContentPane().add(JbtnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 130, 40));
+        getContentPane().add(JbtnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 130, 40));
 
         JbtnModificar1.setBackground(new java.awt.Color(0, 153, 153));
         JbtnModificar1.setText("Modificar");
@@ -231,19 +218,56 @@ public class Citas extends javax.swing.JInternalFrame {
                 JbtnModificar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(JbtnModificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 223, 130, 40));
+        getContentPane().add(JbtnModificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 130, 40));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
+        kGradientPanel1.setkGradientFocus(600);
+        kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
+        kGradientPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MouseDragged(evt);
+            }
+        });
+        kGradientPanel1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                kGradientPanel1MouseWheelMoved(evt);
+            }
+        });
+        kGradientPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MousePressed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Citas");
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addComponent(jLabel1)
+                .addContainerGap(323, Short.MAX_VALUE))
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(jLabel1))
+        );
+
+        getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrar1ActionPerformed
-        this.dispose ();
-    }//GEN-LAST:event_BtnCerrar1ActionPerformed
-
     private void JbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtGuardarActionPerformed
        Cita obj = new Cita();
        obj.setcita_hora(Integer.parseInt(tfHora.getText ()));
-       obj.setcita_fecha(Integer.parseInt(tfFecha.getText ()));
+//       obj.setcita_fecha(Integer.parseInt(tfFecha.getText ()));
        obj.setID_tipoCita((Integer) cbTipoCita.getSelectedItem());
        obj.setDUI((Integer)jcbDUI.getSelectedItem ());
        if (obj.guardar()) {
@@ -261,7 +285,7 @@ public class Citas extends javax.swing.JInternalFrame {
         Cita obj = new Cita();
        if (obj.Consultar()) {
        obj.setcita_hora(Integer.parseInt(tfHora.getText ()));
-       obj.setcita_fecha(Integer.parseInt(tfFecha.getText ()));
+//       obj.setcita_fecha(Integer.parseInt(jSMinuto.getText ()));
        obj.setID_tipoCita((Integer) cbTipoCita.getSelectedItem());
        obj.setDUI((Integer)jcbDUI.getSelectedItem ());
      
@@ -312,10 +336,21 @@ public class Citas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_JbtnModificar1ActionPerformed
 
+        
+    private void kGradientPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseDragged
+       
+    }//GEN-LAST:event_kGradientPanel1MouseDragged
+
+    private void kGradientPanel1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseWheelMoved
+
+    }//GEN-LAST:event_kGradientPanel1MouseWheelMoved
+
+    private void kGradientPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MousePressed
+        
+    }//GEN-LAST:event_kGradientPanel1MousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCerrar1;
-    private javax.swing.JPanel JPCitas;
     private javax.swing.JPanel JPIngresoCitas;
     private javax.swing.JButton JbtGuardar;
     private javax.swing.JButton JbtnConsultar;
@@ -327,12 +362,15 @@ public class Citas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JSpinner jSHora;
+    private javax.swing.JSpinner jSMinuto;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> jcbDUI;
-    private javax.swing.JTextField tfFecha;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private rojeru_san.componentes.RSDateChooser rSDateChooser1;
     private javax.swing.JTextField tfHora;
     // End of variables declaration//GEN-END:variables
 }

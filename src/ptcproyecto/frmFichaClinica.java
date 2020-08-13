@@ -10,6 +10,7 @@ import static clases.Conexion.conectar;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -22,6 +23,8 @@ import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -64,6 +67,10 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new JDialog();
+        kGradientPanel2 = new KGradientPanel();
+        jLabel13 = new JLabel();
+        jPanel1 = new JPanel();
         kGradientPanel1 = new KGradientPanel();
         jLabel12 = new JLabel();
         BtnCerrar = new JButton();
@@ -85,6 +92,57 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jButton2 = new JButton();
         jScrollPane3 = new JScrollPane();
         jTable3 = new JTable();
+
+        kGradientPanel2.setkEndColor(new Color(113, 186, 133));
+        kGradientPanel2.setkGradientFocus(600);
+        kGradientPanel2.setkStartColor(new Color(1, 163, 201));
+
+        jLabel13.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel13.setForeground(new Color(255, 255, 255));
+        jLabel13.setText("Buscador ficha clínica");
+
+        GroupLayout kGradientPanel2Layout = new GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(kGradientPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel13)
+                .addContainerGap(328, Short.MAX_VALUE))
+        );
+        kGradientPanel2Layout.setVerticalGroup(kGradientPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addContainerGap())
+        );
+
+        jPanel1.setBackground(new Color(153, 153, 255));
+
+        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 344, Short.MAX_VALUE)
+        );
+
+        GroupLayout jDialog1Layout = new GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(jDialog1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jDialog1Layout.setVerticalGroup(jDialog1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addComponent(kGradientPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setEnabled(false);
         setFocusCycleRoot(false);
@@ -141,6 +199,11 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jComboBox2.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton3.setText("Buscar");
+        jButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -305,8 +368,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         Buscador llamar = new Buscador();
-         llamar.setVisible(true);
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnreporteActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnreporteActionPerformed
@@ -336,6 +398,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jDialog1.setMinimumSize(new Dimension (519, 460));
+        jDialog1.setLocationRelativeTo(this);
+        jDialog1.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton BtnCerrar;
@@ -345,12 +413,15 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JButton jButton3;
     private JComboBox<String> jComboBox1;
     private JComboBox<String> jComboBox2;
+    private JDialog jDialog1;
     private JLabel jLabel12;
+    private JLabel jLabel13;
     private JLabel jLabel21;
     private JLabel jLabel22;
     private JLabel jLabel23;
     private JLabel jLabel25;
     private JLabel jLabel27;
+    private JPanel jPanel1;
     private JPanel jPanel3;
     private JPanel jPanel4;
     private JScrollPane jScrollPane3;
@@ -359,5 +430,6 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JTextField jTextField2;
     private JTextField jTextField3;
     private KGradientPanel kGradientPanel1;
+    private KGradientPanel kGradientPanel2;
     // End of variables declaration//GEN-END:variables
 }
