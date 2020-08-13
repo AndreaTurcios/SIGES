@@ -372,7 +372,35 @@ public class ClienteDuenio {
         }
         return modelo;
     }
-    
+     public void listarDetalleFactura(Connection cn, JTable tabla){
+        cn = conexion.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID_detalle","monto pagar", "fecha emision","ID_tipoPago"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM Detalle_factura ORDER BY ID_detalle";
+        String [] filas = new String[4];
+        Statement st = null;
+        ResultSet rs = null;
+       
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            System.out.println("datos obtenidos "+rs);
+            while (rs.next()){
+                for (int i = 0; i < 4; i++) {
+                    filas[i] = rs.getString(i+1);
+                }
+                model.addRow(filas);
+            }
+            tabla.setModel(model);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
+        }
+    }   
+    public void CargarDFactura(JTable tabla) {
+        listarDetalleFactura(cn ,tabla);
+    }
     public void listarDueniosT(Connection cn, JTable tabla){
         cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
@@ -485,7 +513,37 @@ public class ClienteDuenio {
             }
         }
     }
-
+     public void consultarTipoPago(JComboBox cbox_duenios) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        
+        String SSQL = "SELECT ID_tipoPago,tipo_pago FROM Tipo_pago";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_duenios.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                DetalleFacturas c = new DetalleFacturas();
+                c.setID_tipoPago(resultado.getInt("ID_tipoPago"));
+                c.setTipoPago(resultado.getString("tipo_pago"));
+                cbox_duenios.addItem(c);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
     public void consultarMascota(JComboBox cboxMascota) {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
