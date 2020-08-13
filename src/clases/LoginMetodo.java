@@ -253,8 +253,8 @@ public class LoginMetodo {
             Conexion con = new Conexion();
 
             Prepared = con.conectar().prepareStatement(consulta);
-            Prepared.setInt(1, ID_usuario);
-            Prepared.setInt(2, ID_pregunta);
+            Prepared.setInt(1, ID_pregunta);
+            Prepared.setInt(2, ID_usuario);
 
             ResultSet Resultado = Prepared.executeQuery();
         if (Resultado.next()) {
