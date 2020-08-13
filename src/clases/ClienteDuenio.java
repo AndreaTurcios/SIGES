@@ -381,7 +381,6 @@ public class ClienteDuenio {
         String [] filas = new String[4];
         Statement st = null;
         ResultSet rs = null;
-       
         try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
