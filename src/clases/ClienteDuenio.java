@@ -368,6 +368,37 @@ public class ClienteDuenio {
     public void CargarDuenio(JTable tabla) {
         listarDueniosT(cn ,tabla);
     }
+    
+    public void listarFichas(Connection cn, JTable tabla){
+        cn = conexion.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID", "Tratamiento","Dosis","Frecuencia","DUI", "ID mascota"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM Ficha_clinica ORDER BY ID_Ficha";
+        String [] filas = new String[6];
+        Statement st = null;
+        ResultSet rs = null;
+        
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            System.out.println("datos obtenidos "+rs);
+            while (rs.next()){
+                for (int i = 0; i < 6; i++) {
+                    filas[i] = rs.getString(i+1);
+                }
+                model.addRow(filas);
+            }
+            tabla.setModel(model);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
+        }
+    }  
+    
+    public void CargarFicha(JTable tabla) {
+        listarFichas(cn ,tabla);
+    }
 
     public void consultarNacionalidad(JComboBox cbox_duenios) {
         java.sql.Connection cn = null;
