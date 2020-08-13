@@ -9,7 +9,9 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -18,7 +20,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class Dueños extends javax.swing.JInternalFrame {
-
+DefaultTableModel m;
     public Dueños() {
         initComponents();
         CargarDuenios();
@@ -471,8 +473,13 @@ public class Dueños extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        //ListarDuenios();
+        tfDUI.setText(" ");
+        tfTelefono.setText(" ");
+        tfDomicilio.setText(" ");
+        tfDUeñonombre.setText(" ");
+        tfApellidos.setText(" ");
+        tfCorreo.setText(" ");
+        ListarDuenios();
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -481,7 +488,30 @@ public class Dueños extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmbZonaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    
+         String ID;
+        int fsel = jTable1.getSelectedRow();
+         if (fsel==-1) {
+            
+   JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }else{
+        m = (DefaultTableModel)jTable1.getModel();
+         ID = jTable1.getValueAt(fsel, 0).toString();
+         tfDUI.setText(ID);
+         
+         ClienteDuenio obj = new ClienteDuenio();
+        obj.setID_DUI(Integer.parseInt(tfDUI.getText()));
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Està seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (eliminar == 0) {
+            if (obj.EliminarCliente()) {
+                JOptionPane.showMessageDialog(this, "Datos eliminados");
+                ListarDuenios();
+            }else{
+            JOptionPane.showMessageDialog(this, "Error al eliminar");
+            }
+        }
+          } 
+        //EliminarCliente
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
