@@ -708,6 +708,37 @@ public class ClienteDuenio {
             }
         }
     }
+     public void consultarUsuarioP(JComboBox cbox_duenios) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT ID_usuario, nombre_usuario FROM Usuarios ORDER BY ID_usuario";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_duenios.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                usuarios cz = new usuarios();
+                cz.setID_usuario(resultado.getInt("ID_usuario"));
+                cz.setnombre_usuario(resultado.getString("nombre_usuario"));
+                cbox_duenios.addItem(cz);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
 
     public int getNacionalidad_id() {
         return nacionalidad_id;
@@ -725,5 +756,5 @@ public class ClienteDuenio {
         this.nacionalidad2 = nacionalidad2;
     }
 
-        
+    
 }

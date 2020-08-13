@@ -281,10 +281,12 @@ public class usuarios {
 
     @Override
     public String toString() {
-        return nombre_empleado;
+        return nombre_usuario;
     }
-
-    
+//  public String toString() {
+//        return nombre_empleado;
+//    }
+//    
     
     
 }
