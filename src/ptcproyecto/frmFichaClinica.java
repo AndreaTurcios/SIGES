@@ -56,7 +56,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author 15-CW0001la
  */
 public class frmFichaClinica extends javax.swing.JInternalFrame {
-//    DefaultTableModel m;
+    DefaultTableModel m;
     /**
      * Creates new form frmFichaClinica
      */
@@ -498,8 +498,16 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int fsel = jTable1dialog.getSelectedRow();
+       String ID, nombre, apellidos, telefono,domicilio, correo, duiexpiracion, nacionalidad, 
+               codigozona, tipocliente, tipomascota;
         if (fsel==-1) {
+            
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }else{
+        m = (DefaultTableModel)jTable1dialog.getModel();
+        ID = jTable1dialog.getValueAt(fsel, 0).toString();
+         nombre = jTable1dialog.getValueAt(fsel, 1).toString();
+         JOptionPane.showMessageDialog(null, ID+nombre);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
