@@ -62,7 +62,11 @@ public class DetalleFacturas {
     public Date getFecha_emision() {
         return fecha_emision;
     }
-
+    
+    public Date setfecha_emision(Date fecha_emision) {
+        return fecha_emision;
+    }
+    
     public void setFecha_emision(Date fecha_emision) {
         this.fecha_emision = fecha_emision;
     }
@@ -104,4 +108,25 @@ public class DetalleFacturas {
             return false;
         }
         }
+    public boolean modificarDetalle() {
+       boolean resp = false;
+        cn = Conexion.conectar();
+       try{
+       String sql = "UPDATE Detalle_factura SET monto_pagar = ?, fecha_emision=?, ID_tipoPago=? WHERE ID_detalle =?;";
+       PreparedStatement cmd = cn.prepareStatement(sql);
+       cmd.setDouble(1, monto_pagar);
+       cmd.setDate(2, fecha_emision);
+       cmd.setInt(3, ID_tipoPago);
+       cmd.setInt(4, ID_detalle);
+       
+           if (!cmd.execute()) {
+               resp = true;
+           }
+           cmd.close();
+           cn.close();
+       }catch(Exception e){
+       System.out.println(e.toString());
+       }
+       return resp;
+    }
 }
