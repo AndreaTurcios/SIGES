@@ -5,28 +5,32 @@
  */
 package clases;
 
+import clases.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import ptcproyecto.CodigoZn;
 
 /**
  *
- * @author Nanos
+ * @author estef
  */
-public class controlCodigoZona 
-{
-    private Connection Con;
+public class controlCodigoZona {
+    
+    private Connection Cn;
     private Integer ID_codigo;
     private int codigo_zona;
-
-    public int getCodigo_zona() {
-        return codigo_zona;
-    }
-
-    public void setCodigo_zona(int codigo_zona) {
-        this.codigo_zona = codigo_zona;
+    
+    public Connection getCn()
+    {
+        return Cn;
     }
     
-    public Integer getID_codigo()
+    public void setCn(Connection Cn)
+    {
+        this.Cn = Cn;
+    }
+     public Integer getID_codigo()
     {
         return ID_codigo;
     }
@@ -36,85 +40,87 @@ public class controlCodigoZona
         this.ID_codigo = ID_codigo;
     }
     
-    public int getcodigo_zona()
-    {
+    
+    public int getCodigo_zona() {
         return codigo_zona;
     }
-    
-    public void setcodigo_zona(int codigo_zona)
-    {
+
+    public void setCodigo_zona(int codigo_zona) {
         this.codigo_zona = codigo_zona;
     }
 
-    public boolean GuardarCodigoZona() 
-    {
-        boolean Guardar = false;
-        try 
-        {
-            String sql = "INSERT INTO codigo_zona (codigo_zona)"+" VALUES (?)";
-            PreparedStatement cmd = Con.prepareStatement(sql);
-            cmd.setInt(1, ID_codigo);
-            cmd.setInt(2, codigo_zona);
-            if (!cmd.execute()) 
-            {
-                Guardar = true;
+    
+    public boolean Guardar() {
+       try {
+            boolean resp = false;
+            Cn = Conexion.conectar();
+            String sql = "INSERT INTO codigo_zona (codigo_zona) VALUES (?) ";
+            PreparedStatement cmd = Cn.prepareStatement(sql);
+            System.out.println("preparada" + cmd);
+            cmd.setInt(1, codigo_zona);
+            System.out.println("Cz " + codigo_zona);
+            
+            if (!cmd.execute()) {
+                resp = true;
             }
             cmd.close();
-            Con.close();
+            Cn.close();
+            return resp;
+        } catch (SQLException ex) {
+            System.err.println("Error guardar codigo zona " + ex);
+            return false;
         }
-        catch(Exception e) 
-        {
-            System.out.println(e.toString());
-        }
-        return Guardar;
     }
 
-    public boolean ConsultarCodigoZona() 
-    {
-        boolean Consultar = false;
-        try 
-        {
-            String sql = "SELECT * FROM codigo_zona WHERE ID_codigo = ? ";
-            PreparedStatement cmd = Con.prepareStatement(sql);
-            cmd.setInt(1, ID_codigo);
-            if (!cmd.execute()) 
-            {
-                Consultar = true;
-            }
-            cmd.close();
-            Con.close();
-        }
-        catch(Exception e) 
-        {
-            System.out.println(e.toString());
-        }
-        return Consultar;
+    public void setcodigo_zona(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public boolean ModificarCodigoZona() 
-    {
-        boolean Modificar = false;
-        try 
-        {
-            String sql = "UPDATE SET codigo_zona, codigo_zona = ?";
-            PreparedStatement cmd = Con.prepareStatement(sql);        
-            cmd.setInt(1, ID_codigo);
-            cmd.setInt(2, codigo_zona);
-            if (!cmd.execute())
-            {
-                Modificar = true;
+    public boolean modificar() {
+        try {
+            boolean resp = false;
+            Cn = Conexion.conectar();
+            String sql = "UPDATE SET codigo_zona  WHERE codigo_zona ";
+            PreparedStatement cmd = Cn.prepareStatement(sql);
+            System.out.println("preparada" + cmd);
+            cmd.setInt(1, codigo_zona);
+            System.out.println("Cz " + codigo_zona);
+            
+            if (!cmd.execute()) {
+                resp = true;
             }
             cmd.close();
-            Con.close();
+            Cn.close();
+            return resp;
+        } catch (SQLException ex) {
+            System.err.println("Error modificar codigo zona " + ex);
+            return false;
         }
-        catch(Exception e) 
-        {
-            System.out.println(e.toString());
+    }
+
+    public boolean eliminar() {
+        try {
+            boolean resp = false;
+            Cn = Conexion.conectar();
+            String sql = "DELETE FROM  codigo_zona  WHERE codigo_zona ";
+            PreparedStatement cmd = Cn.prepareStatement(sql);
+            System.out.println("preparada" + cmd);
+            cmd.setInt(1, codigo_zona);
+            System.out.println("Cz " + codigo_zona);
+            
+            if (!cmd.execute()) {
+                resp = true;
+            }
+            cmd.close();
+            Cn.close();
+            return resp;
+        } catch (SQLException ex) {
+            System.err.println("Error eliminar codigo zona " + ex);
+            return false;
         }
-        return Modificar;
     }
-    public String toString() {
-        String codigo= Integer.toString(codigo_zona);
-        return codigo;
-    }
+    
+    
 }
+    
+
