@@ -649,7 +649,7 @@ public class ClienteDuenio {
 //    }
 
     public void ConsultarCodigozona(JComboBox cbox_zona) {
-        java.sql.Connection cn = null;
+         java.sql.Connection cn = null;
         PreparedStatement st = null;
         ResultSet resultado = null;
 
@@ -662,7 +662,7 @@ public class ClienteDuenio {
             while (resultado.next()) {
                 controlCodigoZona cz = new controlCodigoZona();
                 cz.setID_codigo(resultado.getInt("ID_codigo"));
-                cz.setcodigo_zona(resultado.getString("codigo_zona"));
+                cz.setcodigo_zona(resultado.getInt("codigo_zona"));
                 cbox_zona.addItem(cz);
             }
         } catch (SQLException e) {

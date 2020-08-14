@@ -48,7 +48,10 @@ public class controlCodigoZona {
     public void setCodigo_zona(int codigo_zona) {
         this.codigo_zona = codigo_zona;
     }
-
+    public void setcodigo_zona(int codigo_zona)
+    {
+        this.codigo_zona = codigo_zona;
+    }
     
     public boolean Guardar() {
        try {
@@ -73,7 +76,7 @@ public class controlCodigoZona {
     }
 
     public void setcodigo_zona(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.codigo_zona = codigo_zona;
     }
 
     public boolean modificar() {
@@ -119,7 +122,10 @@ public class controlCodigoZona {
             return false;
         }
     }
-    
+     public String toString() {
+        String codigo= Integer.toString(codigo_zona);
+        return codigo;
+    }
     
 }
     
