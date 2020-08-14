@@ -150,6 +150,7 @@ public class usuarios {
 
     public boolean modificarContra() {
        boolean resp = false;
+        cn = Conexion.conectar();
        try{
        String sql = "UPDATE Usuarios SET contrasenia_usuario = ? WHERE ID_usuario =?;";
        PreparedStatement cmd = cn.prepareStatement(sql);
