@@ -34,6 +34,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         initComponents();
         CargarDuenios();
         ListarPreguntas();
+        txtI.setVisible(false);
     }
     public void CargarDuenios(){
         controlPreguntas obj = new controlPreguntas();
@@ -58,6 +59,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jbtImprimir = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        txtI = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         kGradientPanel1 = new keeptoo.KGradientPanel();
@@ -106,6 +108,9 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
             }
         });
 
+        txtI.setBackground(new java.awt.Color(204, 204, 255));
+        txtI.setBorder(null);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -127,9 +132,10 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addComponent(jbtImprimir)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cmbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3)
+                    .addComponent(txtI, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63))
         );
         jPanel2Layout.setVerticalGroup(
@@ -144,6 +150,8 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                                 .addComponent(cmbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9))
                             .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtI, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -184,7 +192,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -315,5 +323,6 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbtImprimir;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField tfPregunta;
+    private javax.swing.JTextField txtI;
     // End of variables declaration//GEN-END:variables
 }
