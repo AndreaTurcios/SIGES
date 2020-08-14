@@ -461,7 +461,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnLimpiar)
+                        .addComponent(btnLimpiar, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton7, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)

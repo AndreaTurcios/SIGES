@@ -315,9 +315,13 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //         JOptionPane.showMessageDialog(null,"Datos guardados correctamente");
-           usuarios u = new usuarios();
+         usuarios u = new usuarios(); 
            u.setcontrasenia_usuario(jTextField3.getText());
-           if (u.modificar()) {
+          
+          controlUsuarios us = (controlUsuarios)cmbUsuario.getSelectedItem();
+          u.setID_usuario(us.getID_usuario());
+           
+           if (u.modificarContra()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");

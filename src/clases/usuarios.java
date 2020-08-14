@@ -148,9 +148,25 @@ public class usuarios {
         return resp;
     }
 
-    public boolean modificar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean modificarContra() {
+       boolean resp = false;
+       try{
+       String sql = "UPDATE Usuarios SET contrasenia_usuario = ? WHERE ID_usuario =?;";
+       PreparedStatement cmd = cn.prepareStatement(sql);
+       
+       cmd.setString(1, contrasenia_usuario);
+       cmd.setInt(2, ID_usuario);
+           if (!cmd.execute()) {
+               resp = true;
+           }
+           cmd.close();
+           cn.close();
+       }catch(Exception e){
+       System.out.println(e.toString());
+       }
+       return resp;
     }
+    
     Pool metodospool = new Pool();
     public void consultarCargos (JComboBox cbox_cargos) {
         java.sql.Connection cn = null;
