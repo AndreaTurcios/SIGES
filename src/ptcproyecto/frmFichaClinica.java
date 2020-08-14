@@ -77,6 +77,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         cmbMascota.setEnabled(false);
         jButton2.setEnabled(false);
         btnLimpiar.setEnabled(false);
+        idd.setEnabled(false);
+        idd.setVisible(false);
     }
 
     /**
@@ -118,6 +120,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         tfDui = new JTextField();
         cmbMascota = new JComboBox<>();
         labelNombre = new JLabel();
+        idd = new JTextField();
         jButton2 = new JButton();
         jScrollPane3 = new JScrollPane();
         jTable3 = new JTable();
@@ -331,6 +334,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
         labelNombre.setText("jLabel1");
 
+        idd.setBackground(new Color(240, 240, 240));
+        idd.setBorder(null);
+
         GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -362,10 +368,15 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                             .addComponent(jLabel22)
                             .addComponent(tfFrecuencia, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(34, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmbMascota, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(idd, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbMascota, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
                         .addGap(46, 46, 46))))
         );
         jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -384,7 +395,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                             .addComponent(jLabel27)
                             .addComponent(cmbMascota, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(labelNombre)
+                .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNombre)
+                    .addComponent(idd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
@@ -466,7 +479,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                    .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                     .addComponent(btnLimpiar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
@@ -680,24 +693,27 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         String ID_Ficha;
         int fsel = jTable3.getSelectedRow();
         if (fsel==-1) {
-            
         JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
                 JOptionPane.WARNING_MESSAGE);
         }else{
          m = (DefaultTableModel)jTable3.getModel();
          ID_Ficha = jTable3.getValueAt(fsel, 0).toString();
-         tfDui.setText(ID_Ficha);
+         idd.setText(ID_Ficha);
          
          ControlFicha obj = new ControlFicha();
-         obj.setID_Ficha(Integer.parseInt(tfDui.getText()));
+         
+         int i = Integer.parseInt(idd.getText());
+
+         obj.setID_Ficha(i);
+         
          int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
          if (eliminar == 0) {
               if (obj.EliminarFicha()) {
                 JOptionPane.showMessageDialog(this, "Datos eliminados");
-                ListarDuenios();
+                ListarFichas();
             }else{
-            JOptionPane.showMessageDialog(this, "Error al eliminar");
+            JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarFicha());
             }
           }
         } 
@@ -709,6 +725,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JButton btnLimpiar;
     private JButton btnreporte;
     private JComboBox<String> cmbMascota;
+    private JTextField idd;
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;

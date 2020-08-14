@@ -473,29 +473,30 @@ DefaultTableModel m;
     }//GEN-LAST:event_cmbZonaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String ID;
+         String ID;
         int fsel = jTable1.getSelectedRow();
          if (fsel==-1) {
             
-   JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }else{
+   JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+           JOptionPane.WARNING_MESSAGE);
+         }else{
          m = (DefaultTableModel)jTable1.getModel();
          ID = jTable1.getValueAt(fsel, 0).toString();
          tfDUI.setText(ID);
          
          ClienteDuenio obj = new ClienteDuenio();
-        obj.setID_DUI(Integer.parseInt(tfDUI.getText()));
+         obj.setID_DUI(Integer.parseInt(tfDUI.getText()));
         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (eliminar == 0) {
-            if (obj.EliminarCliente()) {
+       if (eliminar == 0) {
+          if (obj.EliminarCliente()) {
                 JOptionPane.showMessageDialog(this, "Datos eliminados");
                 ListarDuenios();
             }else{
             JOptionPane.showMessageDialog(this, "Error al eliminar");
             }
         }
-          } 
+      } 
         //EliminarCliente
     }//GEN-LAST:event_jButton2ActionPerformed
 

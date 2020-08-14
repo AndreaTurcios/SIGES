@@ -79,6 +79,7 @@ public class ControlFicha {
      
     public boolean EliminarFicha() {
         boolean resp = false;
+         cn = Conexion.conectar();
         try {//realizando consulta insert
             String sql = "DELETE FROM Ficha_clinica WHERE ID_Ficha=?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
