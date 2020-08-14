@@ -473,7 +473,7 @@ DefaultTableModel m;
     }//GEN-LAST:event_cmbZonaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         String ID;
+        String ID;
         int fsel = jTable1.getSelectedRow();
          if (fsel==-1) {
             

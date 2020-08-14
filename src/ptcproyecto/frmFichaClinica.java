@@ -8,7 +8,10 @@ package ptcproyecto;
 import clases.ClienteDuenio;
 import clases.Conexion;
 import static clases.Conexion.conectar;
+import clases.ControlFicha;
 import clases.Mascota;
+import clases.controlPreguntas;
+import clases.usuarios;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -68,10 +71,10 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         ListarFichas();
         CargarMascota();
         labelNombre.setVisible(false);
-        jTextField2.setEnabled(false);
-        jTextField3.setEnabled(false);
-        jTextField1.setEnabled(false);
-        jComboBox1.setEnabled(false);
+        tfDosis.setEnabled(false);
+        tfFrecuencia.setEnabled(false);
+        tfTratamiento.setEnabled(false);
+        cmbMascota.setEnabled(false);
         jButton2.setEnabled(false);
         btnLimpiar.setEnabled(false);
     }
@@ -104,21 +107,22 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jPanel4 = new JPanel();
         jLabel25 = new JLabel();
         jLabel23 = new JLabel();
-        jTextField2 = new JTextField();
+        tfDosis = new JTextField();
         jLabel22 = new JLabel();
-        jTextField3 = new JTextField();
+        tfFrecuencia = new JTextField();
         jLabel21 = new JLabel();
-        jTextField1 = new JTextField();
+        tfTratamiento = new JTextField();
         jLabel27 = new JLabel();
         jButton3 = new JButton();
         btnreporte = new JButton();
         tfDui = new JTextField();
-        jComboBox1 = new JComboBox<>();
+        cmbMascota = new JComboBox<>();
         labelNombre = new JLabel();
         jButton2 = new JButton();
         jScrollPane3 = new JScrollPane();
         jTable3 = new JTable();
         btnLimpiar = new JButton();
+        jButton7 = new JButton();
 
         kGradientPanel2.setkEndColor(new Color(113, 186, 133));
         kGradientPanel2.setkGradientFocus(600);
@@ -291,20 +295,20 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jLabel23.setFont(new Font("Ubuntu", 0, 14)); // NOI18N
         jLabel23.setText("Dosis:");
 
-        jTextField2.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
-        jTextField2.setBorder(BorderFactory.createEtchedBorder());
+        tfDosis.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
+        tfDosis.setBorder(BorderFactory.createEtchedBorder());
 
         jLabel22.setFont(new Font("Ubuntu", 0, 14)); // NOI18N
         jLabel22.setText("Frecuencia:");
 
-        jTextField3.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
-        jTextField3.setBorder(BorderFactory.createEtchedBorder());
+        tfFrecuencia.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
+        tfFrecuencia.setBorder(BorderFactory.createEtchedBorder());
 
         jLabel21.setFont(new Font("Ubuntu", 0, 14)); // NOI18N
         jLabel21.setText("Tratamiento:");
 
-        jTextField1.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
-        jTextField1.setBorder(BorderFactory.createEtchedBorder());
+        tfTratamiento.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
+        tfTratamiento.setBorder(BorderFactory.createEtchedBorder());
 
         jLabel27.setFont(new Font("Ubuntu", 0, 14)); // NOI18N
         jLabel27.setText("Mascota:");
@@ -335,8 +339,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel23)
-                        .addComponent(jTextField2, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                        .addComponent(jTextField1))
+                        .addComponent(tfDosis, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                        .addComponent(tfTratamiento))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -356,12 +360,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22)
-                            .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfFrecuencia, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(34, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbMascota, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46))))
         );
         jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -378,7 +382,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27)
-                            .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbMascota, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(labelNombre)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -387,14 +391,14 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                     .addComponent(jLabel23))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfDosis, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfFrecuencia, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel21)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfTratamiento, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(btnreporte, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)))
@@ -430,6 +434,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton7.setText("Eliminar");
+        jButton7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -439,6 +450,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnLimpiar)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton7, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 607, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(51, Short.MAX_VALUE))
@@ -453,8 +466,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addComponent(btnLimpiar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                    .addComponent(btnLimpiar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -502,7 +516,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     
     public void CargarMascota(){
         ClienteDuenio obj = new ClienteDuenio();
-        obj.consultarMascotaF(jComboBox1);
+        obj.consultarMascotaF(cmbMascota);
     }
     public void ListarFichas(){
         ClienteDuenio obj = new ClienteDuenio();
@@ -537,8 +551,31 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //        JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
-        if (tfDui.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
+//        if (tfDui.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
+//        }
+        ControlFicha obj = new ControlFicha();
+        obj.setDosis(tfDosis.getText());
+        obj.setFrecuencia(tfFrecuencia.getText());
+        obj.setTratamiento(tfTratamiento.getText()); 
+        
+        
+        Mascota mas = (Mascota)cmbMascota.getSelectedItem();
+        obj.setID_Mascota(mas.getID_mascota());
+        
+//        ClienteDuenio du = (ClienteDuenio)cmbMascota.getSelectedItem();
+//        obj.setID_Mascota(ma.getID_mascota());
+        
+        int DUI= Integer.parseInt(tfDui.getText());
+        obj.setID_DUI(DUI); 
+        
+        if (obj.guardar()) {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           ListarFichas();
+//           ListarPreguntas();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+           JOptionPane.showMessageDialog(this,obj.guardar()); 
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -558,10 +595,10 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tfdialogoMouseClicked
 
     private void jButton4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jTextField2.setEnabled(true);
-        jTextField3.setEnabled(true);
-        jTextField1.setEnabled(true);
-        jComboBox1.setEnabled(true);
+        tfDosis.setEnabled(true);
+        tfFrecuencia.setEnabled(true);
+        tfTratamiento.setEnabled(true);
+        cmbMascota.setEnabled(true);
         jButton2.setEnabled(true);
         btnLimpiar.setEnabled(true);
         int fsel = jTable1dialog.getSelectedRow();
@@ -590,19 +627,19 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnLimpiarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-       jTextField2.setText(" ");
+       tfDosis.setText(" ");
        tfDui.setText(" ");
-       jTextField3.setText(" ");
-       jTextField1.setText(" ");
+       tfFrecuencia.setText(" ");
+       tfTratamiento.setText(" ");
        ListarFichas();
         if (tfDui.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
         }else{
        labelNombre.setVisible(false);
-       jTextField2.setEnabled(false);
-        jTextField3.setEnabled(false);
-        jTextField1.setEnabled(false);
-        jComboBox1.setEnabled(false);
+       tfDosis.setEnabled(false);
+        tfFrecuencia.setEnabled(false);
+        tfTratamiento.setEnabled(false);
+        cmbMascota.setEnabled(false);
         jButton2.setEnabled(false);
         btnLimpiar.setEnabled(false);
       }   
@@ -639,18 +676,46 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
        jDialog1.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String ID_Ficha;
+        int fsel = jTable3.getSelectedRow();
+        if (fsel==-1) {
+            
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+         m = (DefaultTableModel)jTable3.getModel();
+         ID_Ficha = jTable3.getValueAt(fsel, 0).toString();
+         tfDui.setText(ID_Ficha);
+         
+         ControlFicha obj = new ControlFicha();
+         obj.setID_Ficha(Integer.parseInt(tfDui.getText()));
+         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+         if (eliminar == 0) {
+              if (obj.EliminarFicha()) {
+                JOptionPane.showMessageDialog(this, "Datos eliminados");
+                ListarDuenios();
+            }else{
+            JOptionPane.showMessageDialog(this, "Error al eliminar");
+            }
+          }
+        } 
+    }//GEN-LAST:event_jButton7ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton BtnCerrar;
     private JButton btnLimpiar;
     private JButton btnreporte;
+    private JComboBox<String> cmbMascota;
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
     private JButton jButton4;
     private JButton jButton5;
     private JButton jButton6;
-    private JComboBox<String> jComboBox1;
+    private JButton jButton7;
     private JDialog jDialog1;
     private JLabel jLabel12;
     private JLabel jLabel13;
@@ -667,13 +732,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JScrollPane jScrollPane3;
     private JTable jTable1dialog;
     private JTable jTable3;
-    private JTextField jTextField1;
-    private JTextField jTextField2;
-    private JTextField jTextField3;
     private KGradientPanel kGradientPanel1;
     private KGradientPanel kGradientPanel2;
     private JLabel labelNombre;
+    private JTextField tfDosis;
     private JTextField tfDui;
+    private JTextField tfFrecuencia;
+    private JTextField tfTratamiento;
     private JTextField tfdialogo;
     // End of variables declaration//GEN-END:variables
 }

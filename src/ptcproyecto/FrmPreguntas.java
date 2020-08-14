@@ -66,9 +66,9 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         btnCerrar1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         jButton1.setText("Guardar ");
@@ -108,7 +108,6 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
             }
         });
 
-        txtI.setBackground(new java.awt.Color(204, 204, 255));
         txtI.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
