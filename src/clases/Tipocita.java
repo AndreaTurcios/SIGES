@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 
 public class Tipocita {
@@ -108,6 +110,42 @@ private String tipo_cita;
             System.out.println(e.toString());
         }
         return resp;
+    }
+    Pool metodospool = new Pool();
+    public void consultarCitas(JComboBox cbox_mascotat) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT ID_tipoCita, tipo_cita FROM Tipo_citas";
+        try {
+         
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_mascotat.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                tipoMascota tm = new tipoMascota();
+                tm.setID_tipoMascota(resultado.getInt("ID_tipoCita"));
+                tm.setTipo_animal(resultado.getString("tipo_cita"));
+                cbox_mascotat.addItem(tm);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
+    public Integer ID_tipoCita() {
+        return ID_tipoCita;
     }
     
 }

@@ -5,8 +5,10 @@
  */
 package ptcproyecto;
 import clases.Cita;
+import clases.ClienteDuenio;
 import clases.Conexion;
 import clases.TipoEstados;
+import clases.Tipocita;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.Date;
@@ -40,8 +42,11 @@ DefaultTableModel m;
         initComponents();
         ListarCitas();
         CargarEstado();
-          jTextField1.setEnabled(false);
-        cbTipoCita.setEnabled(true);
+        CargarTipoCita();
+        ListarDuenios();
+        jTextField1.setEnabled(false);
+        cbTipoCita.setEnabled(false);
+        jcbDUI1.setEnabled(false);
         calendar.setEnabled(false);
         jSHora.setEnabled(false);
         jSMinuto.setEnabled(false);
@@ -456,6 +461,14 @@ DefaultTableModel m;
         TipoEstados obj = new TipoEstados();
         obj.consultarTipoEstados(jcbDUI1);
     }
+    public void CargarTipoCita(){
+        Tipocita obj = new Tipocita();
+        obj.consultarCitas(cbTipoCita);
+    }
+    public void ListarDuenios(){
+        ClienteDuenio obj = new ClienteDuenio();
+        obj.CargarDuenio(jTable1dialog);
+    }
     private void JbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtGuardarActionPerformed
        Cita obj = new Cita();
        String n = ":";
@@ -581,11 +594,12 @@ DefaultTableModel m;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (tfdialogo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this,"No dejar campos vacíos");
+         if (tfdialogo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,"No dejar campos vacíos"); 
         }else{
-//            ClienteDuenio dui = new ClienteDuenio();
-//            jTable1dialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
+            ClienteDuenio dui = new ClienteDuenio();
+            jTable1dialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
+
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed

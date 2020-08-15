@@ -157,6 +157,7 @@ public class TipoEstados {
             }
         }
     }
+    
     public boolean modificar() {
        boolean resp = false;
         cn = Conexion.conectar();
