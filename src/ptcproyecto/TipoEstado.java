@@ -1,16 +1,22 @@
 package ptcproyecto;
 
+import clases.TipoEstados;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 15-CW0001la
  */
 public class TipoEstado extends javax.swing.JInternalFrame {
-
+DefaultTableModel m;
     /**
      * Creates new form TipoEstado
      */
     public TipoEstado() {
         initComponents();
+        ListarTipoE();
+        jTextField2.setVisible(false);
     }
 
     /**
@@ -48,7 +54,7 @@ public class TipoEstado extends javax.swing.JInternalFrame {
         jLabel21.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         jLabel21.setText("Tipo estado:");
 
-        jTextField1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTextField2.setBackground(new java.awt.Color(240, 240, 240));
@@ -266,90 +272,83 @@ public class TipoEstado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void ListarTipoE(){
+        TipoEstados obj = new TipoEstados();
+        obj.Cargar(jTable3);
+    }
+    public void Limpiar(){
+        jTextField1.setText("");
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//        DetalleFacturas obj = new DetalleFacturas();
-//        double monto= Double.parseDouble(jTextField1.getText());
-//        obj.setMonto_pagar(monto);
-//
-//        DetalleFacturas ti = (DetalleFacturas)jComboBox1.getSelectedItem();
-//        obj.setID_tipoPago(ti.getID_tipoPago());
-//
-//        obj.setFecha_emision(new java.sql.Date(calendar.getDatoFecha().getTime()));
-//
-//        if (obj.guardarDetalle()) {
-//            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente");
-//            ListarDetalle();
-//        }else{
-//            JOptionPane.showMessageDialog(this,"Error al guardar datos");
-//        }
+        TipoEstados obj = new TipoEstados();
+        obj.setEstado(jTextField1.getText());
+        if (obj.guardar()) {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           ListarTipoE();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         jTextField1.setText(" ");
-
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        String ID_Detalle;
-//        int fsel = jTable3.getSelectedRow();
-//
-//        if (fsel==-1) {
-//            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
-//                JOptionPane.WARNING_MESSAGE);
-//        }else{
-//            m = (DefaultTableModel)jTable3.getModel();
-//            ID_Detalle = jTable3.getValueAt(fsel, 0).toString();
-//            jTextField2.setText(ID_Detalle);
-//
-//            DetalleFacturas u = new DetalleFacturas();
-//            int detalle = Integer.parseInt(jTextField2.getText());
-//            u.setID_detalle(detalle);
-//
-//            double monto = Double.parseDouble(jTextField1.getText());
-//            u.setMonto_pagar(monto);
-//
-//            DetalleFacturas coza = (DetalleFacturas)jComboBox1.getSelectedItem();
-//            u.setID_tipoPago(coza.getID_tipoPago());
-//
-//            u.setFecha_emision(new java.sql.Date(calendar.getDatoFecha().getTime()));
-//
-//            if (u.modificarDetalle()) {
-//                JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
-//                ListarDetalle();
-//            }else{
-//                JOptionPane.showMessageDialog(null,"Error al modificar los datos");
-//            }
-//        }
+        String ID_estado;
+        int fsel = jTable3.getSelectedRow();
+        
+        if (fsel==-1) {
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+         m = (DefaultTableModel)jTable3.getModel();
+         ID_estado = jTable3.getValueAt(fsel, 0).toString();
+         jTextField2.setText(ID_estado);
+         
+         TipoEstados u = new TipoEstados();
+         int estad = Integer.parseInt(jTextField2.getText());
+         u.setID_estado(estad);
+         
+          u.setEstado(jTextField1.getText());
+         
+         if (u.modificar()) {
+            JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+             ListarTipoE();
+             Limpiar();
+        }else{
+           JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+           }
+         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //jTextField3
-//        String ID;
-//        int fsel = jTable3.getSelectedRow();
-//        if (fsel==-1) {
-//
-//            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
-//                JOptionPane.WARNING_MESSAGE);
-//        }else{
-//            m = (DefaultTableModel)jTable3.getModel();
-//            ID = jTable3.getValueAt(fsel, 0).toString();
-//            jTextField2.setText(ID);
-//
-//            DetalleFacturas obj = new DetalleFacturas();
-//            obj.setID_detalle(Integer.parseInt(jTextField2.getText()));
-//            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
-//                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//            if (eliminar == 0) {
-//
-//                if (obj.EliminarFacturaD()) {
-//                    JOptionPane.showMessageDialog(this, "Datos eliminados");
-//                    ListarDetalle();
-//                }else{
-//                    JOptionPane.showMessageDialog(this, "Error al eliminar");
-//                }
-//            }
-//        }
+        
+        String ID;
+        int fsel = jTable3.getSelectedRow();
+        if (fsel==-1) {
+
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+            m = (DefaultTableModel)jTable3.getModel();
+            ID = jTable3.getValueAt(fsel, 0).toString();
+            jTextField2.setText(ID);
+
+            TipoEstados obj = new TipoEstados();
+            obj.setID_estado(Integer.parseInt(jTextField2.getText()));
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) {
+
+                if (obj.Eliminar()) {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    ListarTipoE();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
+            }
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
