@@ -36,7 +36,7 @@ FROM
 				<reportElement mode="Opaque" x="0" y="-3" width="555" height="82" backcolor="#006699" uuid="a919764c-4570-407f-b37b-6794fcd08855"/>
 				<staticText>
 					<reportElement x="87" y="9" width="361" height="43" forecolor="#FFFFFF" uuid="80b7a264-5a92-4288-a734-da130c5dd57e"/>
-					<textElement>
+					<textElement textAlignment="Center">
 						<font fontName="Arial" size="30" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Reporte Fichas]]></text>
@@ -52,82 +52,46 @@ FROM
 		<band height="1" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="52" splitType="Stretch">
+		<band height="37" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="20" uuid="3797623d-fe5c-4dcc-a3e2-97e8bd22bd07"/>
-				<text><![CDATA[Ficha_clinica_Tratamiento]]></text>
+				<reportElement x="0" y="0" width="100" height="20" uuid="97e15eca-6826-43c8-b55c-1feb4fc94dfd"/>
+				<text><![CDATA[Cliente Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="110" y="0" width="100" height="20" uuid="63d7fd32-1814-4896-b32f-540b1cb3c7be"/>
-				<text><![CDATA[Ficha_clinica_Dosis]]></text>
+				<reportElement x="119" y="0" width="100" height="20" uuid="2f14a8bb-a4dc-480a-9917-661a5fcce5a0"/>
+				<text><![CDATA[Tratamineto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="224" y="0" width="100" height="20" uuid="f177d42d-f4a4-4af3-bb0e-a068ef03ba12"/>
-				<text><![CDATA[Ficha_clinica_Frecuencia]]></text>
+				<reportElement x="281" y="0" width="38" height="20" uuid="55394fb3-cc67-463a-a9e6-eca08ef4afd1"/>
+				<text><![CDATA[Dosis]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="342" y="0" width="100" height="20" uuid="fcd73ae5-4d57-4d79-aa51-9f95eff58543"/>
-				<text><![CDATA[Ficha_clinica_ID_DUI]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="455" y="0" width="100" height="20" uuid="92eb4ace-4e63-4e65-9b0c-1f0a4adfd374"/>
-				<text><![CDATA[Ficha_clinica_ID_Mascota]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="31" width="100" height="20" uuid="e4c7805b-357f-42d8-bcf4-0bf3c7892ad0"/>
-				<text><![CDATA[Citas_cita_fecha]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="124" y="31" width="100" height="20" uuid="ce43a29e-189d-4e85-80b0-910a03a125b5"/>
-				<text><![CDATA[Citas_cita_hora]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="259" y="31" width="100" height="20" uuid="0e0b8ab3-32f6-4044-abdc-1f14c34dd832"/>
-				<text><![CDATA[Cliente_duenio_duenio_nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="402" y="31" width="100" height="20" uuid="3827e43b-b4a5-4fe4-86b1-f3ecc1520a67"/>
-				<text><![CDATA[Cliente_duenio_duenio_apellidos]]></text>
+				<reportElement x="429" y="0" width="68" height="20" uuid="66c13d99-a93d-44d3-86b2-67baa811d964"/>
+				<text><![CDATA[Frecuencia]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="89" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="e9ca4fdd-8586-47cd-b031-9f8ff9575b54"/>
-				<textFieldExpression><![CDATA[$F{Ficha_clinica_Tratamiento}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="110" y="0" width="100" height="20" uuid="d8aaa4db-04e5-44a1-9e29-54a9cfdbc5af"/>
-				<textFieldExpression><![CDATA[$F{Ficha_clinica_Dosis}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="224" y="0" width="100" height="20" uuid="d5106b69-ecd2-4304-8849-aef2075e3495"/>
-				<textFieldExpression><![CDATA[$F{Ficha_clinica_Frecuencia}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="342" y="0" width="100" height="20" uuid="d86bfaf6-923c-4092-a7b4-665eb75056c3"/>
-				<textFieldExpression><![CDATA[$F{Ficha_clinica_ID_DUI}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="455" y="0" width="100" height="20" uuid="a15a4485-1e22-4223-b4e1-55dc4f69b68a"/>
-				<textFieldExpression><![CDATA[$F{Ficha_clinica_ID_Mascota}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="67" width="100" height="20" uuid="33dd19e6-4529-4304-a939-ffb52cd44c85"/>
-				<textFieldExpression><![CDATA[$F{Citas_cita_fecha}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="124" y="67" width="100" height="20" uuid="2159335f-da12-4365-a7b8-23c0b42f9245"/>
-				<textFieldExpression><![CDATA[$F{Citas_cita_hora}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="259" y="67" width="100" height="20" uuid="892974cc-0ae1-4178-8236-20b609ffd9a6"/>
+				<reportElement x="0" y="0" width="54" height="20" uuid="28b9216b-1893-42f0-95c9-b613466e8d9f"/>
 				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="402" y="67" width="100" height="20" uuid="9c7f463c-e5e1-4930-b3ff-11c4328339f9"/>
+				<reportElement x="37" y="0" width="63" height="20" uuid="2cfb916a-2e20-40e1-bd29-37a52d9246aa"/>
 				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="0" width="100" height="20" uuid="b98370c6-ad1f-44e6-93c3-260ef9f11c65"/>
+				<textFieldExpression><![CDATA[$F{Ficha_clinica_Tratamiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="75" height="20" uuid="85591fdf-9a90-4c4f-8d74-b3a98acf8793"/>
+				<textFieldExpression><![CDATA[$F{Ficha_clinica_Frecuencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="0" width="100" height="20" uuid="0fcf8a1a-73fe-415b-8f72-d2a0b7a5e83f"/>
+				<textFieldExpression><![CDATA[$F{Ficha_clinica_Dosis}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
