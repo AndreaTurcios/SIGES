@@ -22,7 +22,7 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="572" height="79" backcolor="#006699" uuid="977545b2-8a98-4895-86fd-873bf9b01401"/>
 				<staticText>
-					<reportElement x="147" y="3" width="342" height="43" forecolor="#FFFFFF" uuid="1ae07018-6169-463c-9009-a99db48416c0"/>
+					<reportElement x="114" y="3" width="342" height="43" forecolor="#FFFFFF" uuid="1ae07018-6169-463c-9009-a99db48416c0"/>
 					<textElement>
 						<font fontName="Arial" size="30" isBold="true"/>
 					</textElement>
@@ -32,6 +32,14 @@ FROM
 					<reportElement x="227" y="46" width="113" height="20" uuid="00d32b6b-585c-449f-9c37-18244f90a11c"/>
 					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 				</textField>
+				<image>
+					<reportElement x="10" y="3" width="74" height="63" uuid="cae4d668-085e-4717-9ada-e1893ec8978d"/>
+					<imageExpression><![CDATA["C:\\Users\\cvera\\OneDrive\\Documentos\\NetBeansProjects\\SIGES-2\\SIGES\\src\\imagenes\\reporte.png"]]></imageExpression>
+				</image>
+				<image>
+					<reportElement x="489" y="3" width="64" height="64" uuid="b3d75c52-88dc-4917-802a-a26fc7f582c5"/>
+					<imageExpression><![CDATA["C:\\Users\\cvera\\OneDrive\\Documentos\\NetBeansProjects\\SIGES-2\\SIGES\\src\\imagenes\\zona.png"]]></imageExpression>
+				</image>
 			</frame>
 		</band>
 	</title>
@@ -41,15 +49,13 @@ FROM
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="20" uuid="63dd5559-88bb-4786-ae35-f10f6830f746"/>
+				<reportElement mode="Opaque" x="0" y="0" width="269" height="20" backcolor="#006699" uuid="63dd5559-88bb-4786-ae35-f10f6830f746"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[Nombre cliente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="127" y="0" width="100" height="20" uuid="0d360cfd-c795-4e2c-851c-b757eecac6ef"/>
-				<text><![CDATA[Apellido cliente]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="269" y="0" width="100" height="20" uuid="9df24c5d-b157-4d70-bbac-833ef5620a20"/>
+				<reportElement mode="Opaque" x="269" y="0" width="303" height="20" backcolor="#006699" uuid="9df24c5d-b157-4d70-bbac-833ef5620a20"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[Codigo zona]]></text>
 			</staticText>
 		</band>
@@ -57,15 +63,15 @@ FROM
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="e7b13df1-1f94-4745-8243-033158927bd5"/>
+				<reportElement x="81" y="0" width="88" height="20" uuid="e7b13df1-1f94-4745-8243-033158927bd5"/>
 				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="127" y="0" width="100" height="20" uuid="dbe7fd1e-b36b-49b3-ac80-ede4dd744d58"/>
+				<reportElement x="138" y="0" width="76" height="20" uuid="dbe7fd1e-b36b-49b3-ac80-ede4dd744d58"/>
 				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="269" y="0" width="100" height="20" uuid="c637bb81-1150-48ae-b0e7-f79776a3262e"/>
+				<reportElement x="412" y="0" width="100" height="20" uuid="c637bb81-1150-48ae-b0e7-f79776a3262e"/>
 				<textFieldExpression><![CDATA[$F{codigo_zona_codigo_zona}]]></textFieldExpression>
 			</textField>
 		</band>

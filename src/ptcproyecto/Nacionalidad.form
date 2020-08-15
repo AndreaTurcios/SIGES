@@ -52,7 +52,7 @@
                   <EmptySpace min="20" max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="txtNacionalidad" min="-2" pref="170" max="-2" attributes="0"/>
+                  <Component id="txtnacionalidad" min="-2" pref="170" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="269" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -92,7 +92,7 @@
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="txtNacionalidad" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txtnacionalidad" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="352" max="32767" attributes="0"/>
               </Group>
@@ -270,7 +270,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimirNacionalidadActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNacionalidad">
+    <Component class="javax.swing.JTextField" name="txtnacionalidad">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="12" style="0"/>

@@ -77,7 +77,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         btnModificarNacionalidad = new javax.swing.JButton();
         btnLimpiarNacionalidad = new javax.swing.JButton();
         btnImprimirNacionalidad = new javax.swing.JButton();
-        txtNacionalidad = new javax.swing.JTextField();
+        txtnacionalidad = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(157, 34, 202));
@@ -179,7 +179,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
             }
         });
 
-        txtNacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtnacionalidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         btnEliminar.setBackground(new java.awt.Color(0, 153, 153));
         btnEliminar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -220,7 +220,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, 0)
-                    .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 269, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,7 +252,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
                     .addGap(19, 19, 19)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNacionalidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtnacionalidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(0, 352, Short.MAX_VALUE)))
         );
 
@@ -266,14 +266,14 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         
     private void btnGuardarNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarNacionalidadActionPerformed
         //Tomando los datos del formulario y pasandolos a los atributos de la clase
-        if (txtNacionalidad.getText().isEmpty())
+        if (txtnacionalidad.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else
         {
             controlNacionalidad obj = new controlNacionalidad();
-            obj.setnacionalidad(txtNacionalidad.getText());
+            obj.setnacionalidad(txtnacionalidad.getText());
             if (obj.guardar())
             {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
@@ -286,7 +286,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarNacionalidadActionPerformed
 
     private void btnModificarNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarNacionalidadActionPerformed
-        if (txtNacionalidad.getText().isEmpty())
+        if (txtnacionalidad.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
@@ -294,7 +294,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         {
 
             controlNacionalidad obj = new controlNacionalidad();
-            obj.setnacionalidad(txtNacionalidad.getText());
+            obj.setnacionalidad(txtnacionalidad.getText());
             if (obj.modificar())
             {
                 JOptionPane.showMessageDialog(this, "Datos modificados");
@@ -312,7 +312,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnLimpiarNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarNacionalidadActionPerformed
-        txtNacionalidad.setText(" ");
+        txtnacionalidad.setText(" ");
     }//GEN-LAST:event_btnLimpiarNacionalidadActionPerformed
 
     private void btnImprimirNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirNacionalidadActionPerformed
@@ -366,6 +366,6 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tb_Nacionalidad;
-    private javax.swing.JTextField txtNacionalidad;
+    private javax.swing.JTextField txtnacionalidad;
     // End of variables declaration//GEN-END:variables
 }
