@@ -69,7 +69,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         initComponents();
         ListarDuenios();
         ListarFichas();
-        CargarMascota();
+        
         labelNombre.setVisible(false);
         tfDosis.setEnabled(false);
         tfFrecuencia.setEnabled(false);
@@ -531,6 +531,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         ClienteDuenio obj = new ClienteDuenio();
         obj.consultarMascotaF(cmbMascota);
     }
+    
+    public void CargarMascota(int duenyo){
+        ClienteDuenio obj = new ClienteDuenio();
+        obj.consultarMascotaF(cmbMascota, duenyo);
+    }
+    
     public void ListarFichas(){
         ClienteDuenio obj = new ClienteDuenio();
         obj.CargarFicha(jTable3);
@@ -596,6 +602,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jDialog1.setMinimumSize(new Dimension (800, 600));
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
+        //Desde aqui tenes que cargar el otro compoennete
+       
+                //esta mala la for
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tfdialogoPropertyChange(PropertyChangeEvent evt) {//GEN-FIRST:event_tfdialogoPropertyChange
@@ -625,6 +634,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
          apellidos = jTable1dialog.getValueAt(fsel, 2).toString();
          
          tfDui.setText(ID);
+            CargarMascota(Integer.parseInt(ID)); 
+          
          labelNombre.setVisible(true);
          labelNombre.setText(nombre+" "+apellidos);
          
@@ -665,6 +676,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         }else{
             ClienteDuenio dui = new ClienteDuenio();
             jTable1dialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
+            
+            
 //            ClienteDuenio obj = new ClienteDuenio();
 //            int fse = jTable1dialog.getSelectedRow();
 //            String dato = tfdialogo.getText();

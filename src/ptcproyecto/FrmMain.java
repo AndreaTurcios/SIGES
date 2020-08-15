@@ -87,7 +87,7 @@ public class FrmMain extends javax.swing.JFrame {
         );
         panelArribaLayout.setVerticalGroup(
             panelArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 636, Short.MAX_VALUE)
         );
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));

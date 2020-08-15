@@ -574,7 +574,37 @@ public class ClienteDuenio {
             }
         }
     }
-    
+    public boolean modificarDuenio() {
+       boolean resp = false;
+        cn = Conexion.conectar();
+        System.out.println("clases.ClienteDuenio.modificarDuenio()" +  cn);
+       try{
+       String sql = "UPDATE Cliente_duenio SET duenio_nombre = ?, duenio_apellidos=?, duenio_telefono=?, "
+               + "duenio_domicilio=?, duenio_correo=?, Fecha_e_DUI=?, nacionalidad=?, codigo_zona=?, "
+               + "ID_tipoCliente=? WHERE ID_DUI =?;";
+       PreparedStatement cmd = cn.prepareStatement(sql);
+            cmd.setInt(10, ID_DUI);
+            cmd.setString(1, duenio_nombre);
+            cmd.setString(2, duenio_apellidos);
+            System.out.println("clases.ClienteDuenio.modificarDuenio()" + duenio_telefono  );
+            cmd.setInt(3, duenio_telefono);
+            cmd.setString(4, duenio_domicilio);
+            cmd.setString(5, duenio_correo);
+            cmd.setDate(6, Fecha_e_DUI);
+            cmd.setInt(7, nacionalidad2.getID_nacionalidad());
+            cmd.setInt(8, codigo_zona);
+            cmd.setInt(9, ID_tipoCliente);
+       
+           if (!cmd.execute()) {
+               resp = true;
+           }
+           cmd.close();
+           cn.close();
+       }catch(SQLException e){
+       System.out.println(e.toString());
+       }
+       return resp;
+    }
     public void consultarMascotaF(JComboBox cboxMascota) {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
@@ -607,6 +637,43 @@ public class ClienteDuenio {
             }
         }
     }
+    
+    public void consultarMascotaF(JComboBox cboxMascota, int duenyo) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_mascota, nombre_mascota FROM Mascota where ID_DUI = ? ";
+        try {
+            cboxMascota.removeAllItems();
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            st.setInt(1, duenyo);
+            System.out.println("clases.ClienteDuenio.consultarMascotaF()" + SSQL);
+            resultado = st.executeQuery();
+            cboxMascota.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                Mascota m = new Mascota();
+                m.setID_mascota(resultado.getInt("ID_mascota"));
+                m.setNombre_mascota(resultado.getString("nombre_mascota"));
+//                m.setID_DUI(ID_DUI);
+                cboxMascota.addItem(m);
+//                JOptionPane.showMessageDialog(null, "es "+m);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
+    
     public void consultarTipoC(JComboBox cbox_clientet) {
         java.sql.Connection cn = null;
         PreparedStatement st = null;
