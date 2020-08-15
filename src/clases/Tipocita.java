@@ -18,7 +18,7 @@ public class Tipocita {
 
 private Connection cn;
 private Integer ID_tipoCita;
-private String tipo_cita;
+private String tipo_Cita;
 
 
  public Connection getcn(){
@@ -38,11 +38,11 @@ private String tipo_cita;
     }
     
     public String gettipo_cita(){
-        return tipo_cita;
+        return tipo_Cita;
     }
     
     public void settipo_cita(String tipo_cita){
-        this.tipo_cita = tipo_cita;
+        this.tipo_Cita = tipo_cita;
     }
 
     
@@ -54,7 +54,7 @@ private String tipo_cita;
         PreparedStatement cmd = cn.prepareStatement(sql);
         
        cmd.setInt(1, ID_tipoCita);
-       cmd.setString(2, tipo_cita);
+       cmd.setString(2, tipo_Cita);
     
         
         if (!cmd.execute()) {
@@ -75,7 +75,7 @@ private String tipo_cita;
         PreparedStatement cmd = cn.prepareStatement(sql);
        
         cmd.setInt(1, ID_tipoCita);
-        cmd.setString(2, tipo_cita);
+        cmd.setString(2, tipo_Cita);
     
         
         if (!cmd.execute()) {
@@ -101,7 +101,7 @@ private String tipo_cita;
         if (rs.next()) {
             resp = true;
              ID_tipoCita = rs.getInt(1);
-             tipo_cita = rs.getString(2);
+             tipo_Cita = rs.getString(2);
              
         }
         cmd.close();

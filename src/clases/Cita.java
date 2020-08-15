@@ -5,10 +5,12 @@
  */
 package clases;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -20,10 +22,43 @@ public class Cita {
     
     private Connection cn;
     private Integer ID_cita;
-    private Integer cita_hora;
-    private Integer cita_fecha;
+    private Time cita_hora;
+    private Date cita_fecha;
     private Integer ID_tipoCita;
     private Integer DUI;
+    private Integer ID_estado;
+
+    public Connection getCn() {
+        return cn;
+    }
+
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    public Time getCita_hora() {
+        return cita_hora;
+    }
+
+    public void setCita_hora(Time cita_hora) {
+        this.cita_hora = cita_hora;
+    }
+
+    public Date getCita_fecha() {
+        return cita_fecha;
+    }
+
+    public void setCita_fecha(Date cita_fecha) {
+        this.cita_fecha = cita_fecha;
+    }
+
+    public Integer getID_estado() {
+        return ID_estado;
+    }
+
+    public void setID_estado(Integer ID_estado) {
+        this.ID_estado = ID_estado;
+    }
     
     public Connection getcn(){
         return cn;
@@ -41,19 +76,19 @@ public class Cita {
         this.ID_cita = ID_cita;
     }
      
-    public Integer getcita_hora(){
+    public Time getcita_hora(){
         return cita_hora;
     }
     
-    public void setcita_hora(Integer cita_hora){
+    public void setcita_hora(Time cita_hora){
         this.cita_hora = cita_hora;
     }
     
-    public Integer getcita_fecha(){
+    public Date getcita_fecha(){
         return cita_fecha;
     }
     
-    public void setcita_fecha(Integer cita_fecha){
+    public void setcita_fecha(Date cita_fecha){
         this.cita_fecha = cita_fecha;
     }
     
@@ -80,15 +115,16 @@ public class Cita {
 
     public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO Citas(ID_cita, cita_fecha, cita_hora, ID_tipoCita, DUI )"+" VALUES (?, ?, ?, ?, ?, ?)";
+        try {String sql = "INSERT INTO Citas(ID_cita, cita_fecha, cita_hora, ID_tipoCita, DUI )"+" VALUES (?, ?, ?, ?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
         cmd.setInt(1, ID_cita);
-        cmd.setInt(2, cita_fecha);
-        cmd.setInt(3,cita_hora );
-        cmd.setInt(4,ID_tipoCita);
-        cmd.setInt(5, DUI);
+        cmd.setDate(2, cita_fecha);
+        cmd.setTime(3,cita_hora );
+        cmd.setInt(4,ID_estado);
+        cmd.setInt(5,ID_tipoCita);
+        cmd.setInt(6, DUI);
         
         
         if (!cmd.execute()) {
@@ -111,8 +147,8 @@ public class Cita {
         PreparedStatement cmd = cn.prepareStatement(sql);
         
         cmd.setInt(1, ID_cita);
-        cmd.setInt(2, cita_fecha);
-        cmd.setInt(3,cita_hora );
+        cmd.setDate(2, cita_fecha);
+        cmd.setTime(3,cita_hora );
         cmd.setInt(4,ID_tipoCita);
         cmd.setInt(5, DUI);
         
@@ -135,8 +171,8 @@ public class Cita {
         PreparedStatement cmd = cn.prepareStatement(sql);
         
         cmd.setInt(1, ID_cita);
-        cmd.setInt(2, cita_fecha);
-        cmd.setInt(3,cita_hora );
+        cmd.setDate(2, cita_fecha);
+        cmd.setTime(3,cita_hora );
         cmd.setInt(4,ID_tipoCita);
         cmd.setInt(5, DUI);
         

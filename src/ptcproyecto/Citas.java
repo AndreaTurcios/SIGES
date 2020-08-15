@@ -13,6 +13,8 @@ import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -103,7 +105,7 @@ DefaultTableModel m;
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Buscador ficha clínica");
+        jLabel13.setText("Buscador citas");
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -258,7 +260,11 @@ DefaultTableModel m;
 
         jLabel5.setText("DUI:");
 
+        jSHora.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+
         jLabel6.setText("Hora:");
+
+        jSMinuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 5));
 
         jLabel7.setText("Minuto:");
 
@@ -471,15 +477,27 @@ DefaultTableModel m;
     }
     private void JbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtGuardarActionPerformed
        Cita obj = new Cita();
-       String n = ":";
        int hora = (Integer)jSHora.getValue();
        int minuto = (Integer)jSMinuto.getValue();
-       String fin = hora + ":" + minuto;
-       obj.setcita_hora(Integer.parseInt(fin));
+       String fin = hora + ":" + minuto+":00";
+       Time.valueOf(fin);
+//       DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+//       Date d = dateFormat.parse(fin);
        
-       obj.setID_tipoCita((Integer) cbTipoCita.getSelectedItem());
+       obj.setcita_hora(Time.valueOf(fin));
+       System.out.println("datos obtenidos "+fin);
+       
+        Tipocita ti = (Tipocita)cbTipoCita.getSelectedItem();
+        obj.setID_tipoCita(ti.getID_tipoCita());
+        
         int duic= Integer.parseInt(jTextField1.getText());
         obj.setDUI(duic);
+        
+        obj.setcita_fecha(new java.sql.Date(calendar.getDatoFecha().getTime())); 
+        
+        TipoEstados tip = (TipoEstados)jcbDUI1.getSelectedItem();
+        obj.setID_estado(tip.getID_estado());
+        
        if (obj.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
         }else{
@@ -556,35 +574,21 @@ DefaultTableModel m;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         cbTipoCita.setEnabled(true);
+        jcbDUI1.setEnabled(true);
         calendar.setEnabled(true);
         jSHora.setEnabled(true);
         jSMinuto.setEnabled(true);
-        
         int fsel = jTable1dialog.getSelectedRow();
-        String ID, nombre, apellidos;
+        String DUI;
         if (fsel==-1) {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
             m = (DefaultTableModel)jTable1dialog.getModel();
-            ID = jTable1dialog.getValueAt(fsel, 0).toString();
-            nombre = jTable1dialog.getValueAt(fsel, 1).toString();
-            apellidos = jTable1dialog.getValueAt(fsel, 2).toString();
-            
-//
-//            tfDui.setText(ID);
-//            CargarMascota(Integer.parseInt(ID));
-//
-//            labelNombre.setVisible(true);
-//            labelNombre.setText(nombre+" "+apellidos);
+            DUI = jTable1dialog.getValueAt(fsel, 0).toString();
+            jTextField1.setText(DUI);
 
             jDialog1.setVisible(false);
 
-            //         if (tfdialogo.getText().isEmpty()) {
-                //            JOptionPane.showMessageDialog(this,"No dejar campos vacíos");
-                //        }else{
-                //            ClienteDuenio dui = new ClienteDuenio();
-                //            jTable1dialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
-                //            }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -610,7 +614,7 @@ DefaultTableModel m;
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jDialog1.setMinimumSize(new Dimension (800, 600));
+        jDialog1.setMinimumSize(new Dimension (800, 550));
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
