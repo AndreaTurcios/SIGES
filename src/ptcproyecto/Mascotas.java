@@ -29,6 +29,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         CargarTMascota();
         ListarDuenios();
         lblNombre.setVisible(false);
+        jTextField1.setVisible(false);
     }
     
     public static void main(String args[]) 
@@ -102,12 +103,12 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         cmbGenero = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         tfDui = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         kGradientPanel1 = new keeptoo.KGradientPanel();
@@ -320,14 +321,6 @@ public class Mascotas extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEliminar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "F", "M" }));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -344,6 +337,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNombre.setText("jLabel6");
+
+        jTextField1.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -371,34 +366,39 @@ public class Mascotas extends javax.swing.JInternalFrame {
                                 .addGap(27, 27, 27)
                                 .addComponent(tfRazon)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel8))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tipo_mascota, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfHorarios)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(tfDui, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jButton2))
-                                        .addComponent(lblNombre)
-                                        .addComponent(tfHorarios)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(tipo_mascota, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnLimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(lblNombre))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton2))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btnLimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
-                        .addComponent(btnGuardar)))
+                        .addComponent(btnGuardar))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(233, 233, 233)))
                 .addGap(50, 50, 50))
         );
         jPanel2Layout.setVerticalGroup(
@@ -420,8 +420,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombre)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
@@ -439,9 +441,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -473,12 +473,12 @@ public class Mascotas extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -648,44 +648,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
         {
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*
-        String path = "";
-        try
-        {
-            path = getClass().getResource("reportes/Reporte_Mascota_SIGES.jasper").getPath();
-            path = URLDecoder.decode(path, "UTF-8");
-            Connection cn = new conexion().conectar();
-            Map parametros = new HashMap();
-            JasperReport reporte = (JasperReport)JRLoader.loadObject(path);
-            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, cn);
-            JasperViewer visor = new JasperViewer(imprimir,false);
-            visor.setTitle("Reporte Mascotas");
-            visor.setVisible(true);
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "Error durante el proceso de presentacion del reporte. Error: " + e);
-            System.out.println(e.getMessage());
-        }
-        */
+        
     }//GEN-LAST:event_btnImprimirActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-       Mascota obj = new Mascota();
-       obj.setNombre_mascota(tfNombre.getText());
-       obj.setMascota_razon(tfRazon.getText());
-       obj.setMascota_medicinas(tfMedicinas.getText());
-       obj.setMascota_horarioReserva(tfHorarios.getText());
-        int eliminar = JOptionPane.showConfirmDialog(this,"¿Esta seguro que desea eliminar?",
-                "Atención",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE); 
-        if (eliminar==0) {
-            if (obj.EliminarMascota()) {
-                JOptionPane.showMessageDialog(this,"Datos eliminados"); 
-            }else{
-         JOptionPane.showMessageDialog(this,"Error al eliminar"); 
-        }
-      }
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
         // TODO add your handling code here:
@@ -748,18 +712,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         }else{
             ClienteDuenio dui = new ClienteDuenio();
             jTable1dialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
-            //            ClienteDuenio obj = new ClienteDuenio();
-            //            int fse = jTable1dialog.getSelectedRow();
-            //            String dato = tfdialogo.getText();
-            //            String b = jTable1dialog.getValueAt(fse, 0).toString();
-            //
-            //            if (dato==b) {
-                //                try {
-                    //                    obj.BuscarDuenio(Integer.parseInt(jTable1dialog.getValueAt(fse, 0).toString()));
-                    //                } catch (SQLException ex) {
-                    //                    Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
-                    //                }
-                //            }
+           
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -772,6 +725,33 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jDialog1.setMinimumSize(new Dimension (800, 600));
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
+        //btneliminar
+         //        String ID_mascota;
+        //        int fsel = jTable1.getSelectedRow();
+        //        if (fsel==-1) {
+            //        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                //                JOptionPane.WARNING_MESSAGE);
+            //        }else{
+            //         m = (DefaultTableModel)jTable1.getModel();
+            //         ID_mascota = jTable1.getValueAt(fsel, 0).toString();
+            //         jTextField1.setText(ID_mascota);
+            //
+            //         Mascota obj = new Mascota();
+            //
+            //         int i = Integer.parseInt(jTextField1.getText());
+            //        obj.setID_mascota(i);
+            //
+            //         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                //                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            //        if (eliminar==0) {
+                //            if (obj.EliminarMascota()) {
+                    //                JOptionPane.showMessageDialog(this,"Datos eliminados");
+                    //                ListarMascota();
+                    //            }else{
+                    //         JOptionPane.showMessageDialog(this,"Error al eliminar");
+                    //        }
+                //      }
+            //    }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
@@ -781,7 +761,6 @@ public class Mascotas extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GeneroBtnG;
     private javax.swing.JButton btnCerrar1;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnLimpiar;
@@ -810,6 +789,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable1dialog;
+    private javax.swing.JTextField jTextField1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel lblNombre;

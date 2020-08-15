@@ -7,6 +7,7 @@ package clases;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -76,7 +77,31 @@ public class ControlFicha {
     public void setID_Mascota(Integer ID_Mascota) {
         this.ID_Mascota = ID_Mascota;
     }
-     
+     public boolean modificarFicha() {
+       boolean resp = false;
+        cn = Conexion.conectar();
+        System.out.println("clases.ControlFicha.modificarFicha()" +  cn);
+       try{
+       String sql = "UPDATE Ficha_clinica SET Tratamiento=?, Dosis=?, Frecuencia=?, ID_DUI=?, ID_Mascota=?"
+               + " WHERE ID_Ficha =?;";
+       PreparedStatement cmd = cn.prepareStatement(sql);
+            cmd.setInt(6, ID_Ficha);
+            cmd.setString(1, Tratamiento);
+            cmd.setString(2, Dosis);
+            cmd.setString(3, Frecuencia);
+            cmd.setInt(4, ID_DUI);
+            cmd.setInt(5, ID_Mascota);
+       
+           if (!cmd.execute()) {
+               resp = true;
+           }
+           cmd.close();
+           cn.close();
+       }catch(SQLException e){
+       System.out.println(e.toString());
+       }
+       return resp;
+    }
     public boolean EliminarFicha() {
         boolean resp = false;
          cn = Conexion.conectar();

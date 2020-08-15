@@ -141,6 +141,23 @@ public class controlPreguntas {
             }
         }
     }
+    public boolean EliminarPregunta() {
+        boolean resp = false;
+         cn = Conexion.conectar();
+        try {//realizando consulta insert
+            String sql = "DELETE FROM preguntas WHERE ID_Pregunta=?;";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            cmd.setInt(1, ID_pregunta);
+            if (!cmd.execute()) {
+                resp = true;
+            }
+            cmd.close();
+            cn.close();
+        } catch (Exception ex) {
+            System.out.println("Error exception es"+ex.toString());
+        }
+        return resp;
+    }
     public double toInteger() {
         return ID_usuario;
     }

@@ -197,22 +197,22 @@ public class Mascota {
     }
     return resp;
     }
-    public boolean EliminarMascota(){
-    boolean resp=false;
-    try{//realizando consulta insert
-            String sql = "DELETE FROM Mascota WHERE ID_mascota=?;";
-            PreparedStatement cmd= cn.prepareStatement(sql);
-            cmd.setInt(1, ID_mascota );
-            if (!cmd.execute()) {
-                resp=true;
-            }
-            cmd.close();
-            cn.close();
-        }catch(Exception ex){
-            System.out.println(ex.toString());
-        }
-        return resp;
-    }
+//    public boolean EliminarMascota(){
+//    boolean resp=false;
+//    try{//realizando consulta insert
+//            String sql = "DELETE FROM Mascota WHERE ID_mascota=?;";
+//            PreparedStatement cmd= cn.prepareStatement(sql);
+//            cmd.setInt(1, ID_mascota );
+//            if (!cmd.execute()) {
+//                resp=true;
+//            }
+//            cmd.close();
+//            cn.close();
+//        }catch(Exception ex){
+//            System.out.println(ex.toString());
+//        }
+//        return resp;
+//    }
     public boolean guardarMascota(Mascota a){
         boolean resp = false;
         try{//realizando consulta insert
