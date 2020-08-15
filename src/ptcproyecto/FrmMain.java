@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  * @author 15-CW0001la
  */
 public class FrmMain extends javax.swing.JFrame {
-
+ int clicked = 0;
     /**
      * Creates new form FrmMain
      */
@@ -650,6 +650,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel11.setForeground(Color.WHITE);
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
+        panelArriba.removeAll();
         tipoclientes fich= new tipoclientes();
         panelArriba.add(fich);
         fich.show();
@@ -676,6 +677,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel11.setForeground(Color.WHITE);
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
+        panelArriba.removeAll();
         Agenda fich= new Agenda();
         panelArriba.add(fich);
         fich.show();
@@ -702,6 +704,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel11.setForeground(Color.WHITE);
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
+        panelArriba.removeAll();
         Productos fich= new Productos();
         panelArriba.add(fich);
         fich.show();
@@ -728,6 +731,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel11.setForeground(Color.WHITE);
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
+        panelArriba.removeAll();
         Citas fich= new Citas();
         panelArriba.add(fich);
         fich.show();    
@@ -754,6 +758,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel11.setForeground(Color.WHITE);
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
+        panelArriba.removeAll();
         frmConsultas fich =new frmConsultas();
        panelArriba.add(fich);
        fich.show();  
@@ -781,9 +786,11 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         Dueños fich= new Dueños();
         panelArriba.add(fich);
         fich.show();
+        
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -808,6 +815,7 @@ public class FrmMain extends javax.swing.JFrame {
          jLabel18.setForeground(Color.WHITE);
          jLabel19.setForeground(Color.WHITE);
          lblLogo.setVisible(false);
+         panelArriba.removeAll();
         Mascotas fich= new Mascotas();
         panelArriba.add(fich);
         fich.show();
@@ -835,6 +843,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         frmUsuarios fich= new frmUsuarios();
         panelArriba.add(fich);
         fich.show();
@@ -862,6 +871,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         FrmPreguntas fich= new FrmPreguntas();
         panelArriba.add(fich);
         fich.show();
@@ -890,6 +900,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         TipoMascota fich= new TipoMascota();
         panelArriba.add(fich);
         fich.show();
@@ -917,6 +928,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         TipoProducto fich= new TipoProducto();
         panelArriba.add(fich);
         fich.show();
@@ -944,6 +956,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         Nacionalidad fich = new Nacionalidad();
         panelArriba.add(fich);
         fich.show();
@@ -971,6 +984,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         TipoPago fich= new TipoPago ();
         panelArriba.add(fich);
         fich.show();
@@ -998,6 +1012,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         tipo_empleado fich= new tipo_empleado ();
         panelArriba.add(fich);
         fich.show();
@@ -1025,6 +1040,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         codigoZona fich= new codigoZona ();
         panelArriba.add(fich);
         fich.show();
@@ -1052,6 +1068,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         frmTipo_cita fich= new frmTipo_cita ();
         panelArriba.add(fich);
         fich.show();
@@ -1079,6 +1096,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         frmFichaClinica fich= new frmFichaClinica ();
         panelArriba.add(fich);
         fich.show();
@@ -1106,6 +1124,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         frmTipo_cita fich= new frmTipo_cita ();
         panelArriba.add(fich);
         fich.show();
@@ -1172,6 +1191,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel11.setForeground(Color.WHITE);
         jLabel18.setForeground(Color.BLACK);
         jLabel19.setForeground(Color.WHITE);
+        panelArriba.removeAll();
         lblLogo.setVisible(false);
         DetalleFactura fich= new DetalleFactura ();
         panelArriba.add(fich);
@@ -1200,6 +1220,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.BLACK);
         lblLogo.setVisible(false);
+        panelArriba.removeAll();
         TipoEstado fich= new TipoEstado ();
         panelArriba.add(fich);
         fich.show();
