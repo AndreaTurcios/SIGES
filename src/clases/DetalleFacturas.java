@@ -81,6 +81,23 @@ public class DetalleFacturas {
     public String toString() {
         return TipoPago;
     }
+    public boolean EliminarFacturaD() {
+        boolean resp = false;
+        cn = conexion.conectar();
+        try {//realizando consulta insert
+            String sql = "DELETE FROM Detalle_factura WHERE ID_detalle=?;";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            cmd.setInt(1, ID_detalle);
+            if (!cmd.execute()) {
+                resp = true;
+            }
+            cmd.close();
+            cn.close();
+        } catch (Exception ex) {
+            System.out.println("Error exception es"+ex.toString());
+        }
+        return resp;
+    }
     public boolean guardarDetalle() {
 
         try {//realizando consulta insert

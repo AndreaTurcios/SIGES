@@ -34,6 +34,14 @@ FROM
 					<reportElement x="227" y="46" width="113" height="20" uuid="507b22b0-047e-4b37-b10c-130d5b8e56d3"/>
 					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 				</textField>
+				<image>
+					<reportElement x="28" y="13" width="72" height="53" uuid="f0f2cafb-55c8-4384-9b05-57dd59e2f89e"/>
+					<imageExpression><![CDATA["C:\\Users\\cvera\\OneDrive\\Documentos\\NetBeansProjects\\SIGES-2\\SIGES\\src\\imagenes\\reporte.png"]]></imageExpression>
+				</image>
+				<image>
+					<reportElement x="508" y="13" width="46" height="53" uuid="56f72de6-696c-4734-9d69-2402110594d9"/>
+					<imageExpression><![CDATA["C:\\Users\\cvera\\OneDrive\\Documentos\\NetBeansProjects\\SIGES-2\\SIGES\\src\\imagenes\\gato.png"]]></imageExpression>
+				</image>
 			</frame>
 		</band>
 	</title>
@@ -43,15 +51,18 @@ FROM
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="20" uuid="f9cadb7c-a6ba-4e53-aca9-fad012f13b98"/>
+				<reportElement mode="Opaque" x="0" y="0" width="165" height="20" backcolor="#006699" uuid="f9cadb7c-a6ba-4e53-aca9-fad012f13b98"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[Nombre Mascota]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="127" y="0" width="100" height="20" uuid="3075dbfa-9674-497b-9e66-cd0573ab64a8"/>
+				<reportElement mode="Opaque" x="165" y="0" width="247" height="20" backcolor="#006699" uuid="3075dbfa-9674-497b-9e66-cd0573ab64a8"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[Genero de la mascota]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="279" y="0" width="100" height="20" uuid="b4480de8-4a14-496c-a49a-07ecb7f8bb24"/>
+				<reportElement mode="Opaque" x="412" y="0" width="160" height="20" backcolor="#006699" uuid="b4480de8-4a14-496c-a49a-07ecb7f8bb24"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[Tipo de mascota]]></text>
 			</staticText>
 		</band>
@@ -59,15 +70,15 @@ FROM
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="0b55558e-9d62-4448-bdce-e967e69c51fc"/>
+				<reportElement x="65" y="0" width="100" height="20" uuid="0b55558e-9d62-4448-bdce-e967e69c51fc"/>
 				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="127" y="0" width="100" height="20" uuid="61db61f6-3a9b-4ab7-96a8-c64285239387"/>
+				<reportElement x="266" y="0" width="100" height="20" uuid="61db61f6-3a9b-4ab7-96a8-c64285239387"/>
 				<textFieldExpression><![CDATA[$F{Mascota_mascota_genero}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="279" y="0" width="100" height="20" uuid="2327cf96-a1ec-443d-b11b-4193c836ec01"/>
+				<reportElement x="472" y="0" width="100" height="20" uuid="2327cf96-a1ec-443d-b11b-4193c836ec01"/>
 				<textFieldExpression><![CDATA[$F{Tipo_mascota_tipo_animal}]]></textFieldExpression>
 			</textField>
 		</band>

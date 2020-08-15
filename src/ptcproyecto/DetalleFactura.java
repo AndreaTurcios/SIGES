@@ -23,6 +23,7 @@ DefaultTableModel m;
         initComponents();
         CargarTipoP();
         ListarDetalle();
+        jTextField2.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -117,7 +118,7 @@ DefaultTableModel m;
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -202,7 +203,7 @@ DefaultTableModel m;
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                     .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -314,7 +315,32 @@ public void CargarTipoP(){
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+        //jTextField3
+           String ID;
+        int fsel = jTable3.getSelectedRow();
+         if (fsel==-1) {
+            
+   JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+           JOptionPane.WARNING_MESSAGE);
+         }else{
+         m = (DefaultTableModel)jTable3.getModel();
+         ID = jTable3.getValueAt(fsel, 0).toString();
+         jTextField2.setText(ID);
+         
+         DetalleFacturas obj = new DetalleFacturas();
+         obj.setID_detalle(Integer.parseInt(jTextField2.getText()));
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+       if (eliminar == 0) {
+          
+           if (obj.EliminarFacturaD()) {
+                JOptionPane.showMessageDialog(this, "Datos eliminados");
+                 ListarDetalle();
+            }else{
+            JOptionPane.showMessageDialog(this, "Error al eliminar");
+            }
+        }
+      } 
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
