@@ -38,14 +38,6 @@ FROM
 					<reportElement x="206" y="52" width="113" height="20" forecolor="#FFFFFF" uuid="3e3ff71b-cc73-4db3-9632-056fdc3be896"/>
 					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 				</textField>
-				<image>
-					<reportElement x="487" y="12" width="51" height="60" uuid="278b98db-28e2-40d6-b06e-46f3eab65311"/>
-					<imageExpression><![CDATA["C:\\Users\\cvera\\OneDrive\\Documentos\\NetBeansProjects\\SIGES-2\\SIGES\\src\\imagenes\\agenda.png"]]></imageExpression>
-				</image>
-				<image>
-					<reportElement x="28" y="4" width="78" height="68" uuid="ff689a3c-7eb0-455a-a012-94e8a22946ea"/>
-					<imageExpression><![CDATA["C:\\Users\\cvera\\OneDrive\\Documentos\\NetBeansProjects\\SIGES-2\\SIGES\\src\\imagenes\\reporte.png"]]></imageExpression>
-				</image>
 			</frame>
 		</band>
 	</title>
