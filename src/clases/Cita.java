@@ -8,6 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author estef
@@ -97,6 +101,8 @@ public class Cita {
         }
         return resp;
     }
+    
+    
 
     public boolean Consultar() {
         boolean resp = false;
@@ -144,6 +150,36 @@ public class Cita {
             System.out.println(e.toString());
         }
         return resp;
+    }
+     public void listarCitas(Connection cn, JTable tabla){
+        cn = Conexion.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID", "Fecha","Hora","Estado","Tipo cita", "DUI"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM Citas ORDER BY ID_cita";
+        String [] filas = new String[6];
+        Statement st = null;
+        ResultSet rs = null;
+        
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            System.out.println("datos obtenidos "+rs);
+            while (rs.next()){
+                for (int i = 0; i < 6; i++) {
+                    filas[i] = rs.getString(i+1);
+                }
+                model.addRow(filas);
+            }
+            tabla.setModel(model);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
+        }
+    }  
+    
+    public void listarC(JTable tabla) {
+        listarCitas(cn ,tabla);
     }
     
 }

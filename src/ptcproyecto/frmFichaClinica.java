@@ -151,7 +151,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel1.setBackground(new Color(153, 153, 255));
+        jPanel1.setBackground(new Color(204, 204, 204));
 
         jLabel14.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
         jLabel14.setForeground(new Color(255, 255, 255));

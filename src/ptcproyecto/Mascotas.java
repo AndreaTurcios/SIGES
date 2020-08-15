@@ -614,6 +614,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
     obj.setMascota_razon(tfRazon.getText());
     obj.setMascota_medicinas(tfMedicinas.getText());
     obj.setMascota_horarioReserva(tfHorarios.getText());
+    //--falta tipo mascota, genero y usuario
+    
 //        if (rbF.isSelected()) {
 //            obj.setMascota_genero("F");
 //        }else{ 
