@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -123,6 +124,39 @@ public class TipoEstados {
         }
         return resp;
     }
+    Pool metodospool = new Pool();
+    public void consultarTipoEstados(JComboBox cbox_mascotat) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT ID_estado, estado FROM tipo_estado ORDER BY ID_estado";
+        try {
+         
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_mascotat.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                tipoMascota tm = new tipoMascota();
+                tm.setID_tipoMascota(resultado.getInt("ID_estado"));
+                tm.setTipo_animal(resultado.getString("estado"));
+                cbox_mascotat.addItem(tm);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
     public boolean modificar() {
        boolean resp = false;
         cn = Conexion.conectar();
@@ -141,5 +175,8 @@ public class TipoEstados {
        System.out.println(e.toString());
        }
        return resp;
+    }
+    public Integer getestado() {
+        return ID_estado;
     }
 }

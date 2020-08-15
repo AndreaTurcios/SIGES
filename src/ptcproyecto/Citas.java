@@ -6,6 +6,7 @@
 package ptcproyecto;
 import clases.Cita;
 import clases.Conexion;
+import clases.TipoEstados;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.Date;
@@ -38,8 +39,9 @@ DefaultTableModel m;
     public Citas() {
         initComponents();
         ListarCitas();
+        CargarEstado();
           jTextField1.setEnabled(false);
-        cbTipoCita.setEnabled(false);
+        cbTipoCita.setEnabled(true);
         calendar.setEnabled(false);
         jSHora.setEnabled(false);
         jSMinuto.setEnabled(false);
@@ -246,8 +248,6 @@ DefaultTableModel m;
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Fecha:");
 
-        cbTipoCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
-
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Seleccione el tipo de cita:");
 
@@ -299,8 +299,6 @@ DefaultTableModel m;
         jLabel8.setText(":");
 
         jLabel9.setText("Estado:");
-
-        jcbDUI1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout JPIngresoCitasLayout = new javax.swing.GroupLayout(JPIngresoCitas);
         JPIngresoCitas.setLayout(JPIngresoCitasLayout);
@@ -454,6 +452,10 @@ DefaultTableModel m;
         Cita obj = new Cita();
         obj.listarC(jTable1);
     }
+    public void CargarEstado(){
+        TipoEstados obj = new TipoEstados();
+        obj.consultarTipoEstados(jcbDUI1);
+    }
     private void JbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtGuardarActionPerformed
        Cita obj = new Cita();
        String n = ":";
@@ -462,8 +464,6 @@ DefaultTableModel m;
        String fin = hora + ":" + minuto;
        obj.setcita_hora(Integer.parseInt(fin));
        
-       
-//       obj.setcita_fecha(Integer.parseInt(tfFecha.getText ()));
        obj.setID_tipoCita((Integer) cbTipoCita.getSelectedItem());
         int duic= Integer.parseInt(jTextField1.getText());
         obj.setDUI(duic);
@@ -556,6 +556,7 @@ DefaultTableModel m;
             ID = jTable1dialog.getValueAt(fsel, 0).toString();
             nombre = jTable1dialog.getValueAt(fsel, 1).toString();
             apellidos = jTable1dialog.getValueAt(fsel, 2).toString();
+            
 //
 //            tfDui.setText(ID);
 //            CargarMascota(Integer.parseInt(ID));
