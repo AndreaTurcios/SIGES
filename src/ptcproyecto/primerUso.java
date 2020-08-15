@@ -55,9 +55,7 @@ public class primerUso extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         jtfEmail = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jtbModificar = new javax.swing.JToggleButton();
         jtbGuardar = new javax.swing.JToggleButton();
-        btnEliminar = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         BtnCerrar = new javax.swing.JButton();
@@ -157,22 +155,19 @@ public class primerUso extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addGap(172, 172, 172)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel34)
+                            .addComponent(jtfApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel33)
-                                .addGap(172, 172, 172)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel34)
-                                    .addComponent(jtfApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel41)
-                                    .addComponent(JCBcargoE, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 13, Short.MAX_VALUE))
+                            .addComponent(jLabel9)
+                            .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel41)
+                            .addComponent(JCBcargoE, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -180,18 +175,13 @@ public class primerUso extends javax.swing.JFrame {
                                 .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jtfEmail, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jLabel39))
+                        .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel36)
-                                    .addComponent(jLabel40))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jtfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                            .addComponent(jtfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel40)
+                            .addComponent(jtfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,30 +224,12 @@ public class primerUso extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jtbModificar.setBackground(new java.awt.Color(0, 153, 153));
-        jtbModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jtbModificar.setText("Modificar");
-        jtbModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbModificarActionPerformed(evt);
-            }
-        });
-
         jtbGuardar.setBackground(new java.awt.Color(0, 153, 153));
         jtbGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jtbGuardar.setText("Guardar");
+        jtbGuardar.setText("Guardar datos");
         jtbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbGuardarActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setBackground(new java.awt.Color(0, 153, 153));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -266,22 +238,15 @@ public class primerUso extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
-                .addComponent(jtbModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                .addGap(62, 62, 62))
+                .addGap(189, 189, 189)
+                .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtbGuardar)
-                    .addComponent(btnEliminar)
-                    .addComponent(jtbModificar))
+                .addComponent(jtbGuardar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -414,25 +379,6 @@ public class primerUso extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfUsuarioActionPerformed
 
-    private void jtbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbModificarActionPerformed
-        Usuario obj = new Usuario();
-        obj.setNombre_usuario(jtfNombre.getText());
-        obj.setEmpleado_apellidos(jtfApellido.getText());
-        obj.setCorreo(jtfEmail.getText());
-        obj.setDomicilio(jtfDireccion.getText());
-        obj.setUsuario(jtfUsuario.getText());
-        obj.setContraseña(jtfContraseña.getText());
-        obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
-        //        obj.setPregunta((Integer) JCBPregunta.getSelectedItem());
-        //        obj.setRespuesta(jtfRespuesta.getText());
-
-        if (obj.modificar()) {
-            JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al modificar los datos");
-        }
-    }//GEN-LAST:event_jtbModificarActionPerformed
-
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
         
         Usuario obj = new Usuario();
@@ -499,24 +445,6 @@ public class primerUso extends javax.swing.JFrame {
 //        } 
       
     }//GEN-LAST:event_jtbGuardarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-//        Usuario obj = new Usuario();
-//        if (obj.Consultar()) {
-//            obj.setNombre_usuario(jtfNombre.getText());
-//            obj.setEmpleado_apellidos(jtfApellido.getText());
-//            obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
-//            obj.setCorreo(jtfEmail.getText());
-//            obj.setDomicilio(jtfDireccion.getText());
-//            obj.setUsuario(jtfUsuario.getText());
-//            obj.setContraseña(jtfContraseña.getText());
-//            obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
-//            //        obj.setPregunta((Integer) JCBPregunta.getSelectedItem());
-//            //        obj.setRespuesta(jtfRespuesta.getText());
-//        }else{
-//            JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
-//        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         this.dispose ();
@@ -594,7 +522,6 @@ public class primerUso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JComboBox<String> JCBcargoE;
-    private javax.swing.JToggleButton btnEliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel33;
@@ -611,7 +538,6 @@ public class primerUso extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jtbGuardar;
-    private javax.swing.JToggleButton jtbModificar;
     private javax.swing.JTextField jtfApellido;
     private javax.swing.JTextField jtfContraseña;
     private javax.swing.JTextField jtfDireccion;
