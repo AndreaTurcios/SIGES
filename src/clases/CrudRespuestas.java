@@ -95,11 +95,10 @@ public class CrudRespuestas
         boolean resp = false;
         try
         {
-            String sql = "INSERT INTO respuestas (ID_respuesta, respuesta, ID_Pregunta) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO respuestas (respuesta, ID_Pregunta) VALUES (?, ?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
-            cmd.setInt(1, ID_Respuesta);
-            cmd.setString(2, Respuesta);
-            cmd.setInt(3, ID_Pregunta);
+            cmd.setString(1, Respuesta);
+            cmd.setInt(2, ID_Pregunta);
             if (!cmd.execute()) 
             {
                 resp = true;
@@ -135,7 +134,7 @@ public class CrudRespuestas
         catch (Exception a)
         {
             System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede guardar el registro, Error en el CrudRespuestas.java - Modificar_Respuesta ERROR:" + a);
+            JOptionPane.showMessageDialog(null, "No se puede modificar el registro, Error en el CrudRespuestas.java - Modificar_Respuesta ERROR:" + a);
         }
         return resp;
     }
@@ -158,7 +157,7 @@ public class CrudRespuestas
         catch(Exception a) 
         {
             System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede guardar el registro, Error en el CrudRespuestas.java - Eliminar_Respuesta ERROR:" + a);        
+            JOptionPane.showMessageDialog(null, "No se puede eliminar el registro, Error en el CrudRespuestas.java - Eliminar_Respuesta ERROR:" + a);        
         }
         return resp;
     }
@@ -185,9 +184,43 @@ public class CrudRespuestas
         catch (Exception a) 
         {
             System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede guardar el registro, Error en el CrudRespuestas.java - Consultar_Respuesta ERROR:" + a);        
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el registro, Error en el CrudRespuestas.java - Consultar_Respuesta ERROR:" + a);        
         }
         return resp;
+    }
+    
+    public void Ejecutar_Respuestas(Connection cn, JTable tabla)
+    {
+        cn = Conexion.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID_respuesta","respuesta","ID_Pregunta"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM Respuestas ORDER BY ID_respuesta";
+        String [] filas = new String[3];
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            System.out.println("datos obtenidos "+rs);
+            while (rs.next()){
+                for (int i = 0; i < 3; i++) {
+                    filas[i] = rs.getString(i+1);
+                }
+                model.addRow(filas);
+            }
+            tabla.setModel(model);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "No se puede cargar la tabla del registro, Error en el CrudRespuestas.java - Ejecutar_Respuestas ERROR:" + e);        
+        }
+    }   
+    
+    public void Cargar_Respuestas(JTable tabla) 
+    {
+        Ejecutar_Respuestas(cn ,tabla);
     }
     
     public void Consultar_Pregunta(JComboBox cmb_Pregunta) 
@@ -213,7 +246,7 @@ public class CrudRespuestas
         catch (SQLException e) 
         {
             JOptionPane.showMessageDialog(null, e);
-            JOptionPane.showMessageDialog(null, "No se puede guardar el registro, Error en el CrudRespuestas.java - Consultar_Pregunta-1 ERROR:" + e);        
+            JOptionPane.showMessageDialog(null, "No se puede consultar el registro, Error en el CrudRespuestas.java - Consultar_Pregunta-1 ERROR:" + e);        
         }
         finally
         {
@@ -228,7 +261,7 @@ public class CrudRespuestas
                 catch (SQLException ex) 
                 {
                     JOptionPane.showMessageDialog(null, ex);
-                    JOptionPane.showMessageDialog(null, "No se puede guardar el registro, Error en el CrudRespuestas.java - Consultar_Pregunta-2 ERROR:" + ex);        
+                    JOptionPane.showMessageDialog(null, "No se puede consultar el registro, Error en el CrudRespuestas.java - Consultar_Pregunta-2 ERROR:" + ex);        
                 }
             }
         }

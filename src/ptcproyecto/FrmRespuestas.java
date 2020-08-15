@@ -5,17 +5,27 @@
  */
 package ptcproyecto;
 
+import clases.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Nanos
  */
 public class FrmRespuestas extends javax.swing.JFrame {
-
+    DefaultTableModel m;
     /**
      * Creates new form FrmRespuestas
      */
     public FrmRespuestas() {
         initComponents();
+        Cargar_Tabla_Respuestas();
+    }
+    
+    public void Cargar_Tabla_Respuestas()
+    {
+        CrudRespuestas obj = new CrudRespuestas();
+        obj.Cargar_Respuestas(jTableRespuestas);
     }
 
     /**
@@ -27,21 +37,249 @@ public class FrmRespuestas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        btnCerrar1 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnGuardar = new javax.swing.JButton();
+        txtRespuesta = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        cmbPregunta = new javax.swing.JComboBox<>();
+        btnLimpiar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
+        txtI = new javax.swing.JTextField();
+        btnEliminar = new javax.swing.JButton();
+        btnModificar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableRespuestas = new javax.swing.JTable();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
+        kGradientPanel1.setkGradientFocus(600);
+        kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
+        kGradientPanel1.setLayout(null);
+
+        btnCerrar1.setBackground(new java.awt.Color(255, 102, 102));
+        btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
+        btnCerrar1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        btnCerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrar1ActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnCerrar1);
+        btnCerrar1.setBounds(638, 0, 34, 54);
+
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Registros de Respuestas");
+        kGradientPanel1.add(jLabel15);
+        jLabel15.setBounds(210, 10, 280, 32);
+
+        getContentPane().add(kGradientPanel1);
+        kGradientPanel1.setBounds(20, 10, 675, 55);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
+        btnGuardar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnGuardar.setText("Guardar ");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGuardar);
+        btnGuardar.setBounds(540, 170, 120, 50);
+
+        txtRespuesta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRespuestaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtRespuesta);
+        txtRespuesta.setBounds(90, 80, 580, 71);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Respuesta:");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(10, 80, 70, 17);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Pregunta:");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(10, 30, 70, 17);
+
+        jPanel2.add(cmbPregunta);
+        cmbPregunta.setBounds(90, 30, 580, 20);
+
+        btnLimpiar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLimpiar);
+        btnLimpiar.setBounds(410, 170, 120, 50);
+
+        btnImprimir.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnImprimir.setText("Imprimir");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnImprimir);
+        btnImprimir.setBounds(280, 170, 120, 50);
+
+        txtI.setBorder(null);
+        jPanel2.add(txtI);
+        txtI.setBounds(589, 74, 30, 22);
+
+        btnEliminar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEliminar);
+        btnEliminar.setBounds(20, 170, 120, 50);
+
+        btnModificar1.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnModificar1.setText("Modificar");
+        btnModificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificar1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnModificar1);
+        btnModificar1.setBounds(150, 170, 120, 50);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(10, 80, 690, 240);
+
+        jTableRespuestas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableRespuestas);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 340, 690, 260);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_btnCerrar1ActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        CrudRespuestas obj = new CrudRespuestas();
+        obj.setRespuesta(txtRespuesta.getText());
+        controlPreguntas PR = (controlPreguntas)cmbPregunta.getSelectedItem();
+        obj.setID_Pregunta(PR.getID_pregunta());
+        if (obj.Guardar_Respuesta()) 
+        {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           Cargar_Tabla_Respuestas();
+        }
+        else
+        { 
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+           JOptionPane.showMessageDialog(this,obj.Guardar_Respuesta()); 
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtRespuesta.setText("");
+        //        cmbUsuario.set();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        /*
+        try
+        {
+            java.sql.Connection con = Conexion.conectar();
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Reporte-preguntas(D).jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        }
+        catch (JRException ex)
+        {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            */
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String ID_Respuestas;
+        int fsel = jTableRespuestas.getSelectedRow();
+        if (fsel<1) 
+        {
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            m = (DefaultTableModel)jTableRespuestas.getModel();
+            ID_Respuestas = jTableRespuestas.getValueAt(fsel, 0).toString();
+            txtI.setText(ID_Respuestas);
+            CrudRespuestas obj = new CrudRespuestas();
+            int i = Integer.parseInt(txtI.getText());
+            obj.setID_Respuesta(i);
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) 
+            {
+                if (obj.Eliminar_Respuesta()) 
+                {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    Cargar_Tabla_Respuestas();
+                }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.Eliminar_Respuesta());
+            }
+          }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtRespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRespuestaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRespuestaActionPerformed
+
+    private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
+        CrudRespuestas obj = new CrudRespuestas();
+        obj.setRespuesta(txtRespuesta.getText());
+        int Pregunta = cmbPregunta.getSelectedIndex();
+        obj.setID_Pregunta(Pregunta);
+        if (obj.Modificar_Respuesta()) 
+        {
+            JOptionPane.showMessageDialog(this, "Datos Modificados");
+            Cargar_Tabla_Respuestas();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Error al modificar "+obj.Modificar_Respuesta());
+        }
+    }//GEN-LAST:event_btnModificar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +317,21 @@ public class FrmRespuestas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrar1;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificar1;
+    private javax.swing.JComboBox<String> cmbPregunta;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableRespuestas;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JTextField txtI;
+    private javax.swing.JTextField txtRespuesta;
     // End of variables declaration//GEN-END:variables
 }
