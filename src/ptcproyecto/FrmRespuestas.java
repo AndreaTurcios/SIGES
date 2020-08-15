@@ -19,13 +19,13 @@ public class FrmRespuestas extends javax.swing.JFrame {
      */
     public FrmRespuestas() {
         initComponents();
-        Cargar_Tabla_Respuestas();
+        CargarTablaRespuestas();
     }
     
-    public void Cargar_Tabla_Respuestas()
+    public void CargarTablaRespuestas()
     {
         CrudRespuestas obj = new CrudRespuestas();
-        obj.Cargar_Respuestas(jTableRespuestas);
+        obj.CargarRespuestas(jTableRespuestas);
     }
 
     /**
@@ -190,16 +190,16 @@ public class FrmRespuestas extends javax.swing.JFrame {
         CrudRespuestas obj = new CrudRespuestas();
         obj.setRespuesta(txtRespuesta.getText());
         controlPreguntas PR = (controlPreguntas)cmbPregunta.getSelectedItem();
-        obj.setID_Pregunta(PR.getID_pregunta());
-        if (obj.Guardar_Respuesta()) 
+        obj.setIDPregunta(PR.getID_pregunta());
+        if (obj.GuardarRespuesta()) 
         {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
-           Cargar_Tabla_Respuestas();
+           CargarTablaRespuestas();
         }
         else
         { 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
-           JOptionPane.showMessageDialog(this,obj.Guardar_Respuesta()); 
+           JOptionPane.showMessageDialog(this,obj.GuardarRespuesta()); 
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -231,7 +231,7 @@ public class FrmRespuestas extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String ID_Respuestas;
         int fsel = jTableRespuestas.getSelectedRow();
-        if (fsel<1) 
+        if (fsel<0) 
         {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
             JOptionPane.WARNING_MESSAGE);
@@ -243,19 +243,19 @@ public class FrmRespuestas extends javax.swing.JFrame {
             txtI.setText(ID_Respuestas);
             CrudRespuestas obj = new CrudRespuestas();
             int i = Integer.parseInt(txtI.getText());
-            obj.setID_Respuesta(i);
+            obj.setIDRespuesta(i);
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) 
             {
-                if (obj.Eliminar_Respuesta()) 
+                if (obj.EliminarRespuesta()) 
                 {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
-                    Cargar_Tabla_Respuestas();
+                    CargarTablaRespuestas();
                 }
             else
             {
-                JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.Eliminar_Respuesta());
+                JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarRespuesta());
             }
           }
         }
@@ -269,15 +269,15 @@ public class FrmRespuestas extends javax.swing.JFrame {
         CrudRespuestas obj = new CrudRespuestas();
         obj.setRespuesta(txtRespuesta.getText());
         int Pregunta = cmbPregunta.getSelectedIndex();
-        obj.setID_Pregunta(Pregunta);
-        if (obj.Modificar_Respuesta()) 
+        obj.setIDPregunta(Pregunta);
+        if (obj.ModificarRespuesta()) 
         {
             JOptionPane.showMessageDialog(this, "Datos Modificados");
-            Cargar_Tabla_Respuestas();
+            CargarTablaRespuestas();
         }
         else
         {
-            JOptionPane.showMessageDialog(this, "Error al modificar "+obj.Modificar_Respuesta());
+            JOptionPane.showMessageDialog(this, "Error al modificar "+obj.ModificarRespuesta());
         }
     }//GEN-LAST:event_btnModificar1ActionPerformed
 

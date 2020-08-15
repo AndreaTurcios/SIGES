@@ -20,13 +20,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Nanos
  */
-public class CrudRespuestas 
+public class CrudTipoPago 
 {
     private Connection cn;
     private Conexion conexion;
-    private Integer IDRespuesta;
-    private String Respuesta;
-    private Integer IDPregunta;
+    private Integer IDtipoPago;
+    private String tipopago;
     
     Pool metodospool = new Pool();
 
@@ -50,55 +49,44 @@ public class CrudRespuestas
         this.conexion = conexion;
     }
 
-    public Integer getIDRespuesta() 
+    public Integer getIDtipoPago() 
     {
-        return IDRespuesta;
+        return IDtipoPago;
     }
 
-    public void setIDRespuesta(Integer IDRespuesta) 
+    public void setIDtipoPago(Integer IDtipoPago) 
     {
-        this.IDRespuesta = IDRespuesta;
+        this.IDtipoPago = IDtipoPago;
     }
 
-    public String getRespuesta() 
+    public String gettipopago() 
     {
-        return Respuesta;
+        return tipopago;
     }
 
-    public void setRespuesta(String Respuesta) 
+    public void settipopago(String tipopago) 
     {
-        this.Respuesta = Respuesta;
+        this.tipopago = tipopago;
     }
     public String toString() 
     {
-        return Respuesta;
+        return tipopago;
     }
-    
-    public Integer getIDPregunta() 
-    {
-        return IDPregunta;
-    }
-
-    public void setIDPregunta(Integer ID_Pregunta) 
-    {
-        this.IDPregunta = ID_Pregunta;
-    }
-    
-    public CrudRespuestas() 
+        
+    public CrudTipoPago() 
     {
         Conexion con = new Conexion();
         cn = con.conectar();
     }
     
-    public boolean GuardarRespuesta ()
+    public boolean GuardarTipoPago ()
     {
         boolean resp = false;
         try
         {
-            String sql = "INSERT INTO respuestas (respuesta, ID_Pregunta) VALUES (?, ?)";
+            String sql = "INSERT INTO Tipo_pago (tipo_pago) VALUES (?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
-            cmd.setString(1, Respuesta);
-            cmd.setInt(2, IDPregunta);
+            cmd.setString(1, tipopago);
             if (!cmd.execute()) 
             {
                 resp = true;
@@ -109,21 +97,20 @@ public class CrudRespuestas
         catch (Exception a)
         {
             System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede guardar el registro, Error en el CrudRespuestas.java - Guardar_Respuesta"+a);
+            JOptionPane.showMessageDialog(null, "No se puede guardar el registro, Error en el crud_tipo_pago.java - Guardar_Tipo_Pago"+a);
         }
         return resp;
     }
     
-    public boolean ModificarRespuesta () 
+    public boolean ModificarTipoPago () 
     {
         boolean resp = false;
         try
         {
-            String sql = "UPDATE respuestas SET respuesta = ?, ID_Pregunta = ? WHERE ID_respuesta = ?";
+            String sql = "UPDATE Tipo_pago SET tipo_pago = ? WHERE ID_tipoPago = ?";
             PreparedStatement cmd = cn.prepareStatement(sql);
-            cmd.setString(1, Respuesta);
-            cmd.setInt(2, IDPregunta);
-            cmd.setInt(3, IDRespuesta);
+            cmd.setString(1, tipopago);
+            cmd.setInt(2, IDtipoPago);
             if (!cmd.execute()) 
             {
                 resp = true;
@@ -134,19 +121,19 @@ public class CrudRespuestas
         catch (Exception a)
         {
             System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede modificar el registro, Error en el CrudRespuestas.java - Modificar_Respuesta ERROR:" + a);
+            JOptionPane.showMessageDialog(null, "No se puede modificar el registro, Error en el crud_tipo_pago.java - Modificar_Tipo_Pago ERROR:" + a);
         }
         return resp;
     }
     
-    public boolean EliminarRespuesta ()
+    public boolean EliminarTipoPago ()
     {
         boolean resp = false;
         try 
         {
-            String sql = "DELETE FROM respuestas WHERE ID_respuesta = ?";
+            String sql = "DELETE FROM  WHERE ID_respuesta = ?";
             PreparedStatement cmd = cn.prepareStatement(sql);
-            cmd.setInt(1, IDRespuesta);
+            cmd.setInt(1, IDtipoPago);
             if (!cmd.execute())
             {
                 resp = true;
@@ -157,46 +144,19 @@ public class CrudRespuestas
         catch(Exception a) 
         {
             System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede eliminar el registro, Error en el CrudRespuestas.java - Eliminar_Respuesta ERROR:" + a);        
+            JOptionPane.showMessageDialog(null, "No se puede eliminar el registro, Error en el crud_tipo_pago.java - Eliminar_Tipo_Pago ERROR:" + a);        
         }
         return resp;
     }
     
-    public boolean ConsultarRespuesta ()
-    {
-        boolean resp = false;
-        try 
-        {
-            String sql = "SELECT * FROM respuestas WHERE ID_respuesta = ?";
-            PreparedStatement cmd = cn.prepareStatement(sql);
-            cmd.setInt(1, IDRespuesta);
-            ResultSet rs = cmd.executeQuery();
-            if (rs.next()) 
-            {
-                resp = true;
-                IDRespuesta = rs.getInt(1);
-                Respuesta = rs.getString(2);
-                IDPregunta = rs.getInt(3);
-            }
-            cmd.close();
-            cn.close();
-        }
-        catch (Exception a) 
-        {
-            System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede mostrar el registro, Error en el CrudRespuestas.java - Consultar_Respuesta ERROR:" + a);        
-        }
-        return resp;
-    }
-    
-    public void EjecutarRespuestas(Connection cn, JTable tabla)
+    public void EjecutarTipoPago(Connection cn, JTable tabla)
     {
         cn = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID_respuesta","respuesta","ID_Pregunta"};
+        String [] columnas = {"ID_tipoPago","tipo_pago"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT * FROM Respuestas ORDER BY ID_respuesta";
-        String [] filas = new String[3];
+        String sql = "SELECT * FROM Tipo_pago ORDER BY ID_tipoPago";
+        String [] filas = new String[2];
         Statement st = null;
         ResultSet rs = null;
         try
@@ -206,7 +166,7 @@ public class CrudRespuestas
             System.out.println("datos obtenidos "+rs);
             while (rs.next())
             {
-                for (int i = 0; i < 3; i++) 
+                for (int i = 0; i < 2; i++) 
                 {
                     filas[i] = rs.getString(i+1);
                 }
@@ -217,13 +177,13 @@ public class CrudRespuestas
         catch(Exception e)
         {
             JOptionPane.showMessageDialog(null, e);
-            JOptionPane.showMessageDialog(null, "No se puede cargar la tabla del registro, Error en el CrudRespuestas.java - Ejecutar_Respuestas ERROR:" + e);        
+            JOptionPane.showMessageDialog(null, "No se puede cargar la tabla del registro, Error en el crud_tipo_pago.java - Ejecutar_Tipo_Pago ERROR:" + e);        
         }
     }   
     
-    public void CargarRespuestas(JTable tabla) 
+    public void CargarTipoPago(JTable tabla) 
     {
-        EjecutarRespuestas(cn ,tabla);
+        EjecutarTipoPago(cn ,tabla);
     }
     
     public void ConsultarPregunta(JComboBox cmbPregunta) 

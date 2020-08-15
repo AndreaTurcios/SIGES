@@ -3,7 +3,7 @@ package ptcproyecto;
 import clases.ClienteDuenio;
 import clases.DetalleFacturas;
 import clases.Usuario;
-import clases.crud_tipo_pago;
+import clases.CrudTipoPago;
 import java.awt.Dimension;
 import java.util.Date;
 import javax.swing.JOptionPane;

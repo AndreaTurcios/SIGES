@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -26,18 +27,20 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author 15-CW0001la
  */
 public class TipoPago extends javax.swing.JInternalFrame {
+    DefaultTableModel m;
 
     /**
      * Creates new form TipoPago
      */
     public TipoPago() {
         initComponents();
+        CargarTablaTipoPago();
     }
     
-    public void Listar_Tipo_Pago()
+    public void CargarTablaTipoPago()
     {
-        crud_tipo_pago obj = new crud_tipo_pago();
-        obj.Cargar_Tipo_Pago(jTable1);
+        CrudTipoPago obj = new CrudTipoPago();
+        obj.CargarTipoPago(jTableTipoPago);
     }
     
     public static void main(String args[]) 
@@ -87,22 +90,25 @@ public class TipoPago extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnMostrar_Tipo_Pago = new javax.swing.JButton();
-        btnGuardar_Tipo_Pago = new javax.swing.JButton();
-        btnModificar_Tipo_Pago = new javax.swing.JButton();
+        btnMostrarTipoPago = new javax.swing.JButton();
+        btnGuardarTipoPago = new javax.swing.JButton();
+        btnEliminarTipoPago = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        btnImprimir = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
+        btnModificarTipoPago1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        btnCerrar1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableTipoPago = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        txtNombre_Tipo_Pago = new javax.swing.JTextField();
+        txtNombreTipoPago = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        btnLimpiar = new javax.swing.JButton();
+        btnTipoPago = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
         BtnCerrar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(744, 560));
@@ -112,59 +118,59 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Mantenimientos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel1.setLayout(null);
 
-        btnMostrar_Tipo_Pago.setBackground(new java.awt.Color(0, 136, 130));
-        btnMostrar_Tipo_Pago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnMostrar_Tipo_Pago.setText("Mostrar");
-        btnMostrar_Tipo_Pago.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnMostrar_Tipo_Pago.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarTipoPago.setBackground(new java.awt.Color(0, 136, 130));
+        btnMostrarTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnMostrarTipoPago.setText("Mostrar");
+        btnMostrarTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnMostrarTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrar_Tipo_PagoActionPerformed(evt);
+                btnMostrarTipoPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMostrar_Tipo_Pago);
-        btnMostrar_Tipo_Pago.setBounds(10, 230, 160, 50);
+        jPanel1.add(btnMostrarTipoPago);
+        btnMostrarTipoPago.setBounds(10, 230, 160, 50);
 
-        btnGuardar_Tipo_Pago.setBackground(new java.awt.Color(0, 136, 130));
-        btnGuardar_Tipo_Pago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnGuardar_Tipo_Pago.setText("Guardar");
-        btnGuardar_Tipo_Pago.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnGuardar_Tipo_Pago.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarTipoPago.setBackground(new java.awt.Color(0, 136, 130));
+        btnGuardarTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnGuardarTipoPago.setText("Guardar");
+        btnGuardarTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnGuardarTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar_Tipo_PagoActionPerformed(evt);
+                btnGuardarTipoPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar_Tipo_Pago);
-        btnGuardar_Tipo_Pago.setBounds(10, 20, 160, 50);
+        jPanel1.add(btnGuardarTipoPago);
+        btnGuardarTipoPago.setBounds(10, 20, 160, 50);
 
-        btnModificar_Tipo_Pago.setBackground(new java.awt.Color(0, 136, 130));
-        btnModificar_Tipo_Pago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnModificar_Tipo_Pago.setText("Modificar");
-        btnModificar_Tipo_Pago.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnModificar_Tipo_Pago.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarTipoPago.setBackground(new java.awt.Color(0, 136, 130));
+        btnEliminarTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnEliminarTipoPago.setText("Eliminar");
+        btnEliminarTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnEliminarTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificar_Tipo_PagoActionPerformed(evt);
+                btnEliminarTipoPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificar_Tipo_Pago);
-        btnModificar_Tipo_Pago.setBounds(10, 90, 160, 50);
+        jPanel1.add(btnEliminarTipoPago);
+        btnEliminarTipoPago.setBounds(10, 160, 160, 50);
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(0, 220, 200, 20);
         jPanel1.add(jSeparator2);
         jSeparator2.setBounds(-10, 80, 200, 10);
-
-        btnImprimir.setBackground(new java.awt.Color(0, 136, 130));
-        btnImprimir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnImprimir.setText("Imprimir");
-        btnImprimir.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnImprimir);
-        btnImprimir.setBounds(10, 160, 160, 50);
         jPanel1.add(jSeparator3);
         jSeparator3.setBounds(-10, 150, 200, 20);
+
+        btnModificarTipoPago1.setBackground(new java.awt.Color(0, 136, 130));
+        btnModificarTipoPago1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnModificarTipoPago1.setText("Modificar");
+        btnModificarTipoPago1.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnModificarTipoPago1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarTipoPago1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificarTipoPago1);
+        btnModificarTipoPago1.setBounds(10, 90, 160, 50);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(10, 70, 180, 290);
@@ -179,6 +185,17 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel2);
         jLabel2.setBounds(10, 7, 200, 40);
 
+        btnCerrar1.setBackground(new java.awt.Color(255, 102, 102));
+        btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
+        btnCerrar1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        btnCerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrar1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnCerrar1);
+        btnCerrar1.setBounds(542, 0, 50, 54);
+
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 0, 590, 60);
 
@@ -186,7 +203,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel5.setLayout(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTipoPago.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -197,7 +214,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableTipoPago);
 
         jPanel5.add(jScrollPane1);
         jScrollPane1.setBounds(10, 20, 550, 120);
@@ -208,25 +225,41 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel2.setLayout(null);
-        jPanel2.add(txtNombre_Tipo_Pago);
-        txtNombre_Tipo_Pago.setBounds(40, 60, 290, 20);
+        jPanel2.add(txtNombreTipoPago);
+        txtNombreTipoPago.setBounds(40, 60, 290, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nombre del tipo de pago:");
         jPanel2.add(jLabel3);
         jLabel3.setBounds(20, 30, 160, 17);
 
-        btnLimpiar.setBackground(new java.awt.Color(0, 136, 130));
-        btnLimpiar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnLimpiar.setText("Limpiar");
-        btnLimpiar.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        btnTipoPago.setBackground(new java.awt.Color(0, 136, 130));
+        btnTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnTipoPago.setText("Limpiar");
+        btnTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
+                btnTipoPagoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnLimpiar);
-        btnLimpiar.setBounds(260, 240, 110, 30);
+        jPanel2.add(btnTipoPago);
+        btnTipoPago.setBounds(260, 240, 110, 30);
+
+        btnImprimir.setBackground(new java.awt.Color(0, 136, 130));
+        btnImprimir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnImprimir.setText("Imprimir");
+        btnImprimir.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnImprimir);
+        btnImprimir.setBounds(80, 240, 130, 30);
+
+        txtID.setFocusable(false);
+        jPanel2.add(txtID);
+        txtID.setBounds(20, 100, 6, 20);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(200, 70, 390, 290);
@@ -244,38 +277,58 @@ public class TipoPago extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMostrar_Tipo_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_Tipo_PagoActionPerformed
-        Listar_Tipo_Pago();
-    }//GEN-LAST:event_btnMostrar_Tipo_PagoActionPerformed
+    private void btnMostrarTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTipoPagoActionPerformed
+        CargarTablaTipoPago();
+    }//GEN-LAST:event_btnMostrarTipoPagoActionPerformed
 
-    private void btnGuardar_Tipo_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar_Tipo_PagoActionPerformed
-        crud_tipo_pago obj = new crud_tipo_pago();
-        obj.settipo_pago(txtNombre_Tipo_Pago.getText());
-        System.out.println("Nombre" + obj.gettipo_pago());
-        System.out.println("guardar tipo pago" + obj.Guardar_Tipo_Pago(obj));        
-        if (obj.Guardar_Tipo_Pago(obj)) 
+    private void btnGuardarTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoPagoActionPerformed
+        CrudTipoPago obj = new CrudTipoPago();
+        obj.settipopago(txtNombreTipoPago.getText());
+        if (obj.GuardarTipoPago()) 
         {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
-           }
+           CargarTablaTipoPago();
+        }
         else
         { 
-           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+           JOptionPane.showMessageDialog(this,obj.GuardarTipoPago()); 
         }
-    }//GEN-LAST:event_btnGuardar_Tipo_PagoActionPerformed
+    }//GEN-LAST:event_btnGuardarTipoPagoActionPerformed
 
-    private void btnModificar_Tipo_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar_Tipo_PagoActionPerformed
+    private void btnEliminarTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoPagoActionPerformed
         // TODO add your handling code here:
-        crud_tipo_pago obj = new crud_tipo_pago();
-        obj.settipo_pago(txtNombre_Tipo_Pago.getText());
-        if (obj.Modificar_Tipo_Pago()) 
+        String IDtipoPago;
+        int fsel = jTableTipoPago.getSelectedRow();
+        if (fsel<0) 
         {
-           JOptionPane.showMessageDialog(this,"Datos modificados"); 
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
         }
         else
-        { 
-           JOptionPane.showMessageDialog(this,"Error al modificar la informacion");    
+        {
+            m = (DefaultTableModel)jTableTipoPago.getModel();
+            IDtipoPago = jTableTipoPago.getValueAt(fsel, 0).toString();
+            txtID.setText(IDtipoPago);
+            CrudTipoPago obj = new CrudTipoPago();
+            int i = Integer.parseInt(txtID.getText());
+            obj.setIDtipoPago(i);
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) 
+            {
+                if (obj.EliminarTipoPago()) 
+                {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    CargarTablaTipoPago();
+                }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoPago());
+            }
+          }
         }  
-    }//GEN-LAST:event_btnModificar_Tipo_PagoActionPerformed
+    }//GEN-LAST:event_btnEliminarTipoPagoActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         try 
@@ -320,18 +373,38 @@ public class TipoPago extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        txtNombre_Tipo_Pago.setText("");
-    }//GEN-LAST:event_btnLimpiarActionPerformed
+    private void btnTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoPagoActionPerformed
+        txtNombreTipoPago.setText("");
+    }//GEN-LAST:event_btnTipoPagoActionPerformed
+
+    private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_btnCerrar1ActionPerformed
+
+    private void btnModificarTipoPago1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoPago1ActionPerformed
+        CrudTipoPago obj = new CrudTipoPago();
+        obj.settipopago(txtNombreTipoPago.getText());
+        if (obj.ModificarTipoPago()) 
+        {
+            JOptionPane.showMessageDialog(this, "Datos Modificados");
+            CargarTablaTipoPago();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Error al modificar "+obj.ModificarTipoPago());
+        }
+    }//GEN-LAST:event_btnModificarTipoPago1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
-    private javax.swing.JButton btnGuardar_Tipo_Pago;
+    private javax.swing.JButton btnCerrar1;
+    private javax.swing.JButton btnEliminarTipoPago;
+    private javax.swing.JButton btnGuardarTipoPago;
     private javax.swing.JButton btnImprimir;
-    private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton btnModificar_Tipo_Pago;
-    private javax.swing.JButton btnMostrar_Tipo_Pago;
+    private javax.swing.JButton btnModificarTipoPago1;
+    private javax.swing.JButton btnMostrarTipoPago;
+    private javax.swing.JButton btnTipoPago;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -342,7 +415,8 @@ public class TipoPago extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtNombre_Tipo_Pago;
+    private javax.swing.JTable jTableTipoPago;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtNombreTipoPago;
     // End of variables declaration//GEN-END:variables
 }
