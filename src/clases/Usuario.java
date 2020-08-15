@@ -271,27 +271,23 @@ public class Usuario {
         }
         return resp;
         }
-
-    public boolean guardar() {
+        public boolean guardar() {
         boolean resp = false;
-        //en la tabla tenemos los campos id cita e id consulta, el problema radica en que aqui yo estoy queriendo guardar un usuario, no una 
-        //consulta ni cita, asi que no lo tomare en cuenta aqui (, ID_consulta, ID_cita)
-        try {String sql = "INSERT INTO Usuarios(nombre_usuario, contrasenia_usuario,"
-                + " nombre_empleado, empleado_apellidos, "
-                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try {String sql = "INSERT INTO Usuarios(ID_usuario, nombre_usuario, contrasenia_usuario"
+                + " nombre_empleado, empleado_apellidos,"
+                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
-        cmd.setString(1, nombre_usuario);
-        cmd.setString(2, Contraseña);
-        cmd.setString(3, nombre_empleado);
-        cmd.setString(4,empleado_apellidos );
-        cmd.setString(5, domicilio);
-        cmd.setString(6, correo);
-        cmd.setInt(7, ID_tipoUsuario);
-//        cmd.setInt(8, ID_consulta);
-//        cmd.setInt(9, ID_cita);
-       
+        cmd.setInt(1, ID_usuario);
+        cmd.setString(2, nombre_usuario);
+        cmd.setString(3,empleado_apellidos );
+        cmd.setInt(4,telefono);
+        cmd.setString(5, correo);
+        cmd.setString(2, domicilio);
+        cmd.setString(6, Usuario);
+        cmd.setString(7, Contraseña);
+        cmd.setInt(8, ID_tipoUsuario);
         
         if (!cmd.execute()) {
             resp = true;
@@ -299,7 +295,7 @@ public class Usuario {
         cmd.close();
         cn.close();
         }catch(Exception e) {
-            System.out.println("Error en el metodo guardar"+e.toString());
+            System.out.println(e.toString());
         }
         return resp;
     }
