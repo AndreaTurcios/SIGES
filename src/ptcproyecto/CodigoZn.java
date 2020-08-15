@@ -5,8 +5,14 @@
  */
 package ptcproyecto;
 
+import clases.Conexion;
 import javax.swing.JOptionPane;
-import clases.controlCodigoZona;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,10 +45,9 @@ public class CodigoZn extends javax.swing.JInternalFrame {
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtbZona = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-
-        setPreferredSize(new java.awt.Dimension(694, 632));
+        jButton1 = new javax.swing.JButton();
 
         kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
@@ -67,6 +72,11 @@ public class CodigoZn extends javax.swing.JInternalFrame {
         });
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +85,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtbZona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -86,15 +96,27 @@ public class CodigoZn extends javax.swing.JInternalFrame {
                 "ID", "Codigo Zona"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, true
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jtbZona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtbZonaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtbZona);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,7 +140,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
                             .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,11 +157,18 @@ public class CodigoZn extends javax.swing.JInternalFrame {
                     .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Codigo Zona");
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -149,15 +178,19 @@ public class CodigoZn extends javax.swing.JInternalFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(245, 245, 245)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2))
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,41 +208,94 @@ public class CodigoZn extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        controlCodigoZona obj = new controlCodigoZona();
-        obj.setcodigo_zona(txtZona.getText());
-       
-        if (obj.Guardar()) {
-            JOptionPane.showMessageDialog(this, "Datos guardados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+       int codigo_zona = Integer.parseInt (txtZona.getText());
+        try
+        {
+            Connection con = Conexion.conectar();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO codigo_zona (codigo_zona) VALUES (?)");
+            ps.setInt(1, codigo_zona);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro guardado");
+            cargarTabla();
+            
+           
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        controlCodigoZona obj = new controlCodigoZona();
-        obj.setcodigo_zona(txtZona.getText());
        
-        if (obj.modificar()) {
-            JOptionPane.showMessageDialog(this, "Datos modificados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al modificar los datos");
+        int codigo_zona = Integer.parseInt (txtZona.getText());
+        try
+        {
+            Connection con = Conexion.conectar();
+            PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona = ? WHERE codigo_zona = ?");
+            ps.setInt(1, codigo_zona);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro modificado");
+            cargarTabla();
+            
+          
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        controlCodigoZona obj = new controlCodigoZona();
-        obj.setcodigo_zona(txtZona.getText());
-        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?", "Atencion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (eliminar == 0) {
+        int codigo_zona = Integer.parseInt(txtZona.getText());
+    
+        try
+        {
+            Connection con = Conexion.conectar();
+            PreparedStatement ps = con.prepareStatement(" DELETE FROM codigo_zona WHERE codigo_zona =?");
+            ps.setInt(1, codigo_zona);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            cargarTabla();
             
-        
-        if (obj.eliminar()) {
-            JOptionPane.showMessageDialog(this, "Datos eliminar");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al eliminar los datos");
+            
+           
         }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jtbZonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbZonaMouseClicked
+        try {
+            int fila = jtbZona.getSelectedRow();
+            int ID_codigo = Integer.parseInt(jtbZona.getValueAt(fila, 0).toString());
+            PreparedStatement ps;
+            ResultSet rs;
+
+            Connection cn = Conexion.conectar();
+            ps = cn.prepareStatement("SELECT FROM  codigo_zona WHERE ID_codigo=?");
+            ps.setInt(1, ID_codigo);
+            rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                txtZona.setText(rs.getString("codigo_zona"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }//GEN-LAST:event_jtbZonaMouseClicked
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtZona.setText("");
+        
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -217,12 +303,49 @@ public class CodigoZn extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtbZona;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField txtZona;
     // End of variables declaration//GEN-END:variables
+
+    
+
+    private void cargarTabla() {
+    DefaultTableModel modeloTabla = (DefaultTableModel) jtbZona.getModel();
+        modeloTabla.setRowCount(0);
+
+        PreparedStatement ps;
+        ResultSet rs;
+        ResultSetMetaData rsmd;
+        int columnas;
+        //tamaños para la tabla
+        int[] anchos = {10, 100};
+        for (int i = 0; i < jtbZona.getColumnCount(); i++) {
+            jtbZona.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+        }
+
+        try {
+            Connection cn = Conexion.conectar();
+            ps = cn.prepareStatement("SELECT ID_codigo, codigo_zona FROM codigo_zona ");
+            rs = ps.executeQuery();
+            rsmd = rs.getMetaData();
+            columnas = rsmd.getColumnCount();
+
+            while (rs.next()) {
+                Object[] fila = new Object[columnas];
+                for (int indice = 0; indice < columnas; indice++) {
+                    fila[indice] = rs.getObject(indice + 1);
+                }
+                modeloTabla.addRow(fila);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }
 }
