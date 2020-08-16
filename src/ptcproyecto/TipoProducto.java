@@ -27,14 +27,19 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author 15-CW0001la
  */
 public class TipoProducto extends javax.swing.JInternalFrame {
-
+DefaultTableModel m;
     /**
      * Creates new form TipoProducto
      */
     public TipoProducto() {
         initComponents();
+        listarTipos();
     }
-
+    
+    public void listarTipos(){
+        tipoProductos obj = new tipoProductos();
+        obj.CargarTipoProductos(jTable1);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -113,13 +118,13 @@ public class TipoProducto extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -128,27 +133,28 @@ public class TipoProducto extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(JBIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(JBImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(37, 37, 37)
-                        .addComponent(JTTIPO, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(246, 246, 246))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(137, 137, 137))))
+                        .addComponent(JBIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(JBModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addComponent(JBImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(66, 66, 66)
+                                .addComponent(JBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(JTTIPO, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(222, 222, 222))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,8 +170,8 @@ public class TipoProducto extends javax.swing.JInternalFrame {
                     .addComponent(JBImprimir)
                     .addComponent(JBLimpiar))
                 .addGap(48, 48, 48)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
@@ -220,7 +226,7 @@ public class TipoProducto extends javax.swing.JInternalFrame {
             obj.setTipo_Producto(JTTIPO.getText());
             if (obj.guardar()) {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
-                obj.CargarTipoProductos(jTable1);
+                listarTipos();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al guardar datos");
@@ -233,16 +239,27 @@ public class TipoProducto extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else{
+            String ID;
+            int fsel = jTable1.getSelectedRow();
 
+            if (fsel==-1) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia", 
+                    JOptionPane.WARNING_MESSAGE);
+            }else{
+             m = (DefaultTableModel)jTable1.getModel();
+             ID = jTable1.getValueAt(fsel, 0).toString();
             tipoProductos obj = new tipoProductos();
             obj.setTipo_Producto(JTTIPO.getText());
+            obj.setID_tipoProducto(Integer.parseInt(ID));
             if (obj.modificar()) {
                 JOptionPane.showMessageDialog(this, "Datos modificados");
-                obj.CargarTipoProductos(jTable1);
+                listarTipos();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al modificar datos");
             }
+        }
+            
 
         }
     }//GEN-LAST:event_JBModificarActionPerformed
