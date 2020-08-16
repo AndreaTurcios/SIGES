@@ -369,7 +369,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22)
                             .addComponent(tfFrecuencia, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(34, Short.MAX_VALUE))
+                        .addContainerGap(48, Short.MAX_VALUE))
                     .addGroup(GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -391,9 +391,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                             .addComponent(jLabel25)
                             .addComponent(tfDui, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(13, Short.MAX_VALUE)
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27)
                             .addComponent(cmbMascota, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
@@ -469,20 +469,19 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnLimpiar, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88)
-                        .addComponent(btnReporte1, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton7, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 607, GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
-            .addGroup(GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(btnLimpiar, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88)
+                .addComponent(btnReporte1, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(jButton7, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -491,7 +490,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                    .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
                     .addComponent(btnLimpiar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReporte1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -746,42 +745,42 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnReporte1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnReporte1ActionPerformed
-//        String ID, DUIC;
-//        int fsel = jTable3.getSelectedRow();
-//        m = (DefaultTableModel)jTable3.getModel();
-//        ID = jTable3.getValueAt(fsel, 0).toString();
-//        DUIC = jTable3.getValueAt(fsel, 4).toString();
-//        idd.setText(ID);
-//         ControlFicha obj = new ControlFicha();
-//        int IDf= Integer.parseInt(idd.getText());
-//        obj.setID_Ficha(IDf);
-//            
-//        obj.setDosis(tfDosis.getText());
-//        obj.setFrecuencia(tfFrecuencia.getText());
-//        obj.setTratamiento(tfTratamiento.getText()); 
-//        
-//        int DUI= Integer.parseInt(DUIC);
-//        obj.setID_DUI(DUI);
-//        
+        String ID, DUIC;
+        int fsel = jTable3.getSelectedRow();
+        m = (DefaultTableModel)jTable3.getModel();
+        ID = jTable3.getValueAt(fsel, 0).toString();
+        DUIC = jTable3.getValueAt(fsel, 4).toString();
+        idd.setText(ID);
+         ControlFicha obj = new ControlFicha();
+        int IDf= Integer.parseInt(idd.getText());
+        obj.setID_Ficha(IDf);
+            
+        obj.setDosis(tfDosis.getText());
+        obj.setFrecuencia(tfFrecuencia.getText());
+        obj.setTratamiento(tfTratamiento.getText()); 
+        
+        int DUI= Integer.parseInt(DUIC);
+        obj.setID_DUI(DUI);
+        
 //        int i = Integer.valueOf(DUIC); 
 //        String numCadena= String.valueOf(i);
 //        
 //        CargarMascota(Integer.parseInt(numCadena)); 
-//        Mascota mas = (Mascota)cmbMascota.getSelectedItem();
-//        obj.setID_Mascota(mas.getID_mascota());
-//
-//
-//        if (fsel==-1) {
-//            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
-//                JOptionPane.WARNING_MESSAGE);
-//        }else{
-//          if (obj.modificarFicha()) {
-//                    JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
-//                    ListarFichas();
-//                }else{
-//                    JOptionPane.showMessageDialog(null,"Error al modificar los datos");
-//                }
-//            }
+        Mascota mas = (Mascota)cmbMascota.getSelectedItem();
+        obj.setID_Mascota(mas.getID_mascota());
+
+
+        if (fsel==-1) {
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+          if (obj.modificarFicha()) {
+                    JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+                    ListarFichas();
+                }else{
+                    JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+                }
+            }
     }//GEN-LAST:event_btnReporte1ActionPerformed
 
 

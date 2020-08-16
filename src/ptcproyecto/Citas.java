@@ -52,6 +52,7 @@ DefaultTableModel m;
         calendar.setEnabled(false);
         jSHora.setEnabled(false);
         jSMinuto.setEnabled(false);
+        jTextField2.setVisible(false);
     }
 
     /**
@@ -312,6 +313,8 @@ DefaultTableModel m;
         jLabel8.setText(":");
 
         jLabel9.setText("Estado:");
+
+        jTextField2.setBorder(null);
 
         javax.swing.GroupLayout JPIngresoCitasLayout = new javax.swing.GroupLayout(JPIngresoCitas);
         JPIngresoCitas.setLayout(JPIngresoCitasLayout);

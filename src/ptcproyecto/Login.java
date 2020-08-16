@@ -174,12 +174,12 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
+                        .addGap(60, 60, 60)
                         .addComponent(jLabel7))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(jLabel2)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,7 +409,6 @@ public class Login extends javax.swing.JFrame {
 //                        main = new MenuEmpleado();
 //                        break;
               }
-        
             }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
