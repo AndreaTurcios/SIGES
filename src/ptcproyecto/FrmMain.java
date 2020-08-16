@@ -806,8 +806,8 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel21.setForeground(Color.WHITE);
         panelArriba.removeAll();
         frmConsultas fich =new frmConsultas();
-       panelArriba.add(fich);
-       fich.show();  
+        panelArriba.add(fich);
+        fich.show();  
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
