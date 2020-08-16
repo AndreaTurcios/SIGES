@@ -175,9 +175,12 @@ public class Mascota {
     //creando el metodo para modificar
     public boolean modificarMascota(){
     boolean resp = false;
+    clases.Conexion con = new clases.Conexion();
+    cn = con.conectar();
     try{//realizando consulta update
     String sql="UPDATE Mascota SET nombre_mascota=?, mascota_genero=?, " 
-            + "mascota_razon=?, mascota_medicinas=?,mascota_horarioReserva=? WHERE ID_tipoMascota=?";
+            + "mascota_razon=?, mascota_medicinas=?,mascota_horarioReserva=?, ID_tipoMascota=?,"
+            + " ID_DUI=? WHERE ID_mascota=?";
     PreparedStatement cmd = cn.prepareStatement(sql);
     //llenar los parametros como se encuentran en las clases
     cmd.setString(1, nombre_mascota);
@@ -186,6 +189,8 @@ public class Mascota {
     cmd.setString(4, mascota_medicinas);
     cmd.setString(5, mascota_horarioReserva);
     cmd.setInt(6, ID_tipoMascota);
+    cmd.setInt(7, ID_DUI);
+    cmd.setInt(8, ID_mascota);
         
         if (!cmd.execute()) {
             resp=true;

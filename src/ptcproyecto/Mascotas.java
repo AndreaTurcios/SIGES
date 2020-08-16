@@ -347,7 +347,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         lblNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNombre.setText("jLabel6");
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -609,27 +609,39 @@ public class Mascotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    String ID_Mascota;
+        int fsel = jTable1.getSelectedRow();
+        
+        if (fsel==-1) {
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
     Mascota obj = new Mascota();
+     m = (DefaultTableModel)jTable1.getModel();
+     ID_Mascota = jTable1.getValueAt(fsel, 0).toString();
+     jTextField1.setText(ID_Mascota);
+     
+     int idm = Integer.parseInt(jTextField1.getText());
+     obj.setID_mascota(idm);
+    
     obj.setNombre_mascota(tfNombre.getText());
     obj.setMascota_razon(tfRazon.getText());
     obj.setMascota_medicinas(tfMedicinas.getText());
     obj.setMascota_horarioReserva(tfHorarios.getText());
+     tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
+    obj.setID_tipoMascota(tima.getID_tipoMascota());
+    String mascot = String.valueOf(cmbGenero.getSelectedItem());
+    obj.setMascota_genero(mascot);
+    int duii = Integer.parseInt(tfDui.getText());
+    obj.setID_DUI(duii);
     //--falta tipo mascota, genero y usuario
     
-//        if (rbF.isSelected()) {
-//            obj.setMascota_genero("F");
-//        }else{ 
-//           if (rbM.isSelected()) {
-//            obj.setMascota_genero("M"); 
-//        } else{ JOptionPane.showMessageDialog(this,"Debe seleccionar el genero de la mascota"); 
-//           }  
-          
            if (obj.modificarMascota()) {
             JOptionPane.showMessageDialog(this,"Datos modificados"); 
+            ListarMascota();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al modificar la informacion"); 
-          
-           
+           } 
            }  
     }//GEN-LAST:event_btnModificarActionPerformed
 

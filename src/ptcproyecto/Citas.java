@@ -98,6 +98,7 @@ DefaultTableModel m;
         jTable1 = new javax.swing.JTable();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnCerrar1 = new javax.swing.JButton();
 
         kGradientPanel2.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel2.setkGradientFocus(600);
@@ -399,7 +400,7 @@ DefaultTableModel m;
                 .addContainerGap())
         );
 
-        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 630, 240));
+        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 630, 240));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -414,7 +415,7 @@ DefaultTableModel m;
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 630, 180));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 630, 180));
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkGradientFocus(600);
@@ -439,6 +440,16 @@ DefaultTableModel m;
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Citas");
 
+        btnCerrar1.setBackground(new java.awt.Color(204, 204, 204));
+        btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
+        btnCerrar1.setBorder(null);
+        btnCerrar1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        btnCerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -446,16 +457,20 @@ DefaultTableModel m;
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(273, 273, 273)
                 .addComponent(jLabel1)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
+                .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
+                .addGap(0, 26, Short.MAX_VALUE)
                 .addComponent(jLabel1))
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, -1));
+        getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -619,6 +634,10 @@ DefaultTableModel m;
         jDialog1.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_btnCerrar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPIngresoCitas;
@@ -626,6 +645,7 @@ DefaultTableModel m;
     private javax.swing.JButton JbtnConsultar;
     private javax.swing.JButton JbtnImprimir;
     private javax.swing.JButton JbtnModificar1;
+    private javax.swing.JButton btnCerrar1;
     private rojeru_san.componentes.RSDateChooser calendar;
     private javax.swing.JComboBox<String> cbTipoCita;
     private javax.swing.JButton jButton1;
