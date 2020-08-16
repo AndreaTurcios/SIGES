@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -26,7 +27,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author 15-CW0001la
  */
 public class Productos extends javax.swing.JInternalFrame {
-
+DefaultTableModel m;
     /**
      * Creates new form Productos
      */
@@ -43,6 +44,13 @@ public class Productos extends javax.swing.JInternalFrame {
         MtoProductos obj = new MtoProductos();
         obj.CargarProductos(jTable2);
         
+    }
+    
+    public void limpiar(){
+        JTProducto.setText("");
+        JTCodigo.setText("");
+        JTCosto.setText("");
+        JTDUI.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -74,8 +82,10 @@ public class Productos extends javax.swing.JInternalFrame {
         JBLimpiar = new javax.swing.JButton();
         JBImprimir = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
-        rSDateChooser1 = new rojeru_san.componentes.RSDateChooser();
-        rSDateChooser2 = new rojeru_san.componentes.RSDateChooser();
+        calendar = new rojeru_san.componentes.RSDateChooser();
+        calendar1 = new rojeru_san.componentes.RSDateChooser();
+
+        setPreferredSize(new java.awt.Dimension(642, 632));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -105,16 +115,14 @@ public class Productos extends javax.swing.JInternalFrame {
                 .addComponent(JTID, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JBConsultar)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(JBConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JTID)))
@@ -213,6 +221,11 @@ public class Productos extends javax.swing.JInternalFrame {
         JBLimpiar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         JBLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         JBLimpiar.setText("Limpiar");
+        JBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBLimpiarActionPerformed(evt);
+            }
+        });
 
         JBImprimir.setBackground(new java.awt.Color(0, 153, 153));
         JBImprimir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -239,7 +252,7 @@ public class Productos extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 400, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -247,7 +260,7 @@ public class Productos extends javax.swing.JInternalFrame {
                                         .addComponent(JTCodigo, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(rSDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(calendar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(JTProducto, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addComponent(jLabel3))
                                 .addGap(34, 34, 34)
@@ -258,7 +271,7 @@ public class Productos extends javax.swing.JInternalFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(JCBTIPO, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(rSDateChooser2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                                            .addComponent(calendar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                                             .addComponent(JTDUI, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -295,7 +308,7 @@ public class Productos extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JTProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rSDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -309,7 +322,7 @@ public class Productos extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rSDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(calendar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(JBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -374,7 +387,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
     private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarActionPerformed
         //Tomando los datos del formulario y pasandolos a los atributos de la clase
-        if (JTProducto.getText().isEmpty() || JTCodigo.getText().isEmpty() ||  JTDUI.getText().isEmpty()) {
+        if (JTProducto.getText().isEmpty() || JTCodigo.getText().isEmpty() ||  JTDUI.getText().isEmpty() || calendar.getDatoFecha() == null || calendar1.getDatoFecha() == null) {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else {
@@ -383,13 +396,15 @@ public class Productos extends javax.swing.JInternalFrame {
             obj.setCodigo(Integer.parseInt(JTCodigo.getText()));
 
             obj.setCosto(Double.parseDouble(JTCosto.getText()));
-
+            obj.setFechaE(new java.sql.Date(calendar.getDatoFecha().getTime()));
+            obj.setFechaEx(new java.sql.Date(calendar1.getDatoFecha().getTime()));
             int Tipo = JCBTIPO.getSelectedIndex();
             obj.setDUI(Integer.parseInt(JTDUI.getText()));
             obj.setTipo_producto(Tipo);
             if (obj.guardar()) {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
                 ListarProductos();
+                limpiar();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al guardar datos");
@@ -403,12 +418,21 @@ public class Productos extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else{
+            String ID;
+            int fsel = jTable2.getSelectedRow();
+             if (fsel==-1) {
 
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
+            }else{
+             m = (DefaultTableModel)jTable2.getModel();
+            ID = jTable2.getValueAt(fsel, 0).toString();
             MtoProductos obj = new MtoProductos();
-            obj.setID_producto(Integer.parseInt(JTID.getText()));
+            obj.setID_producto(Integer.parseInt(ID));
             obj.setProducto(JTProducto.getText());
             obj.setCodigo(Integer.parseInt(JTCodigo.getText()));
-
+            obj.setFechaE(new java.sql.Date(calendar.getDatoFecha().getTime()));
+            obj.setFechaEx(new java.sql.Date(calendar1.getDatoFecha().getTime()));
             obj.setCosto(Double.parseDouble(JTCosto.getText()));
 
             int Tipo = JCBTIPO.getSelectedIndex();
@@ -417,11 +441,12 @@ public class Productos extends javax.swing.JInternalFrame {
             if (obj.modificar()) {
                 JOptionPane.showMessageDialog(this, "Datos modificados");
                 ListarProductos();
+                limpiar();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al modificar datos");
             }
-
+             }
         }
     }//GEN-LAST:event_JBModificarActionPerformed
 
@@ -448,6 +473,10 @@ public class Productos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnReporteActionPerformed
 
+    private void JBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_JBLimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBConsultar;
@@ -462,6 +491,8 @@ public class Productos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField JTID;
     private javax.swing.JTextField JTProducto;
     private javax.swing.JButton btnReporte;
+    private rojeru_san.componentes.RSDateChooser calendar;
+    private rojeru_san.componentes.RSDateChooser calendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -475,7 +506,5 @@ public class Productos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
-    private rojeru_san.componentes.RSDateChooser rSDateChooser1;
-    private rojeru_san.componentes.RSDateChooser rSDateChooser2;
     // End of variables declaration//GEN-END:variables
 }

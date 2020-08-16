@@ -6,6 +6,7 @@
 package clases;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -22,9 +23,9 @@ public class MtoProductos {
         private Integer ID_producto;
         private String Producto;
         private Integer Codigo;
-        private String FechaE;
+        private Date FechaE;
         private Double Costo;
-        private String FechaEx;
+        private Date FechaEx;
         private Integer DUI;
         private Integer Tipo_producto;
         
@@ -32,6 +33,11 @@ public class MtoProductos {
         Conexion con = new Conexion();
         cn = con.conectar();
     }
+    
+    public Date formatoDate(long f) {
+        return new Date(f);
+    }
+    
     public boolean guardar(){
         boolean resp  = false;
         try{
@@ -43,9 +49,9 @@ public class MtoProductos {
             //Llenar los parametros de la clase, se coloca en el orden de la tabla 
             cmd.setString(1, Producto);//codigo es como se definio en la clase aunque en la base se llama correlativo
             cmd.setInt(2, Codigo);
-            cmd.setString(3, FechaE);
+            cmd.setDate(3, FechaE);
             cmd.setDouble(4, Costo);
-            cmd.setString(5, FechaEx);
+            cmd.setDate(5, FechaEx);
             cmd.setInt(6, DUI);
             cmd.setInt(7, Tipo_producto);
             //si da error devuelve 1, caso contrario 0
@@ -72,9 +78,9 @@ public class MtoProductos {
             //Llenar los parametros como esta en la clase 
             cmd.setString(1, Producto);
             cmd.setInt(2, Codigo);
-            cmd.setString(3, FechaE);
+            cmd.setDate(3, FechaE);
             cmd.setDouble(4, Costo);
-            cmd.setString(5, FechaEx);
+            cmd.setDate(5, FechaEx);
             cmd.setInt(6, DUI);
             cmd.setInt(7, Tipo_producto);
             cmd.setInt(8, ID_producto);
@@ -110,9 +116,9 @@ public class MtoProductos {
                 //asignandole a los atributos de la clase
                 Producto = rs.getString(1);
                 Codigo = rs.getInt(2);
-                FechaE = rs.getString(3);
+                FechaE = rs.getDate(3);
                 Costo = rs.getDouble(4);
-                FechaEx = rs.getString(5);
+                FechaEx = rs.getDate(5);
                 DUI = rs.getInt(6);
                 Tipo_producto = rs.getInt(7);
                 
@@ -195,19 +201,6 @@ public class MtoProductos {
         this.Producto = Producto;
     }
 
-    /**
-     * @return the FechaE
-     */
-    public String getFechaE() {
-        return FechaE;
-    }
-
-    /**
-     * @param FechaE the FechaE to set
-     */
-    public void setFechaE(String FechaE) {
-        this.FechaE = FechaE;
-    }
 
     /**
      * @return the Costo
@@ -221,20 +214,6 @@ public class MtoProductos {
      */
     public void setCosto(Double Costo) {
         this.Costo = Costo;
-    }
-
-    /**
-     * @return the FechaEx
-     */
-    public String getFechaEx() {
-        return FechaEx;
-    }
-
-    /**
-     * @param FechaEx the FechaEx to set
-     */
-    public void setFechaEx(String FechaEx) {
-        this.FechaEx = FechaEx;
     }
 
     /**
@@ -277,5 +256,33 @@ public class MtoProductos {
      */
     public void setCodigo(Integer Codigo) {
         this.Codigo = Codigo;
+    }
+
+    /**
+     * @return the FechaE
+     */
+    public Date getFechaE() {
+        return FechaE;
+    }
+
+    /**
+     * @param FechaE the FechaE to set
+     */
+    public void setFechaE(Date FechaE) {
+        this.FechaE = FechaE;
+    }
+
+    /**
+     * @return the FechaEx
+     */
+    public Date getFechaEx() {
+        return FechaEx;
+    }
+
+    /**
+     * @param FechaEx the FechaEx to set
+     */
+    public void setFechaEx(Date FechaEx) {
+        this.FechaEx = FechaEx;
     }
 }
