@@ -380,6 +380,7 @@ public class Login extends javax.swing.JFrame {
             if (login.login(usuario, contrasenia)) {
              FrmMain llamar = new FrmMain();
              llamar.setVisible(true);
+             login.agregarBitacora();
             this.dispose();  
             
             }else{

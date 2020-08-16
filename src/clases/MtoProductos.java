@@ -37,7 +37,7 @@ public class MtoProductos {
     public Date formatoDate(long f) {
         return new Date(f);
     }
-    
+        
     public boolean guardar(){
         boolean resp  = false;
         try{

@@ -16,6 +16,7 @@ import clases.Conexion;
 public class LoginMetodo {
     //declaracion de los atributos
     private Connection cn;
+    private Integer ID_usuario;
     private Date cita_fecha;
     private Time cita_hora;
     private Integer ID_tipoCita;
@@ -224,7 +225,7 @@ public class LoginMetodo {
             String consulta;
             
             String encriptada = md5(clave);
-            consulta = "Select * from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
+            consulta = "Select ID_usuario from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
 
             PreparedStatement Prepared;
             Conexion con = new Conexion();
@@ -236,12 +237,33 @@ public class LoginMetodo {
             ResultSet Resultado = Prepared.executeQuery();
         if (Resultado.next()) {
                   retorno = true;
+                  ID_usuario   = Resultado.getInt(1);
+                  System.out.println(ID_usuario);
               }
           } catch (Exception ex) {
           JOptionPane.showMessageDialog(null, "Error"+ex);
           }   
           return retorno;
       }
+    
+        public boolean agregarBitacora(){
+            boolean retorno = false;
+            try{
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Inicio de sesion','Select', @fecha, "+ID_usuario+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
      public boolean loginR(Integer ID_usuario, Integer ID_pregunta) {
         boolean retorno = false;
         try {
@@ -303,5 +325,19 @@ public class LoginMetodo {
            
        }
     return null;
+    }
+
+    /**
+     * @return the ID_usuario
+     */
+    public Integer getID_usuario() {
+        return ID_usuario;
+    }
+
+    /**
+     * @param ID_usuario the ID_usuario to set
+     */
+    public void setID_usuario(Integer ID_usuario) {
+        this.ID_usuario = ID_usuario;
     }
 }
