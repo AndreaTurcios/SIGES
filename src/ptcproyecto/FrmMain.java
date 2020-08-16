@@ -456,7 +456,7 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("  Tipo estado");
+        jLabel21.setText("  Factura");
         jLabel21.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jLabel21.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel21.setMinimumSize(new java.awt.Dimension(159, 20));
@@ -1349,7 +1349,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel10.setForeground(Color.WHITE);
         jLabel11.setForeground(Color.WHITE);
         jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.BLACK);
+        jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.BLACK);
         lblLogo.setVisible(false);

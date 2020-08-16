@@ -161,4 +161,27 @@ public class controlPreguntas {
     public double toInteger() {
         return ID_usuario;
     }
+    public boolean modificarPregunta(){
+    boolean resp = false;
+    clases.Conexion con = new clases.Conexion();
+    cn = con.conectar();
+    try{//realizando consulta update
+    String sql="UPDATE preguntas SET pregunta=?, ID_usuario=? WHERE ID_Pregunta=?";
+    
+       PreparedStatement cmd = cn.prepareStatement(sql);
+        
+        cmd.setString(1, pregunta);
+        cmd.setInt(2, ID_usuario);
+        cmd.setInt(3, ID_pregunta);
+        
+        if (!cmd.execute()) {
+            resp=true;
+        }
+    cmd.close();
+    cn.close();
+    }catch(Exception ex){
+        System.out.println(ex.toString());
+    }
+    return resp;
+    }
 }

@@ -351,7 +351,34 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jbtImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtImprimir1ActionPerformed
+        String ID_Pregunta;
+        int fsel = jTable1.getSelectedRow();
         
+        if (fsel==-1) {
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+         controlPreguntas obj = new controlPreguntas();
+         m = (DefaultTableModel)jTable1.getModel();
+        ID_Pregunta = jTable1.getValueAt(fsel, 0).toString();
+        txtI.setText(ID_Pregunta);
+        
+        int idm = Integer.parseInt(txtI.getText());
+        obj.setID_pregunta(idm);
+        
+        obj.setPregunta(tfPregunta.getText());
+        
+        usuarios coza = (usuarios)cmbUsuario.getSelectedItem();
+        obj.setID_usuario(coza.getID_usuario());
+        
+      if (obj.modificarPregunta()) {
+            JOptionPane.showMessageDialog(this,"Datos modificados"); 
+            ListarPreguntas();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al modificar la informacion"); 
+           } 
+            
+    }         
     }//GEN-LAST:event_jbtImprimir1ActionPerformed
 
 
