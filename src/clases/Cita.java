@@ -115,16 +115,16 @@ public class Cita {
 
     public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO Citas(ID_cita, cita_fecha, cita_hora, ID_tipoCita, DUI )"+" VALUES (?, ?, ?, ?, ?)";
+        try {String sql = "INSERT INTO Citas(cita_fecha, cita_hora, "
+                + "ID_estado, ID_tipoCita,ID_DUI)"+" VALUES (?, ?, ?, ?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
-        cmd.setInt(1, ID_cita);
-        cmd.setDate(2, cita_fecha);
-        cmd.setTime(3,cita_hora );
-        cmd.setInt(4,ID_estado);
-        cmd.setInt(5,ID_tipoCita);
-        cmd.setInt(6, DUI);
+        cmd.setDate(1, cita_fecha);
+        cmd.setTime(2,cita_hora );
+        cmd.setInt(3,ID_estado);
+        cmd.setInt(4,ID_tipoCita);
+        cmd.setInt(5, DUI);
         
         
         if (!cmd.execute()) {

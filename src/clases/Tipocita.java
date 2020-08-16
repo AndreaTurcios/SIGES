@@ -144,8 +144,8 @@ private String tipo_Cita;
             }
         }
     }
-    public Integer ID_tipoCita() {
-        return ID_tipoCita;
+    public String tipo_Cita() {
+        return tipo_Cita;
     }
     
 }

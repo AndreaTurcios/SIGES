@@ -261,7 +261,7 @@ DefaultTableModel m;
 
         jLabel5.setText("DUI:");
 
-        jSHora.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        jSHora.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
 
         jLabel6.setText("Hora:");
 
@@ -342,7 +342,7 @@ DefaultTableModel m;
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(cbTipoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(112, 112, 112))
+                        .addGap(96, 96, 96))
                     .addGroup(JPIngresoCitasLayout.createSequentialGroup()
                         .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPIngresoCitasLayout.createSequentialGroup()
@@ -400,7 +400,7 @@ DefaultTableModel m;
                 .addContainerGap())
         );
 
-        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 630, 240));
+        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 630, 240));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -415,7 +415,7 @@ DefaultTableModel m;
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 630, 180));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 620, 230));
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkGradientFocus(600);
@@ -457,7 +457,7 @@ DefaultTableModel m;
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(273, 273, 273)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -470,7 +470,7 @@ DefaultTableModel m;
                 .addContainerGap())
         );
 
-        getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, -1));
+        getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -494,6 +494,7 @@ DefaultTableModel m;
        Cita obj = new Cita();
        int hora = (Integer)jSHora.getValue();
        int minuto = (Integer)jSMinuto.getValue();
+//       String turno = (String)jComboBox1.getSelectedItem();
        String fin = hora + ":" + minuto+":00";
        Time.valueOf(fin);
 //       DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
@@ -502,8 +503,8 @@ DefaultTableModel m;
        obj.setcita_hora(Time.valueOf(fin));
        System.out.println("datos obtenidos "+fin);
        
-        Tipocita ti = (Tipocita)cbTipoCita.getSelectedItem();
-        obj.setID_tipoCita(ti.getID_tipoCita());
+        Tipocita ci = (Tipocita)cbTipoCita.getSelectedItem();
+        obj.setID_tipoCita(ci.getID_tipoCita());
         
         int duic= Integer.parseInt(jTextField1.getText());
         obj.setDUI(duic);
