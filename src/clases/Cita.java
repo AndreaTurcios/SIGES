@@ -138,7 +138,32 @@ public class Cita {
         return resp;
     }
     
+        public boolean modificarCita(){
+            boolean resp = false;
+            clases.Conexion con = new clases.Conexion();
+            cn = con.conectar();
+            try{//realizando consulta update
+            String sql="UPDATE Citas SET cita_fecha=?, cita_hora=?, ID_estado=?, "
+                    + "ID_tipoCita=?, ID_DUI=? WHERE ID_cita=?";
     
+       PreparedStatement cmd = cn.prepareStatement(sql);
+        
+        cmd.setDate(1, cita_fecha);
+        cmd.setTime(2, cita_hora);
+        cmd.setInt(3, ID_estado);
+        cmd.setInt(2, ID_tipoCita);
+        cmd.setInt(3, DUI);
+        
+        if (!cmd.execute()) {
+            resp=true;
+        }
+            cmd.close();
+            cn.close();
+            }catch(Exception ex){
+        System.out.println(ex.toString());
+        }
+        return resp;
+        }
 
     public boolean Consultar() {
         boolean resp = false;

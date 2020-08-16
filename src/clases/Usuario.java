@@ -273,21 +273,19 @@ public class Usuario {
         }
         public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO Usuarios(ID_usuario, nombre_usuario, contrasenia_usuario"
+        try {String sql = "INSERT INTO Usuarios(nombre_usuario, contrasenia_usuario,"
                 + " nombre_empleado, empleado_apellidos,"
-                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
-        cmd.setInt(1, ID_usuario);
-        cmd.setString(2, nombre_usuario);
-        cmd.setString(3,empleado_apellidos );
-        cmd.setInt(4,telefono);
-        cmd.setString(5, correo);
-        cmd.setString(2, domicilio);
-        cmd.setString(6, Usuario);
-        cmd.setString(7, Contraseña);
-        cmd.setInt(8, ID_tipoUsuario);
+        cmd.setString(1, nombre_usuario);
+        cmd.setString(2, Contraseña);
+        cmd.setString(3, nombre_empleado);
+        cmd.setString(4, empleado_apellidos);
+        cmd.setString(5, domicilio);
+        cmd.setString(6, correo);
+        cmd.setInt(7, ID_tipoUsuario);
         
         if (!cmd.execute()) {
             resp = true;
@@ -299,7 +297,32 @@ public class Usuario {
         }
         return resp;
     }
-
+        public boolean guardarP() {
+        boolean resp = false;
+        try {String sql = "INSERT INTO Usuarios(nombre_usuario, contrasenia_usuario,"
+                + " nombre_empleado, empleado_apellidos,"
+                + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
+        PreparedStatement cmd = cn.prepareStatement(sql);
+        
+        cmd.setString(1, nombre_usuario);
+        cmd.setString(2, Contraseña);
+        cmd.setString(3, nombre_empleado);
+        cmd.setString(4, empleado_apellidos);
+        cmd.setString(5, domicilio);
+        cmd.setString(6, correo);
+        cmd.setInt(7, ID_tipoUsuario);
+        
+        if (!cmd.execute()) {
+            resp = true;
+        }
+        cmd.close();
+        cn.close();
+        }catch(Exception e) {
+            System.out.println(e.toString());
+        }
+        return resp;
+    }
     @Override
     public String toString() {
         return Usuario;

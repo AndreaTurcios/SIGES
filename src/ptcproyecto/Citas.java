@@ -94,6 +94,7 @@ DefaultTableModel m;
         jLabel9 = new javax.swing.JLabel();
         jcbDUI1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         kGradientPanel1 = new keeptoo.KGradientPanel();
@@ -353,9 +354,13 @@ DefaultTableModel m;
                                 .addComponent(JbtnModificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(JbtnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jcbDUI1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 54, Short.MAX_VALUE))))
+                        .addGap(0, 54, Short.MAX_VALUE))
+                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
         );
         JPIngresoCitasLayout.setVerticalGroup(
             JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,7 +393,9 @@ DefaultTableModel m;
                         .addComponent(jButton3))
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
+                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jcbDUI1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -522,7 +529,7 @@ DefaultTableModel m;
     }//GEN-LAST:event_JbtGuardarActionPerformed
 
     private void JbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnConsultarActionPerformed
-
+            
     }//GEN-LAST:event_JbtnConsultarActionPerformed
 
     private void JbtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnImprimirActionPerformed
@@ -544,26 +551,48 @@ DefaultTableModel m;
     }//GEN-LAST:event_JbtnImprimirActionPerformed
 
     private void JbtnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnModificar1ActionPerformed
-        try {
-            Connection con = Conexion.conectar();
-//            Connection conn = con.getConexion();
+        String ID_cita;
+        int fsel = jTable1.getSelectedRow();
+        
+        if (fsel==-1) {
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+         Cita obj = new Cita();
+         m = (DefaultTableModel)jTable1.getModel();
+        ID_cita = jTable1.getValueAt(fsel, 0).toString();
+        jTextField2.setText(ID_cita);
+        
+        int hora = (Integer)jSHora.getValue();
+       int minuto = (Integer)jSMinuto.getValue();
+        String fin = hora + ":" + minuto+":00";
+       Time.valueOf(fin);
+//       DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+//       Date d = dateFormat.parse(fin);
+       
+       obj.setcita_hora(Time.valueOf(fin));
+       System.out.println("datos obtenidos "+fin);
+       
+        Tipocita ci = (Tipocita)cbTipoCita.getSelectedItem();
+        obj.setID_tipoCita(ci.getID_tipoCita());
+        
+        int duic= Integer.parseInt(jTextField1.getText());
+        obj.setDUI(duic);
+        
+        obj.setcita_fecha(new java.sql.Date(calendar.getDatoFecha().getTime())); 
+        
+        TipoEstados tip = (TipoEstados)jcbDUI1.getSelectedItem();
+        obj.setID_estado(tip.getID_estado());
+        
+        
+        if (obj.modificarCita()) {
+            JOptionPane.showMessageDialog(this,"Datos modificados"); 
+            ListarCitas();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al modificar la informacion"); 
+           } 
             
-            JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-cita(D).jasper";
-            
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
-            
-            JasperViewer view = new JasperViewer(jprint, false);
-            
-            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            
-            view.setVisible(true);
-                    
-        } catch (JRException ex) {
-            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }     
     }//GEN-LAST:event_JbtnModificar1ActionPerformed
 
         
@@ -673,6 +702,7 @@ DefaultTableModel m;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable1dialog;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JComboBox<String> jcbDUI1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;

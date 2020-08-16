@@ -16,6 +16,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextField1.setVisible(false);
     }
     public static String texto = "";
 //    public void ValidarUsuario () 
@@ -76,6 +77,7 @@ public class Login extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtContrasenia = new javax.swing.JPasswordField();
+        jTextField1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -145,6 +147,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.setBorder(null);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -168,18 +172,25 @@ public class Login extends javax.swing.JFrame {
                         .addGap(87, 87, 87)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
+                        .addGap(8, 8, 8)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
                         .addComponent(jLabel7))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
@@ -356,6 +367,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        
         texto = txtUsuario.getText();
         String contrasenia = String.valueOf(txtContrasenia.getPassword());
         String usuario = txtUsuario.getText();
@@ -364,42 +376,41 @@ public class Login extends javax.swing.JFrame {
         LoginMetodo login = new LoginMetodo();
            if ( String.valueOf(txtContrasenia.getPassword()).isEmpty() || txtUsuario.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
-        }else{
+           }else{
             if (login.login(usuario, contrasenia)) {
              FrmMain llamar = new FrmMain();
              llamar.setVisible(true);
             this.dispose();  
             
             }else{
+            String valorPass = new String(txtContrasenia.getPassword());
+            jTextField1.setText(valorPass);
+            if ("SIGES2020".equals(jTextField1.getText())){
+            System.out.println("Primer inicio de usuario");
+            JOptionPane.showMessageDialog(this, "Se ha detectado el primer inicio al sistema, "
+                + "se debe ingresar una nueva contraseña.", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            
+            primerUso llamar = new primerUso();
+            llamar.setVisible(true);
+            llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+           
+            }else{
                 JOptionPane.showMessageDialog(null,"Se deben verificar los datos llenados con anterioridad");
+         }
+//            switch (user.getIdTipoUsuario()) {
+//                    case 1:
+//                        main = new Menu();
+//                        break;
+//                    case 2:
+//                        main = new MenuGerente();
+//                        break;
+//                    case 3:
+//                        main = new MenuEmpleado();
+//                        break;
+              }
+        
             }
-        }
-//          ValidarUsuario();
-//        String busqueda_usuario = metodos.BuscarUsuarioRegistrado(txtUsuario.getText(), txtContrasenia.getText());
-//        if (txtUsuario.getText().equals("root") && txtContrasenia.getText().equals("root")) 
-//        {
-//            JOptionPane.showMessageDialog(this,"<html>Se ha encontrado el usuario ingresado perteneciente a: '"+"Nameless"+"'<br>Poseedor del tipo de usuario: "+"Root"+"'<br>¡Bienvendo seas "+"Nameless"+" a SIGES!</html>", "Exito en el inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
-//            FrmMain llamar = new FrmMain();
-//            llamar.setVisible(true);
-//            llamar.lblUsuario.setText("Nameless");
-//            llamar.lblTipo_Usuario.setText("root");
-//            llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//            this.dispose();
-//        }
-//        else if (busqueda_usuario.equals("usuario encontrado"))
-//        {
-//            String busqueda_nombre = metodos.BuscarNombre(txtUsuario.getText());
-//            JOptionPane.showMessageDialog(this,"<html>Se ha encontrado el usuario ingresado perteneciente a: '"+busqueda_nombre+"'<br>Poseedor del tipo de usuario: "+"Tipo_usuario"+"'<br>¡Bienvendo seas "+busqueda_nombre+" a SIGES!</html>", "Exito en el inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
-//            FrmMain llamar = new FrmMain();
-//            llamar.setVisible(true);
-//            llamar.lblUsuario.setText(busqueda_nombre);
-//            llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//            this.dispose();
-//        }
-//        else 
-//        {
-//            JOptionPane.showMessageDialog(this,"No se ha encontrado el usuario ingresado, puede que la contraseña y/o el nombre de usuario sean incorrectos", "Fallo en el inicio de sesión", JOptionPane.WARNING_MESSAGE);
-//        }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -497,6 +508,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPasswordField txtContrasenia;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

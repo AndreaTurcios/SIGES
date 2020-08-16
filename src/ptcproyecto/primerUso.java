@@ -29,6 +29,8 @@ public class primerUso extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         ListarUsuarios();
         CargarInformacion();
+        Login ventana = new Login();
+        jtfUsuario.setText(ventana.texto);
     }
 
     @SuppressWarnings("unchecked")
@@ -385,42 +387,20 @@ public class primerUso extends javax.swing.JFrame {
         Usuario cons = new Usuario();
         controlPreguntas conPreg = new controlPreguntas();
         ControlRespuestas resp = new ControlRespuestas();
-        //nombre usuario 1
         obj.setnombre_usuario(jtfUsuario.getText());
-        //apellidos 2 
         obj.setEmpleado_apellidos(jtfApellido.getText());
-        //correo 4
         obj.setCorreo(jtfEmail.getText());
-        //domicilio 5
         obj.setDomicilio(jtfDireccion.getText());
-        //usuario 6
         obj.setNombre_empleado(jtfNombre.getText());
-        //contraseña encriptada 7
         usuarios u = new usuarios();
         String password = jtfContraseña.getText();
         obj.setContraseña(u.md5(password));
         JOptionPane.showMessageDialog(this, "contraseña encriptada "+u.md5(password));
-        //tipo usuario 8
-//        TipoUsuario tipouser = (TipoUsuario)JCBcargoE.getSelectedItem();
-        //int tipouser = (int) JCBcargoE.getSelectedItem();
         TipoUsuario tipouser = (TipoUsuario) JCBcargoE.getSelectedItem();
-//        String user = Integer.toString(tipouser); 
-//        System.out.println("Item " + user);
         System.out.println("Item " + tipouser);
         obj.setID_tipoUsuario(tipouser.getID_TipoUsuario());
-//        //pregunta 9
-//        controlPreguntas preg = (controlPreguntas)JCBPregunta.getSelectedItem();
-//        System.out.println("Item " + preg.getID_pregunta());
-//        System.out.println("Item " +JCBPregunta.getSelectedObjects().getClass());
-//        conPreg.setID_usuario(obj.getId_usuario());
-//        conPreg.setID_pregunta(preg.getID_pregunta());
-//         //respuesta 10
-//       resp.setRespuesta(jtfRespuesta.getText());
-//       resp.setID_pregunta(conPreg.getID_pregunta());
-//       
-        //usuario
         System.out.println("Entrando a guardar objeto");
-        if (obj.guardar()) {
+        if (obj.guardarP()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados, para terminar la configuración inicie sesión y configure preguntas "
                     + "y respuestas a su usuario");
             cons = obj.ConsultarUser();
@@ -430,24 +410,10 @@ public class primerUso extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos usuario");
         }
-//       //pregunta   
-//       
-//       if (preg.guardar()) {
-//            JOptionPane.showMessageDialog(this, "Los datos han sido guardados preguntas");
-//        }else{
-//            JOptionPane.showMessageDialog(this, "Error al guardar los datos preguntas");
-//        }
-//        //respuesta
-//        if (resp.guardar()) {
-//           JOptionPane.showMessageDialog(this, "Los datos han sido guardados respuestas");
-//        }else{
-//            JOptionPane.showMessageDialog(this, "Error al guardar los datos respuestas");
-//        } 
-      
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
-        this.dispose ();
+        System.exit(0);
     }//GEN-LAST:event_BtnCerrarActionPerformed
     int xx,xy;
     private void kGradientPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseDragged
@@ -471,9 +437,7 @@ public class primerUso extends javax.swing.JFrame {
         int var = evt.getKeyCode();
         if (var==KeyEvent.VK_ENTER) {
             String password = jtfContraseña.getText();
-
             usuarios u = new usuarios();
-
         }
     }//GEN-LAST:event_jtfContraseñaKeyPressed
 
@@ -481,6 +445,7 @@ public class primerUso extends javax.swing.JFrame {
         Login llamar = new Login();
         llamar.setVisible(true);
         llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jtfUsuario.setText("");
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
