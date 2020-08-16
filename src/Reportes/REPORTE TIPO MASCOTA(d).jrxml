@@ -1,29 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedc1db-7c8d-4baf-b76e-ace2d9bb6a89">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Mascota."nombre_mascota" AS Mascota_nombre_mascota,
+     Tipo_mascota."tipo_animal" AS Tipo_mascota_tipo_animal,
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos
+FROM
+     "dbo"."Tipo_mascota" Tipo_mascota INNER JOIN "dbo"."Mascota" Mascota ON Tipo_mascota."ID_tipoMascota" = Mascota."ID_tipoMascota"
+     INNER JOIN "dbo"."Cliente_duenio" Cliente_duenio ON Mascota."ID_DUI" = Cliente_duenio."ID_DUI"]]>
+	</queryString>
+	<field name="Mascota_nombre_mascota" class="java.lang.String"/>
+	<field name="Tipo_mascota_tipo_animal" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#1B262C" uuid="62d24dd3-7b62-49d3-a414-dbdc415553ad"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="312" height="63" forecolor="#FFFFFF" uuid="78f4c303-c773-4a1b-a10d-f357b02fc558"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Reporte Tipo Mascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="34" width="102" height="45" forecolor="#FFFFFF" uuid="59beb388-b84c-435a-8cdf-1a5001d93662"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="60" backcolor="#0F4C75" uuid="555bfb7a-1562-475e-8318-88d605c2028e"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="87" y="0" width="255" height="60" forecolor="#FFFFFF" uuid="012af322-865f-48e5-8dd1-737f5a865ca7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="87" height="60" forecolor="#FFFFFF" backcolor="#999999" uuid="ac45d230-2758-412f-9eaa-c66c1ec29773"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de emision]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="39" backcolor="#BBE1FA" uuid="de45e85d-afa1-45c3-9e3f-38a12766e045"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="1" width="100" height="39" forecolor="#900D0D" uuid="ac88f127-6da4-4ff6-bbd8-6f9df755e418"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cliente Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="2" width="100" height="37" forecolor="#900D0D" uuid="966102ce-63d2-4080-81a6-b8f92bf1e041"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Mascota Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="3" width="100" height="37" forecolor="#900D0D" uuid="daa142be-f072-41a2-9d00-05271597ff19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tipo Mascota]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="39" height="20" uuid="f564f276-88f9-4107-aa3f-fcc0dad60a45"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="0" width="51" height="20" uuid="254700be-e95d-4452-a8ce-8a12f774fd5f"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="0" width="67" height="20" uuid="ebdda2f5-ade4-4b9e-b04c-6e249c9aed1a"/>
+				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="248" y="0" width="82" height="20" uuid="51dc0f6c-b5b8-4957-b5c3-0e5adf9ced88"/>
+				<textFieldExpression><![CDATA[$F{Tipo_mascota_tipo_animal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
 </jasperReport>

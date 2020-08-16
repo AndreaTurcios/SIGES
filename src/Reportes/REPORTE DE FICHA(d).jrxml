@@ -1,29 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c90a55bb-d3d4-4781-bcb4-eb97a9262093">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos,
+     Ficha_clinica."Tratamiento" AS Ficha_clinica_Tratamiento,
+     Ficha_clinica."Dosis" AS Ficha_clinica_Dosis,
+     Ficha_clinica."Frecuencia" AS Ficha_clinica_Frecuencia,
+     Mascota."nombre_mascota" AS Mascota_nombre_mascota
+FROM
+     "dbo"."Cliente_duenio" Cliente_duenio INNER JOIN "dbo"."Ficha_clinica" Ficha_clinica ON Cliente_duenio."ID_DUI" = Ficha_clinica."ID_DUI"
+     INNER JOIN "dbo"."Mascota" Mascota ON Cliente_duenio."ID_DUI" = Mascota."ID_DUI"
+     AND Mascota."ID_mascota" = Ficha_clinica."ID_Mascota"]]>
+	</queryString>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<field name="Ficha_clinica_Tratamiento" class="java.lang.String"/>
+	<field name="Ficha_clinica_Dosis" class="java.lang.String"/>
+	<field name="Ficha_clinica_Frecuencia" class="java.lang.String"/>
+	<field name="Mascota_nombre_mascota" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#1B262C" uuid="ec8378b7-46b1-4590-b6f0-84d87d65d12f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="297" height="63" forecolor="#FFFFFF" uuid="7e0bab46-b357-4dc9-9ac0-f42fc9558b71"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Reporte Ficha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="34" width="102" height="45" forecolor="#FFFFFF" uuid="01ad0388-7e79-43dd-962e-ca95e63dc911"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="60" backcolor="#0F4C75" uuid="f1594f5d-5687-4dd7-a85c-c092b76570c5"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="87" y="0" width="255" height="60" forecolor="#FFFFFF" uuid="fae8a409-52f1-4afa-b2f9-e02187fb6ea0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="87" height="60" forecolor="#FFFFFF" backcolor="#999999" uuid="9bc0e53a-c377-46a0-ba36-8a7ea52575bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de emision]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="39" backcolor="#BBE1FA" uuid="94e994f7-ddb8-4bf3-99c8-1db8059e3828"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="39" forecolor="#900D0D" uuid="5a47e30e-98df-4df0-bccf-f8207efb901e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cliente Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="3" width="100" height="37" forecolor="#900D0D" uuid="9fba77aa-13ce-4dbd-ad7a-34a9fd050b86"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Mascota Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="3" width="100" height="37" forecolor="#900D0D" uuid="1088e73e-822b-4bca-9dd9-6d92d3f80421"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tratamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="3" width="100" height="37" forecolor="#900D0D" uuid="420c8ed5-fc1a-41e8-8a8a-046b974b86c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Frecuencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="482" y="0" width="73" height="37" forecolor="#900D0D" uuid="1ecfc8b9-d323-4d06-9530-12d239e61039"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Dosis]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="122" splitType="Stretch">
+			<textField>
+				<reportElement x="36" y="0" width="51" height="20" uuid="ff3ec3cd-c802-4edb-bbcb-937ec6caf228"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="39" height="20" uuid="40906deb-93c0-402d-9eeb-514278c244e1"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="0" width="73" height="20" uuid="7afceb61-26e0-4de2-9726-03f2e6e64471"/>
+				<textFieldExpression><![CDATA[$F{Ficha_clinica_Dosis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="0" width="100" height="20" uuid="1bf377dd-23be-43b3-b6a0-71cc8ee1262b"/>
+				<textFieldExpression><![CDATA[$F{Ficha_clinica_Frecuencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="0" width="88" height="20" uuid="c74afb1d-3a46-4e0d-989c-d8abee71bd5b"/>
+				<textFieldExpression><![CDATA[$F{Ficha_clinica_Tratamiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="62" height="20" uuid="e56fbb73-63b8-44e6-932e-dcc7db5a5943"/>
+				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="211" y="11" width="80" height="20" uuid="28a320e9-a91c-4eb0-a4cd-c769c14c7259"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="291" y="11" width="40" height="20" uuid="c28b0a7a-6866-4fd3-bf41-30d767d1adca"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
 </jasperReport>

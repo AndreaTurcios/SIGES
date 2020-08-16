@@ -522,7 +522,7 @@ DefaultTableModel m;
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-Cliente-Duenio-SIGES.jasper";
+            String path = "src\\Reportes\\REPORTE ENGARGADO MASCOTA(d).jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
