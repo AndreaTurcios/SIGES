@@ -77,6 +77,7 @@ public class controlPreguntas {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
+                
             }
             tabla.setModel(model);
         }

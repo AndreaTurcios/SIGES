@@ -59,6 +59,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -467,6 +468,19 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("  Bitàcora");
+        jLabel22.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jLabel22.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel22.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel22.setPreferredSize(new java.awt.Dimension(159, 20));
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
@@ -515,7 +529,8 @@ public class FrmMain extends javax.swing.JFrame {
                             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -591,6 +606,8 @@ public class FrmMain extends javax.swing.JFrame {
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -688,6 +705,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         tipoclientes fich= new tipoclientes();
         panelArriba.add(fich);
@@ -717,6 +735,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         Agenda fich= new Agenda();
         panelArriba.add(fich);
@@ -746,6 +765,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         Productos fich= new Productos();
         panelArriba.add(fich);
@@ -775,6 +795,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         Citas fich= new Citas();
         panelArriba.add(fich);
@@ -804,6 +825,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         frmConsultas fich =new frmConsultas();
         panelArriba.add(fich);
@@ -833,6 +855,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Dueños fich= new Dueños();
@@ -864,6 +887,7 @@ public class FrmMain extends javax.swing.JFrame {
          jLabel19.setForeground(Color.WHITE);
          jLabel20.setForeground(Color.WHITE);
          jLabel21.setForeground(Color.WHITE);
+         jLabel22.setForeground(Color.WHITE);
          lblLogo.setVisible(false);
          panelArriba.removeAll();
         Mascotas fich= new Mascotas();
@@ -894,6 +918,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmUsuarios fich= new frmUsuarios();
@@ -924,6 +949,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         FrmPreguntas fich= new FrmPreguntas();
@@ -955,6 +981,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoMascota fich= new TipoMascota();
@@ -985,6 +1012,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoProducto fich= new TipoProducto();
@@ -1015,6 +1043,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Nacionalidad fich = new Nacionalidad();
@@ -1045,6 +1074,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoPago fich= new TipoPago ();
@@ -1075,6 +1105,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         tipo_empleado fich= new tipo_empleado ();
@@ -1105,6 +1136,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         codigoZona fich= new codigoZona ();
@@ -1135,6 +1167,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmTipo_cita fich= new frmTipo_cita ();
@@ -1165,6 +1198,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmFichaClinica fich= new frmFichaClinica ();
@@ -1195,6 +1229,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoConsulta fich= new TipoConsulta();
@@ -1265,6 +1300,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         lblLogo.setVisible(false);
         DetalleFactura fich= new DetalleFactura ();
@@ -1295,6 +1331,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.BLACK);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoEstado fich= new TipoEstado ();
@@ -1325,6 +1362,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.BLACK);
         jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Respuestas fich= new Respuestas ();
@@ -1355,12 +1393,44 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
         jLabel21.setForeground(Color.BLACK);
+        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Factura fich= new Factura ();
         panelArriba.add(fich);
         fich.show();
     }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+       jLabel6.setForeground(Color.WHITE);
+        jLabel7.setForeground(Color.WHITE);
+        jLabel17.setForeground(Color.WHITE);
+        jLabel16.setForeground(Color.WHITE);
+        jLabel4.setForeground(Color.WHITE);
+        jLabel15.setForeground(Color.WHITE);
+        jLabel5.setForeground(Color.WHITE);
+        btntipoCliente1.setForeground(Color.WHITE);
+        btntipoCliente.setForeground(Color.WHITE);
+        jLabel12.setForeground(Color.WHITE);
+        jLabel2.setForeground(Color.WHITE);
+        jLabel8.setForeground(Color.WHITE);
+        jLabel3.setForeground(Color.WHITE);
+        jLabel13.setForeground(Color.WHITE);
+        jLabel9.setForeground(Color.WHITE);
+        jLabel14.setForeground(Color.WHITE);
+        jLabel10.setForeground(Color.WHITE);
+        jLabel11.setForeground(Color.WHITE);
+        jLabel18.setForeground(Color.WHITE);
+        jLabel19.setForeground(Color.WHITE);
+        jLabel20.setForeground(Color.WHITE);
+        jLabel21.setForeground(Color.WHITE);
+        jLabel22.setForeground(Color.BLACK);
+        lblLogo.setVisible(false);
+        panelArriba.removeAll();
+        Bitacora fich= new Bitacora ();
+        panelArriba.add(fich);
+        fich.show();
+    }//GEN-LAST:event_jLabel22MouseClicked
         
         
     /**
@@ -1418,6 +1488,7 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
