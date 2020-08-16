@@ -298,23 +298,20 @@ public class TipoPago extends javax.swing.JInternalFrame {
 
     private void btnEliminarTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoPagoActionPerformed
         // TODO add your handling code here:
-        String IDtipoPago;
+        String ID;
         int fsel = jTableTipoPago.getSelectedRow();
-        if (fsel<0) 
+        if (fsel==-1) 
         {
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
-            JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
             m = (DefaultTableModel)jTableTipoPago.getModel();
-            IDtipoPago = jTableTipoPago.getValueAt(fsel, 0).toString();
-            txtID.setText(IDtipoPago);
+            ID = jTableTipoPago.getValueAt(fsel, 0).toString();
+            txtID.setText(ID);
             CrudTipoPago obj = new CrudTipoPago();
-            int i = Integer.parseInt(txtID.getText());
-            obj.setIDtipoPago(i);
-            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
-                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            obj.setIDtipoPago(Integer.parseInt(txtID.getText()));
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?", "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) 
             {
                 if (obj.EliminarTipoPago()) 
@@ -322,11 +319,11 @@ public class TipoPago extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaTipoPago();
                 }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoPago());
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
             }
-          }
         }  
     }//GEN-LAST:event_btnEliminarTipoPagoActionPerformed
 
@@ -382,17 +379,32 @@ public class TipoPago extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCerrar1ActionPerformed
 
     private void btnModificarTipoPago1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoPago1ActionPerformed
-        CrudTipoPago obj = new CrudTipoPago();
-        obj.settipopago(txtNombreTipoPago.getText());
-        if (obj.ModificarTipoPago()) 
+        String IDTipoPago;
+        int fsel = jTableTipoPago.getSelectedRow();
+        if (fsel==-1) 
         {
-            JOptionPane.showMessageDialog(this, "Datos Modificados");
-            CargarTablaTipoPago();
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
-            JOptionPane.showMessageDialog(this, "Error al modificar "+obj.ModificarTipoPago());
-        }
+            m = (DefaultTableModel)jTableTipoPago.getModel();
+            IDTipoPago = jTableTipoPago.getValueAt(fsel, 0).toString();
+            txtID.setText(IDTipoPago);
+            CrudTipoPago obj = new CrudTipoPago();
+            int ID = Integer.parseInt(txtID.getText());
+            obj.setIDtipoPago(ID);
+            System.out.println("LLega ID "+ obj.getIDtipoPago());
+            obj.settipopago(txtNombreTipoPago.getText());
+            if (obj.ModificarTipoPago()) 
+            {
+                JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+                CargarTablaTipoPago();
+            }
+            else
+            {
+               JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+            }
+         }
     }//GEN-LAST:event_btnModificarTipoPago1ActionPerformed
 
 

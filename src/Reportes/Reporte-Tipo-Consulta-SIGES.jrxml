@@ -3,15 +3,15 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
-     Tipo_pago."ID_tipoPago" AS Tipo_pago_ID_tipoPago,
-     Tipo_pago."tipo_pago" AS Tipo_pago_tipo_pago
+     Tipo_consulta."ID_tipoConsulta" AS Tipo_consulta_ID_tipoConsulta,
+     Tipo_consulta."tipo_consulta" AS Tipo_consulta_tipo_consulta
 FROM
-     "dbo"."Tipo_pago" Tipo_pago]]>
+     "dbo"."Tipo_consulta" Tipo_consulta]]>
 	</queryString>
-	<field name="Tipo_pago_ID_tipoPago" class="java.lang.Integer"/>
-	<field name="Tipo_pago_tipo_pago" class="java.lang.String"/>
+	<field name="Tipo_consulta_ID_tipoConsulta" class="java.lang.Integer"/>
+	<field name="Tipo_consulta_tipo_consulta" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -33,7 +33,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="24" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Registros de los tipos de pagos]]></text>
+				<text><![CDATA[Registros de los tipos de consulta]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -146,18 +146,18 @@ FROM
 	<detail>
 		<band height="80" splitType="Stretch">
 			<textField>
-				<reportElement x="6" y="13" width="72" height="50" uuid="2447cfd6-b902-45f1-ac59-d7d23ab6cf0b"/>
+				<reportElement x="6" y="9" width="72" height="50" uuid="b11eddaa-0995-4abf-9854-cfad2801e8b2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Tipo_pago_ID_tipoPago}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Tipo_consulta_ID_tipoConsulta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="78" y="13" width="72" height="50" uuid="ed71a8c2-25f0-4a1c-a7db-1367d65be43e"/>
+				<reportElement x="78" y="9" width="72" height="50" uuid="a7fbbe55-83b5-4770-aee4-ff20ffe2920b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Tipo_pago_tipo_pago}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Tipo_consulta_tipo_consulta}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

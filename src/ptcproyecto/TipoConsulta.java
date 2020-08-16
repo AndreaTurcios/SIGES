@@ -302,31 +302,46 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0)
             {
-                if (obj.EliminarTipoPago())
+                if (obj.EliminarTipoConsulta())
                 {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaTipoConsulta();
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoPago());
+                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoConsulta());
                 }
             }
         }
     }//GEN-LAST:event_btnEliminarTipoConsultaActionPerformed
 
     private void btnModificarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoConsultaActionPerformed
-        CrudTipoPago obj = new CrudTipoPago();
-        obj.settipopago(txtNombreTipoConsulta.getText());
-        if (obj.ModificarTipoPago())
+        String IDTipoPago;
+        int fsel = jTableTipoConsulta.getSelectedRow();
+        if (fsel==-1) 
         {
-            JOptionPane.showMessageDialog(this, "Datos Modificados");
-            CargarTablaTipoConsulta();
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
-            JOptionPane.showMessageDialog(this, "Error al modificar "+obj.ModificarTipoPago());
-        }
+            m = (DefaultTableModel)jTableTipoConsulta.getModel();
+            IDTipoPago = jTableTipoConsulta.getValueAt(fsel, 0).toString();
+            txtID.setText(IDTipoPago);
+            CrudTipoConsulta obj = new CrudTipoConsulta();
+            int ID = Integer.parseInt(txtID.getText());
+            obj.setIDTipoConsulta(ID);
+            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
+            obj.setTipoConsulta(txtNombreTipoConsulta.getText());
+            if (obj.ModificarTipoConsulta()) 
+            {
+                JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+                CargarTablaTipoConsulta();
+            }
+            else
+            {
+               JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+            }
+         }
     }//GEN-LAST:event_btnModificarTipoConsultaActionPerformed
 
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed

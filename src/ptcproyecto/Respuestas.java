@@ -232,25 +232,21 @@ DefaultTableModel m;
     }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         CrudRespuestas obj = new CrudRespuestas();
+        int ID = Integer.parseInt(txtI.getText());
+        obj.setIDRespuesta(ID);
+        System.out.println("LLega");
         obj.setRespuesta(txtRespuesta.getText());
-        
-        controlPreguntas p = (controlPreguntas)cmbPregunta.getSelectedItem();
-        obj.setIDPregunta(p.getID_pregunta());
-        
-        Usuario us = (Usuario)jComboBox1.getSelectedItem();
-        obj.setID_usuario(us.getId_usuario());
-        
-//        obj.setIDPregunta(PR.getID_pregunta());
-        
-        if (obj.GuardarRespuesta())
+        controlPreguntas ti = (controlPreguntas)cmbPregunta.getSelectedItem();
+        System.out.println("Pregunta " + ti.getPregunta());
+        obj.setIDPregunta(ti.getID_pregunta());
+        if (obj.GuardarRespuesta()) 
         {
-            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente");
-            CargarTablaRespuestas();
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           CargarTablaRespuestas();
         }
         else
-        {
-            JOptionPane.showMessageDialog(this,"Error al guardar datos");
-            JOptionPane.showMessageDialog(this,obj.GuardarRespuesta());
+        { 
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -284,65 +280,68 @@ DefaultTableModel m;
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        String ID_Respuestas;
+        // TODO add your handling code here:
+        String ID;
         int fsel = jTableRespuestas.getSelectedRow();
-        if (fsel<0)
+        if (fsel==-1) 
         {
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
-                JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
             m = (DefaultTableModel)jTableRespuestas.getModel();
-            ID_Respuestas = jTableRespuestas.getValueAt(fsel, 0).toString();
-            txtI.setText(ID_Respuestas);
+            ID = jTableRespuestas.getValueAt(fsel, 0).toString();
+            txtI.setText(ID);
             CrudRespuestas obj = new CrudRespuestas();
-            int i = Integer.parseInt(txtI.getText());
-            obj.setIDRespuesta(i);
-            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
-                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (eliminar == 0)
+            obj.setIDRespuesta(Integer.parseInt(txtI.getText()));
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?", "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) 
             {
-                if (obj.EliminarRespuesta())
+                if (obj.EliminarRespuesta()) 
                 {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaRespuestas();
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarRespuesta());
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
             }
-        }
+        }  
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
-        CrudRespuestas obj = new CrudRespuestas();
         String ID;
         int fsel = jTableRespuestas.getSelectedRow();
-        m = (DefaultTableModel)jTableRespuestas.getModel();
-        ID = jTableRespuestas.getValueAt(fsel, 0).toString();
-        jTextField1.setText(ID);
-        int IDR= Integer.parseInt(jTextField1.getText());
-        
-        obj.setIDRespuesta(IDR);
-        
-        obj.setRespuesta(txtRespuesta.getText());
-        
-        controlPreguntas p = (controlPreguntas)cmbPregunta.getSelectedItem();
-          obj.setIDPregunta(p.getID_pregunta());
-        
-        Usuario us = (Usuario)jComboBox1.getSelectedItem();
-        obj.setID_usuario(us.getId_usuario());
-        
-        if (obj.ModificarRespuesta())
+        if (fsel==-1) 
         {
-            JOptionPane.showMessageDialog(this, "Datos Modificados");
-            CargarTablaRespuestas();
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
-            JOptionPane.showMessageDialog(this, "Error al modificar "+obj.ModificarRespuesta());
+             m = (DefaultTableModel)jTableRespuestas.getModel();
+             ID = jTableRespuestas.getValueAt(fsel, 0).toString();
+             txtI.setText(ID);
+             CrudRespuestas u = new CrudRespuestas();
+             int identificador = Integer.parseInt(txtI.getText());
+             u.setIDRespuesta(identificador);
+            CrudRespuestas obj = new CrudRespuestas();
+            int IDRespuesta= Integer.parseInt(txtI.getText());
+            obj.setIDRespuesta(IDRespuesta);
+            System.out.println("Respuesta: "+ obj.getIDRespuesta());
+            obj.setRespuesta(txtRespuesta.getText());
+            controlPreguntas ti = (controlPreguntas)cmbPregunta.getSelectedItem();
+            System.out.println("Pregunta: " + ti.getPregunta());
+            obj.setIDPregunta(ti.getID_pregunta());
+            if (obj.ModificarRespuesta()) 
+            {
+                JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+                CargarTablaRespuestas();
+            }
+            else
+            {
+               JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+            }
         }
     }//GEN-LAST:event_btnModificar1ActionPerformed
 
