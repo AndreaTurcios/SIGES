@@ -141,6 +141,39 @@ public class controlPreguntas {
             }
         }
     }
+    public void CargarP(JComboBox cbox_usuario) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_Pregunta, pregunta FROM preguntas ORDER BY ID_Pregunta";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_usuario.addItem("Preguntas");
+            while (resultado.next()) {
+                Usuario user = new Usuario();
+                user.setID_usuario(resultado.getInt("ID_Pregunta"));
+                user.setUsuario(resultado.getString("pregunta"));
+                cbox_usuario.addItem(user);
+//                JOptionPane.showMessageDialog(null, "es "+user);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+         }
+       
+         }
+        
+    }
     public boolean EliminarPregunta() {
         boolean resp = false;
          cn = Conexion.conectar();

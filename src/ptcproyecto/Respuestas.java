@@ -5,27 +5,28 @@
  */
 package ptcproyecto;
 
-import clases.*;
+import clases.CrudRespuestas;
+import clases.Usuario;
+import clases.controlPreguntas;
+import clases.usuarios;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author Nanos
+ * @author 15-CW0001la
  */
-public class FrmRespuestas extends javax.swing.JFrame {
-    DefaultTableModel m;
+public class Respuestas extends javax.swing.JInternalFrame {
+DefaultTableModel m;
     /**
-     * Creates new form FrmRespuestas
+     * Creates new form Respuestas
      */
-    public FrmRespuestas() {
+    public Respuestas() {
         initComponents();
         CargarTablaRespuestas();
-    }
-    
-    public void CargarTablaRespuestas()
-    {
-        CrudRespuestas obj = new CrudRespuestas();
-        obj.CargarRespuestas(jTableRespuestas);
+        ListarPreguntas();
+        CargarCombo();
+        jTextField1.setVisible(false);
     }
 
     /**
@@ -51,11 +52,11 @@ public class FrmRespuestas extends javax.swing.JFrame {
         txtI = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         btnModificar1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRespuestas = new javax.swing.JTable();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel1.setkGradientFocus(600);
@@ -77,10 +78,7 @@ public class FrmRespuestas extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Registros de Respuestas");
         kGradientPanel1.add(jLabel15);
-        jLabel15.setBounds(210, 10, 280, 32);
-
-        getContentPane().add(kGradientPanel1);
-        kGradientPanel1.setBounds(20, 10, 675, 55);
+        jLabel15.setBounds(210, 10, 280, 28);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
@@ -109,12 +107,12 @@ public class FrmRespuestas extends javax.swing.JFrame {
         jLabel4.setBounds(10, 80, 70, 17);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Pregunta:");
+        jLabel9.setText("Usuario:");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(10, 30, 70, 17);
+        jLabel9.setBounds(410, 30, 70, 17);
 
         jPanel2.add(cmbPregunta);
-        cmbPregunta.setBounds(90, 30, 580, 20);
+        cmbPregunta.setBounds(90, 30, 270, 20);
 
         btnLimpiar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
@@ -160,8 +158,17 @@ public class FrmRespuestas extends javax.swing.JFrame {
         jPanel2.add(btnModificar1);
         btnModificar1.setBounds(150, 170, 120, 50);
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(10, 80, 690, 240);
+        jTextField1.setBorder(null);
+        jPanel2.add(jTextField1);
+        jTextField1.setBounds(370, 30, 20, 14);
+
+        jPanel2.add(jComboBox1);
+        jComboBox1.setBounds(500, 30, 130, 20);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Pregunta:");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(10, 30, 70, 17);
 
         jTableRespuestas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,32 +183,80 @@ public class FrmRespuestas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableRespuestas);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 340, 690, 260);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(15, 15, 15)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void CargarCombo(){
+        usuarios obj = new usuarios();
+        obj.consultarUsuario(jComboBox1);
+    }
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         this.dispose ();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
-
+     public void CargarTablaRespuestas(){
+        CrudRespuestas obj = new CrudRespuestas();
+        obj.CargarRespuestas(jTableRespuestas);
+    }
+     public void ListarPreguntas(){
+        controlPreguntas obj = new controlPreguntas();
+        obj.CargarP(cmbPregunta);
+    }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         CrudRespuestas obj = new CrudRespuestas();
         obj.setRespuesta(txtRespuesta.getText());
-        controlPreguntas PR = (controlPreguntas)cmbPregunta.getSelectedItem();
-        obj.setIDPregunta(PR.getID_pregunta());
-        if (obj.GuardarRespuesta()) 
+        
+        controlPreguntas p = (controlPreguntas)cmbPregunta.getSelectedItem();
+        obj.setIDPregunta(p.getID_pregunta());
+        
+        Usuario us = (Usuario)jComboBox1.getSelectedItem();
+        obj.setID_usuario(us.getId_usuario());
+        
+//        obj.setIDPregunta(PR.getID_pregunta());
+        
+        if (obj.GuardarRespuesta())
         {
-           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
-           CargarTablaRespuestas();
+            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente");
+            CargarTablaRespuestas();
         }
         else
-        { 
-           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
-           JOptionPane.showMessageDialog(this,obj.GuardarRespuesta()); 
+        {
+            JOptionPane.showMessageDialog(this,"Error al guardar datos");
+            JOptionPane.showMessageDialog(this,obj.GuardarRespuesta());
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtRespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRespuestaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRespuestaActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtRespuesta.setText("");
@@ -225,16 +280,16 @@ public class FrmRespuestas extends javax.swing.JFrame {
         {
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
-            */
+        */
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String ID_Respuestas;
         int fsel = jTableRespuestas.getSelectedRow();
-        if (fsel<0) 
+        if (fsel<0)
         {
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
-            JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
         }
         else
         {
@@ -246,31 +301,41 @@ public class FrmRespuestas extends javax.swing.JFrame {
             obj.setIDRespuesta(i);
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (eliminar == 0) 
+            if (eliminar == 0)
             {
-                if (obj.EliminarRespuesta()) 
+                if (obj.EliminarRespuesta())
                 {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaRespuestas();
                 }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarRespuesta());
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarRespuesta());
+                }
             }
-          }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void txtRespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRespuestaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRespuestaActionPerformed
-
     private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
         CrudRespuestas obj = new CrudRespuestas();
+        String ID;
+        int fsel = jTableRespuestas.getSelectedRow();
+        m = (DefaultTableModel)jTableRespuestas.getModel();
+        ID = jTableRespuestas.getValueAt(fsel, 0).toString();
+        jTextField1.setText(ID);
+        int IDR= Integer.parseInt(jTextField1.getText());
+        
+        obj.setIDRespuesta(IDR);
+        
         obj.setRespuesta(txtRespuesta.getText());
-        int Pregunta = cmbPregunta.getSelectedIndex();
-        obj.setIDPregunta(Pregunta);
-        if (obj.ModificarRespuesta()) 
+        
+        controlPreguntas p = (controlPreguntas)cmbPregunta.getSelectedItem();
+          obj.setIDPregunta(p.getID_pregunta());
+        
+        Usuario us = (Usuario)jComboBox1.getSelectedItem();
+        obj.setID_usuario(us.getId_usuario());
+        
+        if (obj.ModificarRespuesta())
         {
             JOptionPane.showMessageDialog(this, "Datos Modificados");
             CargarTablaRespuestas();
@@ -281,40 +346,6 @@ public class FrmRespuestas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnModificar1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmRespuestas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmRespuestas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmRespuestas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmRespuestas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmRespuestas().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar1;
@@ -324,12 +355,15 @@ public class FrmRespuestas extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar1;
     private javax.swing.JComboBox<String> cmbPregunta;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableRespuestas;
+    private javax.swing.JTextField jTextField1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField txtI;
     private javax.swing.JTextField txtRespuesta;

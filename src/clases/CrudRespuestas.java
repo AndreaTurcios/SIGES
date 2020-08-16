@@ -27,6 +27,23 @@ public class CrudRespuestas
     private Integer IDRespuesta;
     private String Respuesta;
     private Integer IDPregunta;
+    private Integer ID_usuario;
+
+    public Integer getID_usuario() {
+        return ID_usuario;
+    }
+
+    public void setID_usuario(Integer ID_usuario) {
+        this.ID_usuario = ID_usuario;
+    }
+
+    public Pool getMetodospool() {
+        return metodospool;
+    }
+
+    public void setMetodospool(Pool metodospool) {
+        this.metodospool = metodospool;
+    }
     
     Pool metodospool = new Pool();
 

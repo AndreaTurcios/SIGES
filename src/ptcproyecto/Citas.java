@@ -287,7 +287,7 @@ DefaultTableModel m;
         });
 
         JbtnConsultar.setBackground(new java.awt.Color(0, 153, 153));
-        JbtnConsultar.setText("Actualizar");
+        JbtnConsultar.setText("Eliminar");
         JbtnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JbtnConsultarActionPerformed(evt);
@@ -532,7 +532,7 @@ DefaultTableModel m;
     }//GEN-LAST:event_JbtGuardarActionPerformed
 
     private void JbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnConsultarActionPerformed
-            
+    
     }//GEN-LAST:event_JbtnConsultarActionPerformed
 
     private void JbtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnImprimirActionPerformed
