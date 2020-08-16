@@ -1162,7 +1162,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel20.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
-        frmTipo_cita fich= new frmTipo_cita ();
+        FrmTipoConsulta fich= new FrmTipoConsulta();
         panelArriba.add(fich);
         fich.show();
     }//GEN-LAST:event_btntipoCliente1MouseClicked
