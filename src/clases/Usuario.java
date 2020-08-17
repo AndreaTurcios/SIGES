@@ -304,7 +304,7 @@ public class Usuario {
                 + "empleado_domicilio, empleado_correo, ID_tipoUsuarios)"+" VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
-        
+         
         cmd.setString(1, nombre_usuario);
         cmd.setString(2, Contraseña);
         cmd.setString(3, nombre_empleado);
