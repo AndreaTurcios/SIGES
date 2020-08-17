@@ -370,15 +370,15 @@ public class Login extends javax.swing.JFrame {
         FrmMainVeterinario llamar = new FrmMainVeterinario();
         llamar.setVisible(true);
         JOptionPane.showMessageDialog(null, "Bienvenido veterinario "+texto);
-        }else if(n==3){ 
+        }else if(n==4){ 
         FrmMainSecretario llamar = new FrmMainSecretario();
         llamar.setVisible(true);
         JOptionPane.showMessageDialog(null, "Bienvenido secretario "+texto);
-        }else if(n==4){ 
+        }else if(n==5){ 
         FrmMainRecepcionista llamar = new FrmMainRecepcionista();
         llamar.setVisible(true);
         JOptionPane.showMessageDialog(null, "Bienvenido recepcionista "+texto);
-        }else if(n==5){ 
+        }else if(n==6){ 
         
         JOptionPane.showMessageDialog(null, "Bienvenido bodeguero "+texto);
         }
