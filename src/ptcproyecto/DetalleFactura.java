@@ -52,7 +52,7 @@ DefaultTableModel m;
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setPreferredSize(new java.awt.Dimension(706, 636));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
         kGradientPanel1.setMaximumSize(new java.awt.Dimension(697, 518));
 
