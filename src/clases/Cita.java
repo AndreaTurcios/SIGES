@@ -238,6 +238,22 @@ public class Cita {
             JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
         }
     }  
+    public boolean EliminarCita(){
+    boolean resp=false;
+    try{//realizando consulta insert
+            String sql = "DELETE FROM Citas WHERE ID_cita=?;";
+            PreparedStatement cmd= cn.prepareStatement(sql);
+            cmd.setInt(1, ID_cita );
+            if (!cmd.execute()) {
+                resp=true;
+            }
+            cmd.close();
+            cn.close();
+        }catch(Exception ex){
+            System.out.println(ex.toString());
+        }
+        return resp;
+    }
     
     public void listarC(JTable tabla) {
         listarCitas(cn ,tabla);

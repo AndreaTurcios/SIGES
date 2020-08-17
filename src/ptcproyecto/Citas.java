@@ -7,6 +7,7 @@ package ptcproyecto;
 import clases.Cita;
 import clases.ClienteDuenio;
 import clases.Conexion;
+import clases.Mascota;
 import clases.TipoEstados;
 import clases.Tipocita;
 import java.awt.Dimension;
@@ -532,7 +533,33 @@ DefaultTableModel m;
     }//GEN-LAST:event_JbtGuardarActionPerformed
 
     private void JbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnConsultarActionPerformed
-    
+        String ID_Cita;
+                int fsel = jTable1.getSelectedRow();
+                if (fsel==-1) {
+                    JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                                JOptionPane.WARNING_MESSAGE);
+                    }else{
+                     m = (DefaultTableModel)jTable1.getModel();
+                     ID_Cita = jTable1.getValueAt(fsel, 0).toString();
+                     jTextField2.setText(ID_Cita);
+            
+                     Cita obj = new Cita();
+            
+                     int i = Integer.parseInt(jTextField1.getText());
+                    obj.setID_cita(i);
+            
+                     int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (eliminar==0) {
+                            if (obj.EliminarCita()) {
+                                    JOptionPane.showMessageDialog(this,"Datos eliminados");
+                                    ListarCitas();
+                                }else{
+                             JOptionPane.showMessageDialog(this,"Error al eliminar, compruebe si eliminó "
+                                     + "primeramente la ficha clinica correspondiente a la mascota que ha intentado eliminar");
+                            }
+                      }
+                }
     }//GEN-LAST:event_JbtnConsultarActionPerformed
 
     private void JbtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnImprimirActionPerformed
