@@ -20,20 +20,8 @@ public class FrmMain extends javax.swing.JFrame {
 //        jLabel10.setVisible(false);
         Login ventana = new Login();
         lblUsuario.setText(ventana.texto);
-        lblTipo_Usuario.setText(ventana.texto1);
-        String no = lblUsuario.getText();
-        String n = lblTipo_Usuario.getText();
-        if (n=="Administrador") {
-         JOptionPane.showMessageDialog(null, "Bienvenido "+no+" Aministrador");
-         }else if(n=="Veterinario"){
-        JOptionPane.showMessageDialog(null, "Bienvenido "+no+" Veterinario");
-        jLabel22.setVisible(false);
-        }else if(n=="Secretario"){
-        JOptionPane.showMessageDialog(null, "Bienvenido "+no+" Secretario");
-        jLabel22.setVisible(false);
-        }else if(n=="asdf"){
-        System.out.println("asdf");
-        }
+//        lblTipo_Usuario.setText(ventana.texto1);
+        
     }
     
     public FrmMain(clases.Bitacora mod){
@@ -1513,7 +1501,7 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1521,7 +1509,7 @@ public class FrmMain extends javax.swing.JFrame {
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel lblLogo;
-    public javax.swing.JLabel lblTipo_Usuario;
+    public static javax.swing.JLabel lblTipo_Usuario;
     public javax.swing.JLabel lblUsuario;
     private javax.swing.JPanel panelAbajo;
     private javax.swing.JPanel panelArriba;

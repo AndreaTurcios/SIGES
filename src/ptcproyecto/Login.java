@@ -17,9 +17,10 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jTextField1.setVisible(false);
+        
     }
     public static String texto = "";
-    public static String texto1 = "";
+//    public static String texto1 = "";
 //    public void ValidarUsuario () 
 //    {
 //        int resultado = 1;
@@ -359,16 +360,17 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void ValidarLvl(int n){ 
-   // LoginMetodo met = new LoginMetodo();
-        if (n==1) {
+     if (n==1) {
         System.out.println("Administrador");
-        texto1 = "Administrador";
+        FrmMain abri= new FrmMain();
+        abri.jLabel6.setVisible(false);
+        abri.lblTipo_Usuario.setText("Administrador");
          }else if(n==2){
         System.out.println("Veterinario");
-        texto1 = "Veterinario";
+        FrmMain abri= new FrmMain();
+        abri.lblTipo_Usuario.setText("Veterinario");
         }else if(n==3){
         System.out.println("Secretario");
-        texto1 = "Secretario";
         }else if(n==4){
         System.out.println("asdf");
         }
