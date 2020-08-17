@@ -277,7 +277,7 @@ public class LoginMetodo {
             String consulta;
             
             String encriptada = md5(clave);
-            consulta = "Select ID_usuario from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
+            consulta = "Select ID_usuario, ID_tipoUsuarios  from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
 
             PreparedStatement Prepared;
             Conexion con = new Conexion();
@@ -288,22 +288,31 @@ public class LoginMetodo {
 
             ResultSet Resultado = Prepared.executeQuery();
         if (Resultado.next()) {
-                  retorno = true;
-//                  String sQLSelect2 = "Select ID_usuario and ID_tipoUsuarios=? from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
+//            System.out.println("despues del " +ID_usuario);
+//                  retorno = true;
+//                  String sQLSelect2 = "Select ID_usuario , ID_tipoUsuarios from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
 //                  PreparedStatement cmd2 = cn.prepareStatement(sQLSelect2);
+//                  System.out.println("despues del2" +ID_usuario);
 //                  Prepared.setString(1, usuario);
 //                  Prepared.setString(2, encriptada);
-                    ID_usuario   = Resultado.getInt(1);
-//                  ID_tipoUsuarios   = Resultado.getInt(2);
+//<<<<<<< Upstream, based on origin/master
+//                    ID_usuario   = Resultado.getInt(1);
+////                  ID_tipoUsuarios   = Resultado.getInt(2);
+//=======
+////                  
+//>>>>>>> 699ce74 Casi finalizando lo mio... Ya he trabajado: - Recuperación de contraseña por preguntas  - Mascotas - Dueños - Primer uso con encriptacion de contraseña - crud ficha clínica  - preguntas - detalle factura - Tipo estado - Login - Login admin //intentando hacer inicio de sesion por rol intentando citas (esta el crud, pero da error y no sé porque)
 //                  System.out.println(ID_usuario);
-////                  Resultado = cmd2.setInt(0, 0)
+//                  Resultado = cmd2.setInt(0, 0)
 //                  Resultado = cmd2.executeQuery();
 //                  if (Resultado.next()) {
-//                  retorno = true;
-//                  
+                      ID_usuario   = Resultado.getInt("ID_usuario");
+                  ID_tipoUsuarios  = Resultado.getInt("ID_tipoUsuarios");
+                  retorno = true;
+                  
 //              }
               }
-          } catch (Exception ex) {
+          } catch (SQLException ex) {
+              System.out.println("clases.LoginMetodo.login()"+ ex);
           JOptionPane.showMessageDialog(null, "Error"+ex);
           }   
           return retorno;
@@ -321,8 +330,8 @@ public class LoginMetodo {
                     retorno = true;
                 }
             }
-            catch(Exception e){
-                System.out.println(e.toString());
+            catch(SQLException e){
+                System.out.println("login"+e.toString());
             }
             return retorno;
 
@@ -338,8 +347,8 @@ public class LoginMetodo {
             Conexion con = new Conexion();
 
             Prepared = con.conectar().prepareStatement(consulta);
-            Prepared.setInt(1, ID_pregunta);
-            Prepared.setInt(2, ID_usuario);
+            Prepared.setInt(2, ID_pregunta);
+            Prepared.setInt(1, ID_usuario);
 
             ResultSet Resultado = Prepared.executeQuery();
         if (Resultado.next()) {

@@ -316,7 +316,10 @@ public class FormularioRecuperacion extends javax.swing.JFrame {
 //        int ID_Usuario = (Integer) cmbUsuario.getSelectedItem();
         String respuesta = jTextField1.getText();
         RecuperacionContrasenia recuperacionc = new RecuperacionContrasenia();
-        
+        System.out.println("usuario pregunta " + logi.loginR(ID_usuario, ID_Pregunta));
+        System.out.println("usuario respuesta " + recuperacionc.recuperacion(ID_Pregunta, respuesta));
+        System.out.println("usuario" + ID_usuario);
+        System.out.println("pregunta" + ID_Pregunta);
         if (logi.loginR(ID_usuario, ID_Pregunta) && recuperacionc.recuperacion(ID_Pregunta, respuesta)) {
            jTextField2.setEnabled(true);
            jTextField3.setEnabled(true);

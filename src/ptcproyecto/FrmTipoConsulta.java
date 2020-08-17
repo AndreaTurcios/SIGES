@@ -279,15 +279,15 @@ public class FrmTipoConsulta extends javax.swing.JFrame {
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0)
             {
-                if (obj.EliminarTipoPago())
-                {
-                    JOptionPane.showMessageDialog(this, "Datos eliminados");
-                    CargarTablaTipoConsulta();
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoPago());
-                }
+//                if (obj.EliminarTipoPago())
+//                {
+//                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+//                    CargarTablaTipoConsulta();
+//                }
+//                else
+//                {
+//                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoPago());
+//                }
             }
         }
     }//GEN-LAST:event_btnEliminarTipoConsultaActionPerformed

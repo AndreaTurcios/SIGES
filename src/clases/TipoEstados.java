@@ -157,7 +157,38 @@ public class TipoEstados {
             }
         }
     }
-    
+    public void consultarTipoEstadosCj(JComboBox cbox_mascotat) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT ID_estado, estado FROM tipo_estado ORDER BY ID_estado";
+        try {
+         
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_mascotat.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                TipoEstados tm = new TipoEstados();
+                tm.setID_estado(resultado.getInt("ID_estado"));
+                tm.setEstado(resultado.getString("estado"));
+                cbox_mascotat.addItem(tm);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
     public boolean modificar() {
        boolean resp = false;
         cn = Conexion.conectar();
@@ -177,7 +208,14 @@ public class TipoEstados {
        }
        return resp;
     }
-    public Integer getestado() {
+    public int getestado() {
         return ID_estado;
     }
+
+    @Override
+    public String toString() {
+        return  estado ;
+    }
+    
+    
 }

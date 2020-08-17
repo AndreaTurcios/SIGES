@@ -20,6 +20,30 @@ private Connection cn;
 private Integer ID_tipoCita;
 private String tipo_Cita;
 
+    public Connection getCn() {
+        return cn;
+    }
+
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    public String getTipo_Cita() {
+        return tipo_Cita;
+    }
+
+    public void setTipo_Cita(String tipo_Cita) {
+        this.tipo_Cita = tipo_Cita;
+    }
+
+    public Pool getMetodospool() {
+        return metodospool;
+    }
+
+    public void setMetodospool(Pool metodospool) {
+        this.metodospool = metodospool;
+    }
+
 
  public Connection getcn(){
         return cn;
@@ -125,9 +149,9 @@ private String tipo_Cita;
             resultado = st.executeQuery();
             cbox_mascotat.addItem("Seleccione una opción");
             while (resultado.next()) {
-                tipoMascota tm = new tipoMascota();
-                tm.setID_tipoMascota(resultado.getInt("ID_tipoCita"));
-                tm.setTipo_animal(resultado.getString("tipo_cita"));
+                Tipocita tm = new Tipocita();
+                tm.setID_tipoCita(resultado.getInt("ID_tipoCita"));
+                tm.setTipo_Cita(resultado.getString("tipo_cita"));
                 cbox_mascotat.addItem(tm);
             }
         } catch (SQLException e) {
@@ -145,7 +169,14 @@ private String tipo_Cita;
         }
     }
     public String tipo_Cita() {
-        return tipo_Cita;
+        int ID_tipoCita = this.ID_tipoCita;
+    return null;
     }
+
+    @Override
+    public String toString() {
+        return tipo_Cita ;
+    }
+    
     
 }

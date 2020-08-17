@@ -491,7 +491,7 @@ DefaultTableModel m;
     }
     public void CargarEstado(){
         TipoEstados obj = new TipoEstados();
-        obj.consultarTipoEstados(jcbDUI1);
+        obj.consultarTipoEstadosCj(jcbDUI1);
     }
     public void CargarTipoCita(){
         Tipocita obj = new Tipocita();
@@ -518,15 +518,17 @@ DefaultTableModel m;
         obj.setID_tipoCita(ci.getID_tipoCita());
         
         int duic= Integer.parseInt(jTextField1.getText());
+        System.out.println("dui" + duic);
         obj.setDUI(duic);
         
         obj.setcita_fecha(new java.sql.Date(calendar.getDatoFecha().getTime())); 
-        
+        System.out.println("llega1");
         TipoEstados tip = (TipoEstados)jcbDUI1.getSelectedItem();
         obj.setID_estado(tip.getID_estado());
-        
+        System.out.println("llega2");
        if (obj.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
+            ListarCitas();
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos");
         }
@@ -608,7 +610,7 @@ DefaultTableModel m;
         
         int duic= Integer.parseInt(jTextField1.getText());
         obj.setDUI(duic);
-        
+         
         obj.setcita_fecha(new java.sql.Date(calendar.getDatoFecha().getTime())); 
         
         TipoEstados tip = (TipoEstados)jcbDUI1.getSelectedItem();

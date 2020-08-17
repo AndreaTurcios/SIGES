@@ -357,18 +357,18 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//    public void ValidarLvl(){ 
-//    LoginMetodo met = new LoginMetodo();
-//        if (met.getID_tipoUsuarios()==1) {
-//            System.out.println("Administrador");
-//         }else if(met.getID_tipoUsuarios()==2){
-//        System.out.println("Veterinario");
-//        }else if(met.getID_tipoUsuarios()==3){
-//        System.out.println("Secretario");
-//        }else if(met.getID_tipoUsuarios()==4){
-//        System.out.println("asdf");
-//        }
-//    }
+    public void ValidarLvl(int n){ 
+   // LoginMetodo met = new LoginMetodo();
+        if (n==1) {
+            System.out.println("Administrador");
+         }else if(n==2){
+        System.out.println("Veterinario");
+        }else if(n==3){
+        System.out.println("Secretario");
+        }else if(n==4){
+        System.out.println("asdf");
+        }
+    }
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         System.exit(0);        
     }//GEN-LAST:event_BtnCerrarActionPerformed
@@ -392,8 +392,9 @@ public class Login extends javax.swing.JFrame {
              FrmMain llamar = new FrmMain();
              llamar.setVisible(true);
              login.agregarBitacora();
-            this.dispose();  
-//            ValidarLvl();
+            this.dispose(); 
+            //ID_tipoUsuarios
+            ValidarLvl(login.getID_tipoUsuarios());
             }else{
             String valorPass = new String(txtContrasenia.getPassword());
             jTextField1.setText(valorPass);

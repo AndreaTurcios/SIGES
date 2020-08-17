@@ -115,15 +115,22 @@ public class Cita {
 
     public boolean guardar() {
         boolean resp = false;
+       clases.Conexion con = new clases.Conexion();
+       cn = con.conectar();
+        System.out.println("Entra al maetodo guardadr");
         try {String sql = "INSERT INTO Citas(cita_fecha, cita_hora, "
                 + "ID_estado, ID_tipoCita,ID_DUI)"+" VALUES (?, ?, ?, ?, ?)";
         
-        PreparedStatement cmd = cn.prepareStatement(sql);
+        System.out.println("Entra al maetodo guardadr 2");
+        System.out.println("Entra al maetodo guardadr 2" + cn);
         
+        PreparedStatement cmd = cn.prepareStatement(sql);
+        System.out.println("Entra al maetodo guardadr 3");
         cmd.setDate(1, cita_fecha);
         cmd.setTime(2,cita_hora );
         cmd.setInt(3,ID_estado);
         cmd.setInt(4,ID_tipoCita);
+            System.out.println("clases.Cita.guardar()" + DUI);
         cmd.setInt(5, DUI);
         
         
