@@ -20,6 +20,31 @@ public class LoginMetodo {
     private Date cita_fecha;
     private Time cita_hora;
     private Integer ID_tipoCita;
+    private Integer ID_tipoUsuarios;
+
+    public Connection getCn() {
+        return cn;
+    }
+
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    public Integer getID_tipoCita() {
+        return ID_tipoCita;
+    }
+
+    public void setID_tipoCita(Integer ID_tipoCita) {
+        this.ID_tipoCita = ID_tipoCita;
+    }
+
+    public Integer getID_tipoUsuarios() {
+        return ID_tipoUsuarios;
+    }
+
+    public void setID_tipoUsuarios(Integer ID_tipoUsuarios) {
+        this.ID_tipoUsuarios = ID_tipoUsuarios;
+    }
     
     public LoginMetodo() {
         //estableciendo la conexion
@@ -40,6 +65,32 @@ public class LoginMetodo {
     public void setCita_hora(Time cita_hora) {
         this.cita_hora = cita_hora;
     }
+//    public boolean comprobarLvl(String usuario, String clave){
+//     boolean retorno = false;
+//        try {
+//            String consulta;
+//            
+//            String encriptada = md5(clave);
+//            consulta = "Select ID_usuario from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
+//
+//            PreparedStatement Prepared;
+//            Conexion con = new Conexion();
+//
+//            Prepared = con.conectar().prepareStatement(consulta);
+//            Prepared.setString(1, usuario);
+//            Prepared.setString(2, encriptada);
+//
+//            ResultSet Resultado = Prepared.executeQuery();
+//        if (Resultado.next()) {
+//                  retorno = true;
+//                  ID_usuario   = Resultado.getInt(1);
+//                  System.out.println(ID_usuario);
+//              }
+//          } catch (Exception ex) {
+//          JOptionPane.showMessageDialog(null, "Error"+ex);
+//          }   
+//          return retorno;
+//    }
     public boolean guardarCita(){
         boolean resp = false;
         try{//realizando consulta insert
@@ -219,6 +270,7 @@ public class LoginMetodo {
 //        }
 //        
 //    }
+    
     public boolean login(String usuario, String clave) {
         boolean retorno = false;
         try {
@@ -237,8 +289,19 @@ public class LoginMetodo {
             ResultSet Resultado = Prepared.executeQuery();
         if (Resultado.next()) {
                   retorno = true;
+                  String sQLSelect2 = "Select ID_usuario and ID_tipoUsuarios=? from Usuarios where nombre_usuario = ? and contrasenia_usuario = ?";
+                  PreparedStatement cmd2 = cn.prepareStatement(sQLSelect2);
+                  Prepared.setString(1, usuario);
+                  Prepared.setString(2, encriptada);
                   ID_usuario   = Resultado.getInt(1);
+                  ID_tipoUsuarios   = Resultado.getInt(2);
                   System.out.println(ID_usuario);
+//                  Resultado = cmd2.setInt(0, 0)
+                  Resultado = cmd2.executeQuery();
+                  if (Resultado.next()) {
+                  retorno = true;
+                  
+              }
               }
           } catch (Exception ex) {
           JOptionPane.showMessageDialog(null, "Error"+ex);
