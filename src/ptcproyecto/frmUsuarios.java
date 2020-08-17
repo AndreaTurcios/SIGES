@@ -36,7 +36,6 @@ DefaultTableModel m;
         jtfNombre = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jtfTelefono = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jtfDireccion = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
@@ -46,7 +45,6 @@ DefaultTableModel m;
         jtfContraseña = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
         JCBcargoE = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
         jtfEmail = new javax.swing.JTextField();
         jtfApellido = new javax.swing.JTextField();
         jtbModificar = new javax.swing.JToggleButton();
@@ -130,12 +128,8 @@ DefaultTableModel m;
                 .addComponent(jLabel41)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JCBcargoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
-
-        jLabel9.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
-        jLabel9.setText("Telefono");
-        jLabel9.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         jtfApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,42 +176,39 @@ DefaultTableModel m;
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jtbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jtbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jtbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(jtbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)
-                                .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 171, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel33)
                             .addComponent(jtfNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                             .addComponent(jLabel34)
-                            .addComponent(jLabel9)
                             .addComponent(jLabel35)
                             .addComponent(jLabel36)
-                            .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtfEmail)
                             .addComponent(jtfApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                             .addComponent(jtfDireccion))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))))
+                        .addGap(54, 54, 54))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addComponent(jLabel33)
                         .addGap(1, 1, 1)
                         .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,29 +216,22 @@ DefaultTableModel m;
                         .addComponent(jLabel34)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel36)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jtbModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                                .addComponent(jtbGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jtbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -307,8 +291,7 @@ DefaultTableModel m;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -368,12 +351,6 @@ DefaultTableModel m;
              m = (DefaultTableModel)jTable1.getModel();
             ID = jTable1.getValueAt(fsel, 0).toString();
             MtoUsuarios obj = new MtoUsuarios();
-            jtfNombre.setText(obj.getNombre_empleado());
-            jtfApellido.setText(obj.getEmpleado_apellidos());
-            jtfDireccion.setText(obj.getEmpleado_domicilio());
-            jtfUsuario.setText(obj.getNombre_usuario());
-            jtfEmail.setText(obj.getEmpleado_correo());
-            jtfContraseña.setText(obj.getContrasenia_usuario());
         
             if (jtfNombre.getText().isEmpty() || jtfApellido.getText().isEmpty() || jtfEmail.getText().isEmpty() || jtfDireccion.getText().isEmpty()|| jtfUsuario.getText().isEmpty() || jtfContraseña.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
@@ -387,9 +364,11 @@ DefaultTableModel m;
             obj.setNombre_usuario(jtfUsuario.getText());
             obj.setContrasenia_usuario(jtfContraseña.getText());
             int Tipo = JCBcargoE.getSelectedIndex();
+                System.out.println(Tipo);
             obj.setID_tipoUsuarios(Tipo);
             if (obj.modificar()) {
                 JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
+                ListarUsuarios();
             }else{
                 JOptionPane.showMessageDialog(this, "Error al modificar los datos");
             }
@@ -399,21 +378,33 @@ DefaultTableModel m;
     }//GEN-LAST:event_jtbModificarActionPerformed
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
-        Usuario obj = new Usuario();
-        if (obj.Consultar()) {
-        obj.setNombre_usuario(jtfNombre.getText());
-        obj.setEmpleado_apellidos(jtfApellido.getText());
-        obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
-        obj.setCorreo(jtfEmail.getText());
-        obj.setDomicilio(jtfDireccion.getText());
-        obj.setUsuario(jtfUsuario.getText());
-        obj.setContraseña(jtfContraseña.getText());
-        obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
-//        obj.setPregunta((Integer) JCBPregunta.getSelectedItem());
-//        obj.setRespuesta(jtfRespuesta.getText());
-        }else{
-            JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
-        }
+        String ID;
+            int fsel = jTable1.getSelectedRow();
+             if (fsel==-1) {
+
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
+            }else{
+             m = (DefaultTableModel)jTable1.getModel();
+            ID = jTable1.getValueAt(fsel, 0).toString();
+            MtoUsuarios obj = new MtoUsuarios();
+            obj.setID_usuario(Integer.parseInt(ID));
+            if (obj.consultar()) {
+                jtfNombre.setText(obj.getNombre_empleado());
+                jtfApellido.setText(obj.getEmpleado_apellidos());
+                jtfDireccion.setText(obj.getEmpleado_domicilio());
+                jtfUsuario.setText(obj.getNombre_usuario());
+                jtfEmail.setText(obj.getEmpleado_correo());
+                jtfContraseña.setText(obj.getContrasenia_usuario());
+                
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Error al consultar datos");
+
+            }
+            
+            }
     }//GEN-LAST:event_jtbConsultarActionPerformed
 
     private void JBImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBImprimirActionPerformed
@@ -462,7 +453,6 @@ DefaultTableModel m;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
@@ -475,7 +465,6 @@ DefaultTableModel m;
     private javax.swing.JTextField jtfDireccion;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfNombre;
-    private javax.swing.JTextField jtfTelefono;
     private javax.swing.JTextField jtfUsuario;
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables

@@ -7,6 +7,7 @@ package clases;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -200,7 +201,7 @@ public class MtoUsuarios {
         boolean resp = false;
         try{
             //Realizar consulta UPDATE 
-            String sql = "UPDATE Usuarios nombre_usuario = ?, contrasenia_usuario = ?, nombre_empleado = ?, empleado_apellidos = ?, empleado_domicilio = ?, empleado_correo = ?, ID_tipoUsuarios = ? WHERE ID_usuario = ?;";
+            String sql = "UPDATE Usuarios SET nombre_usuario = ?, contrasenia_usuario = ?, nombre_empleado = ?, empleado_apellidos = ?, empleado_domicilio = ?, empleado_correo = ?, ID_tipoUsuarios = ? WHERE ID_usuario = ?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
             //Llenar los parametros como esta en la clase 
             cmd.setString(1, nombre_usuario);
@@ -210,6 +211,7 @@ public class MtoUsuarios {
             cmd.setString(5, empleado_domicilio);
             cmd.setString(6, empleado_correo);
             cmd.setInt(7, ID_tipoUsuarios);
+            System.out.println(ID_tipoUsuarios);
             cmd.setInt(8, ID_usuario);
             //Si da error devuelve 1, caso contrario 0
             //Tomar en cuenta el "!" de negacion
@@ -224,5 +226,32 @@ public class MtoUsuarios {
             System.out.println(e.toString());
         }
         return resp;
+    }
+    
+    public boolean consultar() {
+        boolean resp = false;
+        try {//realizando consulta insert
+            String sql = "SELECT nombre_usuario, contrasenia_usuario, nombre_empleado , empleado_apellidos , empleado_domicilio , empleado_correo FROM Usuarios WHERE ID_usuario = ?";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            cmd.setInt(1, ID_usuario);
+            System.out.println(ID_usuario);
+            ResultSet rs = cmd.executeQuery();
+            if (rs.next()) {
+                resp = true;
+                nombre_usuario = rs.getString(1);
+                contrasenia_usuario = rs.getString(2);
+                nombre_empleado = rs.getString(3);
+                empleado_apellidos = rs.getString(4);
+                empleado_domicilio = rs.getString(5);
+                empleado_correo = rs.getString(6);
+                
+            }
+            cmd.close();
+            cn.close();
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+        return resp;
+
     }
 }
