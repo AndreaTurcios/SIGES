@@ -364,11 +364,11 @@ public class Login extends javax.swing.JFrame {
         System.out.println("Administrador");
         FrmMain abri= new FrmMain();
         abri.lblTipo_Usuario.setText("Administrador");
-         }else if(n==2){
+         }else if(n==2){ 
         System.out.println("Veterinario");
         FrmMain abri= new FrmMain();
         abri.lblTipo_Usuario.setText("Veterinario");
-        }else if(n==3){
+        }else if(n==3){   
         System.out.println("Secretario");
         FrmMain abri= new FrmMain();
         abri.lblTipo_Usuario.setText("Secretario");
