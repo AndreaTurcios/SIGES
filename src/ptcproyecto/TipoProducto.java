@@ -229,7 +229,7 @@ DefaultTableModel m;
                 JOptionPane.showMessageDialog(this, "Datos guardados");
                 listarTipos();
                 clases.Bitacora b = new clases.Bitacora();
-                b.BitacoraCreate();
+                
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al guardar datos");

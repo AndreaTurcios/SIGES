@@ -293,7 +293,7 @@ public class LoginMetodo {
 //                  PreparedStatement cmd2 = cn.prepareStatement(sQLSelect2);
 //                  Prepared.setString(1, usuario);
 //                  Prepared.setString(2, encriptada);
-//                  ID_usuario   = Resultado.getInt(1);
+                    ID_usuario   = Resultado.getInt(1);
 //                  ID_tipoUsuarios   = Resultado.getInt(2);
 //                  System.out.println(ID_usuario);
 ////                  Resultado = cmd2.setInt(0, 0)
