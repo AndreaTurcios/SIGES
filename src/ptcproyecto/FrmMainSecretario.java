@@ -51,9 +51,6 @@ public class FrmMainSecretario extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btntipoCliente1 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -242,69 +239,12 @@ public class FrmMainSecretario extends javax.swing.JFrame {
             }
         });
 
-        jLabel19.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("  Tipo estado");
-        jLabel19.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jLabel19.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel19.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel19.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel19MouseClicked(evt);
-            }
-        });
-
-        jLabel21.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("  Factura");
-        jLabel21.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jLabel21.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel21.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel21.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel21MouseClicked(evt);
-            }
-        });
-
-        jLabel22.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("  Bitàcora");
-        jLabel22.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jLabel22.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel22.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel22.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel22MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btntipoCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,8 +255,19 @@ public class FrmMainSecretario extends javax.swing.JFrame {
                                     .addComponent(lblTipo_Usuario)
                                     .addComponent(jLabel01)
                                     .addComponent(lblUsuario)))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 85, Short.MAX_VALUE))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btntipoCliente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,23 +283,17 @@ public class FrmMainSecretario extends javax.swing.JFrame {
                         .addComponent(jLabel01)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btntipoCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(186, 186, 186)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btntipoCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -427,9 +372,6 @@ public class FrmMainSecretario extends javax.swing.JFrame {
         jLabel5.setForeground(Color.WHITE);
         btntipoCliente1.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.BLACK);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         Agenda fich= new Agenda();
         panelArriba.add(fich);
@@ -442,9 +384,6 @@ public class FrmMainSecretario extends javax.swing.JFrame {
         jLabel5.setForeground(Color.WHITE);
         btntipoCliente1.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         Citas fich= new Citas();
         panelArriba.add(fich);
@@ -457,9 +396,6 @@ public class FrmMainSecretario extends javax.swing.JFrame {
         jLabel5.setForeground(Color.BLACK);
         btntipoCliente1.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         frmConsultas fich =new frmConsultas();
         panelArriba.add(fich);
@@ -472,9 +408,6 @@ public class FrmMainSecretario extends javax.swing.JFrame {
         jLabel5.setForeground(Color.WHITE);
         btntipoCliente1.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmTipo_cita fich= new frmTipo_cita ();
@@ -488,9 +421,6 @@ public class FrmMainSecretario extends javax.swing.JFrame {
         jLabel5.setForeground(Color.WHITE);
         btntipoCliente1.setForeground(Color.BLACK);
         jLabel2.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoConsulta fich= new TipoConsulta();
@@ -537,54 +467,6 @@ public class FrmMainSecretario extends javax.swing.JFrame {
        
        this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_panelArribaMouseDragged
-
-    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.BLACK);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        TipoEstado fich= new TipoEstado ();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel19MouseClicked
-
-    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.BLACK);
-        jLabel22.setForeground(Color.WHITE);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        Factura fich= new Factura ();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel21MouseClicked
-
-    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-       jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.BLACK);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        Bitacora fich= new Bitacora ();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel22MouseClicked
         
         
     /**
@@ -630,10 +512,7 @@ public class FrmMainSecretario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel01;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
