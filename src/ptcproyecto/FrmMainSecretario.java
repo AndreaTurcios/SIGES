@@ -51,6 +51,8 @@ public class FrmMainSecretario extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btntipoCliente1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -239,6 +241,34 @@ public class FrmMainSecretario extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel10.setText("   Preguntas");
+        jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 2, true));
+        jLabel10.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel10.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel10.setName(""); // NOI18N
+        jLabel10.setPreferredSize(new java.awt.Dimension(159, 20));
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel20.setText("  Respuestas");
+        jLabel20.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 2, true));
+        jLabel20.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel20.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel20.setName(""); // NOI18N
+        jLabel20.setPreferredSize(new java.awt.Dimension(159, 20));
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
@@ -266,7 +296,13 @@ public class FrmMainSecretario extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -283,16 +319,20 @@ public class FrmMainSecretario extends javax.swing.JFrame {
                         .addComponent(jLabel01)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btntipoCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -467,6 +507,37 @@ public class FrmMainSecretario extends javax.swing.JFrame {
        
        this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_panelArribaMouseDragged
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        jLabel4.setForeground(Color.WHITE);
+        jLabel15.setForeground(Color.WHITE);
+        jLabel5.setForeground(Color.WHITE);
+        btntipoCliente1.setForeground(Color.WHITE);
+        jLabel2.setForeground(Color.WHITE);
+        jLabel10.setForeground(Color.BLACK);
+        jLabel20.setForeground(Color.WHITE);
+        lblLogo.setVisible(false);
+        panelArriba.removeAll();
+        FrmPreguntas fich= new FrmPreguntas();
+        panelArriba.add(fich);
+        fich.show();
+
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        jLabel4.setForeground(Color.WHITE);
+        jLabel15.setForeground(Color.WHITE);
+        jLabel5.setForeground(Color.WHITE);
+        btntipoCliente1.setForeground(Color.WHITE);
+        jLabel2.setForeground(Color.WHITE);
+        jLabel10.setForeground(Color.WHITE);
+        jLabel20.setForeground(Color.BLACK);
+        lblLogo.setVisible(false);
+        panelArriba.removeAll();
+        Respuestas fich= new Respuestas ();
+        panelArriba.add(fich);
+        fich.show();
+    }//GEN-LAST:event_jLabel20MouseClicked
         
         
     /**
@@ -511,8 +582,10 @@ public class FrmMainSecretario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel01;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
