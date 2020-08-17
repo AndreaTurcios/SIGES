@@ -123,14 +123,14 @@ public class controlNacionalidad
         String [] columnas = {"ID_nacionalidad", "nacionalidad"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM nacionalidad ORDER BY ID_nacionalidad";
-        String [] filas = new String[3];
+        String [] filas = new String[2];
         Statement st = null;
         ResultSet rs = null;
         try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 2; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
