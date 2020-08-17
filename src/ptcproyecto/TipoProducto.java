@@ -8,6 +8,7 @@ package ptcproyecto;
 
 import clases.tipoProductos;
 import clases.Conexion;
+import clases.LoginMetodo;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -227,6 +228,8 @@ DefaultTableModel m;
             if (obj.guardar()) {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
                 listarTipos();
+                clases.Bitacora b = new clases.Bitacora();
+                b.BitacoraCreate();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al guardar datos");

@@ -28,7 +28,7 @@ public class MtoBitacora {
         String [] columnas = {"ID", "Accion", "Instruccion", "Fecha y Hora", "ID_usuario"};
         model = new DefaultTableModel(null, columnas);
         
-        String sql = "SELECT ID_bitacora, accion, instruccion, fecha, nombre_usuario FROM bitacora b, Usuarios u  ORDER BY ID_bitacora";
+        String sql = "SELECT ID_bitacora, accion, instruccion, fecha, ID_usuario FROM bitacora";
         String [] filas = new String[5];
         Statement st = null;
         ResultSet rs = null;
