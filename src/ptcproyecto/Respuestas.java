@@ -79,7 +79,7 @@ DefaultTableModel m;
             }
         });
         kGradientPanel1.add(btnCerrar1);
-        btnCerrar1.setBounds(640, 0, 50, 50);
+        btnCerrar1.setBounds(610, 0, 50, 50);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
@@ -92,7 +92,7 @@ DefaultTableModel m;
             }
         });
         jPanel2.add(btnGuardar);
-        btnGuardar.setBounds(540, 170, 120, 50);
+        btnGuardar.setBounds(470, 170, 120, 50);
 
         txtRespuesta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +100,7 @@ DefaultTableModel m;
             }
         });
         jPanel2.add(txtRespuesta);
-        txtRespuesta.setBounds(90, 80, 580, 71);
+        txtRespuesta.setBounds(90, 80, 520, 71);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Respuesta:");
@@ -110,7 +110,7 @@ DefaultTableModel m;
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Usuario:");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(410, 30, 70, 17);
+        jLabel9.setBounds(380, 30, 70, 17);
 
         jPanel2.add(cmbPregunta);
         cmbPregunta.setBounds(90, 30, 270, 20);
@@ -123,7 +123,7 @@ DefaultTableModel m;
             }
         });
         jPanel2.add(btnLimpiar);
-        btnLimpiar.setBounds(410, 170, 120, 50);
+        btnLimpiar.setBounds(350, 170, 110, 50);
 
         btnImprimir.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btnImprimir.setText("Imprimir");
@@ -133,7 +133,7 @@ DefaultTableModel m;
             }
         });
         jPanel2.add(btnImprimir);
-        btnImprimir.setBounds(280, 170, 120, 50);
+        btnImprimir.setBounds(230, 170, 110, 50);
 
         txtI.setBorder(null);
         jPanel2.add(txtI);
@@ -147,7 +147,7 @@ DefaultTableModel m;
             }
         });
         jPanel2.add(btnEliminar);
-        btnEliminar.setBounds(20, 170, 120, 50);
+        btnEliminar.setBounds(10, 170, 100, 50);
 
         btnModificar1.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btnModificar1.setText("Modificar");
@@ -157,14 +157,14 @@ DefaultTableModel m;
             }
         });
         jPanel2.add(btnModificar1);
-        btnModificar1.setBounds(150, 170, 120, 50);
+        btnModificar1.setBounds(120, 170, 100, 50);
 
         jTextField1.setBorder(null);
         jPanel2.add(jTextField1);
         jTextField1.setBounds(370, 30, 20, 14);
 
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(500, 30, 130, 20);
+        jComboBox1.setBounds(460, 30, 130, 20);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Pregunta:");
@@ -188,26 +188,24 @@ DefaultTableModel m;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 70, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 267, Short.MAX_VALUE)))
         );
 
         pack();
