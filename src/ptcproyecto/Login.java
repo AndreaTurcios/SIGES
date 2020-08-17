@@ -392,9 +392,8 @@ public class Login extends javax.swing.JFrame {
              FrmMain llamar = new FrmMain();
              llamar.setVisible(true);
              login.agregarBitacora();
-             ValidarLvl();
             this.dispose();  
-            
+            ValidarLvl();
             }else{
             String valorPass = new String(txtContrasenia.getPassword());
             jTextField1.setText(valorPass);
