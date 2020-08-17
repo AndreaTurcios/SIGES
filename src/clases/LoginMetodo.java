@@ -289,10 +289,10 @@ public class LoginMetodo {
             ResultSet Resultado = Prepared.executeQuery();
         if (Resultado.next()) {
                   retorno = true;
-                  String sQLSelect2 = "Select ID_tipoUsuarios from Usuarios";
+                  String sQLSelect2 = "SELECT ID_tipoUsuarios from Usuarios where ID_usuario=?";
                   PreparedStatement cmd2 = cn.prepareStatement(sQLSelect2);
                   ID_tipoUsuarios   = Resultado.getInt(1);
-                  System.out.println(ID_usuario);
+                  ID_usuario   = Resultado.getInt(2);
 //                  Resultado = cmd2.setInt(0, 0)
                   Resultado = cmd2.executeQuery();
                   if (Resultado.next()) {
