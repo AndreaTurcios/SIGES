@@ -41,6 +41,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     {
         initComponents();
         CargarTablaTipoConsulta();
+        txtID.setVisible(false);
     }
 
     /**
@@ -52,17 +53,6 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        btnMostrarTipoConsulta = new javax.swing.JButton();
-        btnGuardarTipoConsulta = new javax.swing.JButton();
-        btnEliminarTipoConsulta = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        btnModificarTipoConsulta = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btnCerrar1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTipoConsulta = new javax.swing.JTable();
@@ -72,89 +62,16 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         btnTipoPago = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         txtID = new javax.swing.JTextField();
-        BtnCerrar = new javax.swing.JButton();
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Mantenimientos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
-        jPanel1.setLayout(null);
-
-        btnMostrarTipoConsulta.setBackground(new java.awt.Color(0, 136, 130));
-        btnMostrarTipoConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnMostrarTipoConsulta.setText("Mostrar");
-        btnMostrarTipoConsulta.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnMostrarTipoConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarTipoConsultaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnMostrarTipoConsulta);
-        btnMostrarTipoConsulta.setBounds(10, 230, 160, 50);
-
-        btnGuardarTipoConsulta.setBackground(new java.awt.Color(0, 136, 130));
-        btnGuardarTipoConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnGuardarTipoConsulta.setText("Guardar");
-        btnGuardarTipoConsulta.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnGuardarTipoConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarTipoConsultaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnGuardarTipoConsulta);
-        btnGuardarTipoConsulta.setBounds(10, 20, 160, 50);
-
-        btnEliminarTipoConsulta.setBackground(new java.awt.Color(0, 136, 130));
-        btnEliminarTipoConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnEliminarTipoConsulta.setText("Eliminar");
-        btnEliminarTipoConsulta.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnEliminarTipoConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarTipoConsultaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEliminarTipoConsulta);
-        btnEliminarTipoConsulta.setBounds(10, 160, 160, 50);
-        jPanel1.add(jSeparator1);
-        jSeparator1.setBounds(0, 220, 200, 20);
-        jPanel1.add(jSeparator2);
-        jSeparator2.setBounds(-10, 80, 200, 10);
-        jPanel1.add(jSeparator3);
-        jSeparator3.setBounds(-10, 150, 200, 20);
-
-        btnModificarTipoConsulta.setBackground(new java.awt.Color(0, 136, 130));
-        btnModificarTipoConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnModificarTipoConsulta.setText("Modificar");
-        btnModificarTipoConsulta.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnModificarTipoConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarTipoConsultaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarTipoConsulta);
-        btnModificarTipoConsulta.setBounds(10, 90, 160, 50);
-
-        jPanel3.setBackground(new java.awt.Color(157, 34, 202));
-        jPanel3.setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Tipo Consulta");
-        jPanel3.add(jLabel2);
-        jLabel2.setBounds(10, 7, 200, 40);
-
-        btnCerrar1.setBackground(new java.awt.Color(255, 102, 102));
-        btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
-        btnCerrar1.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        btnCerrar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrar1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnCerrar1);
-        btnCerrar1.setBounds(650, 0, 50, 60);
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        btnCerrar1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        btnGuardarTipoConsulta = new javax.swing.JButton();
+        btnModificarTipoConsulta = new javax.swing.JButton();
+        btnEliminarTipoConsulta = new javax.swing.JButton();
+        btnMostrarTipoConsulta = new javax.swing.JButton();
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel5.setLayout(null);
 
         jTableTipoConsulta.setModel(new javax.swing.table.DefaultTableModel(
@@ -171,10 +88,9 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableTipoConsulta);
 
         jPanel5.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 20, 660, 190);
+        jScrollPane1.setBounds(10, 20, 650, 220);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel2.setLayout(null);
         jPanel2.add(txtNombreTipoConsulta);
         txtNombreTipoConsulta.setBounds(170, 60, 290, 20);
@@ -184,9 +100,10 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel3);
         jLabel3.setBounds(20, 30, 176, 17);
 
-        btnTipoPago.setBackground(new java.awt.Color(0, 136, 130));
+        btnTipoPago.setBackground(new java.awt.Color(204, 204, 204));
         btnTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnTipoPago.setText("Limpiar");
+        btnTipoPago.setBorder(null);
         btnTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
         btnTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,11 +111,12 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnTipoPago);
-        btnTipoPago.setBounds(260, 240, 110, 30);
+        btnTipoPago.setBounds(360, 90, 110, 30);
 
-        btnImprimir.setBackground(new java.awt.Color(0, 136, 130));
+        btnImprimir.setBackground(new java.awt.Color(204, 204, 204));
         btnImprimir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnImprimir.setText("Imprimir");
+        btnImprimir.setBorder(null);
         btnImprimir.setPreferredSize(new java.awt.Dimension(90, 60));
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,57 +124,153 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnImprimir);
-        btnImprimir.setBounds(80, 240, 130, 30);
+        btnImprimir.setBounds(160, 90, 130, 30);
 
         txtID.setFocusable(false);
         jPanel2.add(txtID);
         txtID.setBounds(20, 100, 6, 20);
 
-        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
-        BtnCerrar.setToolTipText("");
-        BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkGradientFocus(600);
+        kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
+
+        btnCerrar1.setBackground(new java.awt.Color(204, 204, 204));
+        btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
+        btnCerrar1.setBorder(null);
+        btnCerrar1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        btnCerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarActionPerformed(evt);
+                btnCerrar1ActionPerformed(evt);
             }
         });
+
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Tipo consulta");
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(279, 279, 279)
+                .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnGuardarTipoConsulta.setBackground(new java.awt.Color(204, 204, 204));
+        btnGuardarTipoConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnGuardarTipoConsulta.setText("Guardar");
+        btnGuardarTipoConsulta.setBorder(null);
+        btnGuardarTipoConsulta.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnGuardarTipoConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarTipoConsultaActionPerformed(evt);
+            }
+        });
+
+        btnModificarTipoConsulta.setBackground(new java.awt.Color(204, 204, 204));
+        btnModificarTipoConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnModificarTipoConsulta.setText("Modificar");
+        btnModificarTipoConsulta.setBorder(null);
+        btnModificarTipoConsulta.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnModificarTipoConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarTipoConsultaActionPerformed(evt);
+            }
+        });
+
+        btnEliminarTipoConsulta.setBackground(new java.awt.Color(204, 204, 204));
+        btnEliminarTipoConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnEliminarTipoConsulta.setText("Eliminar");
+        btnEliminarTipoConsulta.setBorder(null);
+        btnEliminarTipoConsulta.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnEliminarTipoConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarTipoConsultaActionPerformed(evt);
+            }
+        });
+
+        btnMostrarTipoConsulta.setBackground(new java.awt.Color(204, 204, 204));
+        btnMostrarTipoConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnMostrarTipoConsulta.setText("Mostrar");
+        btnMostrarTipoConsulta.setBorder(null);
+        btnMostrarTipoConsulta.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnMostrarTipoConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarTipoConsultaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(btnGuardarTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnModificarTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEliminarTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMostrarTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGuardarTipoConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModificarTipoConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarTipoConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrarTipoConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BtnCerrar)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BtnCerrar))
-                    .addGap(10, 10, 10)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(10, 10, 10)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(67, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(384, Short.MAX_VALUE)))
         );
 
         pack();
@@ -344,10 +358,6 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
          }
     }//GEN-LAST:event_btnModificarTipoConsultaActionPerformed
 
-    private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
-        this.dispose ();
-    }//GEN-LAST:event_btnCerrar1ActionPerformed
-
     private void btnTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoPagoActionPerformed
         txtNombreTipoConsulta.setText("");
     }//GEN-LAST:event_btnTipoPagoActionPerformed
@@ -391,13 +401,12 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         */
     }//GEN-LAST:event_btnImprimirActionPerformed
 
-    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
+    private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         this.dispose ();
-    }//GEN-LAST:event_BtnCerrarActionPerformed
+    }//GEN-LAST:event_btnCerrar1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCerrar;
     private javax.swing.JButton btnCerrar1;
     private javax.swing.JButton btnEliminarTipoConsulta;
     private javax.swing.JButton btnGuardarTipoConsulta;
@@ -405,17 +414,14 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnModificarTipoConsulta;
     private javax.swing.JButton btnMostrarTipoConsulta;
     private javax.swing.JButton btnTipoPago;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTableTipoConsulta;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombreTipoConsulta;
     // End of variables declaration//GEN-END:variables
