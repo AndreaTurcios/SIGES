@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -27,6 +28,7 @@ public class MtoConsulta {
     private Conexion conexion;
     private Integer ID;
     private Date Fecha;
+    private Time Hora;
     private Integer Tipo;
     private Integer DUI;
     private Integer Estado;
@@ -48,13 +50,14 @@ public class MtoConsulta {
             boolean resp = false;  
             cn = conexion.conectar();
             System.err.println("Estado " + cn.getClientInfo());
-            String sql = "INSERT INTO Consulta (consulta_fecha, ID_estado, ID_tipoConsulta, ID_DUI)"+"VALUES(?,?,?, ?)";
+            String sql = "INSERT INTO Consulta (consulta_fecha, consulta_hora, ID_estado, ID_tipoConsulta, ID_DUI)"+"VALUES(?,?,?, ?, ?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
             System.out.println("preparada" + cmd);
             cmd.setDate(1, Fecha);
-            cmd.setInt(2, Estado);
-            cmd.setInt(3, Tipo);
-            cmd.setInt(4, DUI);
+            cmd.setTime(2, Hora);
+            cmd.setInt(3, Estado);
+            cmd.setInt(4, Tipo);
+            cmd.setInt(5, DUI);
             System.out.println("fecha" + Fecha);
             System.out.println(Estado);
             System.out.println(Tipo);
@@ -77,13 +80,14 @@ public class MtoConsulta {
        boolean resp = false;
         cn = Conexion.conectar();
        try{
-       String sql = "UPDATE Consulta SET consulta_fecha = ?, ID_estado=?, ID_tipoConsulta=? ,ID_DUI = ? WHERE ID_consulta =?;";
+       String sql = "UPDATE Consulta SET consulta_fecha = ?, consulta_hora = ?,ID_estado=?, ID_tipoConsulta=? ,ID_DUI = ? WHERE ID_consulta =?;";
        PreparedStatement cmd = cn.prepareStatement(sql);
        cmd.setDate(1, Fecha);
-       cmd.setInt(2, Estado);
-       cmd.setInt(3, Tipo);
-       cmd.setInt(4, DUI);
-       cmd.setInt(5, ID);
+       cmd.setTime(2, Hora);
+       cmd.setInt(3, Estado);
+       cmd.setInt(4, Tipo);
+       cmd.setInt(5, DUI);
+       cmd.setInt(6, ID);
        
            if (!cmd.execute()) {
                resp = true;
@@ -94,6 +98,27 @@ public class MtoConsulta {
        System.out.println(e.toString());
        }
        return resp;
+    }
+    
+    public boolean eliminar(){
+        boolean resp = false;
+        try{
+            //Realizar consulta DELETE
+            String sql = "DELETE FROM Consulta WHERE ID_consulta = ?";
+            PreparedStatement cmd = cn.prepareStatement(sql);//Llenar los parametros
+            cmd.setInt(1, ID);
+            //Si da error devuelve 1, caso contrario 0
+            //Tomar en cuenta el "!" de negacion
+            if (!cmd.execute()) {
+                resp = true;
+            }
+            cmd.close();
+            cn.close();           
+        }
+        catch(Exception e){
+            System.out.println(e.toString());
+        }
+        return resp;
     }
     
     public boolean consultar(){
@@ -341,5 +366,19 @@ public class MtoConsulta {
      */
     public void setMetodospool(Pool metodospool) {
         this.metodospool = metodospool;
+    }
+
+    /**
+     * @return the Hora
+     */
+    public Time getHora() {
+        return Hora;
+    }
+
+    /**
+     * @param Hora the Hora to set
+     */
+    public void setHora(Time Hora) {
+        this.Hora = Hora;
     }
 }
