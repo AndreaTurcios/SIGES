@@ -553,8 +553,7 @@ public class FrmMain extends javax.swing.JFrame {
                                     .addComponent(lblTipo_Usuario)
                                     .addComponent(jLabel01)
                                     .addComponent(lblUsuario)))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -1485,7 +1484,7 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel01;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    public static javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

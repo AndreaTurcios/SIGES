@@ -364,17 +364,17 @@ public class Login extends javax.swing.JFrame {
         System.out.println("Administrador");
         FrmMain abri= new FrmMain();
         abri.lblTipo_Usuario.setText("Administrador");
-         }else if(n==2){ 
-        System.out.println("Veterinario");
+        JOptionPane.showMessageDialog(null, "Bienvenido administrador "+texto);
+        }else if(n==2){ 
+         JOptionPane.showMessageDialog(null, "Bienvenido veterinario "+texto);
         FrmMain abri= new FrmMain();
         abri.lblTipo_Usuario.setText("Veterinario");
+        abri.jLabel11.setVisible(false);
         }else if(n==3){   
-        System.out.println("Secretario");
+        JOptionPane.showMessageDialog(null, "Bienvenido secretario "+texto);
         FrmMain abri= new FrmMain();
         abri.lblTipo_Usuario.setText("Secretario");
         abri.jLabel6.setVisible(false);
-        }else if(n==4){
-        System.out.println("asdf");
         }
     }
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
