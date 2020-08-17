@@ -29,19 +29,23 @@ public class CrudRespuestas
     private Integer IDPregunta;
     private Integer ID_usuario;
 
-    public Integer getID_usuario() {
+    public Integer getID_usuario() 
+    {
         return ID_usuario;
     }
 
-    public void setID_usuario(Integer ID_usuario) {
+    public void setID_usuario(Integer ID_usuario) 
+    {
         this.ID_usuario = ID_usuario;
     }
 
-    public Pool getMetodospool() {
+    public Pool getMetodospool() 
+    {
         return metodospool;
     }
 
-    public void setMetodospool(Pool metodospool) {
+    public void setMetodospool(Pool metodospool) 
+    {
         this.metodospool = metodospool;
     }
     
@@ -86,6 +90,7 @@ public class CrudRespuestas
     {
         this.Respuesta = Respuesta;
     }
+    
     public String toString() 
     {
         return Respuesta;
@@ -109,49 +114,56 @@ public class CrudRespuestas
     
     public boolean GuardarRespuesta ()
     {
-        boolean resp = false;
-        try
-        {
-            String sql = "INSERT INTO respuestas (respuesta, ID_Pregunta) VALUES (?, ?)";
+        try {//realizando consulta insert
+            boolean resp = false;
+            cn = conexion.conectar();
+            System.err.println("Estado " + cn.getClientInfo());
+            String sql = "INSERT INTO respuestas (respuesta, ID_Pregunta)" + "VALUES(?,?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
+            System.out.println("preparada" + cmd);
             cmd.setString(1, Respuesta);
+            System.out.println("dui " + Respuesta);
             cmd.setInt(2, IDPregunta);
+            System.out.println(IDPregunta);
             if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
             cn.close();
-        }
-        catch (Exception a)
+            return resp;
+        } 
+        catch (SQLException ex) 
         {
-            System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede guardar el registro, Error en el CrudRespuestas.java - Guardar_Respuesta"+a);
+            System.err.println("Error guardar Cliente2 " + ex);
+            return false;
         }
-        return resp;
     }
     
     public boolean ModificarRespuesta () 
     {
         boolean resp = false;
-        try
+        try 
         {
-            String sql = "UPDATE respuestas SET respuesta = ?, ID_Pregunta = ? WHERE ID_respuesta = ?";
+            System.err.println("conexion" + cn);
+            String sql = "UPDATE respuestas SET respuesta=?, ID_Pregunta=? WHERE ID_respuesta=?";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setString(1, Respuesta);
-            cmd.setInt(2, IDPregunta);
-            cmd.setInt(3, IDRespuesta);
+            System.out.println(Respuesta);
+            cmd.setInt(2, IDRespuesta);
+            System.out.println(IDRespuesta);
+            cmd.setInt(3, IDPregunta);
+            System.out.println(IDPregunta);
             if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
             cn.close();
-        }
-        catch (Exception a)
+        } 
+        catch (Exception ex) 
         {
-            System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede modificar el registro, Error en el CrudRespuestas.java - Modificar_Respuesta ERROR:" + a);
+            System.out.println(ex.toString());
         }
         return resp;
     }
@@ -161,20 +173,19 @@ public class CrudRespuestas
         boolean resp = false;
         try 
         {
-            String sql = "DELETE FROM respuestas WHERE ID_respuesta = ?";
+            String sql = "DELETE FROM respuestas WHERE ID_respuesta=?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setInt(1, IDRespuesta);
-            if (!cmd.execute())
+            if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
             cn.close();
         } 
-        catch(Exception a) 
+        catch (Exception ex) 
         {
-            System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede eliminar el registro, Error en el CrudRespuestas.java - Eliminar_Respuesta ERROR:" + a);        
+            System.out.println("Error exception es"+ex.toString());
         }
         return resp;
     }

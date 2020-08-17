@@ -26,7 +26,6 @@ public class CrudTipoConsulta
     private Integer IDTipoConsulta;
     private String TipoConsulta;
     
-    Pool metodospool = new Pool();
 
     public Connection getcn() 
     {
@@ -48,7 +47,7 @@ public class CrudTipoConsulta
         this.conexion = conexion;
     }
 
-    public Integer IDTipoConsulta() 
+    public Integer getIDTipoConsulta() 
     {
         return IDTipoConsulta;
     }
@@ -67,10 +66,7 @@ public class CrudTipoConsulta
     {
         this.TipoConsulta = TipoConsulta;
     }
-    public String toString() 
-    {
-        return TipoConsulta;
-    }
+
         
     public CrudTipoConsulta() 
     {
@@ -104,46 +100,47 @@ public class CrudTipoConsulta
     public boolean ModificarTipoConsulta () 
     {
         boolean resp = false;
-        try
+        try 
         {
-            String sql = "UPDATE Tipo_consulta SET tipo_consulta = ? WHERE ID_tipoConsulta = ?";
+            System.err.println("conexion" + cn);
+            String sql = "UPDATE Tipo_consulta SET tipo_consulta=? WHERE ID_tipoConsulta=?";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setString(1, TipoConsulta);
+            System.out.println(TipoConsulta);
             cmd.setInt(2, IDTipoConsulta);
+            System.out.println(IDTipoConsulta);
             if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
             cn.close();
-        }
-        catch (Exception a)
+        } 
+        catch (Exception ex) 
         {
-            System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede modificar el registro, Error en el CrudTipoConsulta.java - ModificarTipoConsulta ERROR:" + a);
+            System.out.println(ex.toString());
         }
         return resp;
     }
     
-    public boolean EliminarTipoPago ()
+    public boolean EliminarTipoConsulta ()
     {
         boolean resp = false;
         try 
         {
-            String sql = "DELETE * FROM Tipo_consulta WHERE ID_tipoConsulta = ?";
+            String sql = "DELETE FROM Tipo_consulta WHERE ID_tipoConsulta=?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setInt(1, IDTipoConsulta);
-            if (!cmd.execute())
+            if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
             cn.close();
         } 
-        catch(Exception a) 
+        catch (Exception ex) 
         {
-            System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede eliminar el registro, Error en el crud_tipo_pago.java - EliminarTipoConsulta ERROR:" + a);        
+            System.out.println("Error exception es"+ex.toString());
         }
         return resp;
     }

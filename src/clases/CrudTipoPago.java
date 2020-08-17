@@ -27,8 +27,6 @@ public class CrudTipoPago
     private Integer IDtipoPago;
     private String tipopago;
     
-    Pool metodospool = new Pool();
-
     public Connection getcn() 
     {
         return cn;
@@ -105,23 +103,25 @@ public class CrudTipoPago
     public boolean ModificarTipoPago () 
     {
         boolean resp = false;
-        try
+        try 
         {
-            String sql = "UPDATE Tipo_pago SET tipo_pago = ? WHERE ID_tipoPago = ?";
+            System.err.println("conexion" + cn);
+            String sql = "UPDATE Tipo_pago SET tipo_pago=? WHERE ID_tipoPago=?";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setString(1, tipopago);
+            System.out.println(tipopago);
             cmd.setInt(2, IDtipoPago);
+            System.out.println(IDtipoPago);
             if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
             cn.close();
-        }
-        catch (Exception a)
+        } 
+        catch (Exception ex) 
         {
-            System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede modificar el registro, Error en el crud_tipo_pago.java - Modificar_Tipo_Pago ERROR:" + a);
+            System.out.println(ex.toString());
         }
         return resp;
     }
@@ -131,20 +131,19 @@ public class CrudTipoPago
         boolean resp = false;
         try 
         {
-            String sql = "DELETE FROM  WHERE ID_respuesta = ?";
+            String sql = "DELETE FROM Tipo_pago WHERE ID_tipoPago=?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setInt(1, IDtipoPago);
-            if (!cmd.execute())
+            if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
             cn.close();
         } 
-        catch(Exception a) 
+        catch (Exception ex) 
         {
-            System.out.println(a.toString());
-            JOptionPane.showMessageDialog(null, "No se puede eliminar el registro, Error en el crud_tipo_pago.java - Eliminar_Tipo_Pago ERROR:" + a);        
+            System.out.println("Error exception es"+ex.toString());
         }
         return resp;
     }
@@ -194,7 +193,7 @@ public class CrudTipoPago
         String SSQL = "SELECT ID_Pregunta, pregunta FROM preguntas ORDER BY ID_Pregunta";
         try 
         {
-            cn = metodospool.dataSource.getConnection();
+            //cn = metodospool.dataSource.getConnection();
             st = cn.prepareStatement(SSQL);
             resultado = st.executeQuery();
             cmbPregunta.addItem("Seleccione una opción");
