@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+ 
 public class Login extends javax.swing.JFrame {
     Conexion cc =new Conexion();
     Connection con = cc.conectar();
@@ -363,7 +363,6 @@ public class Login extends javax.swing.JFrame {
      if (n==1) {
         System.out.println("Administrador");
         FrmMain abri= new FrmMain();
-        abri.jLabel6.setVisible(false);
         abri.lblTipo_Usuario.setText("Administrador");
          }else if(n==2){
         System.out.println("Veterinario");
@@ -371,6 +370,9 @@ public class Login extends javax.swing.JFrame {
         abri.lblTipo_Usuario.setText("Veterinario");
         }else if(n==3){
         System.out.println("Secretario");
+        FrmMain abri= new FrmMain();
+        abri.lblTipo_Usuario.setText("Secretario");
+        abri.jLabel6.setVisible(false);
         }else if(n==4){
         System.out.println("asdf");
         }
