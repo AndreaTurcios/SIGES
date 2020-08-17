@@ -362,19 +362,25 @@ public class Login extends javax.swing.JFrame {
     public void ValidarLvl(int n){ 
      if (n==1) {
         System.out.println("Administrador");
-        FrmMain abri= new FrmMain();
-        abri.lblTipo_Usuario.setText("Administrador");
+        FrmMain llamar = new FrmMain();
+        llamar.setVisible(true);
         JOptionPane.showMessageDialog(null, "Bienvenido administrador "+texto);
+        
         }else if(n==2){ 
-         JOptionPane.showMessageDialog(null, "Bienvenido veterinario "+texto);
-        FrmMain abri= new FrmMain();
-        abri.lblTipo_Usuario.setText("Veterinario");
-        abri.jLabel11.setVisible(false);
-        }else if(n==3){   
+        FrmMainVeterinario llamar = new FrmMainVeterinario();
+        llamar.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Bienvenido veterinario "+texto);
+        }else if(n==3){ 
+        FrmMainSecretario llamar = new FrmMainSecretario();
+        llamar.setVisible(true);
         JOptionPane.showMessageDialog(null, "Bienvenido secretario "+texto);
-        FrmMain abri= new FrmMain();
-        abri.lblTipo_Usuario.setText("Secretario");
-        abri.jLabel6.setVisible(false);
+        }else if(n==4){ 
+        FrmMainRecepcionista llamar = new FrmMainRecepcionista();
+        llamar.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Bienvenido recepcionista "+texto);
+        }else if(n==5){ 
+        
+        JOptionPane.showMessageDialog(null, "Bienvenido bodeguero "+texto);
         }
     }
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
@@ -397,8 +403,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
            }else{
             if (login.login(usuario, contrasenia)) {
-             FrmMain llamar = new FrmMain();
-             llamar.setVisible(true);
+             
              login.agregarBitacora();
             this.dispose(); 
             //ID_tipoUsuarios

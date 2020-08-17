@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
  *
  * @author 15-CW0001la
  */
-public class FrmMain extends javax.swing.JFrame {
+public class FrmMainRecepcionista extends javax.swing.JFrame {
     int clicked = 0;
     /**
      * Creates new form FrmMain
      */
-    public FrmMain() {
+    public FrmMainRecepcionista() {
         initComponents();
         this.setLocationRelativeTo(null);
 //        jLabel10.setVisible(false);
@@ -25,7 +25,7 @@ public class FrmMain extends javax.swing.JFrame {
         
     }
     
-    public FrmMain(clases.Bitacora mod){
+    public FrmMainRecepcionista(clases.Bitacora mod){
         initComponents();
         
     }
@@ -176,7 +176,7 @@ public class FrmMain extends javax.swing.JFrame {
 
         lblTipo_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblTipo_Usuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblTipo_Usuario.setText("Administrador");
+        lblTipo_Usuario.setText("Recepcionista");
 
         jLabel01.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel01.setForeground(new java.awt.Color(51, 255, 51));
@@ -1459,20 +1459,21 @@ public class FrmMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmMain().setVisible(true);
+                new FrmMainRecepcionista().setVisible(true);
             }
         });
     }

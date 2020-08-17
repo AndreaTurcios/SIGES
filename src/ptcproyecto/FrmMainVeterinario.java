@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
  *
  * @author 15-CW0001la
  */
-public class FrmMain extends javax.swing.JFrame {
+public class FrmMainVeterinario extends javax.swing.JFrame {
     int clicked = 0;
     /**
      * Creates new form FrmMain
      */
-    public FrmMain() {
+    public FrmMainVeterinario() {
         initComponents();
         this.setLocationRelativeTo(null);
 //        jLabel10.setVisible(false);
@@ -25,7 +25,7 @@ public class FrmMain extends javax.swing.JFrame {
         
     }
     
-    public FrmMain(clases.Bitacora mod){
+    public FrmMainVeterinario(clases.Bitacora mod){
         initComponents();
         
     }
@@ -49,7 +49,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         btntipoCliente = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -58,17 +57,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -176,7 +167,7 @@ public class FrmMain extends javax.swing.JFrame {
 
         lblTipo_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblTipo_Usuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblTipo_Usuario.setText("Administrador");
+        lblTipo_Usuario.setText("Veterinario");
 
         jLabel01.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel01.setForeground(new java.awt.Color(51, 255, 51));
@@ -222,19 +213,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
-            }
-        });
-
-        jLabel16.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel16.setText("  Tipo empleado");
-        jLabel16.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 2, true));
-        jLabel16.setMaximumSize(new java.awt.Dimension(95, 20));
-        jLabel16.setMinimumSize(new java.awt.Dimension(95, 20));
-        jLabel16.setPreferredSize(new java.awt.Dimension(95, 20));
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
             }
         });
 
@@ -346,70 +324,6 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel13.setText("  Tipo producto");
-        jLabel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 2, true));
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel3.setText("   Productos");
-        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 2, true));
-        jLabel3.setMaximumSize(new java.awt.Dimension(95, 20));
-        jLabel3.setMinimumSize(new java.awt.Dimension(95, 20));
-        jLabel3.setName(""); // NOI18N
-        jLabel3.setPreferredSize(new java.awt.Dimension(95, 20));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel9.setText("    Usuarios");
-        jLabel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 2, true));
-        jLabel9.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel9.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel9.setName(""); // NOI18N
-        jLabel9.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
-            }
-        });
-
-        jLabel14.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel14.setText("  Codigo zona");
-        jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 2, true));
-        jLabel14.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel14.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel14.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
-            }
-        });
-
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("   Nacionalidad");
-        jLabel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jLabel11.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel11.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel11.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
-            }
-        });
-
         jLabel10.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(240, 240, 240));
         jLabel10.setText("   Preguntas");
@@ -421,19 +335,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
-            }
-        });
-
-        jLabel18.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("  Detalle factura");
-        jLabel18.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jLabel18.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel18.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel18.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel18MouseClicked(evt);
             }
         });
 
@@ -464,32 +365,6 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
-        jLabel21.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("  Factura");
-        jLabel21.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jLabel21.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel21.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel21.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel21MouseClicked(evt);
-            }
-        });
-
-        jLabel22.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("  Bitàcora");
-        jLabel22.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jLabel22.setMaximumSize(new java.awt.Dimension(159, 20));
-        jLabel22.setMinimumSize(new java.awt.Dimension(159, 20));
-        jLabel22.setPreferredSize(new java.awt.Dimension(159, 20));
-        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel22MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
@@ -503,10 +378,7 @@ public class FrmMain extends javax.swing.JFrame {
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -524,26 +396,10 @@ public class FrmMain extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -576,9 +432,7 @@ public class FrmMain extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -595,29 +449,13 @@ public class FrmMain extends javax.swing.JFrame {
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(74, 74, 74)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -695,7 +533,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -704,17 +541,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         tipoclientes fich= new tipoclientes();
         panelArriba.add(fich);
@@ -725,7 +554,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -734,58 +562,19 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.BLACK);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         Agenda fich= new Agenda();
         panelArriba.add(fich);
         fich.show();
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-         jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.BLACK);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
-        panelArriba.removeAll();
-        Productos fich= new Productos();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel3MouseClicked
-
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.BLACK);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -794,17 +583,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         Citas fich= new Citas();
         panelArriba.add(fich);
@@ -815,7 +596,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.BLACK);
@@ -824,17 +604,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         panelArriba.removeAll();
         frmConsultas fich =new frmConsultas();
         panelArriba.add(fich);
@@ -845,7 +617,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.BLACK);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -854,17 +625,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Dueños fich= new Dueños();
@@ -877,7 +640,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.WHITE);
          jLabel7.setForeground(Color.BLACK);
          jLabel17.setForeground(Color.WHITE);
-         jLabel16.setForeground(Color.WHITE);
          jLabel4.setForeground(Color.WHITE);
          jLabel15.setForeground(Color.WHITE);
          jLabel5.setForeground(Color.WHITE);
@@ -886,17 +648,9 @@ public class FrmMain extends javax.swing.JFrame {
          jLabel12.setForeground(Color.WHITE);
          jLabel2.setForeground(Color.WHITE);
          jLabel8.setForeground(Color.WHITE);
-         jLabel3.setForeground(Color.WHITE);
-         jLabel13.setForeground(Color.WHITE);
-         jLabel9.setForeground(Color.WHITE);
-         jLabel14.setForeground(Color.WHITE);
          jLabel10.setForeground(Color.WHITE);
-         jLabel11.setForeground(Color.WHITE);
-         jLabel18.setForeground(Color.WHITE);
          jLabel19.setForeground(Color.WHITE);
          jLabel20.setForeground(Color.WHITE);
-         jLabel21.setForeground(Color.WHITE);
-         jLabel22.setForeground(Color.WHITE);
          lblLogo.setVisible(false);
          panelArriba.removeAll();
         Mascotas fich= new Mascotas();
@@ -904,42 +658,10 @@ public class FrmMain extends javax.swing.JFrame {
         fich.show();
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.BLACK);
-        jLabel14.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        frmUsuarios fich= new frmUsuarios();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel9MouseClicked
-
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -948,17 +670,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.BLACK);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         FrmPreguntas fich= new FrmPreguntas();
@@ -971,7 +685,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -980,17 +693,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.BLACK);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoMascota fich= new TipoMascota();
@@ -998,73 +703,10 @@ public class FrmMain extends javax.swing.JFrame {
         fich.show();
     }//GEN-LAST:event_jLabel8MouseClicked
 
-    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-       jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.BLACK);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        TipoProducto fich= new TipoProducto();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel13MouseClicked
-
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.BLACK);
-        jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        Nacionalidad fich = new Nacionalidad();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel11MouseClicked
-
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -1073,17 +715,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.BLACK);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoPago fich= new TipoPago ();
@@ -1091,73 +725,10 @@ public class FrmMain extends javax.swing.JFrame {
         fich.show();
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.BLACK);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        tipo_empleado fich= new tipo_empleado ();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel16MouseClicked
-
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.BLACK);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        codigoZona fich= new codigoZona ();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel14MouseClicked
-
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.BLACK);
         jLabel5.setForeground(Color.WHITE);
@@ -1166,17 +737,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmTipo_cita fich= new frmTipo_cita ();
@@ -1188,7 +751,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.BLACK);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -1197,17 +759,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmFichaClinica fich= new frmFichaClinica ();
@@ -1219,7 +773,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -1228,17 +781,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoConsulta fich= new TipoConsulta();
@@ -1286,42 +831,10 @@ public class FrmMain extends javax.swing.JFrame {
        this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_panelArribaMouseDragged
 
-    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.BLACK);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
-        panelArriba.removeAll();
-        lblLogo.setVisible(false);
-        DetalleFactura fich= new DetalleFactura ();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel18MouseClicked
-
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -1330,17 +843,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.BLACK);
         jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoEstado fich= new TipoEstado ();
@@ -1352,7 +857,6 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel6.setForeground(Color.WHITE);
         jLabel7.setForeground(Color.WHITE);
         jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
         jLabel4.setForeground(Color.WHITE);
         jLabel15.setForeground(Color.WHITE);
         jLabel5.setForeground(Color.WHITE);
@@ -1361,85 +865,15 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel12.setForeground(Color.WHITE);
         jLabel2.setForeground(Color.WHITE);
         jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
         jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
         jLabel19.setForeground(Color.WHITE);
         jLabel20.setForeground(Color.BLACK);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Respuestas fich= new Respuestas ();
         panelArriba.add(fich);
         fich.show();
     }//GEN-LAST:event_jLabel20MouseClicked
-
-    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-        jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.BLACK);
-        jLabel22.setForeground(Color.WHITE);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        Factura fich= new Factura ();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel21MouseClicked
-
-    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-       jLabel6.setForeground(Color.WHITE);
-        jLabel7.setForeground(Color.WHITE);
-        jLabel17.setForeground(Color.WHITE);
-        jLabel16.setForeground(Color.WHITE);
-        jLabel4.setForeground(Color.WHITE);
-        jLabel15.setForeground(Color.WHITE);
-        jLabel5.setForeground(Color.WHITE);
-        btntipoCliente1.setForeground(Color.WHITE);
-        btntipoCliente.setForeground(Color.WHITE);
-        jLabel12.setForeground(Color.WHITE);
-        jLabel2.setForeground(Color.WHITE);
-        jLabel8.setForeground(Color.WHITE);
-        jLabel3.setForeground(Color.WHITE);
-        jLabel13.setForeground(Color.WHITE);
-        jLabel9.setForeground(Color.WHITE);
-        jLabel14.setForeground(Color.WHITE);
-        jLabel10.setForeground(Color.WHITE);
-        jLabel11.setForeground(Color.WHITE);
-        jLabel18.setForeground(Color.WHITE);
-        jLabel19.setForeground(Color.WHITE);
-        jLabel20.setForeground(Color.WHITE);
-        jLabel21.setForeground(Color.WHITE);
-        jLabel22.setForeground(Color.BLACK);
-        lblLogo.setVisible(false);
-        panelArriba.removeAll();
-        Bitacora fich= new Bitacora ();
-        panelArriba.add(fich);
-        fich.show();
-    }//GEN-LAST:event_jLabel22MouseClicked
         
         
     /**
@@ -1459,20 +893,21 @@ public class FrmMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmMain().setVisible(true);
+                new FrmMainVeterinario().setVisible(true);
             }
         });
     }
@@ -1485,26 +920,17 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel01;
     private javax.swing.JLabel jLabel10;
-    public static javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
