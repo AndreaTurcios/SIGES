@@ -7,24 +7,25 @@ package ptcproyecto;
 
 import clases.Conexion;
 import javax.swing.JOptionPane;
+import clases.controlCodigoZona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author estef
  */
 public class CodigoZn extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form CodigoZn
-     */
+    
+    DefaultTableModel m;
     public CodigoZn() {
         initComponents();
+        listarcodigos();
+        
     }
 
     /**
@@ -206,64 +207,78 @@ public class CodigoZn extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void listarcodigos(){
+        controlCodigoZona obj = new controlCodigoZona();
+        obj.CargarCodigoZ (jtbZona);
+        
+    }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       int codigo_zona = Integer.parseInt (txtZona.getText());
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO codigo_zona (codigo_zona) VALUES (?)");
-            ps.setInt(1, codigo_zona);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro guardado");
-            cargarTabla();
-            
-           
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
+       controlCodigoZona obj = new controlCodigoZona();
+       int Zona= Integer.parseInt(txtZona.getText());
+        obj.setcodigo_zona(Zona); 
+        if (obj.guardar()) {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           ListarTipoE();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-       
-        int codigo_zona = Integer.parseInt (txtZona.getText());
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("UPDATE codigo_zona SET codigo_zona = ? WHERE codigo_zona = ?");
-            ps.setInt(1, codigo_zona);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro modificado");
-            cargarTabla();
-            
-          
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
+        String ID_codigo;
+        int fsel = jtbZona.getSelectedRow();
+        
+        if (fsel==-1) {
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+         m = (DefaultTableModel)jtbZona.getModel();
+         ID_codigo = jtbZona.getValueAt(fsel, 0).toString();
+         txtZona.setText(ID_codigo);
+         
+         controlCodigoZona u = new controlCodigoZona();
+         int cod = Integer.parseInt(txtZona.getText());
+         u.setID_codigo(cod);
+         
+          u.setcodigo_zona(txtZona.getColumns());
+         
+         if (u.modificar()) {
+            JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+             ListarTipoE();
+             Limpiar();
+        }else{
+           JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+           }
+         }       
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int codigo_zona = Integer.parseInt(txtZona.getText());
-    
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement(" DELETE FROM codigo_zona WHERE codigo_zona =?");
-            ps.setInt(1, codigo_zona);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
-            cargarTabla();
-            
-            
-           
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
+      
+        String ID;
+        int fsel = jtbZona.getSelectedRow();
+        if (fsel==-1) {
+
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+            m = (DefaultTableModel)jtbZona.getModel();
+            ID = jtbZona.getValueAt(fsel, 0).toString();
+            txtZona.setText(ID);
+
+            controlCodigoZona obj = new controlCodigoZona();
+            obj.setID_codigo(Integer.parseInt(txtZona.getText()));
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) {
+
+                if (obj.Eliminar()) {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    ListarTipoE();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
+            }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -313,39 +328,14 @@ public class CodigoZn extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtZona;
     // End of variables declaration//GEN-END:variables
 
-    
-
-    private void cargarTabla() {
-    DefaultTableModel modeloTabla = (DefaultTableModel) jtbZona.getModel();
-        modeloTabla.setRowCount(0);
-
-        PreparedStatement ps;
-        ResultSet rs;
-        ResultSetMetaData rsmd;
-        int columnas;
-        //tamaños para la tabla
-        int[] anchos = {10, 100};
-        for (int i = 0; i < jtbZona.getColumnCount(); i++) {
-            jtbZona.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-        }
-
-        try {
-            Connection cn = Conexion.conectar();
-            ps = cn.prepareStatement("SELECT ID_codigo, codigo_zona FROM codigo_zona ");
-            rs = ps.executeQuery();
-            rsmd = rs.getMetaData();
-            columnas = rsmd.getColumnCount();
-
-            while (rs.next()) {
-                Object[] fila = new Object[columnas];
-                for (int indice = 0; indice < columnas; indice++) {
-                    fila[indice] = rs.getObject(indice + 1);
-                }
-                modeloTabla.addRow(fila);
-            }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
+    public void ListarTipoE(){
+        controlCodigoZona obj = new controlCodigoZona();
+        obj.CargarCodigoZ(jtbZona);
     }
+
+    private void Limpiar() {
+       txtZona.setText("");
+    }
+
+       
 }

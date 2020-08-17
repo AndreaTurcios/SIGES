@@ -6,6 +6,7 @@
 package ptcproyecto;
 
 import clases.Conexion;
+import clases.TipoUsuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,12 +29,11 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class tipo_empleado extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form tipo_empleado
-     */
+    DefaultTableModel m;
+    
     public tipo_empleado() {
         initComponents();
-        cargarTabla();
+        
     }
 
     /**
@@ -237,7 +237,10 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void ListarTipoE(){
+        TipoUsuario obj = new TipoUsuario();
+        obj.CargarE(tblTempleado);
+    }
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
          try {
             Connection con = Conexion.conectar();
@@ -262,66 +265,79 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String tipo_empleado = txtTempleado.getText();
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO Tipo_usuarios (tipo_empleado) VALUES (?)");
-            ps.setString(1, tipo_empleado);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro guardado");
-            cargarTabla();
-            limpiar();
-            
-
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
+        TipoUsuario obj = new TipoUsuario();
+       String empleado= (txtTempleado.getText());
+        obj.settipo_empleado(empleado); 
+        if (obj.guardar()) {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           ListarTipoE();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        String tipo_empleado = txtTempleado.getText();
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("UPDATE Tipo_usuarios SET tipo_empleado = ? WHERE tipo_empleado = ?");
-            ps.setString(1, tipo_empleado);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro modificado");
-            cargarTabla();
-            limpiar();
-
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
+       String ID_usuario;
+        int fsel = tblTempleado.getSelectedRow();
+        
+        if (fsel==-1) {
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+         m = (DefaultTableModel)tblTempleado.getModel();
+         ID_usuario = tblTempleado.getValueAt(fsel, 0).toString();
+         txtTempleado.setText(ID_usuario);
+         
+         TipoUsuario u = new TipoUsuario();
+         int empleado = Integer.parseInt(txtTempleado.getText());
+         u.setID_usuario(empleado);
+         
+          u.settipo_empleado(txtTempleado.getText());
+         
+         if (u.modificar()) {
+            JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+             ListarTipoE();
+             Limpiar();
+        }else{
+           JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+           }
+         }       
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtTempleado.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
-
+    
+    public void Limpiar(){
+        txtTempleado.setText("");
+    }
+    
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        String tipo_empleado = txtTempleado.getText();
+       String ID;
+        int fsel = tblTempleado.getSelectedRow();
+        if (fsel==-1) {
 
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement(" DELETE FROM Tipo_usuarios WHERE tipo_empleado =?");
-            ps.setString(1, tipo_empleado);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
-            cargarTabla();
-            limpiar();
-            
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+            m = (DefaultTableModel)tblTempleado.getModel();
+            ID = tblTempleado.getValueAt(fsel, 0).toString();
+            txtTempleado.setText(ID);
 
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
+            TipoUsuario obj = new TipoUsuario();
+            obj.setID_usuario(Integer.parseInt(txtTempleado.getText()));
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) {
+
+                if (obj.Eliminar()) {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    ListarTipoE();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
+            }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -370,39 +386,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnimActionPerformed
 
-    private void cargarTabla() {
-        DefaultTableModel modeloTabla = (DefaultTableModel) tblTempleado.getModel();
-        modeloTabla.setRowCount(0);
-
-        PreparedStatement ps;
-        ResultSet rs;
-        ResultSetMetaData rsmd;
-        int columnas;
-        //tamaños para la tabla
-        int[] anchos = {10, 100};
-        for (int i = 0; i < tblTempleado.getColumnCount(); i++) {
-            tblTempleado.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-        }
-
-        try {
-            Connection con = Conexion.conectar();
-            ps = con.prepareStatement("SELECT ID_tipoUsuarios, tipo_empleado FROM Tipo_usuarios");
-            rs = ps.executeQuery();
-            rsmd = rs.getMetaData();
-            columnas = rsmd.getColumnCount();
-
-            while (rs.next()) {
-                Object[] fila = new Object[columnas];
-                for (int indice = 0; indice < columnas; indice++) {
-                    fila[indice] = rs.getObject(indice + 1);
-                }
-                modeloTabla.addRow(fila);
-            }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
@@ -420,7 +404,5 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtTempleado;
     // End of variables declaration//GEN-END:variables
 
-    private void limpiar() {
-        
-    }
+    
 }

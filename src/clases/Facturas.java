@@ -8,7 +8,12 @@ package clases;
 import clases.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -146,5 +151,34 @@ public class Facturas {
             System.err.println("Error eliminar tipo cliente " + ex);
             return false;
         }
+    }
+    
+    public void listarFacturas(Connection cn, JTable tabla){
+        cn = conexion.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID","estado"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM Factura ORDER BY ID_factura";
+        String [] filas = new String[2];
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            System.out.println("datos obtenidos "+rs);
+            while (rs.next()){
+                for (int i = 0; i < 2; i++) {
+                    filas[i] = rs.getString(i+1);
+                }
+                model.addRow(filas);
+            }
+            tabla.setModel(model);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
+        }
+    }  
+    public void CargarF (JTable tabla) {
+        listarFacturas(Cn ,tabla);
     }
 }

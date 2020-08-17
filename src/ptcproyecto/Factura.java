@@ -273,29 +273,17 @@ public class Factura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtnombreActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String nombre_pagador = txtnombre.getText();
-        int ID_detalle = Integer.parseInt(cbdetalle.getActionCommand());
-        int ID_consulta = Integer.parseInt(cbconsulta.getActionCommand());
-        int ID_producto = Integer.parseInt(cbProducto.getActionCommand());
-        
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO Factura (nombre_pagador, ID_detalle, ID_consulta, ID_producto ) VALUES (?, ?, ?, ?,)");
-            ps.setString(1, nombre_pagador);
-            ps.setInt(2, ID_detalle);
-            ps.setInt(3, ID_consulta);
-            ps.setInt(4, ID_producto);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro guardado");
-            cargarTabla();
-            
-            
-
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
+         Facturas obj = new Facturas();
+        obj.setnombre_pagador(txtnombre.getText());
+        int Detalle = cbdetalle.getSelectedIndex();
+        int Consulta = cbconsulta.getSelectedIndex();
+        int Producto = cbProducto.getSelectedIndex();
+        if (obj.guardar()) {
+           JOptionPane.showMessageDialog(this,"Datos guardados"); 
+           ListarF();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al ingresados los datos"); 
+           ListarF();
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -304,48 +292,32 @@ public class Factura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbdetalleActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        String nombre_pagador = txtnombre.getText();
-        int ID_detalle = Integer.parseInt(cbdetalle.getActionCommand());
-        int ID_consulta = Integer.parseInt(cbconsulta.getActionCommand());
-        int ID_producto = Integer.parseInt(cbProducto.getActionCommand());
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("UPDATE Factura SET nombre_pagador = ?, ID_detalle = ?, ID_consulta = ?, ID_producto = ? WHERE ID_factura = ?");
-            ps.setString(1, nombre_pagador);
-            ps.setInt(2, ID_detalle);
-            ps.setInt(3, ID_consulta);
-            ps.setInt(4, ID_producto);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro modificado");
-            cargarTabla();
-            
-
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
+        Facturas obj = new Facturas();
+        obj.setnombre_pagador(txtnombre.getText());
+        int Detalle = cbdetalle.getSelectedIndex();
+        int Consulta = cbconsulta.getSelectedIndex();
+        int Producto = cbProducto.getSelectedIndex();
+        if (obj.modificar()) {
+           JOptionPane.showMessageDialog(this,"Datos guardados"); 
+           ListarF();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al ingresados los datos"); 
+           ListarF();
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-       String nombre_pagador = txtnombre.getText();
-
-        try
-        {
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement(" DELETE FROM Factura WHERE nombre_pagador =?");
-            ps.setString(1, nombre_pagador);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
-            cargarTabla();
-            
-            
-
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
+       Facturas obj = new Facturas();
+        obj.setnombre_pagador(txtnombre.getText());
+        int Detalle = cbdetalle.getSelectedIndex();
+        int Consulta = cbconsulta.getSelectedIndex();
+        int Producto = cbProducto.getSelectedIndex();
+        if (obj.eliminar()) {
+           JOptionPane.showMessageDialog(this,"Datos guardados"); 
+           ListarF();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al ingresados los datos"); 
+           ListarF();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -354,61 +326,13 @@ public class Factura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tblFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFacturaMouseClicked
-        try {
-            int fila = tblFactura.getSelectedRow();
-            int ID_factura = Integer.parseInt(tblFactura.getValueAt(fila, 0).toString());
-            PreparedStatement ps;
-            ResultSet rs;
-
-            Connection cn = Conexion.conectar();
-            ps = cn.prepareStatement("SELECT nombre_pagador, ID_detalle, ID_consulta, ID_producto FROM Factura  WHERE ID_factura=?");
-            ps.setInt(1, ID_factura);
-            rs = ps.executeQuery();
-            
-
-            while(rs.next()){
-
-                txtnombre.setText(rs.getString("nombre_pagador"));
-                cbdetalle.addActionListener(cbdetalle);
-                cbconsulta.addActionListener(cbconsulta);
-                cbProducto.addActionListener(cbProducto);
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
+       
     }//GEN-LAST:event_tblFacturaMouseClicked
-    private void cargarTabla() {
-        DefaultTableModel modeloTabla = (DefaultTableModel) tblFactura.getModel();
-        modeloTabla.setRowCount(0);
-
-        PreparedStatement ps;
-        ResultSet rs;
-        ResultSetMetaData rsmd;
-        int columnas;
-        //tamaños para la tabla
-        int[] anchos = {10, 100};
-        for (int i = 0; i < tblFactura.getColumnCount(); i++) {
-            tblFactura.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-        }
-
-        try {
-            Connection con = Conexion.conectar();
-            ps = con.prepareStatement("SELECT ombre_pagador, ID_detalle, ID_consulta, ID_producto FROM Factura");
-            rs = ps.executeQuery();
-            rsmd = rs.getMetaData();
-            columnas = rsmd.getColumnCount();
-
-            while (rs.next()) {
-                Object[] fila = new Object[columnas];
-                for (int indice = 0; indice < columnas; indice++) {
-                    fila[indice] = rs.getObject(indice + 1);
-                }
-                modeloTabla.addRow(fila);
-            }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
+    
+    
+    public void ListarF(){
+        Facturas obj = new Facturas();
+        obj.CargarF(tblFactura);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
