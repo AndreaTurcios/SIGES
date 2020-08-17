@@ -302,15 +302,15 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0)
             {
-                if (obj.EliminarTipoConsulta())
-                {
-                    JOptionPane.showMessageDialog(this, "Datos eliminados");
-                    CargarTablaTipoConsulta();
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoConsulta());
-                }
+//                if (obj.EliminarTipoConsulta())
+//                {
+//                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+//                    CargarTablaTipoConsulta();
+//                }
+//                else
+//                {
+//                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoConsulta());
+//                }
             }
         }
     }//GEN-LAST:event_btnEliminarTipoConsultaActionPerformed
@@ -330,7 +330,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             CrudTipoConsulta obj = new CrudTipoConsulta();
             int ID = Integer.parseInt(txtID.getText());
             obj.setIDTipoConsulta(ID);
-            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
+//            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
             obj.setTipoConsulta(txtNombreTipoConsulta.getText());
             if (obj.ModificarTipoConsulta()) 
             {
