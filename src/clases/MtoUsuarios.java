@@ -253,4 +253,22 @@ public class MtoUsuarios {
         return resp;
 
     }
+    public boolean eliminar(){
+    boolean resp=false;
+    cn = Conexion.conectar();
+    try{//realizando consulta insert
+            String sql = "DELETE FROM Usuarios WHERE ID_usuario = ?;";
+            PreparedStatement cmd= cn.prepareStatement(sql);
+            cmd.setInt(1, ID_usuario );
+            System.out.println(ID_usuario);
+            if (!cmd.execute()) {
+                resp=true;
+            }
+            cmd.close();
+            cn.close();
+        }catch(Exception ex){
+            System.out.println(ex.toString());
+        }
+        return resp;
+    }
 }
