@@ -247,6 +247,7 @@ public class Cita {
     }  
     public boolean EliminarCita(){
     boolean resp=false;
+    cn = Conexion.conectar();
     try{//realizando consulta insert
             String sql = "DELETE FROM Citas WHERE ID_cita=?;";
             PreparedStatement cmd= cn.prepareStatement(sql);
