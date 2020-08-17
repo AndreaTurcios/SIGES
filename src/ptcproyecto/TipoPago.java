@@ -35,6 +35,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
     public TipoPago() {
         initComponents();
         CargarTablaTipoPago();
+        txtID.setVisible(false);
     }
     
     public void CargarTablaTipoPago()
@@ -91,15 +92,9 @@ public class TipoPago extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnMostrarTipoPago = new javax.swing.JButton();
-        btnGuardarTipoPago = new javax.swing.JButton();
         btnEliminarTipoPago = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
         btnModificarTipoPago1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btnCerrar1 = new javax.swing.JButton();
+        btnGuardarTipoPago = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTipoPago = new javax.swing.JTable();
@@ -109,18 +104,20 @@ public class TipoPago extends javax.swing.JInternalFrame {
         btnTipoPago = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         txtID = new javax.swing.JTextField();
-        BtnCerrar = new javax.swing.JButton();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        btnCerrar1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(744, 560));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Mantenimientos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel1.setLayout(null);
 
-        btnMostrarTipoPago.setBackground(new java.awt.Color(0, 136, 130));
+        btnMostrarTipoPago.setBackground(new java.awt.Color(204, 204, 204));
         btnMostrarTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnMostrarTipoPago.setText("Mostrar");
+        btnMostrarTipoPago.setBorder(null);
         btnMostrarTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
         btnMostrarTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,23 +125,12 @@ public class TipoPago extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnMostrarTipoPago);
-        btnMostrarTipoPago.setBounds(10, 230, 160, 50);
+        btnMostrarTipoPago.setBounds(20, 20, 130, 50);
 
-        btnGuardarTipoPago.setBackground(new java.awt.Color(0, 136, 130));
-        btnGuardarTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnGuardarTipoPago.setText("Guardar");
-        btnGuardarTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
-        btnGuardarTipoPago.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarTipoPagoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnGuardarTipoPago);
-        btnGuardarTipoPago.setBounds(10, 20, 160, 50);
-
-        btnEliminarTipoPago.setBackground(new java.awt.Color(0, 136, 130));
+        btnEliminarTipoPago.setBackground(new java.awt.Color(204, 204, 204));
         btnEliminarTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnEliminarTipoPago.setText("Eliminar");
+        btnEliminarTipoPago.setBorder(null);
         btnEliminarTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
         btnEliminarTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,17 +138,12 @@ public class TipoPago extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnEliminarTipoPago);
-        btnEliminarTipoPago.setBounds(10, 160, 160, 50);
-        jPanel1.add(jSeparator1);
-        jSeparator1.setBounds(0, 220, 200, 20);
-        jPanel1.add(jSeparator2);
-        jSeparator2.setBounds(-10, 80, 200, 10);
-        jPanel1.add(jSeparator3);
-        jSeparator3.setBounds(-10, 150, 200, 20);
+        btnEliminarTipoPago.setBounds(160, 20, 130, 50);
 
-        btnModificarTipoPago1.setBackground(new java.awt.Color(0, 136, 130));
+        btnModificarTipoPago1.setBackground(new java.awt.Color(204, 204, 204));
         btnModificarTipoPago1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnModificarTipoPago1.setText("Modificar");
+        btnModificarTipoPago1.setBorder(null);
         btnModificarTipoPago1.setPreferredSize(new java.awt.Dimension(90, 60));
         btnModificarTipoPago1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,37 +151,25 @@ public class TipoPago extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnModificarTipoPago1);
-        btnModificarTipoPago1.setBounds(10, 90, 160, 50);
+        btnModificarTipoPago1.setBounds(300, 20, 140, 50);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 70, 180, 290);
-
-        jPanel3.setBackground(new java.awt.Color(157, 34, 202));
-        jPanel3.setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Tipo Pago");
-        jPanel3.add(jLabel2);
-        jLabel2.setBounds(10, 7, 200, 40);
-
-        btnCerrar1.setBackground(new java.awt.Color(255, 102, 102));
-        btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
-        btnCerrar1.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        btnCerrar1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarTipoPago.setBackground(new java.awt.Color(204, 204, 204));
+        btnGuardarTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnGuardarTipoPago.setText("Guardar");
+        btnGuardarTipoPago.setBorder(null);
+        btnGuardarTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
+        btnGuardarTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrar1ActionPerformed(evt);
+                btnGuardarTipoPagoActionPerformed(evt);
             }
         });
-        jPanel3.add(btnCerrar1);
-        btnCerrar1.setBounds(542, 0, 50, 54);
+        jPanel1.add(btnGuardarTipoPago);
+        btnGuardarTipoPago.setBounds(450, 20, 140, 50);
 
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 0, 590, 60);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(10, 220, 660, 90);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel5.setLayout(null);
 
         jTableTipoPago.setModel(new javax.swing.table.DefaultTableModel(
@@ -217,25 +186,25 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableTipoPago);
 
         jPanel5.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 20, 550, 120);
+        jScrollPane1.setBounds(10, 10, 640, 230);
 
         getContentPane().add(jPanel5);
-        jPanel5.setBounds(10, 370, 580, 150);
+        jPanel5.setBounds(10, 320, 660, 250);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel2.setLayout(null);
         jPanel2.add(txtNombreTipoPago);
-        txtNombreTipoPago.setBounds(40, 60, 290, 20);
+        txtNombreTipoPago.setBounds(190, 60, 290, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nombre del tipo de pago:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 30, 160, 17);
+        jLabel3.setBounds(190, 40, 160, 17);
 
-        btnTipoPago.setBackground(new java.awt.Color(0, 136, 130));
+        btnTipoPago.setBackground(new java.awt.Color(204, 204, 204));
         btnTipoPago.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnTipoPago.setText("Limpiar");
+        btnTipoPago.setBorder(null);
         btnTipoPago.setPreferredSize(new java.awt.Dimension(90, 60));
         btnTipoPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,11 +212,12 @@ public class TipoPago extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnTipoPago);
-        btnTipoPago.setBounds(260, 240, 110, 30);
+        btnTipoPago.setBounds(380, 90, 110, 30);
 
-        btnImprimir.setBackground(new java.awt.Color(0, 136, 130));
+        btnImprimir.setBackground(new java.awt.Color(204, 204, 204));
         btnImprimir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnImprimir.setText("Imprimir");
+        btnImprimir.setBorder(null);
         btnImprimir.setPreferredSize(new java.awt.Dimension(90, 60));
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,24 +225,54 @@ public class TipoPago extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnImprimir);
-        btnImprimir.setBounds(80, 240, 130, 30);
+        btnImprimir.setBounds(180, 90, 130, 30);
 
         txtID.setFocusable(false);
         jPanel2.add(txtID);
         txtID.setBounds(20, 100, 6, 20);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(200, 70, 390, 290);
+        jPanel2.setBounds(10, 70, 660, 140);
 
-        BtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
-        BtnCerrar.setToolTipText("");
-        BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel1.setkGradientFocus(600);
+        kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
+
+        btnCerrar1.setBackground(new java.awt.Color(204, 204, 204));
+        btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
+        btnCerrar1.setBorder(null);
+        btnCerrar1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        btnCerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCerrarActionPerformed(evt);
+                btnCerrar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnCerrar);
-        BtnCerrar.setBounds(0, 0, 65, 41);
+
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Tipo pago");
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(279, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(253, 253, 253)
+                .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(kGradientPanel1);
+        kGradientPanel1.setBounds(0, 0, 680, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -366,17 +366,9 @@ public class TipoPago extends javax.swing.JInternalFrame {
         */
     }//GEN-LAST:event_btnImprimirActionPerformed
 
-    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
-        this.dispose ();
-    }//GEN-LAST:event_BtnCerrarActionPerformed
-
     private void btnTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoPagoActionPerformed
         txtNombreTipoPago.setText("");
     }//GEN-LAST:event_btnTipoPagoActionPerformed
-
-    private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
-        this.dispose ();
-    }//GEN-LAST:event_btnCerrar1ActionPerformed
 
     private void btnModificarTipoPago1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoPago1ActionPerformed
         String IDTipoPago;
@@ -407,9 +399,12 @@ public class TipoPago extends javax.swing.JInternalFrame {
          }
     }//GEN-LAST:event_btnModificarTipoPago1ActionPerformed
 
+    private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
+        this.dispose ();
+    }//GEN-LAST:event_btnCerrar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCerrar;
     private javax.swing.JButton btnCerrar1;
     private javax.swing.JButton btnEliminarTipoPago;
     private javax.swing.JButton btnGuardarTipoPago;
@@ -417,17 +412,14 @@ public class TipoPago extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnModificarTipoPago1;
     private javax.swing.JButton btnMostrarTipoPago;
     private javax.swing.JButton btnTipoPago;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTableTipoPago;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombreTipoPago;
     // End of variables declaration//GEN-END:variables
