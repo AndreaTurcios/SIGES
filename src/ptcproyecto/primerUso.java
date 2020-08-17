@@ -147,6 +147,12 @@ public class primerUso extends javax.swing.JFrame {
             }
         });
 
+        JCBcargoE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBcargoEActionPerformed(evt);
+            }
+        });
+
         jLabel41.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         jLabel41.setText("Cargo del empleado:");
         jLabel41.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -453,6 +459,10 @@ public class primerUso extends javax.swing.JFrame {
         jtfUsuario.setText("");
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void JCBcargoEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBcargoEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBcargoEActionPerformed
 
     /**
      * @param args the command line arguments
