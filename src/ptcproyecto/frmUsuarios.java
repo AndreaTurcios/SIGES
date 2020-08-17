@@ -324,7 +324,9 @@ DefaultTableModel m;
             obj.setEmpleado_correo(jtfEmail.getText());
             obj.setEmpleado_domicilio(jtfDireccion.getText());
             obj.setNombre_usuario(jtfUsuario.getText());
-            obj.setContrasenia_usuario(jtfContraseña.getText());
+            usuarios u = new usuarios();
+            String password = jtfContraseña.getText();
+            obj.setContrasenia_usuario(u.md5(password));
             int Tipo = JCBcargoE.getSelectedIndex();
             obj.setID_tipoUsuarios(Tipo);
             if (obj.guardar()) {

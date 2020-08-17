@@ -171,7 +171,6 @@ public class MtoUsuarios {
        cn = con.conectar();
     }
     
-    
     public boolean guardar() {
         boolean resp = false;
 //        String encriptada = md5(contrasenia_usuario);
