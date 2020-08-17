@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -19,10 +20,11 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author estef
  */
 public class frmUsuarios extends javax.swing.JInternalFrame {
-
+DefaultTableModel m;
     public frmUsuarios() {
         initComponents();
         ListarUsuarios();
+        CargarCargos();
     }
     
     @SuppressWarnings("unchecked")
@@ -38,8 +40,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jLabel36 = new javax.swing.JLabel();
         jtfDireccion = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
-        jtfRcontraseña = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
         jtfUsuario = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
@@ -86,10 +86,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel38.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
-        jLabel38.setText("Repetir contraseña:");
-        jLabel38.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-
         jLabel39.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         jLabel39.setText("Usuario:");
         jLabel39.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -101,8 +97,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         jLabel41.setText("Cargo del empleado:");
         jLabel41.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-
-        JCBcargoE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -118,9 +112,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                             .addComponent(JCBcargoE, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jtfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel39)
-                    .addComponent(jtfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel38)
-                    .addComponent(jtfRcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -135,14 +127,10 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel38)
-                .addGap(2, 2, 2)
-                .addComponent(jtfRcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(jLabel41)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JCBcargoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         jLabel9.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
@@ -329,6 +317,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         usuarios obj = new usuarios();
         obj.CargarUsuario(jTable1);
     }
+    
+    public void CargarCargos(){
+        usuarios obj = new usuarios();
+        obj.consultarCargos(JCBcargoE);
+    }
     private void jtfNombrejTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNombrejTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfNombrejTextField4ActionPerformed
@@ -338,40 +331,71 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfApellidojTextField4ActionPerformed
 
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
-        Usuario obj = new Usuario();
-        obj.setnombre_usuario(jtfNombre.getText());
-        obj.setEmpleado_apellidos(jtfApellido.getText());
-        obj.setTelefono(Integer.parseInt(jtfTelefono.getText ()));
-        obj.setCorreo(jtfEmail.getText());
-        obj.setDomicilio(jtfDireccion.getText());
-        obj.setUsuario(jtfUsuario.getText());
-        obj.setContraseña(jtfContraseña.getText());
-        obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
-//        ((Integer) JCBPregunta.getSelectedItem());
-//        obj.setRespuesta(jtfRespuesta.getText());
-        if (obj.guardar()) {
-            JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+        
+        if (jtfNombre.getText().isEmpty() || jtfApellido.getText().isEmpty() || jtfEmail.getText().isEmpty() || jtfDireccion.getText().isEmpty()|| jtfUsuario.getText().isEmpty() || jtfContraseña.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else   {   
+            MtoUsuarios obj = new MtoUsuarios();
+            obj.setNombre_empleado(jtfNombre.getText());
+            obj.setEmpleado_apellidos(jtfApellido.getText());
+            obj.setEmpleado_correo(jtfEmail.getText());
+            obj.setEmpleado_domicilio(jtfDireccion.getText());
+            obj.setNombre_usuario(jtfUsuario.getText());
+            obj.setContrasenia_usuario(jtfContraseña.getText());
+            int Tipo = JCBcargoE.getSelectedIndex();
+            obj.setID_tipoUsuarios(Tipo);
+            if (obj.guardar()) {
+                JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
+                ListarUsuarios();
+            }else{
+                JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+            }
         }
+            
+        
+        
     }//GEN-LAST:event_jtbGuardarActionPerformed
 
     private void jtbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbModificarActionPerformed
-       Usuario obj = new Usuario();
-        obj.setNombre_usuario(jtfNombre.getText());
-        obj.setEmpleado_apellidos(jtfApellido.getText());
-        obj.setCorreo(jtfEmail.getText());
-        obj.setDomicilio(jtfDireccion.getText());
-        obj.setUsuario(jtfUsuario.getText());
-        obj.setContraseña(jtfContraseña.getText());
-        obj.setID_tipoUsuario((Integer) JCBcargoE.getSelectedItem());
-//        obj.setPregunta((Integer) JCBPregunta.getSelectedItem());
-//        obj.setRespuesta(jtfRespuesta.getText());
-        if (obj.modificar()) {
-            JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al modificar los datos");
-        }
+        
+        String ID;
+            int fsel = jTable1.getSelectedRow();
+             if (fsel==-1) {
+
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
+            }else{
+             m = (DefaultTableModel)jTable1.getModel();
+            ID = jTable1.getValueAt(fsel, 0).toString();
+            MtoUsuarios obj = new MtoUsuarios();
+            jtfNombre.setText(obj.getNombre_empleado());
+            jtfApellido.setText(obj.getEmpleado_apellidos());
+            jtfDireccion.setText(obj.getEmpleado_domicilio());
+            jtfUsuario.setText(obj.getNombre_usuario());
+            jtfEmail.setText(obj.getEmpleado_correo());
+            jtfContraseña.setText(obj.getContrasenia_usuario());
+        
+            if (jtfNombre.getText().isEmpty() || jtfApellido.getText().isEmpty() || jtfEmail.getText().isEmpty() || jtfDireccion.getText().isEmpty()|| jtfUsuario.getText().isEmpty() || jtfContraseña.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+            }else   {
+            
+            obj.setID_usuario(Integer.parseInt(ID));
+            obj.setNombre_empleado(jtfNombre.getText());
+            obj.setEmpleado_apellidos(jtfApellido.getText());
+            obj.setEmpleado_correo(jtfEmail.getText());
+            obj.setEmpleado_domicilio(jtfDireccion.getText());
+            obj.setNombre_usuario(jtfUsuario.getText());
+            obj.setContrasenia_usuario(jtfContraseña.getText());
+            int Tipo = JCBcargoE.getSelectedIndex();
+            obj.setID_tipoUsuarios(Tipo);
+            if (obj.modificar()) {
+                JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
+            }else{
+                JOptionPane.showMessageDialog(this, "Error al modificar los datos");
+            }
+            }
+            }
+        
     }//GEN-LAST:event_jtbModificarActionPerformed
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
@@ -435,7 +459,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -452,7 +475,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfDireccion;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfNombre;
-    private javax.swing.JTextField jtfRcontraseña;
     private javax.swing.JTextField jtfTelefono;
     private javax.swing.JTextField jtfUsuario;
     private keeptoo.KGradientPanel kGradientPanel1;
