@@ -595,9 +595,13 @@ DefaultTableModel m;
         ID_cita = jTable1.getValueAt(fsel, 0).toString();
         jTextField2.setText(ID_cita);
         
+        int idc = Integer.parseInt(jTextField2.getText());
+         obj.setID_cita(idc);
+         
         int hora = (Integer)jSHora.getValue();
        int minuto = (Integer)jSMinuto.getValue();
-        String fin = hora + ":" + minuto+":00";
+//       String turno = (String)jComboBox1.getSelectedItem();
+       String fin = hora + ":" + minuto+":00";
        Time.valueOf(fin);
 //       DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
 //       Date d = dateFormat.parse(fin);
@@ -609,13 +613,14 @@ DefaultTableModel m;
         obj.setID_tipoCita(ci.getID_tipoCita());
         
         int duic= Integer.parseInt(jTextField1.getText());
+        System.out.println("dui" + duic);
         obj.setDUI(duic);
-         
-        obj.setcita_fecha(new java.sql.Date(calendar.getDatoFecha().getTime())); 
         
+        obj.setcita_fecha(new java.sql.Date(calendar.getDatoFecha().getTime())); 
+        System.out.println("llega1");
         TipoEstados tip = (TipoEstados)jcbDUI1.getSelectedItem();
         obj.setID_estado(tip.getID_estado());
-        
+        System.out.println("llega2");
         
         if (obj.modificarCita()) {
             JOptionPane.showMessageDialog(this,"Datos modificados"); 

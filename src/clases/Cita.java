@@ -158,8 +158,9 @@ public class Cita {
         cmd.setDate(1, cita_fecha);
         cmd.setTime(2, cita_hora);
         cmd.setInt(3, ID_estado);
-        cmd.setInt(2, ID_tipoCita);
-        cmd.setInt(3, DUI);
+        cmd.setInt(4, ID_tipoCita);
+        cmd.setInt(5, DUI);
+        cmd.setInt(6, ID_cita);
         
         if (!cmd.execute()) {
             resp=true;
