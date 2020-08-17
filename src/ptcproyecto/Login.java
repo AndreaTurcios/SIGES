@@ -357,20 +357,20 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void ValidarLvl(){ 
-    LoginMetodo met = new LoginMetodo();
-        if (met.getID_tipoUsuarios()==1) {
-            System.out.println("Administrador");
-         }else if(met.getID_tipoUsuarios()==2){
-        System.out.println("Veterinario");
-        }else if(met.getID_tipoUsuarios()==3){
-        System.out.println("Secretario");
-        }else if(met.getID_tipoUsuarios()==4){
-        System.out.println("asdf");
-        }
-    }
+//    public void ValidarLvl(){ 
+//    LoginMetodo met = new LoginMetodo();
+//        if (met.getID_tipoUsuarios()==1) {
+//            System.out.println("Administrador");
+//         }else if(met.getID_tipoUsuarios()==2){
+//        System.out.println("Veterinario");
+//        }else if(met.getID_tipoUsuarios()==3){
+//        System.out.println("Secretario");
+//        }else if(met.getID_tipoUsuarios()==4){
+//        System.out.println("asdf");
+//        }
+//    }
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
- System.exit(0);        
+        System.exit(0);        
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
@@ -393,7 +393,7 @@ public class Login extends javax.swing.JFrame {
              llamar.setVisible(true);
              login.agregarBitacora();
             this.dispose();  
-            ValidarLvl();
+//            ValidarLvl();
             }else{
             String valorPass = new String(txtContrasenia.getPassword());
             jTextField1.setText(valorPass);
