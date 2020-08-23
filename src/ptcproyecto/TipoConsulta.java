@@ -8,6 +8,8 @@ package ptcproyecto;
 import clases.*;
 import java.net.URLDecoder;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -279,17 +281,18 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnMostrarTipoConsultaActionPerformed
 
     private void btnGuardarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoConsultaActionPerformed
-        CrudTipoConsulta obj = new CrudTipoConsulta();
-        obj.setTipoConsulta(txtNombreTipoConsulta.getText());
-        if (obj.GuardarTipoConsulta())
-        {
-            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente");
-            CargarTablaTipoConsulta();
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this,"Error al guardar datos");
-            JOptionPane.showMessageDialog(this,obj.GuardarTipoConsulta());
+        String Tipoconsulta = txtNombreTipoConsulta.getText();
+        
+        try{
+            Connection con = Conexion.conectar();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO Tipo_consulta(Tipoconsulta) VALUES(?)");
+            ps.setString(1,Tipoconsulta);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Registro Guardado");
+        
+        } catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.toString());
+        
         }
     }//GEN-LAST:event_btnGuardarTipoConsultaActionPerformed
 
