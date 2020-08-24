@@ -687,7 +687,7 @@ public class ClienteDuenio {
             while (resultado.next()) {
                 tipoCliente d = new tipoCliente();
                 d.setID_tipoCliente(resultado.getInt("ID_tipoCliente"));
-                d.setTipo_cliente(resultado.getString("tipo_cliente"));
+                d.settipocliente(resultado.getString("tipo_cliente"));
                 cbox_clientet.addItem(d);
             }
         } catch (SQLException e) {

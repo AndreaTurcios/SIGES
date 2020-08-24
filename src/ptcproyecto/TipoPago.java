@@ -6,13 +6,17 @@
 package ptcproyecto;
 
 import clases.*;
+import java.awt.Event;
+import java.awt.event.KeyEvent;
 import java.net.URLDecoder;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.InputMap;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
@@ -32,10 +36,18 @@ public class TipoPago extends javax.swing.JInternalFrame {
     /**
      * Creates new form TipoPago
      */
-    public TipoPago() {
+    public TipoPago() 
+    {
         initComponents();
         CargarTablaTipoPago();
+        InputMap map2 = txtTipoPago.getInputMap(txtTipoPago.WHEN_FOCUSED);
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
         txtID.setVisible(false);
+    }
+    
+    public void LimpiarCampos() 
+    {
+        txtTipoPago.setText("");
     }
     
     public void CargarTablaTipoPago()
@@ -99,7 +111,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTipoPago = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        txtNombreTipoPago = new javax.swing.JTextField();
+        txtTipoPago = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnTipoPago = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
@@ -193,8 +205,14 @@ public class TipoPago extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
-        jPanel2.add(txtNombreTipoPago);
-        txtNombreTipoPago.setBounds(190, 60, 290, 20);
+
+        txtTipoPago.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTipoPagoKeyPressed(evt);
+            }
+        });
+        jPanel2.add(txtTipoPago);
+        txtTipoPago.setBounds(190, 60, 290, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nombre del tipo de pago:");
@@ -272,7 +290,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(kGradientPanel1);
-        kGradientPanel1.setBounds(0, 0, 680, 50);
+        kGradientPanel1.setBounds(0, 0, 680, 54);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,49 +300,58 @@ public class TipoPago extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnMostrarTipoPagoActionPerformed
 
     private void btnGuardarTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoPagoActionPerformed
-        CrudTipoPago obj = new CrudTipoPago();
-        obj.settipopago(txtNombreTipoPago.getText());
-        if (obj.GuardarTipoPago()) 
+        if ((txtTipoPago == null) || (txtTipoPago.equals("")))
         {
-           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
-           CargarTablaTipoPago();
+            JOptionPane.showMessageDialog(this, "Por favor no dejar campos Vacíos", "Datos incompletos", JOptionPane.ERROR_MESSAGE);
         }
         else
-        { 
-           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
-           JOptionPane.showMessageDialog(this,obj.GuardarTipoPago()); 
+        {
+            CrudTipoPago obj = new CrudTipoPago();
+            String TipoPago = (txtTipoPago.getText());
+            obj.settipopago(TipoPago);
+            if (obj.GuardarTipoPago()) 
+            {
+               JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+               CargarTablaTipoPago();
+               LimpiarCampos();
+            }
+            else
+            { 
+               JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+               JOptionPane.showMessageDialog(this,obj.GuardarTipoPago()); 
+            }
         }
     }//GEN-LAST:event_btnGuardarTipoPagoActionPerformed
 
     private void btnEliminarTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoPagoActionPerformed
-        // TODO add your handling code here:
         String ID;
         int fsel = jTableTipoPago.getSelectedRow();
         if (fsel==-1) 
-        {
+        {   
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
             m = (DefaultTableModel)jTableTipoPago.getModel();
             ID = jTableTipoPago.getValueAt(fsel, 0).toString();
-            txtID.setText(ID);
+            txtTipoPago.setText(ID);
             CrudTipoPago obj = new CrudTipoPago();
-            obj.setIDtipoPago(Integer.parseInt(txtID.getText()));
-            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?", "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (eliminar == 0) 
+            obj.setIDtipoPago(Integer.parseInt(txtTipoPago.getText()));
+            int Eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?","Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (Eliminar == 0) 
             {
                 if (obj.EliminarTipoPago()) 
                 {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaTipoPago();
+                    LimpiarCampos();
                 }
                 else
                 {
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
             }
-        }  
+        }
     }//GEN-LAST:event_btnEliminarTipoPagoActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
@@ -367,7 +394,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoPagoActionPerformed
-        txtNombreTipoPago.setText("");
+        txtTipoPago.setText("");
     }//GEN-LAST:event_btnTipoPagoActionPerformed
 
     private void btnModificarTipoPago1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoPago1ActionPerformed
@@ -382,26 +409,33 @@ public class TipoPago extends javax.swing.JInternalFrame {
             m = (DefaultTableModel)jTableTipoPago.getModel();
             IDTipoPago = jTableTipoPago.getValueAt(fsel, 0).toString();
             txtID.setText(IDTipoPago);
-            CrudTipoPago obj = new CrudTipoPago();
-            int ID = Integer.parseInt(txtID.getText());
-            obj.setIDtipoPago(ID);
-            System.out.println("LLega ID "+ obj.getIDtipoPago());
-            obj.settipopago(txtNombreTipoPago.getText());
-            if (obj.ModificarTipoPago()) 
+            int idm = Integer.parseInt(txtID.getText());
+            CrudTipoPago u = new CrudTipoPago();
+            u.setIDtipoPago(idm);
+            u.settipopago(txtTipoPago.getText());
+            if (u.ModificarTipoPago()) 
             {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
-                CargarTablaTipoPago();
+                 CargarTablaTipoPago();
+                 LimpiarCampos();
             }
             else
             {
                JOptionPane.showMessageDialog(null,"Error al modificar los datos");
             }
-         }
+        }
     }//GEN-LAST:event_btnModificarTipoPago1ActionPerformed
 
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         this.dispose ();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
+
+    private void txtTipoPagoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoPagoKeyPressed
+        if((evt.getKeyCode() < 64 || evt.getKeyCode() > 90) && (evt.getKeyCode() < 97 || evt.getKeyCode() > 122) && (evt.getKeyCode() < 48 || evt.getKeyCode() > 57) && evt.getKeyCode() != 164 && evt.getKeyCode() != 165 && evt.getKeyCode() != 44 && evt.getKeyCode() != 46 && evt.getKeyCode() != 127)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTipoPagoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -421,6 +455,6 @@ public class TipoPago extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTableTipoPago;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtNombreTipoPago;
+    private javax.swing.JTextField txtTipoPago;
     // End of variables declaration//GEN-END:variables
 }

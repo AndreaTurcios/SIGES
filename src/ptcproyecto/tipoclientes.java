@@ -7,14 +7,19 @@ package ptcproyecto;
 
 import clases.Conexion;
 import clases.tipoCliente;
+import java.awt.Event;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.InputMap;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -27,12 +32,29 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author 15-CW0001la
  */
 public class tipoclientes extends javax.swing.JInternalFrame {
+    DefaultTableModel m;
 
     /**
      * Creates new form tipoclientes
      */
-    public tipoclientes() {
+    public tipoclientes() 
+    {
         initComponents();
+        CargarTablaTipoCliente();
+        InputMap map2 = txtTipoCliente.getInputMap(txtTipoCliente.WHEN_FOCUSED);
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        txtID.setVisible(false);
+    }
+    
+    public void CargarTablaTipoCliente()
+    {
+        tipoCliente obj = new tipoCliente();
+        obj.CargarTipoCliente(jTableTipoCliente);
+    }
+    
+    public void LimpiarCampos() 
+    {
+        txtTipoCliente.setText("");
     }
 
     /**
@@ -52,11 +74,12 @@ public class tipoclientes extends javax.swing.JInternalFrame {
         btnGuardar = new javax.swing.JButton();
         limpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbcliente = new javax.swing.JTable();
+        jTableTipoCliente = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         btnReporte = new javax.swing.JButton();
-        jtxtTcliente = new javax.swing.JTextField();
+        txtTipoCliente = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -101,7 +124,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +138,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        tbcliente.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTipoCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -134,12 +157,12 @@ public class tipoclientes extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        tbcliente.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableTipoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbclienteMouseClicked(evt);
+                jTableTipoClienteMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tbcliente);
+        jScrollPane1.setViewportView(jTableTipoCliente);
 
         btnReporte.setText("Reporte");
         btnReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -148,13 +171,29 @@ public class tipoclientes extends javax.swing.JInternalFrame {
             }
         });
 
-        jtxtTcliente.addActionListener(new java.awt.event.ActionListener() {
+        txtTipoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtTclienteActionPerformed(evt);
+                txtTipoClienteActionPerformed(evt);
+            }
+        });
+        txtTipoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTipoClienteKeyPressed(evt);
             }
         });
 
         jLabel1.setText("Tipo cliente:");
+
+        txtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDActionPerformed(evt);
+            }
+        });
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtIDKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -168,8 +207,10 @@ public class tipoclientes extends javax.swing.JInternalFrame {
                 .addGap(112, 112, 112)
                 .addComponent(btnReporte)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtxtTcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,8 +219,9 @@ public class tipoclientes extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxtTcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReporte))
+                    .addComponent(txtTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReporte)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -276,70 +318,116 @@ public class tipoclientes extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnReporteActionPerformed
 
-    private void jtxtTclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTclienteActionPerformed
+    private void txtTipoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtTclienteActionPerformed
+    }//GEN-LAST:event_txtTipoClienteActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        tipoCliente obj = new tipoCliente();
-        obj.settipo_cliente(jtxtTcliente.getText());
-        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?", "Atencion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (eliminar == 0) {
-
-            if (obj.eliminar()) {
-                JOptionPane.showMessageDialog(this, "Datos eliminar");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error al eliminar los datos");
+        String ID;
+        int fsel = jTableTipoCliente.getSelectedRow();
+        if (fsel==-1) 
+        {   
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            m = (DefaultTableModel)jTableTipoCliente.getModel();
+            ID = jTableTipoCliente.getValueAt(fsel, 0).toString();
+            txtTipoCliente.setText(ID);
+            tipoCliente obj = new tipoCliente();
+            obj.setID_tipoCliente(Integer.parseInt(txtTipoCliente.getText()));
+            int Eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?","Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (Eliminar == 0) 
+            {
+                if (obj.eliminar()) 
+                {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    CargarTablaTipoCliente();
+                    LimpiarCampos();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
             }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        tipoCliente obj = new tipoCliente();
-        obj.settipo_cliente(jtxtTcliente.getText());
-
-        if (obj.modificar()) {
-            JOptionPane.showMessageDialog(this, "Datos modificar");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al modificar los datos");
+        String IDTipoCliente;
+        int fsel = jTableTipoCliente.getSelectedRow();
+        if (fsel==-1) 
+        {
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            m = (DefaultTableModel)jTableTipoCliente.getModel();
+            IDTipoCliente = jTableTipoCliente.getValueAt(fsel, 0).toString();
+            txtID.setText(IDTipoCliente);
+            int idm = Integer.parseInt(txtID.getText());
+            tipoCliente u = new tipoCliente();
+            u.setID_tipoCliente(idm);
+            u.settipocliente(txtTipoCliente.getText());
+            if (u.modificar()) 
+            {
+                JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+                 CargarTablaTipoCliente();
+                 LimpiarCampos();
+            }
+            else
+            {
+               JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+            }
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        tipoCliente obj = new tipoCliente();
-        obj.settipo_cliente(jtxtTcliente.getText());
-
-        if (obj.Guardar()) {
-            JOptionPane.showMessageDialog(this, "Datos guardados");
-        }else{
-            JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+        if ((txtTipoCliente == null) || (txtTipoCliente.equals("")))
+        {
+            JOptionPane.showMessageDialog(this, "Por favor no dejar campos Vacíos", "Datos incompletos", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            tipoCliente obj = new tipoCliente();
+            String TipoCliente = (txtTipoCliente.getText());
+            obj.settipocliente(TipoCliente);
+            if (obj.GuardarTipoCliente()) 
+            {
+               JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+               CargarTablaTipoCliente();
+               LimpiarCampos();
+            }
+            else
+            { 
+               JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+               JOptionPane.showMessageDialog(this,obj.GuardarTipoCliente()); 
+            }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void tbclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclienteMouseClicked
-        try {
-            int fila = tbcliente.getSelectedRow();
-            int id = Integer.parseInt(tbcliente.getValueAt(fila, 0).toString());
-            PreparedStatement ps;
-            ResultSet rs;
-
-            Connection cn = Conexion.conectar();
-            ps = cn.prepareStatement("SELECT  Tipo_cliente FROM Tipo_cliente WHERE id=?, Tipo_cliente = ?");
-            ps.setInt(1, id);
-            rs = ps.executeQuery();
-
-            while(rs.next()){
-
-                jtxtTcliente.setText(rs.getString("tipo_animal"));
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-    }//GEN-LAST:event_tbclienteMouseClicked
+    private void jTableTipoClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTipoClienteMouseClicked
+        
+    }//GEN-LAST:event_jTableTipoClienteMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtTipoClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoClienteKeyPressed
+        if((evt.getKeyCode() < 64 || evt.getKeyCode() > 90) && (evt.getKeyCode() < 97 || evt.getKeyCode() > 122) && (evt.getKeyCode() < 48 || evt.getKeyCode() > 57) && evt.getKeyCode() != 164 && evt.getKeyCode() != 165 && evt.getKeyCode() != 44 && evt.getKeyCode() != 46 && evt.getKeyCode() != 127)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTipoClienteKeyPressed
+
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDActionPerformed
+
+    private void txtIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -354,9 +442,10 @@ public class tipoclientes extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jtxtTcliente;
+    private javax.swing.JTable jTableTipoCliente;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JButton limpiar;
-    private javax.swing.JTable tbcliente;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtTipoCliente;
     // End of variables declaration//GEN-END:variables
 }

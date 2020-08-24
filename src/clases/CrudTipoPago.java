@@ -105,19 +105,18 @@ public class CrudTipoPago
         boolean resp = false;
         try 
         {
-            System.err.println("conexion" + cn);
-            String sql = "UPDATE Tipo_pago SET tipo_pago=? WHERE ID_tipoPago=?";
+            cn = Conexion.conectar();
+            String sql = "UPDATE Tipo_pago SET tipo_pago = ? WHERE ID_tipoPago = ?";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setString(1, tipopago);
-            System.out.println(tipopago);
             cmd.setInt(2, IDtipoPago);
-            System.out.println(IDtipoPago);
             if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
             cn.close();
+            return resp;
         } 
         catch (Exception ex) 
         {
@@ -129,6 +128,7 @@ public class CrudTipoPago
     public boolean EliminarTipoPago ()
     {
         boolean resp = false;
+        cn = Conexion.conectar();
         try 
         {
             String sql = "DELETE FROM Tipo_pago WHERE ID_tipoPago=?;";
@@ -140,7 +140,7 @@ public class CrudTipoPago
             }
             cmd.close();
             cn.close();
-        } 
+        }
         catch (Exception ex) 
         {
             System.out.println("Error exception es"+ex.toString());
@@ -165,13 +165,13 @@ public class CrudTipoPago
             System.out.println("datos obtenidos "+rs);
             while (rs.next())
             {
-                for (int i = 0; i < 2; i++) 
-                {
-                    filas[i] = rs.getString(i+1);
-                }
+                filas[0] = rs.getString("ID_tipoPago");
+                filas[1] = rs.getString("tipo_pago");
                 model.addRow(filas);
             }
+            rs.close();
             tabla.setModel(model);
+            cn.close();
         }
         catch(Exception e)
         {
@@ -183,6 +183,50 @@ public class CrudTipoPago
     public void CargarTipoPago(JTable tabla) 
     {
         EjecutarTipoPago(cn ,tabla);
+    }
+    
+    public void ConsultarUsuario(JComboBox cmbUsuario) 
+    {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_Usuario, nombre_usuario FROM Usuarios ORDER BY ID_usuario";
+        try 
+        {
+            //cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cmbUsuario.addItem("Seleccione una opción");
+            while (resultado.next()) 
+            {
+                controlPreguntas tm = new controlPreguntas();
+                tm.setID_pregunta(resultado.getInt("ID_Pregunta"));
+                tm.setPregunta(resultado.getString("pregunta"));
+                cmbUsuario.addItem(tm);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "No se puede consultar el registro, Error en el CrudRespuestas.java - Consultar_Pregunta-1 ERROR:" + e);        
+        }
+        finally
+        {
+            if (cn != null) 
+            {
+                try 
+                {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } 
+                catch (SQLException ex) 
+                {
+                    JOptionPane.showMessageDialog(null, ex);
+                    JOptionPane.showMessageDialog(null, "No se puede consultar el registro, Error en el CrudRespuestas.java - Consultar_Pregunta-2 ERROR:" + ex);        
+                }
+            }
+        }
     }
     
     public void ConsultarPregunta(JComboBox cmbPregunta) 
