@@ -300,36 +300,16 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarTipoConsultaActionPerformed
 
     private void btnEliminarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoConsultaActionPerformed
-        // TODO add your handling code here:
-        String IDTipoConsulta;
-        int fsel = tblconsulta.getSelectedRow();
-        if (fsel<0)
-        {
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
-                JOptionPane.WARNING_MESSAGE);
-        }
-        else
-        {
-            m = (DefaultTableModel)tblconsulta.getModel();
-            IDTipoConsulta = tblconsulta.getValueAt(fsel, 0).toString();
-            txtID.setText(IDTipoConsulta);
-            CrudTipoConsulta obj = new CrudTipoConsulta();
-            int i = Integer.parseInt(txtID.getText());
-            obj.setIDTipoConsulta(i);
-            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
-                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (eliminar == 0)
-            {
-//                if (obj.EliminarTipoConsulta())
-//                {
-//                    JOptionPane.showMessageDialog(this, "Datos eliminados");
-//                    CargarTablaTipoConsulta();
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarTipoConsulta());
-//                }
-            }
+        try {
+            Connection cn = Conexion.conectar();
+            PreparedStatement ps = cn.prepareStatement("DELETE FROM Tipo_consulta WHERE id= ?");
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro registro eliminado");
+            cargarTabla();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+
         }
     }//GEN-LAST:event_btnEliminarTipoConsultaActionPerformed
 
