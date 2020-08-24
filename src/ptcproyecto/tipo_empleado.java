@@ -33,7 +33,8 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
     
     public tipo_empleado() {
         initComponents();
-        
+        ListarTiUsuario();
+        It.setVisible(false);
     }
 
     /**
@@ -53,11 +54,11 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTempleado = new javax.swing.JTable();
-        btnim = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtTempleado = new javax.swing.JTextField();
+        It = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -120,13 +121,6 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblTempleado);
 
-        btnim.setText("Limpiar");
-        btnim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnimActionPerformed(evt);
-            }
-        });
-
         btnImprimir.setText("Imprimir");
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +131,14 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Tipo empleado:");
 
+        It.setBackground(new java.awt.Color(240, 240, 240));
+        It.setBorder(null);
+        It.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -146,7 +148,9 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(txtTempleado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(It, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(292, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,7 +158,8 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtTempleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTempleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(It, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -175,11 +180,9 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnim, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnImprimir)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -188,17 +191,16 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnim, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addComponent(btnImprimir)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnImprimir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -245,52 +247,46 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void ListarTipoE(){
+    public void ListarTiUsuario(){
         TipoUsuario obj = new TipoUsuario();
-        obj.CargarE(tblTempleado);
+        obj.CargarTusuario(tblTempleado);
     }
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-         try {
-            Connection con = Conexion.conectar();
-//            Connection conn = con.getConexion();
-            
+         try 
+        {
+            java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-tipoEmpleado(D).jasper";
-            
+            String path = "src\\Reportes\\Reporte-SIGEStipoempleado.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
-            
             JasperViewer view = new JasperViewer(jprint, false);
-            
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            
             view.setVisible(true);
-                    
-        } catch (JRException ex) {
+        } 
+        catch (JRException ex) 
+        {
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         TipoUsuario obj = new TipoUsuario();
-       String empleado= (txtTempleado.getText());
-        obj.settipo_empleado(empleado); 
-        if (obj.guardar()) {
+        obj.settipo_empleado(txtTempleado.getText());
+        if (obj.Guardar()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
-           ListarTipoE();
+           ListarTiUsuario();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-       String ID_usuario;
+        String ID_tipoUsuarios;
         int fsel = tblTempleado.getSelectedRow();
         
         if (fsel==-1) {
@@ -298,18 +294,18 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
                 JOptionPane.WARNING_MESSAGE);
         }else{
          m = (DefaultTableModel)tblTempleado.getModel();
-         ID_usuario = tblTempleado.getValueAt(fsel, 0).toString();
-         txtTempleado.setText(ID_usuario);
+         ID_tipoUsuarios = tblTempleado.getValueAt(fsel, 0).toString();
+         It.setText(ID_tipoUsuarios);
          
          TipoUsuario u = new TipoUsuario();
-         int empleado = Integer.parseInt(txtTempleado.getText());
-         u.setID_usuario(empleado);
+         int empleado = Integer.parseInt(It.getText());
+         u.setID_tipoUsuarios(empleado);
          
           u.settipo_empleado(txtTempleado.getText());
          
          if (u.modificar()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
-             ListarTipoE();
+             ListarTiUsuario();
              Limpiar();
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
@@ -336,17 +332,17 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         }else{
             m = (DefaultTableModel)tblTempleado.getModel();
             ID = tblTempleado.getValueAt(fsel, 0).toString();
-            txtTempleado.setText(ID);
+            It.setText(ID);
 
             TipoUsuario obj = new TipoUsuario();
-            obj.setID_usuario(Integer.parseInt(txtTempleado.getText()));
+            obj.setID_tipoUsuarios(Integer.parseInt(It.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
 
                 if (obj.Eliminar()) {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
-                    ListarTipoE();
+                    ListarTiUsuario();
                 }else{
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
@@ -381,32 +377,18 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimActionPerformed
-      try 
-        {
-            java.sql.Connection con = Conexion.conectar();
-            JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-empleado(D).jasper";
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
-            JasperViewer view = new JasperViewer(jprint, false);
-            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            view.setVisible(true);
-        } 
-        catch (JRException ex) 
-        {
-            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnimActionPerformed
+    private void ItActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField It;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnim;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

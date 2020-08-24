@@ -25,6 +25,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
     public CodigoZn() {
         initComponents();
         listarcodigos();
+        Ic.setVisible(false);
         
     }
 
@@ -47,6 +48,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbZona = new javax.swing.JTable();
+        Ic = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -119,6 +121,8 @@ public class CodigoZn extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtbZona);
 
+        Ic.setBorder(null);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,7 +135,9 @@ public class CodigoZn extends javax.swing.JInternalFrame {
                             .addGap(159, 159, 159)
                             .addComponent(jLabel1)
                             .addGap(18, 18, 18)
-                            .addComponent(txtZona, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtZona, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Ic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(75, 75, 75)
                             .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,7 +155,8 @@ public class CodigoZn extends javax.swing.JInternalFrame {
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Ic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,7 +216,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     public void listarcodigos(){
         controlCodigoZona obj = new controlCodigoZona();
-        obj.CargarCodigoZ (jtbZona);
+        obj.CargarCodigoZ(jtbZona);
         
     }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -218,7 +225,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
         obj.setcodigo_zona(Zona); 
         if (obj.guardar()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
-           ListarTipoE();
+           listarcodigos();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
@@ -234,17 +241,17 @@ public class CodigoZn extends javax.swing.JInternalFrame {
         }else{
          m = (DefaultTableModel)jtbZona.getModel();
          ID_codigo = jtbZona.getValueAt(fsel, 0).toString();
-         txtZona.setText(ID_codigo);
+         Ic.setText(ID_codigo);
          
          controlCodigoZona u = new controlCodigoZona();
-         int cod = Integer.parseInt(txtZona.getText());
+         int cod = Integer.parseInt(Ic.getText());
          u.setID_codigo(cod);
          
           u.setcodigo_zona(txtZona.getColumns());
          
          if (u.modificar()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
-             ListarTipoE();
+             listarcodigos();
              Limpiar();
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
@@ -264,17 +271,17 @@ public class CodigoZn extends javax.swing.JInternalFrame {
         }else{
             m = (DefaultTableModel)jtbZona.getModel();
             ID = jtbZona.getValueAt(fsel, 0).toString();
-            txtZona.setText(ID);
+            Ic.setText(ID);
 
             controlCodigoZona obj = new controlCodigoZona();
-            obj.setID_codigo(Integer.parseInt(txtZona.getText()));
+            obj.setID_codigo(Integer.parseInt(Ic.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
 
                 if (obj.Eliminar()) {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
-                    ListarTipoE();
+                    listarcodigos();
                 }else{
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
@@ -290,9 +297,10 @@ public class CodigoZn extends javax.swing.JInternalFrame {
             ResultSet rs;
 
             Connection cn = Conexion.conectar();
-            ps = cn.prepareStatement("SELECT FROM  codigo_zona WHERE ID_codigo=?");
+            ps = cn.prepareStatement("SELECT codigo_zona FROM codigo_zona  WHERE ID_codigo=?");
             ps.setInt(1, ID_codigo);
             rs = ps.executeQuery();
+            
 
             while(rs.next()){
 
@@ -314,6 +322,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Ic;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
@@ -328,10 +337,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtZona;
     // End of variables declaration//GEN-END:variables
 
-    public void ListarTipoE(){
-        controlCodigoZona obj = new controlCodigoZona();
-        obj.CargarCodigoZ(jtbZona);
-    }
+    
 
     private void Limpiar() {
        txtZona.setText("");

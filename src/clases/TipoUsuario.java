@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package clases;
 
 import java.sql.Connection;
@@ -21,8 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class TipoUsuario {
     private Connection cn;
     private Conexion conexion;
-    private Integer ID_usuario;
-    private Integer ID_TipoUsuario;
+    private Integer ID_tipoUsuarios;
     private String tipo_empleado;
 
     public Connection getCn() {
@@ -36,46 +31,36 @@ public class TipoUsuario {
     public Conexion getConexion() {
         return conexion;
     }
-
     public void setConexion(Conexion conexion) {
         this.conexion = conexion;
     }
+    
+    
     public Integer getID_TipoUsuario() {
-        return ID_TipoUsuario;
+        return ID_tipoUsuarios;
     }
-
-    public void setID_TipoUsuario(Integer ID_usuario) {
-        this.ID_TipoUsuario = ID_usuario;
+    public void setID_tipoUsuarios(Integer ID_tipoUsuarios) {
+        this.ID_tipoUsuarios = ID_tipoUsuarios;
     }
-    public Integer getID_usuario() {
-        return ID_usuario;
-    }
-
-    public void setID_usuario(Integer ID_usuario) {
-        this.ID_usuario = ID_usuario;
-    }
-   public String getTipo_empleado() {
-        return tipo_empleado;
-    }
-    public String gettipo_empleado() {
+    
+    
+   public String gettipo_empleado() {
         return tipo_empleado;
     }
 
     public void settipo_empleado(String tipo_empleado) {
         this.tipo_empleado = tipo_empleado;
     }
-    public String toString() {
-        return tipo_empleado;
-    }
     
-    public boolean guardar() {
-
+    
+    
+    public boolean Guardar() {
         try {
             boolean resp = false;
             cn = Conexion.conectar();
             String sql = "INSERT INTO Tipo_usuarios (tipo_empleado)"+"VALUES(?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
-//            cmd.setInt(1, ID_detalle);
+
             cmd.setString(1, tipo_empleado);
             
             if (!cmd.execute()) {
@@ -85,7 +70,7 @@ public class TipoUsuario {
             cn.close();
             return resp;
         } catch (SQLException ex) {
-            System.err.println("Error guardar tipoe mpleado " + ex);
+            System.err.println("Error guardar tipo mpleado " + ex);
             return false;
         }
         }
@@ -94,11 +79,11 @@ public class TipoUsuario {
         try {
             boolean resp = false;
             cn = Conexion.conectar();
-            String sql = "UPDATE Tipo_usuarios SET tipo_empleado = ? WHERE ID_usuario = ?";
+            String sql = "UPDATE Tipo_usuarios SET tipo_empleado = ? WHERE ID_tipoUsuarios = ?";
             PreparedStatement cmd = cn.prepareStatement(sql);
-//            cmd.setInt(1, ID_detalle);
+
             cmd.setString(1, tipo_empleado);
-            cmd.setInt(2, ID_usuario);
+            cmd.setInt(2, ID_tipoUsuarios);
             
             if (!cmd.execute()) {
                 resp = true;
@@ -115,9 +100,9 @@ public class TipoUsuario {
         boolean resp = false;
         cn = Conexion.conectar();
         try {//realizando consulta insert
-            String sql = "DELETE FROM Tipo_usuarios WHERE ID_usuario=?;";
+            String sql = "DELETE FROM Tipo_usuarios WHERE ID_tipoUsuarios=?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
-            cmd.setInt(1, ID_usuario);
+            cmd.setInt(1, ID_tipoUsuarios);
             if (!cmd.execute()) {
                 resp = true;
             }
@@ -128,12 +113,12 @@ public class TipoUsuario {
         }
         return resp;
     }
-    public void listarEstados(Connection cn, JTable tabla){
+    public void listarTusuario(Connection cn, JTable tabla){
         cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID","estado"};
+        String [] columnas = {"ID_tipoUsuarios","Tipo empleado"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT * FROM Tipo_usuarios ORDER BY ID_usuario";
+        String sql = "SELECT * FROM Tipo_usuarios ORDER BY ID_tipoUsuarios";
         String [] filas = new String[2];
         Statement st = null;
         ResultSet rs = null;
@@ -153,7 +138,7 @@ public class TipoUsuario {
             JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
         }
     }  
-    public void CargarE (JTable tabla) {
-        listarEstados(cn ,tabla);
+    public void CargarTusuario (JTable tabla) {
+        listarTusuario(cn ,tabla);
     }
 }

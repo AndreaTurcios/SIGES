@@ -24,8 +24,9 @@ import javax.swing.table.DefaultTableModel;
 public class controlCodigoZona {
     
     private Connection Cn;
+    private Conexion conexion;
     private Integer ID_codigo;
-    private int codigo_zona;
+    private Integer codigo_zona;
     
     public Connection getCn()
     {
@@ -40,6 +41,12 @@ public class controlCodigoZona {
     {
         return ID_codigo;
     }
+     public Conexion getconexion() {
+        return conexion;
+    }
+    public void setconexion(Conexion conexion) {
+        this.conexion = conexion;
+    }
     
     public void setID_codigo(Integer ID_codigo)
     {
@@ -53,6 +60,7 @@ public class controlCodigoZona {
     public void setcodigo_zona(int codigo_zona) {
         this.codigo_zona = codigo_zona;
     }
+    
     
     public boolean guardar() {
 
@@ -71,7 +79,7 @@ public class controlCodigoZona {
             Cn.close();
             return resp;
         } catch (SQLException ex) {
-            System.err.println("Error guardar codigo zona " + ex);
+            System.err.println("Error al guardar codigo zona " + ex);
             return false;
         }
         }
@@ -94,7 +102,7 @@ public class controlCodigoZona {
             Cn.close();
             return resp;
         } catch (SQLException ex) {
-            System.err.println("Error guardar codigo zona " + ex);
+            System.err.println("Error al modificar codigo zona " + ex);
             return false;
         }
         }
@@ -121,7 +129,7 @@ public class controlCodigoZona {
 }
     
      public void cargarC (Connection Cn, JTable tabla){
-         Cn = Conexion.conectar();
+         Cn = conexion.conectar();
          DefaultTableModel model = new DefaultTableModel();
          String [] columnas = {"ID_codigo","codigo_zona"};
         model = new DefaultTableModel(null, columnas);

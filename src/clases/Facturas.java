@@ -36,11 +36,11 @@ public class Facturas {
         this.Cn = Cn;
     }
 
-    public Conexion getConexion() {
+    public Conexion getconexion() {
         return conexion;
     }
 
-    public void setConexion(Conexion conexion) {
+    public void setconexion(Conexion conexion) {
         this.conexion = conexion;
     }
 
@@ -83,13 +83,25 @@ public class Facturas {
     public void setID_producto(Integer ID_producto) {
         this.ID_producto = ID_producto;
     }
-
-    public boolean guardar() {
-         try {
+    
+    public Pool getMetodospool(){
+        return metodospool;
+    }
+    
+    private void  setMetodospool(Pool metodospool ){
+       this.metodospool = metodospool;
+    }
+        
+    
+    
+     Pool metodospool = new Pool();
+    public boolean Guardar(){
+        try {
             boolean resp = false;
-            Cn = conexion.conectar();
-            String sql = "INSERT  INTO Factura  (nombre_pagador, ID_detalle, ID_consulta, ID_producto) VALUES (?, ?, ? ,?) ";
+            Cn = Conexion.conectar();
+            String sql = "INSERT INTO Factura (nombre_pagador, ID_detalle, ID_consulta, ID_producto)"+"VALUES(?, ?, ?, ?)";
             PreparedStatement cmd = Cn.prepareStatement(sql);
+
             cmd.setString(1, nombre_pagador);
             cmd.setInt(2, ID_detalle);
             cmd.setInt(3, ID_consulta);
@@ -102,22 +114,23 @@ public class Facturas {
             Cn.close();
             return resp;
         } catch (SQLException ex) {
-            System.err.println("Error guardar codigo zona " + ex);
+            System.err.println("Error guardar Factura " + ex);
             return false;
         }
     }
-
     public boolean modificar() {
+
         try {
             boolean resp = false;
-            Cn = conexion.conectar();
-            String sql = "UPDATE  Factura SET nombre_pagador = ?, ID_detalle = ?, ID_consulta = ?, ID_producto = ?,   WHERE ID_factura = ?";
+            Cn = Conexion.conectar();
+            String sql = "UPDATE Factura SET nombre_pagador = ?, ID_detalle = ?, ID_consulta = ?, ID_producto = ? WHERE ID_factura = ?";
             PreparedStatement cmd = Cn.prepareStatement(sql);
-            System.out.println("preparada" + cmd);
+
             cmd.setString(1, nombre_pagador);
             cmd.setInt(2, ID_detalle);
             cmd.setInt(3, ID_consulta);
             cmd.setInt(4, ID_producto);
+            cmd.setInt(5, ID_factura);
             
             if (!cmd.execute()) {
                 resp = true;
@@ -126,48 +139,42 @@ public class Facturas {
             Cn.close();
             return resp;
         } catch (SQLException ex) {
-            System.err.println("Error modificar tipo cliente " + ex);
+            System.err.println("Error guardar tipo empleado " + ex);
             return false;
         }
-    }
-    
-
-    public boolean eliminar() {
-        try {
-            boolean resp = false;
-            Cn = conexion.conectar();
-            String sql = "DELETE FROM  Factura  WHERE ID_factura = ? ";
+        }
+    public boolean Eliminar() {
+        boolean resp = false;
+        Cn = Conexion.conectar();
+        try {//realizando consulta insert
+            String sql = "DELETE FROM Factura WHERE ID_factura =?;";
             PreparedStatement cmd = Cn.prepareStatement(sql);
-            System.out.println("preparada" + cmd);
             cmd.setInt(1, ID_factura);
-            
             if (!cmd.execute()) {
                 resp = true;
             }
             cmd.close();
             Cn.close();
-            return resp;
-        } catch (SQLException ex) {
-            System.err.println("Error eliminar tipo cliente " + ex);
-            return false;
+        } catch (Exception ex) {
+            System.out.println("Error exception es"+ex.toString());
         }
-    }
-    
-    public void listarFacturas(Connection cn, JTable tabla){
-        cn = conexion.conectar();
+        return resp;
+    }     
+    public void listarFactura(Connection Cn, JTable tabla){
+        Cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID","estado"};
+        String [] columnas = {"ID_factura"," nombre_pagador", "ID_detalle", "ID_consulta", "ID_producto"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM Factura ORDER BY ID_factura";
-        String [] filas = new String[2];
+        String [] filas = new String[5];
         Statement st = null;
         ResultSet rs = null;
         try{
-            st = cn.createStatement();
+            st = Cn.createStatement();
             rs = st.executeQuery(sql);
             System.out.println("datos obtenidos "+rs);
             while (rs.next()){
-                for (int i = 0; i < 2; i++) {
+                for (int i = 0; i < 5; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
@@ -179,6 +186,6 @@ public class Facturas {
         }
     }  
     public void CargarF (JTable tabla) {
-        listarFacturas(Cn ,tabla);
+        listarFactura(Cn ,tabla);
     }
-}
+    }
