@@ -287,7 +287,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         
         try{
             Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO Tipo_consulta(Tipoconsulta) VALUES(?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO Tipo_consulta(tipo_consulta) VALUES(?)");
             ps.setString(1,Tipoconsulta);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Registro Guardado");
