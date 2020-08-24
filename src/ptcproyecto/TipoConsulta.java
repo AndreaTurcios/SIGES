@@ -9,6 +9,8 @@ import clases.*;
 import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +34,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     public void CargarTablaTipoConsulta()
     {
         CrudTipoConsulta obj = new CrudTipoConsulta();
-        obj.CargarTipoConsulta(jTableTipoConsulta);
+        obj.CargarTipoConsulta(tblconsulta);
     }
     
     DefaultTableModel m;
@@ -57,7 +59,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
 
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableTipoConsulta = new javax.swing.JTable();
+        tblconsulta = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         txtNombreTipoConsulta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -76,7 +78,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(null);
 
-        jTableTipoConsulta.setModel(new javax.swing.table.DefaultTableModel(
+        tblconsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -87,7 +89,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTableTipoConsulta);
+        jScrollPane1.setViewportView(tblconsulta);
 
         jPanel5.add(jScrollPane1);
         jScrollPane1.setBounds(10, 20, 650, 220);
@@ -95,7 +97,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
         jPanel2.add(txtNombreTipoConsulta);
-        txtNombreTipoConsulta.setBounds(170, 60, 290, 20);
+        txtNombreTipoConsulta.setBounds(170, 60, 290, 22);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nombre del tipo de consulta:");
@@ -130,7 +132,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
 
         txtID.setFocusable(false);
         jPanel2.add(txtID);
-        txtID.setBounds(20, 100, 6, 20);
+        txtID.setBounds(20, 100, 6, 22);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkGradientFocus(600);
@@ -289,6 +291,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             ps.setString(1,Tipoconsulta);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Registro Guardado");
+            cargarTabla();
         
         } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.toString());
@@ -299,7 +302,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     private void btnEliminarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoConsultaActionPerformed
         // TODO add your handling code here:
         String IDTipoConsulta;
-        int fsel = jTableTipoConsulta.getSelectedRow();
+        int fsel = tblconsulta.getSelectedRow();
         if (fsel<0)
         {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
@@ -307,8 +310,8 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         }
         else
         {
-            m = (DefaultTableModel)jTableTipoConsulta.getModel();
-            IDTipoConsulta = jTableTipoConsulta.getValueAt(fsel, 0).toString();
+            m = (DefaultTableModel)tblconsulta.getModel();
+            IDTipoConsulta = tblconsulta.getValueAt(fsel, 0).toString();
             txtID.setText(IDTipoConsulta);
             CrudTipoConsulta obj = new CrudTipoConsulta();
             int i = Integer.parseInt(txtID.getText());
@@ -332,15 +335,15 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
 
     private void btnModificarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoConsultaActionPerformed
         String IDTipoPago;
-        int fsel = jTableTipoConsulta.getSelectedRow();
+        int fsel = tblconsulta.getSelectedRow();
         if (fsel==-1) 
         {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
-            m = (DefaultTableModel)jTableTipoConsulta.getModel();
-            IDTipoPago = jTableTipoConsulta.getValueAt(fsel, 0).toString();
+            m = (DefaultTableModel)tblconsulta.getModel();
+            IDTipoPago = tblconsulta.getValueAt(fsel, 0).toString();
             txtID.setText(IDTipoPago);
             CrudTipoConsulta obj = new CrudTipoConsulta();
             int ID = Integer.parseInt(txtID.getText());
@@ -363,6 +366,40 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         txtNombreTipoConsulta.setText("");
     }//GEN-LAST:event_btnTipoPagoActionPerformed
 
+    private void cargarTabla(){
+        DefaultTableModel modeloTabla = (DefaultTableModel) tblconsulta.getModel();
+        modeloTabla.setRowCount(0);
+        
+         PreparedStatement ps;
+        ResultSet rs;
+        ResultSetMetaData rsmd;
+        int columnas;
+        //tamaños para la tabla
+        int[] anchos = {10, 100};
+        for (int i = 0; i < tblconsulta.getColumnCount(); i++) {
+            tblconsulta.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+        }
+
+        try {
+            Connection cn = Conexion.conectar();
+            ps = cn.prepareStatement("SELECT ID_tipoConsulta, tipo_consulta FROM Tipo_consulta ORDER BY ID_tipoConsulta");
+            rs = ps.executeQuery();
+            rsmd = rs.getMetaData();
+            columnas = rsmd.getColumnCount();
+
+            while (rs.next()) {
+                Object[] fila = new Object[columnas];
+                for (int indice = 0; indice < columnas; indice++) {
+                    fila[indice] = rs.getObject(indice + 1);
+                }
+                modeloTabla.addRow(fila);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }
+    
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         try
         {
@@ -421,8 +458,8 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableTipoConsulta;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JTable tblconsulta;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombreTipoConsulta;
     // End of variables declaration//GEN-END:variables
