@@ -333,7 +333,31 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarNacionalidadActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        String ID_estado;
+        int fsel = tb_Nacionalidad.getSelectedRow();
+        
+        if (fsel==-1) {
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+         m = (DefaultTableModel)tb_Nacionalidad.getModel();
+         ID_estado = tb_Nacionalidad.getValueAt(fsel, 0).toString();
+         txtID.setText(ID_estado);
+         
+         TipoEstados u = new TipoEstados();
+         int estad = Integer.parseInt(txtID.getText());
+         u.setID_estado(estad);
+         
+          u.setEstado(txtnacionalidad.getText());
+         
+         if (u.modificar()) {
+            JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+             ListarNacionalidad();
+             
+        }else{
+           JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+           }
+         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnImprimirNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirNacionalidadActionPerformed
