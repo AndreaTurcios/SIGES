@@ -300,17 +300,31 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarTipoConsultaActionPerformed
 
     private void btnEliminarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoConsultaActionPerformed
-        try {
-            Connection cn = Conexion.conectar();
-            PreparedStatement ps = cn.prepareStatement("DELETE FROM Tipo_consulta WHERE id= ?");
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro registro eliminado");
-            cargarTabla();
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-
-        }
+        String ID_estado;
+        int fsel = tblconsulta.getSelectedRow();
+        
+        if (fsel==-1) {
+        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+         m = (DefaultTableModel)tblconsulta.getModel();
+         ID_estado = tblconsulta.getValueAt(fsel, 0).toString();
+         txtID.setText(ID_estado);
+         
+         TipoEstados u = new TipoEstados();
+         int estad = Integer.parseInt(txtID.getText());
+         u.setID_estado(estad);
+         
+          u.setEstado(txtNombreTipoConsulta.getText());
+         
+         if (u.modificar()) {
+            JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+             CargarTablaTipoConsulta();
+             
+        }else{
+           JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+           }
+         }
     }//GEN-LAST:event_btnEliminarTipoConsultaActionPerformed
 
     private void btnModificarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoConsultaActionPerformed
