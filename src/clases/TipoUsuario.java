@@ -141,4 +141,11 @@ public class TipoUsuario {
     public void CargarTusuario (JTable tabla) {
         listarTusuario(cn ,tabla);
     }
+
+    @Override
+    public String toString() {
+        return  tipo_empleado;
+    }
+    
+    
 }

@@ -53,7 +53,7 @@ public class controlCodigoZona {
         this.ID_codigo = ID_codigo;
     }
     
-    public int getcodigo_zona() {
+    public int getcodigo_zonaa() {
         return codigo_zona;
     }
 
@@ -153,5 +153,13 @@ public class controlCodigoZona {
             JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
                   
      }
+    }
+     public int getcodigo_zona() {
+        return codigo_zona;
+    }
+      @Override
+    public String toString() {
+        String codigo = String.valueOf(codigo_zona);
+        return codigo;
     }
 }

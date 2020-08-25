@@ -107,9 +107,9 @@ public class ClienteDuenio {
         this.nacionalidad = nacionalidad;
     }
 
-    public Integer getCodigo_zona() {
-        return codigo_zona;
-    }
+//    public Integer getCodigo_zona() {
+//        return codigo_zona;
+//    }
 
     public void setCodigo_zona(Integer codigo_zona) {
         this.codigo_zona = codigo_zona;
@@ -822,6 +822,21 @@ public class ClienteDuenio {
     public void setNacionalidad2(controlNacionalidad nacionalidad2) {
         this.nacionalidad2 = nacionalidad2;
     }
+    public String getCodigo_zona() {
+        String codigo = String.valueOf(codigo_zona);
+        return codigo;
+    }
 
+    @Override
+    public String toString() {
+        String codigo = String.valueOf(codigo_zona);
+        return codigo;
+       //El overri se usa con la clase exacta en este caso seria la clase que tenga codizo zona
+       //busca esa clase
+       
+        //no se ni siquiera bien para que sirve override, si lo guardo sin eso no da error, e incluso 
+        //convirtiendo a string no me agarra
+    }
+    
     
 }
