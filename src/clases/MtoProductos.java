@@ -24,9 +24,8 @@ public class MtoProductos {
         private String Producto;
         private Integer Codigo;
         private Date FechaE;
-        private Double Costo;
+        private String Costo;
         private Date FechaEx;
-        private Integer DUI;
         private Integer Tipo_producto;
         
     public MtoProductos(){
@@ -42,18 +41,17 @@ public class MtoProductos {
         boolean resp  = false;
         try{
             //Realizar consulta INSERT
-            String sql = "INSERT INTO Productos (producto, codigo_producto , fecha_entrada, costo_producto, fecha_expiracion, ID_DUI, ID_tipoProductos) "
-            + "VALUES( ?, ?, ?, ?, ?, ?, ?)";//Se pasan por referencia por seguridad        
+            String sql = "INSERT INTO Productos (producto, codigo_producto , fecha_entrada, costo_producto, fecha_expiracion, ID_tipoProductos) "
+            + "VALUES( ?, ?, ?, ?, ?, ?)";//Se pasan por referencia por seguridad        
             //Pide importar clase PreparedStateMent
             PreparedStatement cmd = cn.prepareStatement(sql);
             //Llenar los parametros de la clase, se coloca en el orden de la tabla 
             cmd.setString(1, Producto);//codigo es como se definio en la clase aunque en la base se llama correlativo
             cmd.setInt(2, Codigo);
             cmd.setDate(3, FechaE);
-            cmd.setDouble(4, Costo);
+            cmd.setString(4, Costo);
             cmd.setDate(5, FechaEx);
-            cmd.setInt(6, DUI);
-            cmd.setInt(7, Tipo_producto);
+            cmd.setInt(6, Tipo_producto);
             //si da error devuelve 1, caso contrario 0
             //Tomar en cuenta el "!" de negacion
             
@@ -73,17 +71,16 @@ public class MtoProductos {
         boolean resp = false;
         try{
             //Realizar consulta UPDATE 
-            String sql = "UPDATE Productos SET producto = ? , codigo_producto = ?, fecha_entrada = ?, costo_producto = ?, fecha_expiracion = ?, ID_DUI = ? , ID_tipoProductos = ? WHERE ID_producto = ?;";
+            String sql = "UPDATE Productos SET producto = ? , codigo_producto = ?, fecha_entrada = ?, costo_producto = ?, fecha_expiracion = ?, ID_tipoProductos = ? WHERE ID_producto = ?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
             //Llenar los parametros como esta en la clase 
             cmd.setString(1, Producto);
             cmd.setInt(2, Codigo);
             cmd.setDate(3, FechaE);
-            cmd.setDouble(4, Costo);
+            cmd.setString(4, Costo);
             cmd.setDate(5, FechaEx);
-            cmd.setInt(6, DUI);
-            cmd.setInt(7, Tipo_producto);
-            cmd.setInt(8, ID_producto);
+            cmd.setInt(6, Tipo_producto);
+            cmd.setInt(7, ID_producto);
             //Si da error devuelve 1, caso contrario 0
             //Tomar en cuenta el "!" de negacion
             
@@ -102,7 +99,7 @@ public class MtoProductos {
         boolean resp = false;
         try{
             //Realizar consulta SELECT
-            String sql = "SELECT  producto, codigo_producto , fecha_entrada, costo_producto, fecha_expiracion, ID_DUI, ID_tipoProductos "
+            String sql = "SELECT  producto, codigo_producto , fecha_entrada, costo_producto, fecha_expiracion, ID_tipoProductos "
                     + "FROM Productos WHERE ID_producto = ?";
             PreparedStatement cmd = cn.prepareStatement(sql);//Llenar los parametros
             //Ejecutar la consulta
@@ -117,10 +114,9 @@ public class MtoProductos {
                 Producto = rs.getString(1);
                 Codigo = rs.getInt(2);
                 FechaE = rs.getDate(3);
-                Costo = rs.getDouble(4);
+                Costo = rs.getString(4);
                 FechaEx = rs.getDate(5);
-                DUI = rs.getInt(6);
-                Tipo_producto = rs.getInt(7);
+                Tipo_producto = rs.getInt(6);
                 
             }
             cmd.close();
@@ -133,18 +129,18 @@ public class MtoProductos {
     }
     public void listarProductos(Connection cn, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "Producto", "Codigo", "Fecha de entrada", "Costo", "Fecha de expiracion", "DUI", "Tipo de producto"};
+        String [] columnas = {"ID", "Producto", "Codigo", "Fecha de entrada", "Costo", "Fecha de expiracion", "Tipo de producto"};
         model = new DefaultTableModel(null, columnas);
         
         String sql = "SELECT * FROM Productos ORDER BY ID_producto";
-        String [] filas = new String[8];
+        String [] filas = new String[7];
         Statement st = null;
         ResultSet rs = null;
         try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 7; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
@@ -201,35 +197,6 @@ public class MtoProductos {
         this.Producto = Producto;
     }
 
-
-    /**
-     * @return the Costo
-     */
-    public Double getCosto() {
-        return Costo;
-    }
-
-    /**
-     * @param Costo the Costo to set
-     */
-    public void setCosto(Double Costo) {
-        this.Costo = Costo;
-    }
-
-    /**
-     * @return the DUI
-     */
-    public Integer getDUI() {
-        return DUI;
-    }
-
-    /**
-     * @param DUI the DUI to set
-     */
-    public void setDUI(Integer DUI) {
-        this.DUI = DUI;
-    }
-
     /**
      * @return the Tipo_producto
      */
@@ -284,5 +251,19 @@ public class MtoProductos {
      */
     public void setFechaEx(Date FechaEx) {
         this.FechaEx = FechaEx;
+    }
+
+    /**
+     * @return the Costo
+     */
+    public String getCosto() {
+        return Costo;
+    }
+
+    /**
+     * @param Costo the Costo to set
+     */
+    public void setCosto(String Costo) {
+        this.Costo = Costo;
     }
 }
