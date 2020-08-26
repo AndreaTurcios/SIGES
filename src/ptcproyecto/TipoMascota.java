@@ -1,6 +1,8 @@
 package ptcproyecto;
 
 import clases.Conexion;
+import clases.*;
+import clases.CrudTipoConsulta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +24,12 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author 15-CW0001la
  */
 public class TipoMascota extends javax.swing.JInternalFrame {
+    
+    public void CargarTablaTipoMascota()
+    {
+        tipoMascota obj = new tipoMascota();
+        obj.CargarTipoMascota(tblTipomascota);
+    }
 
     /**
      * Creates new form TipoMascota
@@ -29,9 +37,10 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     public TipoMascota() {
         initComponents();
         //hacer invisible el txt del ID
-        
         cargarTabla();
     }
+    
+    DefaultTableModel m;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -47,6 +56,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
@@ -123,6 +133,8 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             }
         });
 
+        txtID.setFocusable(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -131,7 +143,10 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,7 +170,8 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtTipomascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReporte))
+                    .addComponent(btnReporte)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
@@ -292,17 +308,30 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        try {
-            Connection cn = Conexion.conectar();
-            PreparedStatement ps = cn.prepareStatement("DELETE FROM Tipo_mascota WHERE id= ?");
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro registro eliminado");
-            limpiar();
-            cargarTabla();
+        String ID;
+        int fsel = tblTipomascota.getSelectedRow();
+        if (fsel==-1) {
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+            m = (DefaultTableModel)tblTipomascota.getModel();
+            ID = tblTipomascota.getValueAt(fsel, 0).toString();
+            txtID.setText(ID);
 
+            tipoMascota obj = new tipoMascota();
+            obj.setID_tipoMascota(Integer.parseInt(txtID.getText()));
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) {
+
+                if (obj.EliminarTipoMascota()) {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    CargarTablaTipoMascota();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
+            }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -389,6 +418,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTable tblTipomascota;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtTipomascota;
     // End of variables declaration//GEN-END:variables
 }

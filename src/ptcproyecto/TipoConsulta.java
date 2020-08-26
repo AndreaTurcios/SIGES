@@ -46,6 +46,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         initComponents();
         CargarTablaTipoConsulta();
         txtID.setVisible(false);
+        cargarTabla();
     }
 
     /**
