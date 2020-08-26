@@ -300,32 +300,31 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarTipoConsultaActionPerformed
 
     private void btnEliminarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoConsultaActionPerformed
-        String ID;
+        String ID_tipoConsulta;
         int fsel = tblconsulta.getSelectedRow();
-         if (fsel==-1) {
-            
+        
+        if (fsel==-1) {
         JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
-        JOptionPane.WARNING_MESSAGE);
-         }else{
+                JOptionPane.WARNING_MESSAGE);
+        }else{
          m = (DefaultTableModel)tblconsulta.getModel();
-         ID = tblconsulta.getValueAt(fsel, 0).toString();
+         ID_tipoConsulta = tblconsulta.getValueAt(fsel, 0).toString();
+         txtID.setText(ID_tipoConsulta);
          
-         txtID.setText(ID);
+         TipoUsuario u = new TipoUsuario();
+         int empleado = Integer.parseInt(txtID.getText());
+         u.setID_tipoUsuarios(empleado);
          
-         ClienteDuenio obj = new ClienteDuenio();
-         obj.setID_DUI(Integer.parseInt(txtID.getText()));
+          u.settipo_empleado(txtNombreTipoConsulta.getText());
          
-        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
-                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-       if (eliminar == 0) {
-          if (obj.EliminarCliente()) {
-                JOptionPane.showMessageDialog(this, "Datos eliminados");
-                CargarTablaTipoConsulta();
-            }else{
-            JOptionPane.showMessageDialog(this, "Error al eliminar, tiene una mascota asociada.");
-            }
-        }
-      }
+         if (u.modificar()) {
+            JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+             CargarTablaTipoConsulta();
+            
+        }else{
+           JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+           }
+         }
     }//GEN-LAST:event_btnEliminarTipoConsultaActionPerformed
 
     private void btnModificarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoConsultaActionPerformed
