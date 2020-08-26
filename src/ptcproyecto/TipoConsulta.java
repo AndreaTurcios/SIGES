@@ -300,31 +300,32 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarTipoConsultaActionPerformed
 
     private void btnEliminarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoConsultaActionPerformed
-        String ID_estado;
+        String ID;
         int fsel = tblconsulta.getSelectedRow();
-        
-        if (fsel==-1) {
+         if (fsel==-1) {
+            
         JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
-                JOptionPane.WARNING_MESSAGE);
-        }else{
+        JOptionPane.WARNING_MESSAGE);
+         }else{
          m = (DefaultTableModel)tblconsulta.getModel();
-         ID_estado = tblconsulta.getValueAt(fsel, 0).toString();
-         txtID.setText(ID_estado);
+         ID = tblconsulta.getValueAt(fsel, 0).toString();
          
-         TipoEstados u = new TipoEstados();
-         int estad = Integer.parseInt(txtID.getText());
-         u.setID_estado(estad);
+         txtID.setText(ID);
          
-          u.setEstado(txtNombreTipoConsulta.getText());
+         ClienteDuenio obj = new ClienteDuenio();
+         obj.setID_DUI(Integer.parseInt(txtID.getText()));
          
-         if (u.modificar()) {
-            JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
-             CargarTablaTipoConsulta();
-             
-        }else{
-           JOptionPane.showMessageDialog(null,"Error al modificar los datos");
-           }
-         }
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+       if (eliminar == 0) {
+          if (obj.EliminarCliente()) {
+                JOptionPane.showMessageDialog(this, "Datos eliminados");
+                CargarTablaTipoConsulta();
+            }else{
+            JOptionPane.showMessageDialog(this, "Error al eliminar, tiene una mascota asociada.");
+            }
+        }
+      }
     }//GEN-LAST:event_btnEliminarTipoConsultaActionPerformed
 
     private void btnModificarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoConsultaActionPerformed
