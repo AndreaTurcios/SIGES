@@ -141,6 +141,7 @@ DefaultTableModel m;
             }
         });
 
+        jtbModificar.setBackground(new java.awt.Color(204, 204, 204));
         jtbModificar.setText("Modificar");
         jtbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +149,7 @@ DefaultTableModel m;
             }
         });
 
+        jtbConsultar.setBackground(new java.awt.Color(204, 204, 204));
         jtbConsultar.setText("Consultar");
         jtbConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +170,7 @@ DefaultTableModel m;
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jtbGuardar.setBackground(new java.awt.Color(204, 204, 204));
         jtbGuardar.setText("Guardar");
         jtbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,29 +186,30 @@ DefaultTableModel m;
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel33)
-                            .addComponent(jtfNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel36)
-                            .addComponent(jtfEmail)
-                            .addComponent(jtfApellido)
-                            .addComponent(jtfDireccion))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addComponent(jtbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(jtbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(jtbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(jtbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel33)
+                                    .addComponent(jtfNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                                    .addComponent(jLabel34)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jtfEmail)
+                                    .addComponent(jtfApellido)
+                                    .addComponent(jtfDireccion))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(54, 54, 54))))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,7 +344,7 @@ DefaultTableModel m;
             if (obj.guardar()) {
                 JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
                 ListarUsuarios();
-                Bit.BitacoraCreate();
+                Bit.BitacoraCreateUsuario();
             }else{
                 JOptionPane.showMessageDialog(this, "Error al guardar los datos");
             }
@@ -362,11 +366,12 @@ DefaultTableModel m;
              m = (DefaultTableModel)jTable1.getModel();
             ID = jTable1.getValueAt(fsel, 0).toString();
             MtoUsuarios obj = new MtoUsuarios();
+            clases.Bitacora Bit = new clases.Bitacora();
         
             if (jtfNombre.getText().isEmpty() || jtfApellido.getText().isEmpty() || jtfEmail.getText().isEmpty() || jtfDireccion.getText().isEmpty()|| jtfUsuario.getText().isEmpty() || jtfContraseña.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
             }else   {
-            
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             obj.setID_usuario(Integer.parseInt(ID));
             obj.setNombre_empleado(jtfNombre.getText());
             obj.setEmpleado_apellidos(jtfApellido.getText());
@@ -382,6 +387,7 @@ DefaultTableModel m;
             if (obj.modificar()) {
                 JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
                 ListarUsuarios();
+                Bit.BitacoraUpdateUsuario();
             }else{
                 JOptionPane.showMessageDialog(this, "Error al modificar los datos");
             }
@@ -400,7 +406,9 @@ DefaultTableModel m;
             }else{
              m = (DefaultTableModel)jTable1.getModel();
             ID = jTable1.getValueAt(fsel, 0).toString();
+            clases.Bitacora Bit = new clases.Bitacora();
             MtoUsuarios obj = new MtoUsuarios();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             obj.setID_usuario(Integer.parseInt(ID));
             if (obj.consultar()) {
                 jtfNombre.setText(obj.getNombre_empleado());
@@ -410,11 +418,11 @@ DefaultTableModel m;
                 jtfEmail.setText(obj.getEmpleado_correo());
                 jtfContraseña.setText(obj.getContrasenia_usuario());
                 JOptionPane.showMessageDialog(this, "Datos Consultados exitosamente");
-                
+                Bit.BitacoraReadUsuario();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al consultar datos");
-
+                
             }
             
             }
