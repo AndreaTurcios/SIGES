@@ -25,14 +25,14 @@ public class Bitacora {
     public boolean BitacoraCreate(){
             boolean retorno = false;
             try{
+                System.out.println(ID);
                 String query = "declare @fecha datetime\n"
                         + "set @fecha = (select GETDATE());\n"
                         +"\n"
-                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso de datos','Create', @fecha, "+ID+");";
-                PreparedStatement cmd = getCn().prepareStatement(query);
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso en tbUsuarios','Create', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
                 if (!cmd.execute()) {
                     retorno = true;
-                    System.out.println(ID);
                 }
             }
             catch(Exception e){

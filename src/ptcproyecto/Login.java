@@ -20,6 +20,7 @@ public class Login extends javax.swing.JFrame {
         
     }
     public static String texto = "";
+    public static Integer ID;
 //    public static String texto1 = "";
 //    public void ValidarUsuario () 
 //    {
@@ -395,6 +396,7 @@ public class Login extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         
         texto = txtUsuario.getText();
+       
         String contrasenia = String.valueOf(txtContrasenia.getPassword());
         String usuario = txtUsuario.getText();
         
@@ -404,7 +406,8 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
            }else{
             if (login.login(usuario, contrasenia)) {
-             
+             ID = login.getID_usuario();
+             System.out.println(ID);
              login.agregarBitacora();
             this.dispose(); 
             //ID_tipoUsuarios
