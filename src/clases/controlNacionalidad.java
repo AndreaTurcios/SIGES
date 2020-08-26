@@ -80,6 +80,28 @@ public class controlNacionalidad
              }
             return resp;
         } 
+    
+    public boolean EliminarNacionalidad ()
+    {
+        boolean resp = false;
+        try 
+        {
+            String sql = "DELETE FROM nacionalidad WHERE ID_nacionalidad=?;";
+            PreparedStatement cmd = Con.prepareStatement(sql);
+            cmd.setInt(1, ID_nacionalidad);
+            if (!cmd.execute()) 
+            {
+                resp = true;
+            }
+            cmd.close();
+            Con.close();
+        } 
+        catch (Exception ex) 
+        {
+            System.out.println("Error exception es"+ex.toString());
+        }
+        return resp;
+    }
 
     public boolean modificar() {
        boolean resp = false;

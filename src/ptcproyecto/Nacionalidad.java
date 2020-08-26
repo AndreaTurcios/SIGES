@@ -335,30 +335,29 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
        String ID;
         int fsel = tb_Nacionalidad.getSelectedRow();
-         if (fsel==-1) {
-            
-        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
-        JOptionPane.WARNING_MESSAGE);
-         }else{
-         m = (DefaultTableModel)tb_Nacionalidad.getModel();
-         ID = tb_Nacionalidad.getValueAt(fsel, 0).toString();
-         
-         txtID.setText(ID);
-         
-         ClienteDuenio obj = new ClienteDuenio();
-         obj.setID_DUI(Integer.parseInt(txtID.getText()));
-         
-        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+        if (fsel==-1) {
+
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+            m = (DefaultTableModel)tb_Nacionalidad.getModel();
+            ID = tb_Nacionalidad.getValueAt(fsel, 0).toString();
+            txtID.setText(ID);
+
+            controlNacionalidad obj = new controlNacionalidad();
+            obj.setID_nacionalidad(Integer.parseInt(txtID.getText()));
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-       if (eliminar == 0) {
-          if (obj.EliminarCliente()) {
-                JOptionPane.showMessageDialog(this, "Datos eliminados");
-                ListarNacionalidad();
-            }else{
-            JOptionPane.showMessageDialog(this, "Error al eliminar, tiene una mascota asociada.");
+            if (eliminar == 0) {
+
+                if (obj.EliminarNacionalidad()) {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    ListarNacionalidad();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
             }
         }
-      }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnImprimirNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirNacionalidadActionPerformed
