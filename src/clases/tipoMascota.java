@@ -99,6 +99,33 @@ public class tipoMascota {
         return resp;
     }
     
+    
+    public boolean ModificarMascota () 
+    {
+        boolean resp = false;
+        try 
+        {
+            System.err.println("conexion" + Con);
+            String sql = "UPDATE Tipo_consulta SET tipo_animal=? WHERE ID_tipoMascota=?";
+            PreparedStatement cmd = Con.prepareStatement(sql);
+            cmd.setString(1, tipo_animal);
+            System.out.println(tipo_animal);
+            cmd.setInt(2, ID_tipoMascota);
+            System.out.println(ID_tipoMascota);
+            if (!cmd.execute()) 
+            {
+                resp = true;
+            }
+            cmd.close();
+            Con.close();
+        } 
+        catch (Exception ex) 
+        {
+            System.out.println(ex.toString());
+        }
+        return resp;
+    }
+    
     public void EjecutarTipoMascota(Connection cn, JTable tabla)
     {
         DefaultTableModel model = new DefaultTableModel();

@@ -275,21 +275,32 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblTipomascotaMouseClicked
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        String tipo_animal = txtTipomascota.getText();
-
-        try {
-            Connection cn = Conexion.conectar();
-            PreparedStatement ps = cn.prepareStatement("UPDATE Tipo_mascota SET tipo_animal=? WHERE id= ?");
-//            ps.setString(1, tipo_animal);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro modificado");
-            limpiar();
-            cargarTabla();
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-
+        String IDmascota;
+        int fsel = tblTipomascota.getSelectedRow();
+        if (fsel==-1) 
+        {
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
+        else
+        {
+            m = (DefaultTableModel)tblTipomascota.getModel();
+            IDmascota = tblTipomascota.getValueAt(fsel, 0).toString();
+            txtID.setText(IDmascota);
+            tipoMascota obj = new tipoMascota();
+            int ID = Integer.parseInt(txtID.getText());
+            obj.setID_tipoMascota(ID);
+//            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
+            obj.setTipo_animal(txtTipomascota.getText());
+            if (obj.ModificarMascota()) 
+            {
+                JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+                CargarTablaTipoMascota();
+            }
+            else
+            {
+               JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+            }
+         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

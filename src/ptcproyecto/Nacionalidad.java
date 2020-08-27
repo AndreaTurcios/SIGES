@@ -315,12 +315,12 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
             m = (DefaultTableModel)tb_Nacionalidad.getModel();
             IDnacionalidad = tb_Nacionalidad.getValueAt(fsel, 0).toString();
             txtID.setText(IDnacionalidad);
-            CrudTipoConsulta obj = new CrudTipoConsulta();
+            controlNacionalidad obj = new controlNacionalidad();
             int ID = Integer.parseInt(txtID.getText());
-            obj.setIDTipoConsulta(ID);
+            obj.setID_nacionalidad(ID);
 //            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
-            obj.setTipoConsulta(txtnacionalidad.getText());
-            if (obj.ModificarTipoConsulta()) 
+            obj.setnacionalidad(txtnacionalidad.getText());
+            if (obj.modificar()) 
             {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
                 
