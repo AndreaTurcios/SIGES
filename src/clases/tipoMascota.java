@@ -21,7 +21,12 @@ public class tipoMascota {
     private Connection Con;
     private Integer ID_tipoMascota;
     private String tipo_animal;
-
+    
+    public tipoMascota(){
+        Conexion con = new Conexion();
+        Con = con.conectar();
+    }
+    
     public Connection getCon() {
         return Con;
     }
@@ -96,7 +101,6 @@ public class tipoMascota {
     
     public void EjecutarTipoMascota(Connection cn, JTable tabla)
     {
-        cn = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID_tipoMascota","tipo_animal"};
         model = new DefaultTableModel(null, columnas);

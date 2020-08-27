@@ -37,7 +37,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     public TipoMascota() {
         initComponents();
         //hacer invisible el txt del ID
-        cargarTabla();
+        CargarTablaTipoMascota();
     }
     
     DefaultTableModel m;
@@ -69,24 +69,9 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "Tipo mascota"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         tblTipomascota.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblTipomascotaMouseClicked(evt);
@@ -320,7 +305,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             txtID.setText(ID);
 
             tipoMascota obj = new tipoMascota();
-            obj.setID_tipoMascota(Integer.parseInt(txtID.getText()));
+            obj.setID_tipoMascota(Integer.parseInt(ID));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
