@@ -272,7 +272,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Animal rescatado:");
 
-        btnGuardar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar ");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,7 +280,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
             }
         });
 
-        btnModificar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,7 +304,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
             }
         });
 
-        btnImprimir.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnImprimir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnImprimir.setText("Imprimir");
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -312,7 +312,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEliminar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,21 +349,24 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbResc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(24, 24, 24)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cmbGenero, 0, 118, Short.MAX_VALUE)
+                            .addComponent(cmbResc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
