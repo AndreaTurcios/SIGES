@@ -334,6 +334,12 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 
         tfDui.setEditable(false);
 
+        cmbMascota.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cmbMascotaActionPerformed(evt);
+            }
+        });
+
         labelNombre.setText("jLabel1");
 
         idd.setBackground(new Color(204, 204, 204));
@@ -646,7 +652,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
          apellidos = jTable1dialog.getValueAt(fsel, 2).toString();
          
          tfDui.setText(ID);
-            CargarMascota(Integer.parseInt(ID)); 
+         CargarMascota(Integer.parseInt(ID)); 
           
          labelNombre.setVisible(true);
          labelNombre.setText(nombre+" "+apellidos);
@@ -782,6 +788,10 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 }
             }
     }//GEN-LAST:event_btnReporte1ActionPerformed
+
+    private void cmbMascotaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cmbMascotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbMascotaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

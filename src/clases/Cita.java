@@ -223,10 +223,10 @@ public class Cita {
      public void listarCitas(Connection cn, JTable tabla){
         cn = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "Fecha","Hora","Estado","Tipo cita", "DUI"};
+        String [] columnas = {"ID", "Fecha","Hora","Estado","Tipo cita", "DUI", "ID Mascota"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM Citas ORDER BY ID_cita";
-        String [] filas = new String[6];
+        String [] filas = new String[7];
         Statement st = null;
         ResultSet rs = null;
         
@@ -235,7 +235,7 @@ public class Cita {
             rs = st.executeQuery(sql);
             System.out.println("datos obtenidos "+rs);
             while (rs.next()){
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 7; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
