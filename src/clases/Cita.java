@@ -139,7 +139,7 @@ public class Cita {
         cmd.setTime(2,cita_hora );
         cmd.setInt(3,ID_estado);
         cmd.setInt(4,ID_tipoCita);
-            System.out.println("clases.Cita.guardar()" + DUI);
+        System.out.println("clases.Cita.guardar()" + DUI);
         cmd.setInt(5, DUI);
         cmd.setInt(6, ID_mascota);
         
@@ -161,7 +161,7 @@ public class Cita {
             cn = con.conectar();
             try{//realizando consulta update
             String sql="UPDATE Citas SET cita_fecha=?, cita_hora=?, ID_estado=?, "
-                    + "ID_tipoCita=?, ID_DUI=? WHERE ID_cita=?";
+                    + "ID_tipoCita=?, ID_DUI=?, ID_mascota=? WHERE ID_cita=?";
     
        PreparedStatement cmd = cn.prepareStatement(sql);
         
@@ -170,7 +170,8 @@ public class Cita {
         cmd.setInt(3, ID_estado);
         cmd.setInt(4, ID_tipoCita);
         cmd.setInt(5, DUI);
-        cmd.setInt(6, ID_cita);
+        cmd.setInt(6, ID_mascota);
+        cmd.setInt(7, ID_cita);
         
         if (!cmd.execute()) {
             resp=true;

@@ -663,6 +663,9 @@ DefaultTableModel m;
         obj.setID_estado(tip.getID_estado());
         System.out.println("llega2");
         
+        Mascota obje = (Mascota)cmbMascota.getSelectedItem();
+        obj.setID_mascota(obje.getID_mascota());
+        
         if (obj.modificarCita()) {
             JOptionPane.showMessageDialog(this,"Datos modificados"); 
             ListarCitas();
