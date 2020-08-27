@@ -27,6 +27,15 @@ public class Cita {
     private Integer ID_tipoCita;
     private Integer DUI;
     private Integer ID_estado;
+    private Integer ID_mascota;
+
+    public Integer getID_mascota() {
+        return ID_mascota;
+    }
+
+    public void setID_mascota(Integer ID_mascota) {
+        this.ID_mascota = ID_mascota;
+    }
 
     public Connection getCn() {
         return cn;
@@ -119,7 +128,7 @@ public class Cita {
        cn = con.conectar();
         System.out.println("Entra al maetodo guardadr");
         try {String sql = "INSERT INTO Citas(cita_fecha, cita_hora, "
-                + "ID_estado, ID_tipoCita,ID_DUI)"+" VALUES (?, ?, ?, ?, ?)";
+                + "ID_estado, ID_tipoCita,ID_DUI, ID_mascota)"+" VALUES (?, ?, ?, ?, ?, ?)";
         
         System.out.println("Entra al maetodo guardadr 2");
         System.out.println("Entra al maetodo guardadr 2" + cn);
@@ -132,6 +141,7 @@ public class Cita {
         cmd.setInt(4,ID_tipoCita);
             System.out.println("clases.Cita.guardar()" + DUI);
         cmd.setInt(5, DUI);
+        cmd.setInt(6, ID_mascota);
         
         
         if (!cmd.execute()) {
