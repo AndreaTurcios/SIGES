@@ -160,4 +160,28 @@ public class ControlProveedores {
         }
         return resp;
     }
+    public boolean modificar() {
+       boolean resp = false;
+        cn = Conexion.conectar();
+       try{
+       String sql = "UPDATE Proveedores SET nombre_proveedor = ?, rubro=?, "
+               + "domicilio=?, correo=?, sitio_web=? WHERE ID_proveedor =?;";
+       PreparedStatement cmd = cn.prepareStatement(sql);
+        cmd.setString(1, nombre_proveedor);
+        cmd.setString(2, rubro);
+        cmd.setString(3, direccion);
+        cmd.setString(4, correo);
+        cmd.setString(5, sitio_web);
+        cmd.setInt(6, ID_proveedor);
+       
+           if (!cmd.execute()) {
+               resp = true;
+           }
+           cmd.close();
+           cn.close();
+       }catch(Exception e){
+       System.out.println(e.toString());
+       }
+       return resp;
+    }
 }

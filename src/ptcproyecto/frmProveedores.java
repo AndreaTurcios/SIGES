@@ -22,6 +22,7 @@ DefaultTableModel m;
     public frmProveedores() {
         initComponents();
         ListarProveedor();
+        jTextField2.setVisible(false);
     }
 
     /**
@@ -81,7 +82,7 @@ DefaultTableModel m;
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(257, 257, 257)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -289,15 +290,20 @@ DefaultTableModel m;
                 .addContainerGap(83, Short.MAX_VALUE))
         );
 
+        jTextField2.setBorder(null);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(8, 8, 8)
@@ -310,7 +316,7 @@ DefaultTableModel m;
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 518, Short.MAX_VALUE))
+                .addGap(0, 524, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(53, 53, 53)
@@ -346,15 +352,43 @@ DefaultTableModel m;
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        
-    }//GEN-LAST:event_btnModificarActionPerformed
+    String ID;
+        int fsel = jTable1.getSelectedRow();
+        if (fsel==-1) {
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+            m = (DefaultTableModel)jTable1.getModel();
+         ID = jTable1.getValueAt(fsel, 0).toString();
+         jTextField2.setText(ID);
+         
+         ControlProveedores u = new ControlProveedores();
+         int pro = Integer.parseInt(jTextField2.getText());
+         u.setID_proveedor(pro);
+         u.setNombre_proveedor(tfNombre.getText());
+         u.setRubro(tfRubro.getText());
+         u.setDireccion(tfDomicilio.getText());
+         u.setCorreo(tfCorreo.getText());
+         u.setSitio_web(tfSitio.getText());
+         
+         if (u.modificar()) {
+            JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
+             ListarProveedor();
+        }else{
+           JOptionPane.showMessageDialog(null,"Error al modificar los datos");
+           }
+        }      
+    }//GEN-LAST:event_btnModificarActionPerformed
+    public void Limpiar(){
     tfNombre.setText("");
     tfRubro.setText("");
     tfDomicilio.setText("");
     tfCorreo.setText("");
     tfSitio.setText("");
+    }
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+    Limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
