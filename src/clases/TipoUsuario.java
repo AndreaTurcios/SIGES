@@ -146,6 +146,4 @@ public class TipoUsuario {
     public String toString() {
         return  tipo_empleado;
     }
-    
-    
 }

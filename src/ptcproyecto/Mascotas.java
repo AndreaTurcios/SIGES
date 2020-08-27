@@ -91,13 +91,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
-        tfRazon = new javax.swing.JTextField();
-        tfMedicinas = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        tfHorarios = new javax.swing.JTextField();
         btnModificar = new javax.swing.JButton();
         tipo_mascota = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -110,6 +105,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         tfDui = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        cmbResc = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         kGradientPanel1 = new keeptoo.KGradientPanel();
@@ -274,10 +270,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel3.setText("Mascota género:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Mascota razón:");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Medicinas:");
+        jLabel4.setText("Animal rescatado:");
 
         btnGuardar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar ");
@@ -286,9 +279,6 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Horarios:");
 
         btnModificar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         btnModificar.setText("Modificar");
@@ -330,7 +320,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
             }
         });
 
-        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "F", "M" }));
+        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Hembra", "Macho" }));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Dueño:");
@@ -349,6 +339,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
 
         jTextField1.setBorder(null);
 
+        cmbResc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Si", "No" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -357,11 +349,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(tfMedicinas))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -370,28 +358,23 @@ public class Mascotas extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
                                 .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(27, 27, 27)
-                                .addComponent(tfRazon)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbResc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel8))
+                                    .addComponent(jLabel10)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tfHorarios)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tfDui, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lblNombre))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButton2)))))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfDui, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblNombre))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton2)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel9)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -430,23 +413,14 @@ public class Mascotas extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblNombre)
-                                .addGap(18, 18, 18))
+                                .addGap(97, 97, 97))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(81, 81, 81)))
                         .addComponent(btnLimpiar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(tfRazon, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfMedicinas, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(cmbResc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -586,12 +560,9 @@ public class Mascotas extends javax.swing.JInternalFrame {
         String mascot = String.valueOf(cmbGenero.getSelectedItem());
         obj.setMascota_genero(mascot);
         System.out.println("genero " + obj.getMascota_genero());
-        obj.setMascota_razon(tfRazon.getText());
-        System.out.println("razon " + obj.getMascota_razon());
-        obj.setMascota_medicinas(tfMedicinas.getText());
-        System.out.println("medicinas " + obj.getMascota_medicinas());
-        obj.setMascota_horarioReserva(tfHorarios.getText());
-        System.out.println("horario " + obj.getMascota_horarioReserva());
+        String mascotr = String.valueOf(cmbResc.getSelectedItem());
+        obj.setARescatado(mascotr);
+        System.out.println("rescatado " + obj.getARescatado());
         tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
         obj.setID_tipoMascota(tima.getID_tipoMascota());
         System.out.println("tipo mascota " + tima.getID_tipoMascota());
@@ -625,9 +596,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
      obj.setID_mascota(idm);
     
     obj.setNombre_mascota(tfNombre.getText());
-    obj.setMascota_razon(tfRazon.getText());
-    obj.setMascota_medicinas(tfMedicinas.getText());
-    obj.setMascota_horarioReserva(tfHorarios.getText());
+    String mascotr = String.valueOf(cmbResc.getSelectedItem());
+    obj.setARescatado(mascotr);
      tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
     obj.setID_tipoMascota(tima.getID_tipoMascota());
     String mascot = String.valueOf(cmbGenero.getSelectedItem());
@@ -647,9 +617,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         tfNombre.setText("");
-        tfRazon.setText("");
-        tfMedicinas.setText("");
-        tfHorarios.setText("");
+//        cmbResc.();
         GeneroBtnG.clearSelection();
         tfDui.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
@@ -798,6 +766,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cmbGenero;
+    private javax.swing.JComboBox<String> cmbResc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
@@ -811,8 +780,6 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -826,10 +793,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField tfDui;
-    private javax.swing.JTextField tfHorarios;
-    private javax.swing.JTextField tfMedicinas;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfRazon;
     private javax.swing.JTextField tfdialogo;
     private javax.swing.JComboBox<String> tipo_mascota;
     // End of variables declaration//GEN-END:variables

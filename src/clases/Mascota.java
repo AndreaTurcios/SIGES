@@ -17,9 +17,15 @@ public class Mascota {
     private Integer ID_mascota;
     private String nombre_mascota;
     private String mascota_genero;
-    private String mascota_razon;
-    private String mascota_medicinas;
-    private String mascota_horarioReserva;
+    private String ARescatado;
+
+    public String getARescatado() {
+        return ARescatado;
+    }
+
+    public void setARescatado(String ARescatado) {
+        this.ARescatado = ARescatado;
+    }
     private Integer ID_tipoMascota;
     private Integer ID_DUI;
 
@@ -80,29 +86,6 @@ public class Mascota {
         this.mascota_genero = mascota_genero;
     }
 
-    public String getMascota_razon() {
-        return mascota_razon;
-    }
-
-    public void setMascota_razon(String mascota_razon) {
-        this.mascota_razon = mascota_razon;
-    }
-
-    public String getMascota_medicinas() {
-        return mascota_medicinas;
-    }
-
-    public void setMascota_medicinas(String mascota_medicinas) {
-        this.mascota_medicinas = mascota_medicinas;
-    }
-
-    public String getMascota_horarioReserva() {
-        return mascota_horarioReserva;
-    }
-
-    public void setMascota_horarioReserva(String mascota_horarioReserva) {
-        this.mascota_horarioReserva = mascota_horarioReserva;
-    }
     Pool metodospool = new Pool();
     public void consultarTipoMascota(JComboBox cbox_mascotat) {
         java.sql.Connection cn = null;
@@ -138,10 +121,10 @@ public class Mascota {
     }
     public void CargarMascota(Connection cn, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID_mascota", "nombre_mascota", "mascota_genero", "mascota_razon", "mascota_medicinas", "mascota_horarioReserva", "ID_tipoMascota", "ID_DUI"};
+        String [] columnas = {"ID_mascota", "nombre_mascota", "mascota_genero", "mascota_rescatada", "ID_tipoMascota", "ID_DUI"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM Mascota ORDER BY ID_mascota";
-        String [] filas = new String[8];
+        String [] filas = new String[6];
         Statement st = null;
         
         ResultSet rs = null;
@@ -151,7 +134,7 @@ public class Mascota {
             rs = st.executeQuery(sql);
             System.out.println("datos obtenidos "+rs);
             while (rs.next()){
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 6; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
@@ -185,12 +168,10 @@ public class Mascota {
     //llenar los parametros como se encuentran en las clases
     cmd.setString(1, nombre_mascota);
     cmd.setString(2, mascota_genero);
-    cmd.setString(3, mascota_razon);
-    cmd.setString(4, mascota_medicinas);
-    cmd.setString(5, mascota_horarioReserva);
-    cmd.setInt(6, ID_tipoMascota);
-    cmd.setInt(7, ID_DUI);
-    cmd.setInt(8, ID_mascota);
+    cmd.setString(3, ARescatado);
+    cmd.setInt(4, ID_tipoMascota);
+    cmd.setInt(5, ID_DUI);
+    cmd.setInt(6, ID_mascota);
         
         if (!cmd.execute()) {
             resp=true;
@@ -221,15 +202,14 @@ public class Mascota {
     public boolean guardarMascota(Mascota a){
         boolean resp = false;
         try{//realizando consulta insert
-            String sql = "INSERT INTO Mascota (nombre_mascota, mascota_genero, mascota_razon, mascota_medicinas, mascota_horarioReserva, ID_tipoMascota, ID_DUI)"+"VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Mascota (nombre_mascota, mascota_genero, mascota_rescatada, ID_tipoMascota, ID_DUI)"+"VALUES(?,?,?,?,?)";
             PreparedStatement cmd= cn.prepareStatement(sql);
-            cmd.setString(1, a.nombre_mascota );
-            cmd.setString(2, a.mascota_genero );
-            cmd.setString(3, a.mascota_razon );
-            cmd.setString(4, a.mascota_medicinas );
-            cmd.setString(5, a.mascota_horarioReserva );
-            cmd.setInt(6, a.ID_tipoMascota );
-            cmd.setInt(7, a.ID_DUI);
+            cmd.setString(1, nombre_mascota);
+    cmd.setString(2, mascota_genero);
+    cmd.setString(3, ARescatado);
+    cmd.setInt(4, ID_tipoMascota);
+    cmd.setInt(5, ID_DUI);
+//    cmd.setInt(6, ID_mascota);
             if (!cmd.execute()) {
                 resp=true;
             }
@@ -253,9 +233,7 @@ public class Mascota {
                 resp=true;
             nombre_mascota = rs.getString(1);
             mascota_genero = rs.getString(2);
-            mascota_razon = rs.getString(3);
-            mascota_medicinas = rs.getString(4);
-            mascota_horarioReserva = rs.getString(5);
+            ARescatado = rs.getString(3);
             ID_tipoMascota = rs.getInt(6);
             }
             cmd.close();
