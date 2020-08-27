@@ -8,6 +8,7 @@ package clases;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -91,25 +92,29 @@ public class ControlProveedores {
         this.sitio_web = sitio_web;
     }
     public boolean guardarProveedor(ControlProveedores a){
-        boolean resp = false;
-        try{//realizando consulta insert
-            String sql = "INSERT INTO Mascota (nombre_mascota, mascota_genero, mascota_rescatada, ID_tipoMascota, ID_DUI)"+"VALUES(?,?,?,?,?)";
+        
+          try {
+            boolean resp = false;
+            cn = conexion.conectar();
+            String sql = "INSERT INTO Proveedores (nombre_proveedor, rubro, domicilio, correo, sitio_web)"+"VALUES(?,?,?,?,?)";
             PreparedStatement cmd= cn.prepareStatement(sql);
             cmd.setString(1, nombre_proveedor);
             cmd.setString(2, rubro);
             cmd.setString(3, direccion);
             cmd.setString(4, correo);
             cmd.setString(5, sitio_web);
+            
             if (!cmd.execute()) {
-                resp=true;
+                resp = true;
             }
             cmd.close();
             cn.close();
-        }catch(Exception ex){
-            System.out.println(ex.toString());
+            return resp;
+        } catch (SQLException ex) {
+            System.err.println("Error guardar tipo estado " + ex);
+            return false;
         }
-        return false;
-    }
+        }
      public void CargarProveedor(Connection cn, JTable tabla){
         cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();

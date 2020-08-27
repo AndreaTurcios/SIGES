@@ -49,7 +49,7 @@
     <Container class="keeptoo.KGradientPanel" name="kGradientPanel1">
       <Properties>
         <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="85" green="ba" red="71" type="rgb"/>
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c9" green="a3" red="1" type="rgb"/>
@@ -186,22 +186,22 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="tfNombre1" alignment="0" pref="211" max="32767" attributes="0"/>
+                                              <Component id="tfRubro" alignment="0" pref="211" max="32767" attributes="0"/>
                                               <Component id="tfNombre" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="tfNombre2" max="32767" attributes="0"/>
+                                          <Component id="tfDomicilio" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="tfNombre3" max="32767" attributes="0"/>
+                                              <Component id="tfCorreo" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="tfNombre4" max="32767" attributes="0"/>
+                                              <Component id="tfSitio" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -229,7 +229,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tfNombre2" max="32767" attributes="0"/>
+                              <Component id="tfDomicilio" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -237,12 +237,12 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfNombre3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfNombre4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfSitio" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -252,7 +252,7 @@
                                       <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="tfNombre1" max="32767" attributes="0"/>
+                                  <Component id="tfRubro" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnLimpiar" min="-2" max="-2" attributes="0"/>
@@ -348,7 +348,7 @@
                 <Property name="text" type="java.lang.String" value="Rubro:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfNombre1">
+            <Component class="javax.swing.JTextField" name="tfRubro">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -358,7 +358,7 @@
                 <Property name="text" type="java.lang.String" value="Domicilio:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfNombre2">
+            <Component class="javax.swing.JTextField" name="tfDomicilio">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -368,7 +368,7 @@
                 <Property name="text" type="java.lang.String" value="Correo:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfNombre3">
+            <Component class="javax.swing.JTextField" name="tfCorreo">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -378,7 +378,7 @@
                 <Property name="text" type="java.lang.String" value="Sitio web:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfNombre4">
+            <Component class="javax.swing.JTextField" name="tfSitio">
             </Component>
           </SubComponents>
         </Container>

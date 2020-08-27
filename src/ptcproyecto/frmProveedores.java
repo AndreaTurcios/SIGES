@@ -45,17 +45,17 @@ public class frmProveedores extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        tfNombre1 = new javax.swing.JTextField();
+        tfRubro = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        tfNombre2 = new javax.swing.JTextField();
+        tfDomicilio = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        tfNombre3 = new javax.swing.JTextField();
+        tfCorreo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        tfNombre4 = new javax.swing.JTextField();
+        tfSitio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
+        kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
         kGradientPanel1.setMaximumSize(new java.awt.Dimension(697, 518));
 
@@ -184,19 +184,19 @@ public class frmProveedores extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(tfNombre1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                                        .addComponent(tfRubro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                                         .addComponent(tfNombre, javax.swing.GroupLayout.Alignment.LEADING)))
                                 .addGap(37, 37, 37)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfNombre2)
+                                    .addComponent(tfDomicilio)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfNombre3))
+                                        .addComponent(tfCorreo))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfNombre4)))))
+                                        .addComponent(tfSitio)))))
                         .addGap(50, 50, 50))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -214,24 +214,24 @@ public class frmProveedores extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNombre2)))
+                        .addComponent(tfDomicilio)))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(tfNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(tfNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfSitio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(19, 19, 19))
-                            .addComponent(tfNombre1))
+                            .addComponent(tfRubro))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnLimpiar)
                         .addGap(29, 29, 29)
@@ -321,6 +321,12 @@ public class frmProveedores extends javax.swing.JInternalFrame {
     }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
     ControlProveedores obj = new ControlProveedores();
+    obj.setNombre_proveedor(tfNombre.getText());
+    obj.setRubro(tfRubro.getText());
+    obj.setDireccion(tfDomicilio.getText());
+    obj.setCorreo(tfCorreo.getText());
+    obj.setSitio_web(tfSitio.getText());
+    
     if (obj.guardarProveedor(obj)) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarProveedor();
@@ -335,7 +341,11 @@ public class frmProveedores extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        
+    tfNombre.setText("");
+    tfRubro.setText("");
+    tfDomicilio.setText("");
+    tfCorreo.setText("");
+    tfSitio.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
@@ -370,10 +380,10 @@ public class frmProveedores extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JTextField tfCorreo;
+    private javax.swing.JTextField tfDomicilio;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfNombre1;
-    private javax.swing.JTextField tfNombre2;
-    private javax.swing.JTextField tfNombre3;
-    private javax.swing.JTextField tfNombre4;
+    private javax.swing.JTextField tfRubro;
+    private javax.swing.JTextField tfSitio;
     // End of variables declaration//GEN-END:variables
 }
