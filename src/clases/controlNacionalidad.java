@@ -111,6 +111,7 @@ public class controlNacionalidad
                 
        PreparedStatement cmd = Con.prepareStatement(sql);
        cmd.setString(1,nacionalidad);
+       cmd.setInt(2, ID_nacionalidad);
             if (!cmd.execute()){
                 resp = true;
             }

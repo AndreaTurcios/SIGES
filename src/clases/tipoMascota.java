@@ -106,7 +106,7 @@ public class tipoMascota {
         try 
         {
             System.err.println("conexion" + Con);
-            String sql = "UPDATE Tipo_consulta SET tipo_animal=? WHERE ID_tipoMascota=?";
+            String sql = "UPDATE Tipo_mascota SET tipo_animal = ? WHERE ID_tipoMascota = ?";
             PreparedStatement cmd = Con.prepareStatement(sql);
             cmd.setString(1, tipo_animal);
             System.out.println(tipo_animal);
