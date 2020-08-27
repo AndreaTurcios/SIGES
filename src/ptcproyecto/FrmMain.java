@@ -479,7 +479,7 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("  Bitàcora");
+        jLabel22.setText("  Bitácora");
         jLabel22.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jLabel22.setMaximumSize(new java.awt.Dimension(159, 20));
         jLabel22.setMinimumSize(new java.awt.Dimension(159, 20));
