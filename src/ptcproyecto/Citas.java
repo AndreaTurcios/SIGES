@@ -438,7 +438,7 @@ DefaultTableModel m;
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 630, 240));
+        getContentPane().add(JPIngresoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 630, 250));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -453,7 +453,7 @@ DefaultTableModel m;
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 620, 230));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 630, 210));
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkGradientFocus(600);
