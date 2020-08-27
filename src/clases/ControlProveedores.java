@@ -143,4 +143,21 @@ public class ControlProveedores {
     public void CargarProveedores(JTable tabla){
         CargarProveedor(getCn(), tabla); 
     }
+    public boolean Eliminar() {
+        boolean resp = false;
+        cn = conexion.conectar();
+        try {//realizando consulta insert
+            String sql = "DELETE FROM Proveedores WHERE ID_proveedor=?;";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            cmd.setInt(1, ID_proveedor);
+            if (!cmd.execute()) {
+                resp = true;
+            }
+            cmd.close();
+            cn.close();
+        } catch (Exception ex) {
+            System.out.println("Error exception es"+ex.toString());
+        }
+        return resp;
+    }
 }

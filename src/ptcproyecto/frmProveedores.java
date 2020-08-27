@@ -6,14 +6,16 @@
 package ptcproyecto;
 
 import clases.ControlProveedores;
+import clases.TipoEstados;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author 15-CW0001la
  */
 public class frmProveedores extends javax.swing.JInternalFrame {
-
+DefaultTableModel m;
     /**
      * Creates new form frmProveedores
      */
@@ -54,6 +56,7 @@ public class frmProveedores extends javax.swing.JInternalFrame {
         tfSitio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jTextField2 = new javax.swing.JTextField();
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
@@ -291,6 +294,10 @@ public class frmProveedores extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(8, 8, 8)
@@ -301,7 +308,9 @@ public class frmProveedores extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 567, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 518, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(53, 53, 53)
@@ -331,7 +340,7 @@ public class frmProveedores extends javax.swing.JInternalFrame {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarProveedor();
            }else{ 
-           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           JOptionPane.showMessageDialog(this,"Error al guardar los datos"); 
            ListarProveedor();
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -353,7 +362,31 @@ public class frmProveedores extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
+    String ID;
+        int fsel = jTable1.getSelectedRow();
+        if (fsel==-1) {
+
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+        }else{
+            m = (DefaultTableModel)jTable1.getModel();
+            ID = jTable1.getValueAt(fsel, 0).toString();
+            jTextField2.setText(ID);
+
+            ControlProveedores obj = new ControlProveedores();
+            obj.setID_proveedor(Integer.parseInt(jTextField2.getText()));
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) {
+
+                if (obj.Eliminar()) {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    ListarProveedor();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
@@ -379,6 +412,7 @@ public class frmProveedores extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField tfCorreo;
     private javax.swing.JTextField tfDomicilio;
