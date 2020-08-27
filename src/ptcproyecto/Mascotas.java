@@ -582,16 +582,14 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
     String ID_Mascota;
         int fsel = jTable1.getSelectedRow();
-        
         if (fsel==-1) {
-        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+        JOptionPane.showMessageDialog(null, "Se debe seleccionar una fila", "Advertencia", 
                 JOptionPane.WARNING_MESSAGE);
         }else{
-    Mascota obj = new Mascota();
+     Mascota obj = new Mascota();
      m = (DefaultTableModel)jTable1.getModel();
      ID_Mascota = jTable1.getValueAt(fsel, 0).toString();
      jTextField1.setText(ID_Mascota);
-     
      int idm = Integer.parseInt(jTextField1.getText());
      obj.setID_mascota(idm);
     

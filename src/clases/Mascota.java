@@ -162,8 +162,7 @@ public class Mascota {
     cn = con.conectar();
     try{//realizando consulta update
     String sql="UPDATE Mascota SET nombre_mascota=?, mascota_genero=?, " 
-            + "mascota_razon=?, mascota_medicinas=?,mascota_horarioReserva=?, ID_tipoMascota=?,"
-            + " ID_DUI=? WHERE ID_mascota=?";
+            + "mascota_rescatada=?,ID_tipoMascota=?,ID_DUI=? WHERE ID_mascota=?";
     PreparedStatement cmd = cn.prepareStatement(sql);
     //llenar los parametros como se encuentran en las clases
     cmd.setString(1, nombre_mascota);
