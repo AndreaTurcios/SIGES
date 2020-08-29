@@ -301,7 +301,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
             //            Connection conn = con.getConexion();
 
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-tipoCliente.jasper";
+            String path = "src\\Reportes\\Reporte-TipoCliente-nDiseño.jasper";
 
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
 

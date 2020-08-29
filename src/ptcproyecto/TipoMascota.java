@@ -341,7 +341,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\REPORTE TIPO MASCOTA.jasper";
+            String path = "src\\Reportes\\Reporte-TipoMascota-nDiseño.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             

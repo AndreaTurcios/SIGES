@@ -279,7 +279,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
 
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\REPORTE CODIGO ZONA.jasper";
+            String path = "src\\Reportes\\Reporte-CodigoZona-nDiseño.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             

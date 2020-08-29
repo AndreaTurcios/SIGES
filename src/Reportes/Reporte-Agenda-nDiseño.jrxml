@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte-Ficha-nDiseño" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf35dca1-453e-4996-aae3-206732c76197">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos,
+     Cliente_duenio."duenio_telefono" AS Cliente_duenio_duenio_telefono,
+     Citas."cita_fecha" AS Citas_cita_fecha,
+     Citas."cita_hora" AS Citas_cita_hora,
+     Cliente_duenio."duenio_correo" AS Cliente_duenio_duenio_correo
+FROM
+     "dbo"."Cliente_duenio" Cliente_duenio INNER JOIN "dbo"."Citas" Citas ON Cliente_duenio."ID_DUI" = Citas."ID_DUI"]]>
+	</queryString>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_telefono" class="java.lang.String"/>
+	<field name="Citas_cita_fecha" class="java.sql.Date"/>
+	<field name="Citas_cita_hora" class="java.sql.Time"/>
+	<field name="Cliente_duenio_duenio_correo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="115" height="46" forecolor="#5E2D4F" uuid="95d86278-d80b-4c1e-a3c7-8614c2b410c5"/>
+				<textElement>
+					<font fontName="Tahoma" size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="46" width="264" height="37" forecolor="#965695" uuid="91ae13ba-b724-4f14-acf6-5e49503b35ad"/>
+				<textElement>
+					<font fontName="Tahoma" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de  tipo mascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="541" y="30" width="72" height="27" forecolor="#965695" uuid="802ac76b-0854-44a5-a6b6-50705269f63d"/>
+				<textElement>
+					<font fontName="Tahoma" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="618" y="17" width="169" height="47" uuid="96bce72f-6a38-46f4-816a-3ecdbe835509"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="389" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="156" height="27" backcolor="#7F39B0" uuid="1302b8a9-89fb-4cef-a2bf-ba5e3f3f08d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="18"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="31" width="821" height="30" backcolor="#C2A0CE" uuid="5e7b4af5-ccb6-4172-b6a2-c0dbc40214be"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="30" width="62" height="30" uuid="0960e967-457e-490d-87ea-8074867cf3b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="31" width="75" height="30" uuid="640d2cb3-89d2-4efd-8ee5-36bf528c9e0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="31" width="71" height="30" uuid="2e9abf05-5d65-4416-b239-3744d564b0e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="31" width="84" height="30" uuid="1a7c7950-e088-4abb-88ec-852af6de3b55"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="28" y="76" width="44" height="20" uuid="c117fb4d-5860-4a91-b934-d7b545cf92db"/>
+				<textElement>
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="76" width="48" height="20" uuid="a7fcd0c6-c2df-4089-8e83-dc94560f7934"/>
+				<textElement>
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="76" width="84" height="20" uuid="41fbc203-ef98-4456-9b8b-50466ef48dd0"/>
+				<textElement>
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="76" width="134" height="20" uuid="88e0b26a-1f87-4984-a7f5-98cfc944f964"/>
+				<textElement>
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_correo}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="239" width="821" height="30" backcolor="#C2A0CE" uuid="0ae5e5c5-4e2e-48ca-b680-5176e532d304"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="210" width="156" height="27" backcolor="#7F39B0" uuid="7940f1a2-5696-41c1-a576-3ff32490e3fe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="18"/>
+				</textElement>
+				<text><![CDATA[Cita]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="16" y="281" width="100" height="20" uuid="93c9b26d-6de2-41cf-bebb-f3813d534bba"/>
+				<textElement>
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Citas_cita_fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="239" width="117" height="30" uuid="53b159a7-9ad1-4a52-800d-e9926deefad7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha de la cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="239" width="117" height="30" uuid="8feff189-c6d4-41e2-b8b6-bcdcddfa9f34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Hora de la cita]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="174" y="281" width="100" height="20" uuid="d7da4748-d9b4-49cc-873f-52cbdd593b9d"/>
+				<textElement>
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Citas_cita_hora}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="74" splitType="Stretch">
+			<textField>
+				<reportElement x="338" y="23" width="80" height="20" uuid="c3d36b5f-f321-40e5-bf25-5220d21cc4c6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="418" y="23" width="40" height="20" uuid="48ab77ae-795b-4211-be9c-b549b1181b3d"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

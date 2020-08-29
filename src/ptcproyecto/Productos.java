@@ -427,7 +427,7 @@ DefaultTableModel m;
             //            java.sql.Connection conn = con.getConexion();
 
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-producto.jasper";
+            String path = "src\\Reportes\\Reporte-Producto-nDiseño.jasper";
 
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
 
