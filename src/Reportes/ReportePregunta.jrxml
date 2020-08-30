@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportePregunta" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eab342b4-02c8-45af-9b54-c61f23c4eabb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     preguntas."pregunta" AS
+preguntas_pregunta,
+     Usuarios."nombre_empleado" AS
+Usuarios_nombre_empleado,
+     Usuarios."empleado_apellidos" AS
+Usuarios_empleado_apellidos,
+     Usuarios."nombre_empleado"
+Usuarios_nombre_empleado,
+     Tipo_usuarios."tipo_empleado" AS
+Tipo_usuarios_tipo_empleado
+
+
+
+FROM
+     "dbo"."preguntas" preguntas
+ INNER JOIN "dbo"."Usuarios" Usuarios  ON  preguntas."ID_Pregunta" = Usuarios."ID_usuario"
+INNER JOIN  "dbo"."Tipo_usuarios" Tipo_usuarios ON preguntas."ID_Pregunta" = Tipo_usuarios."ID_tipoUsuarios"]]>
+	</queryString>
+	<field name="preguntas_pregunta" class="java.lang.String"/>
+	<field name="Usuarios_nombre_empleado" class="java.lang.String"/>
+	<field name="Usuarios_empleado_apellidos" class="java.lang.String"/>
+	<field name="Tipo_usuarios_tipo_empleado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="1" width="101" height="40" forecolor="#0033CC" uuid="0724ff0a-6791-41ba-9379-17b31ae30300"/>
+				<textElement>
+					<font fontName="Arial" size="30"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="12" width="53" height="20" forecolor="#0033CC" uuid="6f064488-8d2f-4603-b0e0-938cee5ac50f"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="442" y="12" width="113" height="20" uuid="867bd81d-5a7a-4e76-b930-3cf070a907c5"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="41" width="113" height="20" forecolor="#333333" uuid="0ea1ef40-034f-415e-a70b-a0c4ff64a7fa"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Reporte Preguntas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="205" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="72" width="555" height="20" backcolor="#3F679A" uuid="32aa8151-92dc-4901-b5f3-7b022b7db8d3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" backcolor="#3F679A" uuid="4c1d1a16-42e7-42ae-ab82-15d8b90cd063"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="144" width="555" height="20" backcolor="#3F679A" uuid="b078af4c-d3bf-4070-a19c-21aa77cb3bf4"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="457" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="dfc84e7d-b4a0-4715-b351-93eb53f83c58"/>
+				<text><![CDATA[  Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="b9bc95e8-5873-4b98-bfdb-67d736d7b038"/>
+				<text><![CDATA[    Pregunta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="08af28a8-801c-4e86-b7d9-473696c8a6b3"/>
+				<text><![CDATA[Nombre empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="ad5c90e8-3951-4a3c-9609-f34e8c3ed871"/>
+				<text><![CDATA[  Apellido empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="72" width="100" height="20" forecolor="#FFFFFF" uuid="79b36bd2-2c04-4f0c-a6a5-9b5c5fcbca0f"/>
+				<text><![CDATA[    Pregunta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="72" width="100" height="20" forecolor="#FFFFFF" uuid="d16c7225-e4d0-4e82-a96f-a2269ce6fae7"/>
+				<text><![CDATA[Nombre empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="72" width="100" height="20" forecolor="#FFFFFF" uuid="1219c771-e297-4e92-a725-1c8fb75144c0"/>
+				<text><![CDATA[  Apellido empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="72" width="100" height="20" forecolor="#FFFFFF" uuid="fe2b34c7-c02b-42e0-9dff-bd7faea8115f"/>
+				<text><![CDATA[  Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="144" width="100" height="20" forecolor="#FFFFFF" uuid="4770d519-4b9d-4cfd-a95b-257b0f8839e6"/>
+				<text><![CDATA[    Pregunta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="144" width="100" height="20" forecolor="#FFFFFF" uuid="1371f9f3-509f-46ff-baba-a375a9ed1343"/>
+				<text><![CDATA[Nombre empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="144" width="100" height="20" forecolor="#FFFFFF" uuid="6e9cb6c5-f466-4402-9550-eedf5e49de87"/>
+				<text><![CDATA[  Apellido empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="144" width="100" height="20" forecolor="#FFFFFF" uuid="8e697de3-e50a-45dd-a0e3-990a240390cf"/>
+				<text><![CDATA[  Empleado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="36" width="100" height="20" uuid="9a7bd5ac-0355-4fb4-96ba-618d6ff17db1"/>
+				<textFieldExpression><![CDATA[$F{preguntas_pregunta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="36" width="100" height="20" uuid="57c8a718-8a2a-4092-a056-efe1a594a442"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="36" width="100" height="20" uuid="e50a6f73-d49f-44ce-a755-a99fcefc47d7"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_empleado_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="36" width="100" height="20" uuid="00e32f52-5480-4f3a-af1c-760c5a469e1d"/>
+				<textFieldExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="107" width="100" height="20" uuid="8767f2e0-d38e-414f-b30b-6cb86f183d1c"/>
+				<textFieldExpression><![CDATA[$F{preguntas_pregunta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="107" width="100" height="20" uuid="6ae91726-20e1-4ecd-8c81-96cbbe300dd1"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="107" width="100" height="20" uuid="54aae75c-d353-4d1d-afe4-3acbadd78b15"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_empleado_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="107" width="100" height="20" uuid="b0ead496-b9c9-49ab-b61d-26e78bdebbd5"/>
+				<textFieldExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="174" width="100" height="20" uuid="635b572b-f6ac-4dfa-9f50-77cc41ab1369"/>
+				<textFieldExpression><![CDATA[$F{preguntas_pregunta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="174" width="100" height="20" uuid="a71fc922-1bd5-4d30-8c41-1dc403c13ab1"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="174" width="100" height="20" uuid="a9c9e78c-39b3-4264-9290-b60450bbea7d"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_empleado_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="174" width="100" height="20" uuid="c56909e8-dce8-40c9-91f1-a9870c8affaf"/>
+				<textFieldExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
