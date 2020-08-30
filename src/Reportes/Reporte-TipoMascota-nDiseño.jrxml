@@ -31,21 +31,21 @@ FROM
 	<title>
 		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="0" width="115" height="46" forecolor="#5E2D4F" uuid="95d86278-d80b-4c1e-a3c7-8614c2b410c5"/>
+				<reportElement x="10" y="0" width="115" height="46" forecolor="#015E7A" uuid="95d86278-d80b-4c1e-a3c7-8614c2b410c5"/>
 				<textElement>
 					<font fontName="Tahoma" size="34" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SIGES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="46" width="263" height="37" forecolor="#965695" uuid="91ae13ba-b724-4f14-acf6-5e49503b35ad"/>
+				<reportElement x="10" y="46" width="263" height="37" forecolor="#015E7A" uuid="91ae13ba-b724-4f14-acf6-5e49503b35ad"/>
 				<textElement>
 					<font fontName="Tahoma" size="20" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de  tipo mascota]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="541" y="30" width="72" height="27" forecolor="#965695" uuid="802ac76b-0854-44a5-a6b6-50705269f63d"/>
+				<reportElement x="541" y="30" width="72" height="27" forecolor="#015E7A" uuid="802ac76b-0854-44a5-a6b6-50705269f63d"/>
 				<textElement>
 					<font fontName="Tahoma" size="20" isBold="true"/>
 				</textElement>
@@ -68,137 +68,29 @@ FROM
 	</columnHeader>
 	<detail>
 		<band height="389" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="156" height="27" backcolor="#7F39B0" uuid="1302b8a9-89fb-4cef-a2bf-ba5e3f3f08d4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Serif" size="18"/>
-				</textElement>
-				<text><![CDATA[Cliente]]></text>
-			</staticText>
 			<rectangle>
-				<reportElement x="0" y="31" width="821" height="30" backcolor="#C2A0CE" uuid="5e7b4af5-ccb6-4172-b6a2-c0dbc40214be"/>
+				<reportElement x="0" y="49" width="821" height="30" backcolor="#013163" uuid="0ae5e5c5-4e2e-48ca-b680-5176e532d304"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="10" y="30" width="62" height="30" uuid="0960e967-457e-490d-87ea-8074867cf3b6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="81" y="31" width="75" height="30" uuid="640d2cb3-89d2-4efd-8ee5-36bf528c9e0e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Apellido]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="174" y="31" width="71" height="30" uuid="2e9abf05-5d65-4416-b239-3744d564b0e3"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Telefono]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="273" y="31" width="84" height="30" uuid="1a7c7950-e088-4abb-88ec-852af6de3b55"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Correo]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="28" y="76" width="44" height="20" uuid="c117fb4d-5860-4a91-b934-d7b545cf92db"/>
-				<textElement>
-					<font fontName="Tahoma" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="97" y="76" width="48" height="20" uuid="a7fcd0c6-c2df-4089-8e83-dc94560f7934"/>
-				<textElement>
-					<font fontName="Tahoma" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="190" y="76" width="84" height="20" uuid="41fbc203-ef98-4456-9b8b-50466ef48dd0"/>
-				<textElement>
-					<font fontName="Tahoma" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_telefono}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="290" y="76" width="134" height="20" uuid="88e0b26a-1f87-4984-a7f5-98cfc944f964"/>
-				<textElement>
-					<font fontName="Tahoma" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_correo}]]></textFieldExpression>
-			</textField>
-			<rectangle>
-				<reportElement x="0" y="239" width="821" height="30" backcolor="#C2A0CE" uuid="0ae5e5c5-4e2e-48ca-b680-5176e532d304"/>
-			</rectangle>
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="208" width="156" height="27" backcolor="#7F39B0" uuid="7940f1a2-5696-41c1-a576-3ff32490e3fe"/>
+				<reportElement mode="Opaque" x="9" y="11" width="156" height="27" backcolor="#C5BBCC" uuid="7940f1a2-5696-41c1-a576-3ff32490e3fe"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Serif" size="18"/>
 				</textElement>
 				<text><![CDATA[Tipo Mascota]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="10" y="239" width="87" height="30" uuid="53b159a7-9ad1-4a52-800d-e9926deefad7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="125" y="239" width="70" height="30" uuid="8feff189-c6d4-41e2-b8b6-bcdcddfa9f34"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Genero]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="20" y="280" width="58" height="20" uuid="23cdc6e0-8e4a-43b0-a735-cedbd1ba3750"/>
-				<textElement>
-					<font fontName="Tahoma" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="145" y="280" width="70" height="20" uuid="3dc73b6a-74a0-4995-b6f2-e1e0657ad7f3"/>
-				<textElement>
-					<font fontName="Tahoma" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_mascota_genero}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="273" y="280" width="65" height="20" uuid="33cedeb8-f1f1-4453-a1de-64beeb21d2d4"/>
+				<reportElement x="40" y="90" width="65" height="20" uuid="33cedeb8-f1f1-4453-a1de-64beeb21d2d4"/>
 				<textElement>
 					<font fontName="Tahoma" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Tipo_mascota_tipo_animal}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="245" y="239" width="93" height="30" uuid="b78b2700-6822-46e2-ab22-346fe0930ec7"/>
+				<reportElement x="27" y="49" width="93" height="30" forecolor="#FFFFFF" uuid="b78b2700-6822-46e2-ab22-346fe0930ec7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Tipo mascota]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="429" y="280" width="100" height="20" uuid="86fb6e7f-49df-4c7b-82dd-02e3fdd741ad"/>
-				<textElement>
-					<font fontName="Tahoma" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_mascota_rescatada}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="399" y="239" width="130" height="30" uuid="bab9a366-a91c-45a4-ada8-eabf8ebd8e1e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Mascota rescatada]]></text>
 			</staticText>
 		</band>
 	</detail>

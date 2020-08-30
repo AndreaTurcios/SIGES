@@ -26,21 +26,21 @@ FROM
 	<title>
 		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="0" width="115" height="46" forecolor="#5E2D4F" uuid="95d86278-d80b-4c1e-a3c7-8614c2b410c5"/>
+				<reportElement x="10" y="0" width="115" height="46" forecolor="#015E7A" uuid="95d86278-d80b-4c1e-a3c7-8614c2b410c5"/>
 				<textElement>
 					<font fontName="Tahoma" size="34" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SIGES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="46" width="264" height="37" forecolor="#965695" uuid="91ae13ba-b724-4f14-acf6-5e49503b35ad"/>
+				<reportElement x="10" y="46" width="264" height="37" forecolor="#015E7A" uuid="91ae13ba-b724-4f14-acf6-5e49503b35ad"/>
 				<textElement>
 					<font fontName="Tahoma" size="20" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Reporte de  tipo mascota]]></text>
+				<text><![CDATA[Reporte de  Agenda]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="541" y="30" width="72" height="27" forecolor="#965695" uuid="802ac76b-0854-44a5-a6b6-50705269f63d"/>
+				<reportElement x="541" y="30" width="72" height="27" forecolor="#015E7A" uuid="802ac76b-0854-44a5-a6b6-50705269f63d"/>
 				<textElement>
 					<font fontName="Tahoma" size="20" isBold="true"/>
 				</textElement>
@@ -64,38 +64,38 @@ FROM
 	<detail>
 		<band height="389" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="156" height="27" backcolor="#7F39B0" uuid="1302b8a9-89fb-4cef-a2bf-ba5e3f3f08d4"/>
+				<reportElement mode="Opaque" x="0" y="0" width="156" height="27" backcolor="#C5BBCC" uuid="1302b8a9-89fb-4cef-a2bf-ba5e3f3f08d4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Serif" size="18"/>
 				</textElement>
 				<text><![CDATA[Cliente]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="0" y="31" width="821" height="30" backcolor="#C2A0CE" uuid="5e7b4af5-ccb6-4172-b6a2-c0dbc40214be"/>
+				<reportElement x="0" y="31" width="821" height="30" backcolor="#013163" uuid="5e7b4af5-ccb6-4172-b6a2-c0dbc40214be"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="10" y="30" width="62" height="30" uuid="0960e967-457e-490d-87ea-8074867cf3b6"/>
+				<reportElement x="10" y="30" width="62" height="30" forecolor="#FFFFFF" uuid="0960e967-457e-490d-87ea-8074867cf3b6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="81" y="31" width="75" height="30" uuid="640d2cb3-89d2-4efd-8ee5-36bf528c9e0e"/>
+				<reportElement x="81" y="31" width="75" height="30" forecolor="#FFFFFF" uuid="640d2cb3-89d2-4efd-8ee5-36bf528c9e0e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Apellido]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="174" y="31" width="71" height="30" uuid="2e9abf05-5d65-4416-b239-3744d564b0e3"/>
+				<reportElement x="174" y="31" width="71" height="30" forecolor="#FFFFFF" uuid="2e9abf05-5d65-4416-b239-3744d564b0e3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Telefono]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="273" y="31" width="84" height="30" uuid="1a7c7950-e088-4abb-88ec-852af6de3b55"/>
+				<reportElement x="273" y="31" width="84" height="30" forecolor="#FFFFFF" uuid="1a7c7950-e088-4abb-88ec-852af6de3b55"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -129,39 +129,29 @@ FROM
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_correo}]]></textFieldExpression>
 			</textField>
-			<rectangle>
-				<reportElement x="0" y="239" width="821" height="30" backcolor="#C2A0CE" uuid="0ae5e5c5-4e2e-48ca-b680-5176e532d304"/>
-			</rectangle>
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="210" width="156" height="27" backcolor="#7F39B0" uuid="7940f1a2-5696-41c1-a576-3ff32490e3fe"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Serif" size="18"/>
-				</textElement>
-				<text><![CDATA[Cita]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="16" y="281" width="100" height="20" uuid="93c9b26d-6de2-41cf-bebb-f3813d534bba"/>
+				<reportElement x="458" y="76" width="100" height="20" uuid="93c9b26d-6de2-41cf-bebb-f3813d534bba"/>
 				<textElement>
 					<font fontName="Tahoma" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Citas_cita_fecha}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="10" y="239" width="117" height="30" uuid="53b159a7-9ad1-4a52-800d-e9926deefad7"/>
+				<reportElement x="458" y="31" width="117" height="30" forecolor="#FFFFFF" uuid="53b159a7-9ad1-4a52-800d-e9926deefad7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Fecha de la cita]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="156" y="239" width="117" height="30" uuid="8feff189-c6d4-41e2-b8b6-bcdcddfa9f34"/>
+				<reportElement x="638" y="31" width="117" height="30" forecolor="#FFFFFF" uuid="8feff189-c6d4-41e2-b8b6-bcdcddfa9f34"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Hora de la cita]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="174" y="281" width="100" height="20" uuid="d7da4748-d9b4-49cc-873f-52cbdd593b9d"/>
+				<reportElement x="655" y="76" width="100" height="20" uuid="d7da4748-d9b4-49cc-873f-52cbdd593b9d"/>
 				<textElement>
 					<font fontName="Tahoma" isBold="true"/>
 				</textElement>
