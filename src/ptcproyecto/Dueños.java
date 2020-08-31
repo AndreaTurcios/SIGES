@@ -322,12 +322,10 @@ DefaultTableModel m;
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,7 +360,7 @@ DefaultTableModel m;
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(265, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(279, 279, 279)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -383,9 +381,11 @@ DefaultTableModel m;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 4, Short.MAX_VALUE))
+                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,7 +394,7 @@ DefaultTableModel m;
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -410,7 +410,16 @@ DefaultTableModel m;
         obj.CargarDuenio(jTable1);
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        String opcion = cmbNacionalidad.getSelectedItem().toString();
+         String opcion1 = cmbZona.getSelectedItem().toString();
+         String opcion2 = cmbTipoCliente.getSelectedItem().toString();
+        if (opcion=="Seleccione una opción"||opcion1=="Seleccione una opción"||opcion2=="Seleccione una opción") {
+             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else if  (tfDUI.getText().isEmpty() || tfTelefono.getText().isEmpty()||tfDomicilio.getText().isEmpty()||tfDUeñonombre.getText().isEmpty()||tfApellidos.getText().isEmpty()||tfCorreo.getText().isEmpty()||calendar.getDatoFecha() == null){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
         controlNacionalidad n = new controlNacionalidad();
         n.Consultar();
        
@@ -469,9 +478,9 @@ DefaultTableModel m;
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }/**/
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    public void Limpiar(){
         tfDUI.setText(" ");
         tfTelefono.setText(" ");
         tfDomicilio.setText(" ");
@@ -479,6 +488,12 @@ DefaultTableModel m;
         tfApellidos.setText(" ");
         tfCorreo.setText(" ");
         ListarDuenios();
+        cmbNacionalidad.setSelectedIndex(0);
+        cmbZona.setSelectedIndex(0);
+        cmbTipoCliente.setSelectedIndex(0);
+    }
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    Limpiar();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void cmbZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbZonaActionPerformed
@@ -543,9 +558,18 @@ DefaultTableModel m;
     }//GEN-LAST:event_btnCerrar1ActionPerformed
 
     private void btnReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporte1ActionPerformed
+
         String ID_DUI;
         int fsel = jTable1.getSelectedRow();
-        
+          String opcion = cmbNacionalidad.getSelectedItem().toString();
+          String opcion1 = cmbZona.getSelectedItem().toString();
+         String opcion2 = cmbTipoCliente.getSelectedItem().toString();
+        if (opcion=="Seleccione una opción"||opcion1=="Seleccione una opción"||opcion2=="Seleccione una opción") {
+             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else if  (tfDUI.getText().isEmpty() || tfTelefono.getText().isEmpty()||tfDomicilio.getText().isEmpty()||tfDUeñonombre.getText().isEmpty()||tfApellidos.getText().isEmpty()||tfCorreo.getText().isEmpty()||calendar.getDatoFecha() == null){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
         if (fsel==-1) {
         JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
                 JOptionPane.WARNING_MESSAGE);
