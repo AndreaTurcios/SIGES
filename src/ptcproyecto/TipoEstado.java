@@ -17,6 +17,10 @@ DefaultTableModel m;
         initComponents();
         ListarTipoE();
         jTextField2.setVisible(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
 
     /**
@@ -46,6 +50,7 @@ DefaultTableModel m;
         kGradientPanel2 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -225,12 +230,16 @@ DefaultTableModel m;
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Tipo estado");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                .addContainerGap(244, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addComponent(jLabel15)
                 .addGap(259, 259, 259)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,7 +249,9 @@ DefaultTableModel m;
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel15))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -282,9 +293,12 @@ DefaultTableModel m;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         TipoEstados obj = new TipoEstados();
         obj.setEstado(jTextField1.getText());
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.guardar()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarTipoE();
+           Bit.BitacoraCreateTipoEstado();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
@@ -311,11 +325,13 @@ DefaultTableModel m;
          u.setID_estado(estad);
          
           u.setEstado(jTextField1.getText());
-         
+         clases.Bitacora Bit = new clases.Bitacora();
+         Bit.setID(Integer.parseInt(jLabel1.getText()));
          if (u.modificar()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
              ListarTipoE();
              Limpiar();
+             Bit.BitacoraUpdateTipoEstado();
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
            }
@@ -337,6 +353,8 @@ DefaultTableModel m;
 
             TipoEstados obj = new TipoEstados();
             obj.setID_estado(Integer.parseInt(jTextField2.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
@@ -344,6 +362,7 @@ DefaultTableModel m;
                 if (obj.Eliminar()) {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     ListarTipoE();
+                    Bit.BitacoraDeleteTipoEstado();
                 }else{
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
@@ -362,6 +381,7 @@ DefaultTableModel m;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

@@ -29,6 +29,10 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         initComponents();
         ListarNacionalidad();
         txtID.setVisible(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     
     public static void main(String args[]) 
@@ -85,6 +89,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -195,12 +200,16 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Nacionalidad");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(247, 247, 247)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(203, 203, 203)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,7 +219,9 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel13))
                 .addContainerGap())
         );
 
@@ -292,9 +303,13 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         {
             controlNacionalidad obj = new controlNacionalidad();
             obj.setnacionalidad(txtnacionalidad.getText());
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (obj.guardar())
             {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
+                ListarNacionalidad();
+                Bit.BitacoraCreateNacionalidad();
             }
             else
             {
@@ -320,10 +335,13 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
             obj.setID_nacionalidad(ID);
 //            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
             obj.setnacionalidad(txtnacionalidad.getText());
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (obj.modificar()) 
             {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
-                
+                ListarNacionalidad();
+                Bit.BitacoraUpdateNacionalidad();
             }
             else
             {
@@ -346,6 +364,8 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
 
             controlNacionalidad obj = new controlNacionalidad();
             obj.setID_nacionalidad(Integer.parseInt(txtID.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
@@ -353,6 +373,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
                 if (obj.EliminarNacionalidad()) {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     ListarNacionalidad();
+                    Bit.BitacoraDeleteNacionalidad();
                 }else{
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
@@ -414,6 +435,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnImprimirNacionalidad;
     private javax.swing.JButton btnLimpiarNacionalidad;
     private javax.swing.JButton btnModificarNacionalidad;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;

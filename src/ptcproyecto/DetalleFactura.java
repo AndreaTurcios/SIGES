@@ -24,6 +24,10 @@ DefaultTableModel m;
         CargarTipoP();
         ListarDetalle();
         jTextField2.setVisible(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -48,6 +52,7 @@ DefaultTableModel m;
         btnLimpiar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setPreferredSize(new java.awt.Dimension(706, 636));
@@ -212,12 +217,16 @@ DefaultTableModel m;
                 .addContainerGap())
         );
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(240, 240, 240)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(196, 196, 196)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,7 +237,9 @@ DefaultTableModel m;
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnCerrar)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel12)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -268,9 +279,12 @@ public void CargarTipoP(){
          
         obj.setFecha_emision(new java.sql.Date(calendar.getDatoFecha().getTime())); 
          
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.guardarDetalle()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarDetalle();
+           Bit.BitacoraCreateDetalleFactura();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
@@ -305,9 +319,13 @@ public void CargarTipoP(){
         
          u.setFecha_emision(new java.sql.Date(calendar.getDatoFecha().getTime()));
         
+         clases.Bitacora Bit = new clases.Bitacora();
+         Bit.setID(Integer.parseInt(jLabel1.getText()));
+         
          if (u.modificarDetalle()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
              ListarDetalle();
+             Bit.BitacoraUpdateDetalleFactura();
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
            }
@@ -329,6 +347,8 @@ public void CargarTipoP(){
          
          DetalleFacturas obj = new DetalleFacturas();
          obj.setID_detalle(Integer.parseInt(jTextField2.getText()));
+         clases.Bitacora Bit = new clases.Bitacora();
+         Bit.setID(Integer.parseInt(jLabel1.getText()));
         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
        if (eliminar == 0) {
@@ -336,6 +356,7 @@ public void CargarTipoP(){
            if (obj.EliminarFacturaD()) {
                 JOptionPane.showMessageDialog(this, "Datos eliminados");
                  ListarDetalle();
+                 Bit.BitacoraDeleteDetalleFactura();
             }else{
             JOptionPane.showMessageDialog(this, "Error al eliminar");
             }
@@ -352,6 +373,7 @@ public void CargarTipoP(){
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;

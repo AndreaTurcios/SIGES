@@ -26,7 +26,10 @@ import javax.swing.table.DefaultTableModel;
         initComponents();
         
         If.setVisible(false);
-        
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -54,6 +57,7 @@ import javax.swing.table.DefaultTableModel;
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBorder(null);
 
@@ -242,12 +246,16 @@ import javax.swing.table.DefaultTableModel;
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Factura");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(279, 279, 279)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,7 +265,9 @@ import javax.swing.table.DefaultTableModel;
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -300,9 +310,12 @@ import javax.swing.table.DefaultTableModel;
         obj.setID_detalle(DF.getID_detalle());
         MtoProductos P = (MtoProductos)cbProducto.getSelectedItem();
         obj.setID_producto(P.getID_producto());
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.Guardar()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            CargarF();
+           Bit.BitacoraCreateFactura();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
@@ -332,10 +345,13 @@ import javax.swing.table.DefaultTableModel;
         MtoProductos P = (MtoProductos)cbProducto.getSelectedItem();
         u.setID_producto(P.getID_producto());
         
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         
          if (u.modificar()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
              CargarF();
+             Bit.BitacoraUpdateFactura();
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
            }
@@ -356,6 +372,8 @@ import javax.swing.table.DefaultTableModel;
          
          Facturas obj = new Facturas ();
          obj.setID_detalle(Integer.parseInt(If.getText()));
+         clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
        if (eliminar == 0) {
@@ -363,6 +381,7 @@ import javax.swing.table.DefaultTableModel;
            if (obj.Eliminar()) {
                 JOptionPane.showMessageDialog(this, "Datos eliminados");
                   CargarF();
+                  Bit.BitacoraDeleteFactura();
             }else{
             JOptionPane.showMessageDialog(this, "Error al eliminar");
             }
@@ -381,6 +400,7 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JComboBox<String> cbProducto;
     private javax.swing.JComboBox<String> cbconsulta;
     private javax.swing.JComboBox<String> cbdetalle;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
