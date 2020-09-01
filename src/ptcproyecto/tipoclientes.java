@@ -44,6 +44,10 @@ public class tipoclientes extends javax.swing.JInternalFrame {
         InputMap map2 = txtTipoCliente.getInputMap(txtTipoCliente.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
         txtID.setVisible(false);
+        Login ventana = new Login();
+        jLabel3.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel3.setVisible(false);
     }
     
     public void CargarTablaTipoCliente()
@@ -82,6 +86,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
         txtID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
@@ -260,13 +265,17 @@ public class tipoclientes extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(268, 268, 268)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(224, 224, 224)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -276,7 +285,9 @@ public class tipoclientes extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -336,6 +347,8 @@ public class tipoclientes extends javax.swing.JInternalFrame {
             txtTipoCliente.setText(ID);
             tipoCliente obj = new tipoCliente();
             obj.setID_tipoCliente(Integer.parseInt(txtTipoCliente.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR
+            Bit.setID(Integer.parseInt(jLabel3.getText())); //NO TOCAR
             int Eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?","Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (Eliminar == 0) 
             {
@@ -344,6 +357,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaTipoCliente();
                     LimpiarCampos();
+                    Bit.BitacoraDeleteTipoCliente();//NO TOCAR
                 }
                 else
                 {
@@ -369,11 +383,14 @@ public class tipoclientes extends javax.swing.JInternalFrame {
             tipoCliente u = new tipoCliente();
             u.setID_tipoCliente(idm);
             u.settipocliente(txtTipoCliente.getText());
+            clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR
+            Bit.setID(Integer.parseInt(jLabel3.getText()));  //NO TOCAR
             if (u.modificar()) 
             {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
                  CargarTablaTipoCliente();
                  LimpiarCampos();
+                 Bit.BitacoraUpdateTipoCliente();//NO TOCAR
             }
             else
             {
@@ -392,11 +409,14 @@ public class tipoclientes extends javax.swing.JInternalFrame {
             tipoCliente obj = new tipoCliente();
             String TipoCliente = (txtTipoCliente.getText());
             obj.settipocliente(TipoCliente);
+            clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR
+            Bit.setID(Integer.parseInt(jLabel3.getText())); //NO TOCAR 
             if (obj.GuardarTipoCliente()) 
             {
                JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
                CargarTablaTipoCliente();
                LimpiarCampos();
+               Bit.BitacoraCreateTipoCliente();//NO TOCAR
             }
             else
             { 
@@ -438,6 +458,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

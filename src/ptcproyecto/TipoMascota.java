@@ -38,6 +38,10 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         initComponents();
         //hacer invisible el txt del ID
         CargarTablaTipoMascota();
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     
     DefaultTableModel m;
@@ -60,6 +64,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setTitle("Tipo Mascota");
@@ -184,12 +189,16 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Tipo mascota");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(232, 232, 232)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(188, 188, 188)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,6 +210,10 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                 .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addContainerGap())
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,7 +241,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -246,6 +259,9 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Registro guardado");
             limpiar();
             cargarTabla();
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
+            Bit.BitacoraCreateTipoMascota();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
@@ -291,10 +307,13 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             obj.setID_tipoMascota(ID);
 //            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
             obj.setTipo_animal(txtTipomascota.getText());
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (obj.ModificarMascota()) 
             {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
                 CargarTablaTipoMascota();
+                Bit.BitacoraUpdateTipoMascota();
             }
             else
             {
@@ -317,6 +336,8 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
             tipoMascota obj = new tipoMascota();
             obj.setID_tipoMascota(Integer.parseInt(ID));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
@@ -324,6 +345,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                 if (obj.EliminarTipoMascota()) {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaTipoMascota();
+                    Bit.BitacoraDeleteTipoMascota();
                 }else{
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
@@ -408,6 +430,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnReporte;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;

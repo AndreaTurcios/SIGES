@@ -56,6 +56,10 @@ DefaultTableModel m;
         jSHora.setEnabled(false);
         jSMinuto.setEnabled(false);
         jTextField2.setVisible(false);
+        Login ventana = new Login();
+        jLabel3.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel3.setVisible(false);
     }
 
     /**
@@ -106,6 +110,7 @@ DefaultTableModel m;
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         btnCerrar1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         kGradientPanel2.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel2.setkGradientFocus(600);
@@ -488,12 +493,16 @@ DefaultTableModel m;
             }
         });
 
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(274, 274, 274)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(230, 230, 230)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -507,6 +516,10 @@ DefaultTableModel m;
                         .addComponent(jLabel1))
                     .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
@@ -566,10 +579,12 @@ DefaultTableModel m;
         
         Mascota obje = (Mascota)cmbMascota.getSelectedItem();
         obj.setID_mascota(obje.getID_mascota());
-                
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel3.getText()));        
        if (obj.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
             ListarCitas();
+            Bit.BitacoraCreateCita();
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos");
         }
@@ -587,16 +602,18 @@ DefaultTableModel m;
            jTextField2.setText(ID_Cita);
 
           Cita obj = new Cita();
-
+          
          int i = Integer.parseInt(jTextField2.getText());
          obj.setID_cita(i);
-
+         clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel3.getText()));
          int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (eliminar==0) {
         if (obj.EliminarCita()) {
                 JOptionPane.showMessageDialog(this,"Datos eliminados");
                 ListarCitas();
+                Bit.BitacoraDeleteCita();
             }else{
          JOptionPane.showMessageDialog(this,"Error al eliminar, compruebe si eliminó "
                  + "primeramente la ficha clinica correspondiente a la mascota que ha intentado eliminar");
@@ -665,10 +682,12 @@ DefaultTableModel m;
         
         Mascota obje = (Mascota)cmbMascota.getSelectedItem();
         obj.setID_mascota(obje.getID_mascota());
-        
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel3.getText()));
         if (obj.modificarCita()) {
             JOptionPane.showMessageDialog(this,"Datos modificados"); 
             ListarCitas();
+            Bit.BitacoraUpdateCita();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al modificar la informacion"); 
            } 
@@ -777,6 +796,7 @@ DefaultTableModel m;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

@@ -30,6 +30,10 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
      */
     public frmTipo_cita() {
         initComponents();
+        Login ventana = new Login();
+        jLabel2.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel2.setVisible(false);
     }
 
     /**
@@ -56,6 +60,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
         jtbImprimir = new javax.swing.JToggleButton();
         BtnCerrar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -219,12 +224,16 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Tipo cita");
 
+        jLabel2.setText("jLabel2");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(261, 261, 261)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,7 +244,9 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -263,8 +274,11 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
         Tipocita obj = new Tipocita();
         obj.settipo_cita(jtfTipocita.getText());
+        clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR 
+        Bit.setID(Integer.parseInt(jLabel2.getText())); //NO TOCAR 
         if (obj.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
+            Bit.BitacoraCreateTipoCita();//NO TOCAR 
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos");
         }
@@ -273,9 +287,11 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
     private void jtbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbModificarActionPerformed
         Tipocita obj = new Tipocita();
         obj.settipo_cita(jtfTipocita.getText());
-
+        clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR 
+        Bit.setID(Integer.parseInt(jLabel2.getText())); //NO TOCAR 
         if (obj.modificar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
+            Bit.BitacoraUpdateTipoCita();//NO TOCAR 
         }else{
             JOptionPane.showMessageDialog(this, "Error al modificar los datos");
         }
@@ -283,8 +299,11 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
         Tipocita obj = new Tipocita();
+        clases.Bitacora Bit = new clases.Bitacora(); //NO TOCAR
+        Bit.setID(Integer.parseInt(jLabel2.getText())); //NO TOCAR 
         if (obj.Consultar()) {
            obj.settipo_cita(jtfTipocita.getText());
+           Bit.BitacoraReadTipoCita(); //NO TOCAR
         }else{
             JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
         }
@@ -326,6 +345,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

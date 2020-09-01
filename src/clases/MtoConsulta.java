@@ -32,6 +32,7 @@ public class MtoConsulta {
     private Integer Tipo;
     private Integer DUI;
     private Integer Estado;
+    private Integer Mascota;
     
     public MtoConsulta(){
         Conexion con = new Conexion();
@@ -50,7 +51,7 @@ public class MtoConsulta {
             boolean resp = false;  
             cn = conexion.conectar();
             System.err.println("Estado " + cn.getClientInfo());
-            String sql = "INSERT INTO Consulta (consulta_fecha, consulta_hora, ID_estado, ID_tipoConsulta, ID_DUI)"+"VALUES(?,?,?, ?, ?)";
+            String sql = "INSERT INTO Consulta (consulta_fecha, consulta_hora, ID_estado, ID_tipoConsulta, ID_DUI, ID_mascota)"+"VALUES(?,?,?, ?, ?, ?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
             System.out.println("preparada" + cmd);
             cmd.setDate(1, Fecha);
@@ -58,6 +59,7 @@ public class MtoConsulta {
             cmd.setInt(3, Estado);
             cmd.setInt(4, Tipo);
             cmd.setInt(5, DUI);
+            cmd.setInt(6, Mascota);
             System.out.println("fecha" + Fecha);
             System.out.println(Estado);
             System.out.println(Tipo);
@@ -157,19 +159,19 @@ public class MtoConsulta {
 
         
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "Fecha", "Hora", "Tipo de consulta", "Dui del cliente"};
+        String [] columnas = {"ID", "Fecha", "Hora", "Tipo de consulta", "Dui del cliente", "ID de la mascota"};
         model = new DefaultTableModel(null, columnas);
 
-        String sql = "SELECT c.ID_consulta, c.consulta_fecha, c.consulta_hora, c.ID_tipoConsulta ,c.ID_DUI FROM Consulta c";
+        String sql = "SELECT c.ID_consulta, c.consulta_fecha, c.consulta_hora, c.ID_tipoConsulta ,c.ID_DUI, c.ID_mascota FROM Consulta c";
 
-        String [] filas = new String[5];
+        String [] filas = new String[6];
         Statement st = null;
         ResultSet rs = null;
         try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 6; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
@@ -270,6 +272,34 @@ public class MtoConsulta {
             }
         }
     }
+    public void consultarMascota(JComboBox cbox_Estado) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT nombre_mascota FROM Mascota ORDER BY ID_mascota";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_Estado.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                cbox_Estado.addItem(resultado.getString("nombre_mascota"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    } 
     /**
      * @return the cn
      */
@@ -380,5 +410,19 @@ public class MtoConsulta {
      */
     public void setHora(Time Hora) {
         this.Hora = Hora;
+    }
+
+    /**
+     * @return the Mascota
+     */
+    public Integer getMascota() {
+        return Mascota;
+    }
+
+    /**
+     * @param Mascota the Mascota to set
+     */
+    public void setMascota(Integer Mascota) {
+        this.Mascota = Mascota;
     }
 }

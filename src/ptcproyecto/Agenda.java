@@ -61,6 +61,10 @@ public class Agenda extends javax.swing.JInternalFrame {
         initComponents();
         ListarProgramados();
         listarCitas();
+        Login ventana = new Login();
+        jLabel2.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel2.setVisible(false);
     }
     public void listarCitas(){
         clases.Agenda obj = new clases.Agenda();
@@ -127,6 +131,7 @@ public class Agenda extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         JTableDialog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -471,12 +476,16 @@ public class Agenda extends javax.swing.JInternalFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Agenda");
 
+        jLabel2.setText("jLabel2");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(263, 263, 263)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(219, 219, 219)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -486,7 +495,9 @@ public class Agenda extends javax.swing.JInternalFrame {
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -571,6 +582,10 @@ public class Agenda extends javax.swing.JInternalFrame {
         jDialog1.setMinimumSize(new Dimension (800, 600));
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel2.getText()));
+        Bit.BitacoraReadAgenda();
+        
 //        if (JTDUI.getText().isEmpty() ) {
 //            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
 //        }
@@ -666,6 +681,7 @@ public class Agenda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

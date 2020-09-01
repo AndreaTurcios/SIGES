@@ -43,6 +43,10 @@ public class TipoPago extends javax.swing.JInternalFrame {
         InputMap map2 = txtTipoPago.getInputMap(txtTipoPago.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
         txtID.setVisible(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     
     public void LimpiarCampos() 
@@ -119,6 +123,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(744, 560));
         getContentPane().setLayout(null);
@@ -270,12 +275,16 @@ public class TipoPago extends javax.swing.JInternalFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Tipo pago");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(253, 253, 253)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -285,7 +294,9 @@ public class TipoPago extends javax.swing.JInternalFrame {
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -309,11 +320,14 @@ public class TipoPago extends javax.swing.JInternalFrame {
             CrudTipoPago obj = new CrudTipoPago();
             String TipoPago = (txtTipoPago.getText());
             obj.settipopago(TipoPago);
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText())); 
             if (obj.GuardarTipoPago()) 
             {
                JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
                CargarTablaTipoPago();
                LimpiarCampos();
+               Bit.BitacoraCreateTipoPago();
             }
             else
             { 
@@ -337,6 +351,8 @@ public class TipoPago extends javax.swing.JInternalFrame {
             txtTipoPago.setText(ID);
             CrudTipoPago obj = new CrudTipoPago();
             obj.setIDtipoPago(Integer.parseInt(txtTipoPago.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText())); 
             int Eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?","Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (Eliminar == 0) 
             {
@@ -345,6 +361,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaTipoPago();
                     LimpiarCampos();
+                    Bit.BitacoraDeleteTipoPago();
                 }
                 else
                 {
@@ -413,11 +430,14 @@ public class TipoPago extends javax.swing.JInternalFrame {
             CrudTipoPago u = new CrudTipoPago();
             u.setIDtipoPago(idm);
             u.settipopago(txtTipoPago.getText());
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText())); 
             if (u.ModificarTipoPago()) 
             {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
                  CargarTablaTipoPago();
                  LimpiarCampos();
+                 Bit.BitacoraUpdateTipoPago();
             }
             else
             {
@@ -446,6 +466,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnModificarTipoPago1;
     private javax.swing.JButton btnMostrarTipoPago;
     private javax.swing.JButton btnTipoPago;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

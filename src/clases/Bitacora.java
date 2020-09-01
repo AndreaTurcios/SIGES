@@ -313,6 +313,448 @@ public class Bitacora {
             return retorno;
 
         }
+        public boolean BitacoraCreateCita(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso en tbCita','Create', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraUpdateCita(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Modifico en tbCita','Update', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        
+        public boolean BitacoraDeleteCita(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Elimino en tbCita','Delete', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraCreateTipoCita(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso en tbTipoCita','Create', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraUpdateTipoCita(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Modifico en tbTipoCita','Update', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        
+        public boolean BitacoraReadTipoCita(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Observo en tbTipoCita','Read', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraCreateConsulta(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso en tbConsulta','Create', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraUpdateConsulta(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Modifico en tbConsulta','Update', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        
+        public boolean BitacoraDeleteConsulta(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Elimino en tbConsulta','Delete', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraCreateTipoConsulta(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso en tbTipoConsulta','Create', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraUpdateTipoConsulta(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Modifico en tbTipoConsulta','Update', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraReadTipoConsulta(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Observo en tbTipoConsulta','Read', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraDeleteTipoConsulta(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Elimino en tbTipoConsulta','Delete', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraCreateTipoCliente(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso en tbTipoCliente','Create', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraUpdateTipoCliente(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Modifico en tbTipoCliente','Update', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        
+        public boolean BitacoraDeleteTipoCliente(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Elimino en tbTipoCliente','Delete', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraCreateTipoPago(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso en tbTipoTipoPago','Create', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraUpdateTipoPago(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Modifico en tbTipoPago','Update', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraReadAgenda(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Observo en Agenda','Read', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraDeleteTipoPago(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Elimino en tbTipoPago','Delete', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraCreateTipoMascota(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Ingreso en tbTipoMascota','Create', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        public boolean BitacoraUpdateTipoMascota(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Modifico en tbTipoMascota','Update', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
+        
+        public boolean BitacoraDeleteTipoMascota(){
+            boolean retorno = false;
+            try{
+                System.out.println(ID);
+                String query = "declare @fecha datetime\n"
+                        + "set @fecha = (select GETDATE());\n"
+                        +"\n"
+                        +"INSERT INTO bitacora (accion, instruccion, fecha, ID_usuario) VALUES ('Elimino en tbTipoMascota','Delete', @fecha, "+ID+");";
+                PreparedStatement cmd = cn.prepareStatement(query);
+                if (!cmd.execute()) {
+                    retorno = true;
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+            }
+            return retorno;
+
+        }
     /**
      * @return the cn
      */

@@ -47,6 +47,10 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         CargarTablaTipoConsulta();
         txtID.setVisible(false);
         cargarTabla();
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
 
     /**
@@ -70,6 +74,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnGuardarTipoConsulta = new javax.swing.JButton();
         btnModificarTipoConsulta = new javax.swing.JButton();
@@ -98,7 +103,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
         jPanel2.add(txtNombreTipoConsulta);
-        txtNombreTipoConsulta.setBounds(170, 60, 290, 22);
+        txtNombreTipoConsulta.setBounds(170, 60, 290, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nombre del tipo de consulta:");
@@ -133,7 +138,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
 
         txtID.setFocusable(false);
         jPanel2.add(txtID);
-        txtID.setBounds(20, 100, 6, 22);
+        txtID.setBounds(20, 100, 6, 20);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkGradientFocus(600);
@@ -153,12 +158,16 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Tipo consulta");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(279, 279, 279)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,7 +177,9 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -293,7 +304,9 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Registro Guardado");
             cargarTabla();
-        
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));  
+            Bit.BitacoraCreateTipoConsulta();
         } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.toString());
         
@@ -314,6 +327,8 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
 
             CrudTipoConsulta obj = new CrudTipoConsulta();
             obj.setIDTipoConsulta(Integer.parseInt(txtID.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText())); 
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
@@ -321,6 +336,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
                 if (obj.EliminarTipoConsulta()) {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaTipoConsulta();
+                    Bit.BitacoraDeleteTipoConsulta();
                 }else{
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
@@ -345,10 +361,13 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             obj.setIDTipoConsulta(ID);
 //            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
             obj.setTipoConsulta(txtNombreTipoConsulta.getText());
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText())); 
             if (obj.ModificarTipoConsulta()) 
             {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
                 CargarTablaTipoConsulta();
+                Bit.BitacoraUpdateTipoConsulta();
             }
             else
             {
@@ -447,6 +466,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnModificarTipoConsulta;
     private javax.swing.JButton btnMostrarTipoConsulta;
     private javax.swing.JButton btnTipoPago;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
