@@ -37,6 +37,10 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         CargarDuenios();
         ListarPreguntas();
         txtI.setVisible(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     public void CargarDuenios(){
         controlPreguntas obj = new controlPreguntas();
@@ -68,6 +72,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel15 = new javax.swing.JLabel();
         btnCerrar1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -128,8 +133,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(tfPregunta)
                         .addGap(61, 61, 61)
-                        .addComponent(jLabel9)
-                        .addGap(0, 0, 0))
+                        .addComponent(jLabel9))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,12 +232,16 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(212, 212, 212)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(168, 168, 168)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,7 +254,9 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel15))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -286,10 +296,12 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         
         usuarios coza = (usuarios)cmbUsuario.getSelectedItem();
         pg.setID_usuario(coza.getID_usuario());
-        
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (pg.guardar()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarPreguntas();
+           Bit.BitacoraCreatePreguntas();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
            JOptionPane.showMessageDialog(this,pg.guardar()); 
@@ -335,13 +347,15 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
          int i = Integer.parseInt(txtI.getText());
 
          obj.setID_pregunta(i);
-         
+         clases.Bitacora Bit = new clases.Bitacora();
+         Bit.setID(Integer.parseInt(jLabel1.getText()));
          int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
          if (eliminar == 0) {
               if (obj.EliminarPregunta()) {
                 JOptionPane.showMessageDialog(this, "Datos eliminados");
                 ListarPreguntas();
+                Bit.BitacoraDeletePreguntas();
             }else{
             JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarPregunta());
             }
@@ -369,10 +383,12 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         
         usuarios coza = (usuarios)cmbUsuario.getSelectedItem();
         obj.setID_usuario(coza.getID_usuario());
-        
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
       if (obj.modificarPregunta()) {
             JOptionPane.showMessageDialog(this,"Datos modificados"); 
             ListarPreguntas();
+            Bit.BitacoraUpdatePreguntas();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al modificar la informacion"); 
            } 
@@ -391,6 +407,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;

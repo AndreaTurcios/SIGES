@@ -37,6 +37,10 @@ public class Respuestas extends javax.swing.JInternalFrame {
         jTextField1.setVisible(false);
         InputMap map2 = txtRespuesta.getInputMap(txtRespuesta.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     
     public void CargarTablaRespuestas()
@@ -68,6 +72,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel15 = new javax.swing.JLabel();
         btnCerrar1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -84,6 +89,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRespuestas = new javax.swing.JTable();
 
+        setPreferredSize(new java.awt.Dimension(704, 620));
         getContentPane().setLayout(null);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -108,6 +114,10 @@ public class Respuestas extends javax.swing.JInternalFrame {
         });
         kGradientPanel1.add(btnCerrar1);
         btnCerrar1.setBounds(610, 0, 50, 50);
+
+        jLabel1.setText("jLabel1");
+        kGradientPanel1.add(jLabel1);
+        jLabel1.setBounds(10, 10, 34, 14);
 
         getContentPane().add(kGradientPanel1);
         kGradientPanel1.setBounds(0, 0, 663, 55);
@@ -232,11 +242,14 @@ public class Respuestas extends javax.swing.JInternalFrame {
             obj.setRespuesta(Respuesta);
             controlPreguntas ti = (controlPreguntas)cmbPregunta.getSelectedItem();
             obj.setIDPregunta(ti.getID_pregunta());
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (obj.GuardarRespuesta()) 
             {
                JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
                CargarTablaRespuestas();
                LimpiarCampos();
+               Bit.BitacoraCreateRespuestas();
             }
             else
             { 
@@ -284,6 +297,8 @@ public class Respuestas extends javax.swing.JInternalFrame {
             txtRespuesta.setText(ID);
             CrudRespuestas obj = new CrudRespuestas();
             obj.setIDRespuesta(Integer.parseInt(txtRespuesta.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             int Eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?","Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (Eliminar == 0) 
             {
@@ -292,6 +307,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     CargarTablaRespuestas();
                     LimpiarCampos();
+                    Bit.BitacoraDeleteRespuestas();
                 }
                 else
                 {
@@ -319,11 +335,14 @@ public class Respuestas extends javax.swing.JInternalFrame {
             u.setRespuesta(txtRespuesta.getText());
             int Tipo = cmbPregunta.getSelectedIndex();
             u.setIDPregunta(Tipo);
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (u.ModificarRespuesta()) 
             {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
                  CargarTablaRespuestas();
                  LimpiarCampos();
+                 Bit.BitacoraUpdateRespuestas();
             }
             else
             {
@@ -352,6 +371,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar1;
     private javax.swing.JComboBox<String> cmbPregunta;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel4;

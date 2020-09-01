@@ -33,6 +33,10 @@ public class codigoZona extends javax.swing.JInternalFrame {
      */
     public codigoZona() {
         initComponents();
+        Login ventana = new Login();
+        jLabel3.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel3.setVisible(false);
     }
 
     /**
@@ -58,6 +62,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnreporte = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBorder(null);
 
@@ -199,12 +204,16 @@ public class codigoZona extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(259, 259, 259)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(215, 215, 215)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -217,7 +226,9 @@ public class codigoZona extends javax.swing.JInternalFrame {
                     .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1)))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -247,6 +258,9 @@ public class codigoZona extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Registro guardado");
             limpiar();
             cargarTabla();
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel3.getText()));
+            Bit.BitacoraCreateCodigoZona();
         }
         catch(SQLException e)
         {
@@ -266,6 +280,9 @@ public class codigoZona extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Registro modificado");
             limpiar();
             cargarTabla();
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel3.getText()));
+            Bit.BitacoraUpdateCodigoZona();
         }
         catch(SQLException e)
         {
@@ -331,6 +348,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnreporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;

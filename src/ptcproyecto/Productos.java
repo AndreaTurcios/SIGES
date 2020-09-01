@@ -35,6 +35,10 @@ DefaultTableModel m;
         initComponents();
         ListarProductos();
         CargarProductos();
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     public void CargarProductos(){
         CargarTipoProducto obj = new CargarTipoProducto();
@@ -66,6 +70,7 @@ DefaultTableModel m;
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         calendar1 = new rojeru_san.componentes.RSDateChooser();
         jLabel7 = new javax.swing.JLabel();
@@ -166,14 +171,18 @@ DefaultTableModel m;
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Gestión de productos");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel13)
+                .addContainerGap()
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(196, 196, 196)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -181,8 +190,14 @@ DefaultTableModel m;
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel13))
+                .addContainerGap()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(0, 5, Short.MAX_VALUE)
+                        .addComponent(jLabel13))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
@@ -373,10 +388,13 @@ DefaultTableModel m;
             obj.setFechaEx(new java.sql.Date(calendar1.getDatoFecha().getTime()));
             int Tipo = JCBTIPO.getSelectedIndex();
             obj.setTipo_producto(Tipo);
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (obj.guardar()) {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
                 ListarProductos();
                 limpiar();
+                Bit.BitacoraCreateProductos();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al guardar datos");
@@ -409,10 +427,13 @@ DefaultTableModel m;
 
             int Tipo = JCBTIPO.getSelectedIndex();
             obj.setTipo_producto(Tipo);
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (obj.modificar()) {
                 JOptionPane.showMessageDialog(this, "Datos modificados");
                 ListarProductos();
                 limpiar();
+                Bit.BitacoraUpdateProductos();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al modificar datos");
@@ -464,12 +485,14 @@ DefaultTableModel m;
             ID = jTable2.getValueAt(fsel, 0).toString();
             MtoProductos obj = new MtoProductos();
             obj.setID_producto(Integer.parseInt(ID));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (obj.consultar()) {
                 JTProducto.setText(obj.getProducto());
                 JTCodigo.setText(obj.getCodigo().toString());
                 JTCosto.setText(obj.getCosto());
                 JOptionPane.showMessageDialog(this, "Datos Consultados exitosamente");
-                
+                Bit.BitacoraReadProductos();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al consultar datos");
@@ -493,6 +516,7 @@ DefaultTableModel m;
     private javax.swing.JButton btnReporte;
     private rojeru_san.componentes.RSDateChooser calendar;
     private rojeru_san.componentes.RSDateChooser calendar1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

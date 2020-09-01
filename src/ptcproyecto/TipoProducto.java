@@ -30,6 +30,10 @@ DefaultTableModel m;
     public TipoProducto() {
         initComponents();
         listarTipos(); 
+        Login ventana = new Login();
+        jLabel4.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel4.setVisible(false);
     }
     
     public void listarTipos(){
@@ -48,6 +52,7 @@ DefaultTableModel m;
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         JTTIPO = new javax.swing.JTextField();
@@ -82,12 +87,16 @@ DefaultTableModel m;
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jLabel4.setText("jLabel4");
+
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(198, 198, 198)
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(154, 154, 154)
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -96,7 +105,9 @@ DefaultTableModel m;
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(jLabel1)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -288,9 +299,12 @@ DefaultTableModel m;
                 tipoProductos obj = new tipoProductos();
                 obj.setTipo_Producto(JTTIPO.getText());
                 obj.setID_tipoProducto(Integer.parseInt(ID));
+                clases.Bitacora Bit = new clases.Bitacora();
+                Bit.setID(Integer.parseInt(jLabel4.getText()));
                 if (obj.modificar()) {
                     JOptionPane.showMessageDialog(this, "Datos modificados");
                     listarTipos();
+                    Bit.BitacoraUpdateTipoProductos();
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Error al modificar datos");
@@ -307,11 +321,14 @@ DefaultTableModel m;
         else {
             tipoProductos obj = new tipoProductos();
             obj.setTipo_Producto(JTTIPO.getText());
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel4.getText()));
+            
             if (obj.guardar()) {
                 JOptionPane.showMessageDialog(this, "Datos guardados");
                 listarTipos();
                 clases.Bitacora b = new clases.Bitacora();
-
+                Bit.BitacoraCreateTipoProductos();
             }
             else{
                 JOptionPane.showMessageDialog(this, "Error al guardar datos");
@@ -334,17 +351,15 @@ DefaultTableModel m;
     private javax.swing.JButton JBLimpiar;
     private javax.swing.JButton JBModificar;
     private javax.swing.JTextField JTTIPO;
-    private javax.swing.JButton btnCerrar1;
     private javax.swing.JButton btnCerrar2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
     // End of variables declaration//GEN-END:variables
 
