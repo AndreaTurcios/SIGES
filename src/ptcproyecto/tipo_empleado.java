@@ -35,6 +35,10 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         initComponents();
         ListarTiUsuario();
         It.setVisible(false);
+                Login ventana = new Login();
+        jLabel3.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel3.setVisible(false);
     }
 
     /**
@@ -61,6 +65,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         It = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         kGradientPanel1.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel1.setkStartColor(new java.awt.Color(1, 163, 201));
@@ -214,12 +219,16 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(245, 245, 245)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(201, 201, 201)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,10 +239,12 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addComponent(jButton1))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(199, 199, 199))
@@ -247,7 +258,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, Short.MAX_VALUE)
         );
 
         pack();
@@ -277,9 +288,12 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         TipoUsuario obj = new TipoUsuario();
         obj.settipo_empleado(txtTempleado.getText());
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel3.getText()));
         if (obj.Guardar()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarTiUsuario();
+           Bit.BitacoraCreateTEm();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
@@ -302,11 +316,13 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
          u.setID_tipoUsuarios(empleado);
          
           u.settipo_empleado(txtTempleado.getText());
-         
+         clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel3.getText()));
          if (u.modificar()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
              ListarTiUsuario();
              Limpiar();
+             Bit.BitacoraUpdateTEm();
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
            }
@@ -336,6 +352,8 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
 
             TipoUsuario obj = new TipoUsuario();
             obj.setID_tipoUsuarios(Integer.parseInt(It.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel3.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
@@ -343,6 +361,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
                 if (obj.Eliminar()) {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     ListarTiUsuario();
+                    Bit.BitacoraDeleteTem();
                 }else{
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
@@ -392,6 +411,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -29,6 +29,7 @@ DefaultTableModel m;
         Login ventana = new Login();
         jLabel1.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     
     @SuppressWarnings("unchecked")

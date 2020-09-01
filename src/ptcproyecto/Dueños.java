@@ -25,8 +25,11 @@ DefaultTableModel m;
     public Dueños() {
         initComponents();
         CargarDuenios();
-       ListarDuenios();
-        
+        ListarDuenios();
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     
     public static void main(String args[]) 
@@ -103,6 +106,7 @@ DefaultTableModel m;
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setOpaque(true);
 
@@ -355,12 +359,16 @@ DefaultTableModel m;
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Dueños");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(279, 279, 279)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -370,7 +378,9 @@ DefaultTableModel m;
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -471,10 +481,12 @@ DefaultTableModel m;
 //    cmd.setInt(11, ID_Mascota);
 //        
 //System.out.println("Objeto " +obj.guardarCliente());
-
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.guardarCliente()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarDuenios();
+           Bit.BitacoraCreateDuenio();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }/**/
@@ -515,13 +527,15 @@ DefaultTableModel m;
          
          ClienteDuenio obj = new ClienteDuenio();
          obj.setID_DUI(Integer.parseInt(tfDUI.getText()));
-         
+         clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
        if (eliminar == 0) {
           if (obj.EliminarCliente()) {
                 JOptionPane.showMessageDialog(this, "Datos eliminados");
                 ListarDuenios();
+                Bit.BitacoraDeleteDuenio();
             }else{
             JOptionPane.showMessageDialog(this, "Error al eliminar, tiene una mascota asociada.");
             }
@@ -622,11 +636,13 @@ DefaultTableModel m;
         controlCodigoZona coza = (controlCodigoZona)cmbZona.getSelectedItem();
         System.out.println("Codigo zona " + coza.getID_codigo());
         obj.setCodigo_zona(coza.getID_codigo());
-//        
+        clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.modificarDuenio()) {
          //if (u.modificarDuenio()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
              ListarDuenios();
+             Bit.BitacoraUpdateDuenio();
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
            }
@@ -645,6 +661,7 @@ DefaultTableModel m;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;

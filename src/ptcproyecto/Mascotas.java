@@ -30,6 +30,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
         ListarDuenios();
         lblNombre.setVisible(false);
         jTextField1.setVisible(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     
     public static void main(String args[]) 
@@ -111,6 +115,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         kGradientPanel2.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel2.setkGradientFocus(600);
@@ -490,12 +495,16 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Mascotas");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel15)
                 .addGap(259, 259, 259)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -505,7 +514,9 @@ public class Mascotas extends javax.swing.JInternalFrame {
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel15))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -566,9 +577,12 @@ public class Mascotas extends javax.swing.JInternalFrame {
         
         int duii = Integer.parseInt(tfDui.getText());
         obj.setID_DUI(duii);
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.guardarMascota(obj)) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarMascota();
+           Bit.BitacoraCreateMascota();
            }else{ 
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarMascota();
@@ -599,10 +613,12 @@ public class Mascotas extends javax.swing.JInternalFrame {
     int duii = Integer.parseInt(tfDui.getText());
     obj.setID_DUI(duii);
     //--falta tipo mascota, genero y usuario
-    
+    clases.Bitacora Bit = new clases.Bitacora();
+    Bit.setID(Integer.parseInt(jLabel1.getText()));
            if (obj.modificarMascota()) {
             JOptionPane.showMessageDialog(this,"Datos modificados"); 
             ListarMascota();
+            Bit.BitacoraUpdateMascota();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al modificar la informacion"); 
            } 
@@ -736,13 +752,15 @@ public class Mascotas extends javax.swing.JInternalFrame {
             
                      int i = Integer.parseInt(jTextField1.getText());
                     obj.setID_mascota(i);
-            
+                    clases.Bitacora Bit = new clases.Bitacora();
+                    Bit.setID(Integer.parseInt(jLabel1.getText()));
                      int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (eliminar==0) {
                             if (obj.EliminarMascota()) {
                                     JOptionPane.showMessageDialog(this,"Datos eliminados");
                                     ListarMascota();
+                                    Bit.BitacoraDeleteMascota();
                                 }else{
                              JOptionPane.showMessageDialog(this,"Error al eliminar, compruebe si eliminó "
                                      + "primeramente la ficha clinica correspondiente a la mascota que ha intentado eliminar");
@@ -767,6 +785,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

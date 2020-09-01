@@ -79,6 +79,10 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         btnLimpiar.setEnabled(false);
         idd.setEnabled(false);
 //        idd.setVisible(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
 
     /**
@@ -127,6 +131,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         btnLimpiar = new JButton();
         jButton7 = new JButton();
         btnReporte1 = new JButton();
+        jLabel1 = new JLabel();
 
         kGradientPanel2.setkEndColor(new Color(113, 186, 133));
         kGradientPanel2.setkGradientFocus(600);
@@ -505,11 +510,15 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        jLabel1.setText("jLabel1");
+
         GroupLayout kGradientPanel1Layout = new GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(kGradientPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(253, 253, 253)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(209, 209, 209)
                 .addComponent(jLabel12)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnCerrar, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
@@ -519,7 +528,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(BtnCerrar)
-                    .addComponent(jLabel12, GroupLayout.Alignment.TRAILING))
+                    .addGroup(GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel12)))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -605,11 +616,13 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
         
         int DUI= Integer.parseInt(tfDui.getText());
         obj.setID_DUI(DUI); 
-        
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.guardar()) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarFichas();
 //           ListarPreguntas();
+            Bit.BitacoraCreateFicha();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
            JOptionPane.showMessageDialog(this,obj.guardar()); 
@@ -736,13 +749,15 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
          int i = Integer.parseInt(idd.getText());
 
          obj.setID_Ficha(i);
-         
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
          int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
          if (eliminar == 0) {
               if (obj.EliminarFicha()) {
                 JOptionPane.showMessageDialog(this, "Datos eliminados");
                 ListarFichas();
+                Bit.BitacoraDeleteFicha();
             }else{
             JOptionPane.showMessageDialog(this, "Error al eliminar "+obj.EliminarFicha());
             }
@@ -774,7 +789,8 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 //        CargarMascota(Integer.parseInt(numCadena)); 
         Mascota mas = (Mascota)cmbMascota.getSelectedItem();
         obj.setID_Mascota(mas.getID_mascota());
-
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
 
         if (fsel==-1) {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
@@ -783,6 +799,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
           if (obj.modificarFicha()) {
                     JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
                     ListarFichas();
+                    Bit.BitacoraUpdateFicha();
                 }else{
                     JOptionPane.showMessageDialog(null,"Error al modificar los datos");
                 }
@@ -809,6 +826,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     private JButton jButton6;
     private JButton jButton7;
     private JDialog jDialog1;
+    private JLabel jLabel1;
     private JLabel jLabel12;
     private JLabel jLabel13;
     private JLabel jLabel14;
