@@ -55,7 +55,7 @@ FROM
 				<reportElement x="0" y="0" width="802" height="79" backcolor="#6666FF" uuid="9c5b0f6a-bd63-41f4-998d-0178f3a6e862"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="18" y="19" width="476" height="47" forecolor="#FFFFFF" uuid="2c16a4be-08bc-48d2-a99c-f9b909380d11"/>
+				<reportElement x="198" y="19" width="476" height="47" forecolor="#FFFFFF" uuid="2c16a4be-08bc-48d2-a99c-f9b909380d11"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="24" isBold="true"/>
 				</textElement>
@@ -65,20 +65,6 @@ FROM
 	</title>
 	<pageHeader>
 		<band height="40" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="6cb82072-60cd-4cbc-bdd2-0378ab222781"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Nombre de solicitante del registro:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="494" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="b2cf461b-65e5-4e83-95e2-1dcd79a6be29"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Fecha de emision del registro:]]></text>
-			</staticText>
 			<textField pattern="dd/MM/yyyy h.mm a">
 				<reportElement x="628" y="0" width="174" height="40" uuid="da8a1dda-02a3-43d2-9ca9-5fff82a41644"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -156,74 +142,9 @@ FROM
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="80" splitType="Stretch">
-			<textField>
-				<reportElement x="6" y="12" width="72" height="50" uuid="df02c8b0-2285-4537-922d-620debd59e20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_ID_mascota}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="78" y="12" width="72" height="50" uuid="2121d6ef-8138-47c4-a0d0-ea57f1923008"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="150" y="12" width="72" height="50" uuid="225e04f4-fe6e-4a6f-bde0-5ad97a76de1e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_mascota_genero}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="222" y="12" width="144" height="50" uuid="d859fb65-b517-46d2-bf11-0a1ec5998561"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_mascota_razon}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="366" y="12" width="144" height="50" uuid="53eaa947-52db-4891-9cbb-2204ce531dcb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_mascota_medicinas}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="510" y="12" width="72" height="50" uuid="21813980-1294-447b-a16c-0db886951c48"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Mascota_mascota_horarioReserva}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="582" y="12" width="72" height="50" uuid="1632061e-9ccc-4049-aea0-e3b420244232"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Tipo_mascota_tipo_animal}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="80" splitType="Stretch"/>
 	</detail>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
-			<textField>
-				<reportElement x="674" y="16" width="80" height="20" uuid="6aac186a-f31d-4555-b8fb-4279abcc6033"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="754" y="16" width="40" height="20" uuid="843d72cc-271f-4e0c-a58c-5491cec8580e"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 </jasperReport>
