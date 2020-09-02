@@ -557,7 +557,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
         String opcion = tipo_mascota.getSelectedItem().toString();
         String opcion1 = cmbGenero.getSelectedItem().toString();
         String opcion2 = cmbResc.getSelectedItem().toString();
-        if  (tfNombre.getText().isEmpty() && datoss=="Si"){
+        int fsel = jTable1.getSelectedRow();
+        if (fsel==-1) {
+        System.out.println("selecciona");
+        } if  (tfNombre.getText().isEmpty() && datoss=="Si"){
             String m = tfDui.getText();
             tfNombre.setText("Mascota rescatada "+m);
             JOptionPane.showMessageDialog(this, "Nombre de mascota: Mascota rescatada "+m);
@@ -568,23 +571,19 @@ public class Mascotas extends javax.swing.JInternalFrame {
              JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }else if  (tfNombre.getText().isEmpty() || tfDui.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
-        }else
-        obj.setNombre_mascota(tfNombre.getText());
-        String mascot = String.valueOf(cmbGenero.getSelectedItem());
-        obj.setMascota_genero(mascot); 
-        System.out.println("genero " + obj.getMascota_genero());
-        String mascotr = String.valueOf(cmbResc.getSelectedItem());
-        obj.setARescatado(mascotr);
-        System.out.println("rescatado " + obj.getARescatado());
-        tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
-        obj.setID_tipoMascota(tima.getID_tipoMascota());
-        System.out.println("tipo mascota " + tima.getID_tipoMascota());
-        System.out.println("guardar mascota " + obj.guardarMascota(obj));
-        
-        int duii = Integer.parseInt(tfDui.getText());
-        obj.setID_DUI(duii);
-        clases.Bitacora Bit = new clases.Bitacora();
-        Bit.setID(Integer.parseInt(jLabel1.getText()));
+        }else{
+     obj.setNombre_mascota(tfNombre.getText());
+    String mascotr = String.valueOf(cmbResc.getSelectedItem());
+    obj.setARescatado(mascotr);
+     tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
+    obj.setID_tipoMascota(tima.getID_tipoMascota());
+    String mascot = String.valueOf(cmbGenero.getSelectedItem());
+    obj.setMascota_genero(mascot);
+    int duii = Integer.parseInt(tfDui.getText());
+    obj.setID_DUI(duii);
+    //--falta tipo mascota, genero y usuario
+    clases.Bitacora Bit = new clases.Bitacora();
+    Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.guardarMascota(obj)) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarMascota();
@@ -592,7 +591,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
            }else{ 
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarMascota();
-        
+        }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
