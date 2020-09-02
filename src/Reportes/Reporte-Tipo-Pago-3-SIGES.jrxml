@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8db66080-90a1-44ca-9558-79bb0b84effc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Tipo_pago."ID_tipoPago" AS Tipo_pago_ID_tipoPago,
+     Tipo_pago."tipo_pago" AS Tipo_pago_tipo_pago
+FROM
+     "dbo"."Tipo_pago" Tipo_pago]]>
+	</queryString>
+	<field name="Tipo_pago_ID_tipoPago" class="java.lang.Integer"/>
+	<field name="Tipo_pago_tipo_pago" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="79" backcolor="#3F679A" uuid="649bfc3a-76f2-4724-916a-0728909fb403"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="338" y="0" width="234" height="30" forecolor="#FFFFFF" backcolor="#999999" uuid="7c58095b-65f0-453d-ad6a-69a26ef72bfb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="388" y="0" width="184" height="30" forecolor="#FFFFFF" uuid="5df1a240-2b34-412a-a27c-39bb68a371c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="5" width="93" height="36" forecolor="#FFFF00" uuid="3140e1ab-c3ba-458f-8663-3f20f9155add"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="41" width="163" height="31" forecolor="#FFFFFF" uuid="ecd5c43c-ec6a-436c-b153-b01e0f29aa9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Tipo Pago]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="293" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="09fe0f12-e3bb-48ff-a389-03c65c6c348a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="433" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="4beed11d-aa11-493a-8178-b68fc9a8233a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="6e29deb9-ba3f-42b5-b7ba-9e66c8d28f8b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="141" y="0" width="152" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="53b5356e-7fda-4f4b-ba0c-761e574acbeb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Pago]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="40" width="572" height="1" uuid="47bb2ccb-4457-48c7-bd18-e105d97f95ca"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="1" y="5" width="140" height="30" uuid="211238a8-531a-404d-ae8e-76f4248fb844"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tipo_pago_ID_tipoPago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="5" width="152" height="30" uuid="95902335-cf0a-4180-bc95-e846ab075cb7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tipo_pago_tipo_pago}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="440" y="17" width="80" height="20" uuid="b80eaa3d-865c-4db7-9d36-d0908c1c0c43"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="520" y="17" width="40" height="20" uuid="013529cc-bd99-41a3-a181-9efa8a31da4b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

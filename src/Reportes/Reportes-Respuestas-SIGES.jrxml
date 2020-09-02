@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="76cef599-4dfd-49a8-9e29-89cef1ac439b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     respuestas."ID_respuesta" AS respuestas_ID_respuesta,
+     respuestas."respuesta" AS respuestas_respuesta,
+     Usuarios."nombre_usuario" AS Usuarios_nombre_usuario,
+     preguntas."pregunta" AS preguntas_pregunta
+FROM
+     "dbo"."preguntas" preguntas INNER JOIN "dbo"."respuestas" respuestas ON preguntas."ID_Pregunta" = respuestas."ID_Pregunta"
+     INNER JOIN "dbo"."Usuarios" Usuarios ON preguntas."ID_usuario" = Usuarios."ID_usuario"]]>
+	</queryString>
+	<field name="respuestas_ID_respuesta" class="java.lang.Integer"/>
+	<field name="respuestas_respuesta" class="java.lang.String"/>
+	<field name="Usuarios_nombre_usuario" class="java.lang.String"/>
+	<field name="preguntas_pregunta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="79" backcolor="#3F679A" uuid="d8a1517b-0dc7-4e15-9588-88b0a7c9ecda"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="338" y="0" width="234" height="30" forecolor="#FFFFFF" backcolor="#999999" uuid="1d44978e-1c36-498f-813d-e9b17a732958"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="388" y="0" width="184" height="30" forecolor="#FFFFFF" uuid="803de78b-5359-4512-a377-ce9ca99eeefd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="44" width="163" height="31" forecolor="#FFFFFF" uuid="0d02e71a-cbb8-40af-ae41-daa02a54a747"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Respuestas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="8" width="93" height="36" forecolor="#FFFF00" uuid="880f1cd9-49b7-4da1-bf92-e39a2c1cc70a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="432" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="36aab3de-3375-40bc-9d00-52033b9549e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="139" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="2c9e3a8b-c304-41e5-82e7-70bdd358b650"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Respuesta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="279" y="0" width="153" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="b5e9809b-9e5d-4d7d-b33a-873a2c32420e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pregunta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="cca2f4a6-5e50-41b0-a935-0fc5359233de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="73" splitType="Stretch">
+			<textField>
+				<reportElement x="140" y="6" width="139" height="60" uuid="36620243-26a0-4d86-a89a-6a4be74214a5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{respuestas_respuesta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-1" y="6" width="140" height="60" uuid="c12a545d-cdad-4d91-87ea-f586d339733c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{respuestas_ID_respuesta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="6" width="153" height="60" uuid="e620710d-1de3-4424-aaaa-94759a5c67fa"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preguntas_pregunta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="6" width="140" height="60" uuid="0e54c8e8-65de-49c9-9a61-6365de916c22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Usuarios_nombre_usuario}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="72" width="572" height="1" uuid="b40d1ec4-f54b-45bb-9bd6-7faf54ee1ca8"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="445" y="19" width="80" height="20" uuid="46ae7c54-66c4-42ca-9d75-25afd87d4e1c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="525" y="19" width="40" height="20" uuid="50310cd6-92ea-49b1-b7fd-3e813557cac9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

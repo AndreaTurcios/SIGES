@@ -112,10 +112,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
         cmbResc = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         kGradientPanel2.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel2.setkGradientFocus(600);
@@ -456,6 +456,8 @@ public class Mascotas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -464,7 +466,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -472,9 +477,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jLabel1))
         );
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
@@ -495,16 +501,12 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Mascotas");
 
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(290, Short.MAX_VALUE)
                 .addComponent(jLabel15)
                 .addGap(259, 259, 259)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -514,9 +516,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel15))
+                .addComponent(jLabel15)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -526,18 +526,18 @@ public class Mascotas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -552,20 +552,26 @@ public class Mascotas extends javax.swing.JInternalFrame {
     }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Mascota obj = new Mascota();
-        
-        obj.setNombre_mascota(tfNombre.getText());
         System.out.println("nombre " + obj.getNombre_mascota());
-//        if (rbF.isSelected()) {
-//            obj.setMascota_genero("F");
-//            System.out.println("genero mascota " + obj.getMascota_genero());
-//        }else{ 
-//           if (rbM.isSelected()) {
-//            obj.setMascota_genero("M"); 
-//            System.out.println("genero mascota " + obj.getMascota_genero());
-//        }  
-//           }
+        String datoss = cmbResc.getSelectedItem().toString();
+        String opcion = tipo_mascota.getSelectedItem().toString();
+        String opcion1 = cmbGenero.getSelectedItem().toString();
+        String opcion2 = cmbResc.getSelectedItem().toString();
+        if  (tfNombre.getText().isEmpty() && datoss=="Si"){
+            String m = tfDui.getText();
+            tfNombre.setText("Mascota rescatada "+m);
+            JOptionPane.showMessageDialog(this, "Nombre de mascota: Mascota rescatada "+m);
+        }else if (tfNombre.getText().isEmpty() && datoss=="No"){
+            JOptionPane.showMessageDialog(this, "No se puede dejar vacío el nombre sin que la mascota no sea rescatada");
+        }
+        if (opcion=="Seleccione una opción"||opcion1=="Seleccione"||opcion2=="Seleccione") {
+             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else if  (tfNombre.getText().isEmpty() || tfDui.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else
+        obj.setNombre_mascota(tfNombre.getText());
         String mascot = String.valueOf(cmbGenero.getSelectedItem());
-        obj.setMascota_genero(mascot);
+        obj.setMascota_genero(mascot); 
         System.out.println("genero " + obj.getMascota_genero());
         String mascotr = String.valueOf(cmbResc.getSelectedItem());
         obj.setARescatado(mascotr);
@@ -586,15 +592,31 @@ public class Mascotas extends javax.swing.JInternalFrame {
            }else{ 
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarMascota();
+        
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
     String ID_Mascota;
+    String datoss = cmbResc.getSelectedItem().toString();
+    String opcion = tipo_mascota.getSelectedItem().toString();
+    String opcion1 = cmbGenero.getSelectedItem().toString();
+    String opcion2 = cmbResc.getSelectedItem().toString();
         int fsel = jTable1.getSelectedRow();
         if (fsel==-1) {
         JOptionPane.showMessageDialog(null, "Se debe seleccionar una fila", "Advertencia", 
-                JOptionPane.WARNING_MESSAGE);
+        JOptionPane.WARNING_MESSAGE);
+        } if  (tfNombre.getText().isEmpty() && datoss=="Si"){
+            String m = tfDui.getText();
+            tfNombre.setText("Mascota rescatada "+m);
+            JOptionPane.showMessageDialog(this, "Nombre de mascota: Mascota rescatada "+m);
+        }else if (tfNombre.getText().isEmpty() && datoss=="No"){
+            JOptionPane.showMessageDialog(this, "No se puede dejar vacío el nombre sin que la mascota no sea rescatada");
+        }
+        if (opcion=="Seleccione una opción"||opcion1=="Seleccione"||opcion2=="Seleccione") {
+             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else if  (tfNombre.getText().isEmpty() || tfDui.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }else{
      Mascota obj = new Mascota();
      m = (DefaultTableModel)jTable1.getModel();
@@ -624,12 +646,19 @@ public class Mascotas extends javax.swing.JInternalFrame {
            } 
            }  
     }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+    public void Limpiar(){
         tfNombre.setText("");
 //        cmbResc.();
         GeneroBtnG.clearSelection();
         tfDui.setText("");
+        cmbGenero.setSelectedIndex(0);
+        tipo_mascota.setSelectedIndex(0);
+        cmbResc.setSelectedIndex(0);
+        ListarMascota();
+        lblNombre.setText("");
+    }
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        Limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
     
     public void ListarMascota(){

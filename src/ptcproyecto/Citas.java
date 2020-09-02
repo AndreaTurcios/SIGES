@@ -326,6 +326,11 @@ DefaultTableModel m;
 
         jTextField2.setBorder(null);
 
+        cmbMascota.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbMascotaMouseClicked(evt);
+            }
+        });
         cmbMascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMascotaActionPerformed(evt);
@@ -759,11 +764,16 @@ DefaultTableModel m;
         tfdialogo.setText("                                                 INGRESE EL DUI DEL DUEÑO ");
         ListarCitas();
     }//GEN-LAST:event_jButton6ActionPerformed
-
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jDialog1.setMinimumSize(new Dimension (800, 550));
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
+        if( cmbMascota.getSelectedItem().toString().isEmpty() ){ 
+       System.out.println("Vacío");
+        }else{       
+       System.out.println("2: "+cmbMascota.getSelectedItem());
+}
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
@@ -773,6 +783,11 @@ DefaultTableModel m;
     private void cmbMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMascotaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbMascotaActionPerformed
+    
+    private void cmbMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbMascotaMouseClicked
+      
+
+    }//GEN-LAST:event_cmbMascotaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
