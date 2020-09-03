@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tipo_preguntas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d9155b68-6b9e-4777-9d72-db8f535734d5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     preguntas."pregunta" AS
+preguntas_pregunta,
+     Usuarios."nombre_empleado" AS
+Usuarios_nombre_empleado,
+     Usuarios."empleado_apellidos" AS
+Usuarios_empleado_apellidos,
+     Usuarios."nombre_empleado"
+Usuarios_nombre_empleado,
+     Tipo_usuarios."tipo_empleado" AS
+Tipo_usuarios_tipo_empleado
+
+
+
+FROM
+     "dbo"."preguntas" preguntas
+ INNER JOIN "dbo"."Usuarios" Usuarios  ON  preguntas."ID_Pregunta" = Usuarios."ID_usuario"
+INNER JOIN  "dbo"."Tipo_usuarios" Tipo_usuarios ON preguntas."ID_Pregunta" = Tipo_usuarios."ID_tipoUsuarios"
+Order by Tipo_usuarios."tipo_empleado"]]>
+	</queryString>
+	<field name="preguntas_pregunta" class="java.lang.String"/>
+	<field name="Usuarios_nombre_empleado" class="java.lang.String"/>
+	<field name="Usuarios_empleado_apellidos" class="java.lang.String"/>
+	<field name="Tipo_usuarios_tipo_empleado" class="java.lang.String"/>
+	<group name="Tipo_empleado">
+		<groupExpression><![CDATA[$F{preguntas_pregunta}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<rectangle>
+					<reportElement x="0" y="0" width="138" height="20" forecolor="#99CCFF" backcolor="#99CCFF" uuid="7177a580-24d1-4108-8fd2-2798e73f5370"/>
+				</rectangle>
+				<textField>
+					<reportElement x="47" y="13" width="100" height="20" uuid="aa588e8d-8494-4d88-8669-ceb1f35bd943"/>
+					<textElement>
+						<font fontName="Garamond"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="378" y="0" width="64" height="20" forecolor="#01A3C9" uuid="473da9f1-f841-40ec-b187-0aa702b81c68"/>
+				<textElement>
+					<font fontName="Garamond" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="1b347bf3-65f3-47fb-829f-3daf58ef7e50"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Garamond" size="34" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="442" y="0" width="113" height="20" uuid="02ce5506-dd08-4a4c-82c9-db7dbba49ab0"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="47" width="124" height="20" uuid="45071e71-43e7-49a9-acf6-0328a7ed8a02"/>
+				<textElement>
+					<font fontName="Garamond" size="14"/>
+				</textElement>
+				<text><![CDATA[Reporte Preguntas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="341" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" forecolor="#01A3C9" backcolor="#01A3C9" uuid="456c5189-5c15-4f87-8688-7de42098a9f0"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="318" y="0" width="135" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="17f97d36-80dd-4aec-b6b7-9806590de035"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garamond" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="e6318688-24bb-4783-977e-f9fe5d5b834b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garamond" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pregunta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="0" width="146" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="32d228d4-dbd4-44fc-bf47-c20888fd61a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Garamond" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre empleado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="32" width="155" height="20" uuid="add3f5ac-b8b5-4dc5-91bc-d7832267983e"/>
+				<textElement>
+					<font fontName="Garamond"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preguntas_pregunta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="214" y="32" width="148" height="20" uuid="addf4f18-e6ec-4c54-939d-331931ccb1ba"/>
+				<textElement>
+					<font fontName="Garamond"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Usuarios_nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="32" width="153" height="20" uuid="1cda7ca1-022e-495a-90c7-c4e8fbdab72f"/>
+				<textElement>
+					<font fontName="Garamond"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Usuarios_empleado_apellidos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
