@@ -34,9 +34,9 @@ public class codigoZona extends javax.swing.JInternalFrame {
     public codigoZona() {
         initComponents();
         Login ventana = new Login();
-        jLabel3.setText(ventana.ID.toString());
+        txtcodigozona.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
-        jLabel3.setVisible(false);
+        txtcodigozona.setVisible(false);
     }
 
     /**
@@ -250,7 +250,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
             limpiar();
             cargarTabla();
             clases.Bitacora Bit = new clases.Bitacora();
-            Bit.setID(Integer.parseInt(jLabel3.getText()));
+            Bit.setID(Integer.parseInt(txtcodigozona.getText()));
             Bit.BitacoraCreateCodigoZona();
         }
         catch(SQLException e)
@@ -272,7 +272,7 @@ public class codigoZona extends javax.swing.JInternalFrame {
             limpiar();
             cargarTabla();
             clases.Bitacora Bit = new clases.Bitacora();
-            Bit.setID(Integer.parseInt(jLabel3.getText()));
+            Bit.setID(Integer.parseInt(txtcodigozona.getText()));
             Bit.BitacoraUpdateCodigoZona();
         }
         catch(SQLException e)
