@@ -262,8 +262,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="tfApellidos">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfApellidosKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="tfDUe&#xf1;onombre">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfDUe&#xf1;onombreKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="tfCorreo">
               <Events>

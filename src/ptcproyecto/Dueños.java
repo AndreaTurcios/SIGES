@@ -130,6 +130,18 @@ DefaultTableModel m;
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Correo:");
 
+        tfApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfApellidosKeyTyped(evt);
+            }
+        });
+
+        tfDUeñonombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfDUeñonombreKeyTyped(evt);
+            }
+        });
+
         tfCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tfCorreoKeyTyped(evt);
@@ -665,6 +677,24 @@ DefaultTableModel m;
     private void tfCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCorreoKeyTyped
    
     }//GEN-LAST:event_tfCorreoKeyTyped
+
+    private void tfDUeñonombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDUeñonombreKeyTyped
+       char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_tfDUeñonombreKeyTyped
+
+    private void tfApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfApellidosKeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_tfApellidosKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
