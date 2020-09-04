@@ -632,7 +632,7 @@ DefaultTableModel m;
         {
             java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\ReporteCita.jasper";
+            String path = "src\\Reportes\\Cita.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint, false);

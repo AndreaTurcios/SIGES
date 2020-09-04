@@ -319,7 +319,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\ReporteTipoCita.jasper";
+            String path = "src\\Reportes\\Tipo_cita.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
