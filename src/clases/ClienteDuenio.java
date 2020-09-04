@@ -19,7 +19,7 @@ public class ClienteDuenio {
     private Integer ID_DUI;
     private String duenio_nombre;
     private String duenio_apellidos;
-    private Integer duenio_telefono;
+    private String duenio_telefono;
     private String duenio_domicilio;
     private String duenio_correo;
     private Date Fecha_e_DUI;
@@ -51,11 +51,11 @@ public class ClienteDuenio {
         this.duenio_apellidos = duenio_apellidos;
     }
 
-    public Integer getDuenio_telefono() {
+    public String getDuenio_telefono() {
         return duenio_telefono;
     }
 
-    public void setDuenio_telefono(Integer duenio_telefono) {
+    public void setDuenio_telefono(String duenio_telefono) {
         this.duenio_telefono = duenio_telefono;
     }
 
@@ -146,7 +146,7 @@ public class ClienteDuenio {
             System.out.println(duenio_nombre);
             cmd.setString(3, duenio_apellidos);
             System.out.println(duenio_apellidos);
-            cmd.setInt(4, duenio_telefono);
+            cmd.setString(4, duenio_telefono);
             System.out.println(duenio_telefono);
             cmd.setString(5, duenio_domicilio);
             System.out.println(duenio_domicilio);
@@ -228,7 +228,7 @@ public class ClienteDuenio {
             System.out.println(duenio_nombre);
             cmd.setString(3, duenio_apellidos);
             System.out.println(duenio_apellidos);
-            cmd.setInt(4, duenio_telefono);
+            cmd.setString(4, duenio_telefono);
             System.out.println(duenio_telefono);
             cmd.setString(5, duenio_domicilio);
             System.out.println(duenio_domicilio);
@@ -280,7 +280,7 @@ public class ClienteDuenio {
                 resp = true;
                 duenio_nombre = rs.getString(1);
                 duenio_apellidos = rs.getString(2);
-                duenio_telefono = rs.getInt(3);
+                duenio_telefono = rs.getString(3);
                 duenio_domicilio = rs.getString(4);
                 duenio_correo = rs.getString(5);
                 Fecha_e_DUI = rs.getDate(6);
@@ -587,7 +587,7 @@ public class ClienteDuenio {
             cmd.setString(1, duenio_nombre);
             cmd.setString(2, duenio_apellidos);
             System.out.println("clases.ClienteDuenio.modificarDuenio()" + duenio_telefono  );
-            cmd.setInt(3, duenio_telefono);
+            cmd.setString(3, duenio_telefono);
             cmd.setString(4, duenio_domicilio);
             cmd.setString(5, duenio_correo);
             cmd.setDate(6, Fecha_e_DUI);

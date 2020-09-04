@@ -389,8 +389,9 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
                                 .addGap(65, 65, 65))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel27)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmbMascota, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbMascota, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(2, 2, 2)))
                         .addGap(46, 46, 46))))
         );
         jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
