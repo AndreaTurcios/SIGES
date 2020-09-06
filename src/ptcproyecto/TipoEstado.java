@@ -296,7 +296,10 @@ DefaultTableModel m;
         jTextField1.setText("");
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        if  (jTextField1.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
         TipoEstados obj = new TipoEstados();
         obj.setEstado(jTextField1.getText());
         clases.Bitacora Bit = new clases.Bitacora();
@@ -308,6 +311,7 @@ DefaultTableModel m;
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -315,6 +319,10 @@ DefaultTableModel m;
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if  (jTextField1.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
         String ID_estado;
         int fsel = jTable3.getSelectedRow();
         
@@ -342,6 +350,7 @@ DefaultTableModel m;
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
            }
          }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

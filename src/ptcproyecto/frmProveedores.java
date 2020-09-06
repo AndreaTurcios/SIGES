@@ -5,10 +5,21 @@
  */
 package ptcproyecto;
 
+import clases.Conexion;
 import clases.ControlProveedores;
 import clases.TipoEstados;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -98,6 +109,12 @@ DefaultTableModel m;
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Nombre proveedor:");
 
+        tfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNombreKeyTyped(evt);
+            }
+        });
+
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar ");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +158,12 @@ DefaultTableModel m;
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Rubro:");
+
+        tfRubro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfRubroKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Domicilio:");
@@ -286,8 +309,8 @@ DefaultTableModel m;
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jTextField2.setBorder(null);
@@ -335,6 +358,10 @@ DefaultTableModel m;
         obj.CargarProveedores(jTable1);
     }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+     if  (tfNombre.getText().isEmpty()||tfRubro.getText().isEmpty()||tfDomicilio.getText().isEmpty()||tfCorreo.getText().isEmpty()||tfSitio.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+    else {
     ControlProveedores obj = new ControlProveedores();
     obj.setNombre_proveedor(tfNombre.getText());
     obj.setRubro(tfRubro.getText());
@@ -349,16 +376,22 @@ DefaultTableModel m;
            JOptionPane.showMessageDialog(this,"Error al guardar los datos"); 
            ListarProveedor();
         }
+    }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-    String ID;
+         if  (tfNombre.getText().isEmpty()||tfRubro.getText().isEmpty()||tfDomicilio.getText().isEmpty()||tfCorreo.getText().isEmpty()||tfSitio.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+    else {
+        String ID;
         int fsel = jTable1.getSelectedRow();
         if (fsel==-1) {
 
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
                 JOptionPane.WARNING_MESSAGE);
         }else{
+            
             m = (DefaultTableModel)jTable1.getModel();
          ID = jTable1.getValueAt(fsel, 0).toString();
          jTextField2.setText(ID);
@@ -378,7 +411,8 @@ DefaultTableModel m;
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
            }
-        }      
+        }     
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
     public void Limpiar(){
     tfNombre.setText("");
@@ -392,7 +426,18 @@ DefaultTableModel m;
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-       
+         try {
+            Connection con = Conexion.conectar();
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Reporte-EncargadoMascota-nDiseño.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+           } catch (JRException ex) {
+            Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
+        }       
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -426,6 +471,24 @@ DefaultTableModel m;
     private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1AncestorAdded
+
+    private void tfNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNombreKeyTyped
+       char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_tfNombreKeyTyped
+
+    private void tfRubroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfRubroKeyTyped
+         char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_tfRubroKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
