@@ -277,6 +277,12 @@ public class Mascotas extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Animal rescatado:");
 
+        tfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNombreKeyTyped(evt);
+            }
+        });
+
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar ");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -616,8 +622,10 @@ public class Mascotas extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Se debe seleccionar una fila", "Advertencia", 
         JOptionPane.WARNING_MESSAGE);
         } if  (tfNombre.getText().isEmpty() && datoss=="Si"){
-            String m = tfDui.getText();
-            tfNombre.setText("Mascota rescatada "+m);
+             String [] abecedario = {"AD","2D","3D","4D","5D","6D","7D","8D","9D","0D" ,"JD","QD","KD", "AB","2B","3B","4B","5B","6B","7B","8B","9B","0B", "JB","QB","KB", "AC","2C","3C","4C","5C","6C","7C","8C","9C","0C", "JC","QC","KC","AF","2F","3F","4F","5F","6F","7F", "8F","9F","0F","JF","QF","KF"};
+        int numRandon = (int) Math.round(Math.random() * 51 ) ;
+        System.out.println( abecedario[numRandon] );
+            tfNombre.setText("Mascota rescatada "+abecedario[numRandon]);
             JOptionPane.showMessageDialog(this, "Nombre de mascota: Mascota rescatada "+m);
         }else if (tfNombre.getText().isEmpty() && datoss=="No"){
             JOptionPane.showMessageDialog(this, "No se puede dejar vacío el nombre sin que la mascota no sea rescatada");
@@ -806,6 +814,15 @@ public class Mascotas extends javax.swing.JInternalFrame {
                       }
                 }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void tfNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNombreKeyTyped
+         char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_tfNombreKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GeneroBtnG;

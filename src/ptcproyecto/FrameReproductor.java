@@ -23,9 +23,6 @@ public class FrameReproductor extends javax.swing.JFrame {
         this.reproductor = new Reproductor();
         try {
 
-            if (this.reproductor.getMediaPlayer() != null) 
-                this.reproductor.parar();
-                       
             String ruta = "src\\imagenes\\videos\\sigesvid1.mp4";
             if (!ruta.isEmpty()) {                            
                 String nombre = ruta.split("/")[ruta.split("/").length-1];   
@@ -38,14 +35,14 @@ public class FrameReproductor extends javax.swing.JFrame {
                 this.reproductor.reproducir();
             }
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No selecciono un video para reproducir.");
+            JOptionPane.showMessageDialog(this, "Error "+e);
         }
     }
 
     /**
      * Método para buscar e iniciar el video
      */
-    private String obtenerVideo() {
+     private String obtenerVideo() {
         JFileChooser archivo = new JFileChooser();
         int resultado = archivo.showOpenDialog(this);
         if (resultado != JFileChooser.CANCEL_OPTION) {
@@ -53,8 +50,17 @@ public class FrameReproductor extends javax.swing.JFrame {
         }
         return null;
     }
-    
-    
+              
+//     private String obtenerMiVideo() {
+//    String ruta = "src\\imagenes\\videos\\sigesvid1.mp4";
+//           this.reproductor.setRuta(ruta);
+//           String v = "Explicación sistema SIGES";
+//                this.title.setText(v);
+//                this.reproductor.setJpanel(this.panel);
+//                this.reproductor.mostrarVideo();
+//                this.reproductor.reproducir();
+//        return null;
+//    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -222,11 +228,11 @@ public class FrameReproductor extends javax.swing.JFrame {
     }//GEN-LAST:event_volumeStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Login llamar = new Login();
+            this.reproductor.pausar();  
+            this.reproductor.parar();
+            Login llamar = new Login();
             llamar.setVisible(true);
-            llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             dispose();
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

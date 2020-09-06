@@ -85,6 +85,12 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
             }
         });
 
+        tfPregunta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfPreguntaKeyTyped(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Pregunta");
 
@@ -291,6 +297,10 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
         obj.CargarPreguntass(jTable1);
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    String opcion = cmbUsuario.getSelectedItem().toString();
+        if  (tfPregunta.getText().isEmpty() || opcion=="Seleccione una opción"){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else{
         controlPreguntas pg = new controlPreguntas();
         pg.setPregunta(tfPregunta.getText());
         
@@ -305,6 +315,7 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
            JOptionPane.showMessageDialog(this,pg.guardar()); 
+        }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -399,6 +410,15 @@ public class FrmPreguntas extends javax.swing.JInternalFrame {
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         this.dispose ();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
+
+    private void tfPreguntaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPreguntaKeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_tfPreguntaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

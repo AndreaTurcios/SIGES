@@ -61,6 +61,11 @@ DefaultTableModel m;
 
         jTextField1.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         jTextField2.setBackground(new java.awt.Color(240, 240, 240));
         jTextField2.setBorder(null);
@@ -291,6 +296,7 @@ DefaultTableModel m;
         jTextField1.setText("");
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
         TipoEstados obj = new TipoEstados();
         obj.setEstado(jTextField1.getText());
         clases.Bitacora Bit = new clases.Bitacora();
@@ -373,6 +379,15 @@ DefaultTableModel m;
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         this.dispose ();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
