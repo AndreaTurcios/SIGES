@@ -1212,7 +1212,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel24.setForeground(Color.WHITE);
         lblLogo.setVisible(false);
         panelArriba.removeAll();
-        codigoZona fich= new codigoZona ();
+        CodigoZn fich= new CodigoZn ();
         panelArriba.add(fich);
         fich.show();
     }//GEN-LAST:event_jLabel14MouseClicked

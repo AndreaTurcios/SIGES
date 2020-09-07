@@ -61,13 +61,16 @@ public class controlCodigoZona {
         this.codigo_zona = codigo_zona;
     }
     
-    
+    public controlCodigoZona() {
+    Conexion o = new Conexion();
+    Cn = o.conectar();
+    }
     public boolean guardar() {
 
         try {
             boolean resp = false;
             Cn = Conexion.conectar();
-            String sql = "INSERT INTO codigo_zona (codigo_zona)"+"VALUES(?)";
+            String sql = "INSERT INTO codigo_zona (codigo_zona) VALUES(?)";
             PreparedStatement cmd = Cn.prepareStatement(sql);
 //            cmd.setInt(1, ID_detalle);
             cmd.setInt(1, codigo_zona);
@@ -124,23 +127,19 @@ public class controlCodigoZona {
         }
         return resp;
     }
-    public void CargarCodigoZ(JTable tabla){
-    cargarC(Cn, tabla);
-}
     
-     public void cargarC (Connection Cn, JTable tabla){
-         Cn = conexion.conectar();
-         DefaultTableModel model = new DefaultTableModel();
-         String [] columnas = {"ID_codigo","codigo_zona"};
+    
+     public void CargarCo(Connection cn, JTable tabla){
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID_codigo", "codigo_zona"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM codigo_zona ORDER BY ID_codigo";
         String [] filas = new String[2];
         Statement st = null;
         ResultSet rs = null;
         try{
-            st = Cn.createStatement();
+            st = cn.createStatement();
             rs = st.executeQuery(sql);
-            System.out.println("datos obtenidos "+rs);
             while (rs.next()){
                 for (int i = 0; i < 2; i++) {
                     filas[i] = rs.getString(i+1);
@@ -150,10 +149,13 @@ public class controlCodigoZona {
             tabla.setModel(model);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "No se puede mostrar "+e);
-                  
-     }
+            JOptionPane.showMessageDialog(null, "No se puede mostrar tabla "+e);
+        }
+    }   
+    public void CargarZ(JTable tabla){
+        CargarCo(getCn(), tabla);
     }
+    
      public int getcodigo_zona() {
         return codigo_zona;
     }

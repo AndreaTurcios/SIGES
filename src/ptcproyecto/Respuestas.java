@@ -99,9 +99,9 @@ public class Respuestas extends javax.swing.JInternalFrame {
 
         jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Registros de Respuestas");
+        jLabel15.setText("Configuración de respuestas");
         kGradientPanel1.add(jLabel15);
-        jLabel15.setBounds(210, 10, 280, 28);
+        jLabel15.setBounds(160, 10, 330, 28);
 
         btnCerrar1.setBackground(new java.awt.Color(204, 204, 204));
         btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
@@ -113,14 +113,14 @@ public class Respuestas extends javax.swing.JInternalFrame {
             }
         });
         kGradientPanel1.add(btnCerrar1);
-        btnCerrar1.setBounds(610, 0, 50, 50);
+        btnCerrar1.setBounds(640, 0, 50, 50);
 
         jLabel1.setText("jLabel1");
         kGradientPanel1.add(jLabel1);
         jLabel1.setBounds(10, 10, 34, 14);
 
         getContentPane().add(kGradientPanel1);
-        kGradientPanel1.setBounds(0, 0, 663, 55);
+        kGradientPanel1.setBounds(0, 0, 690, 55);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
