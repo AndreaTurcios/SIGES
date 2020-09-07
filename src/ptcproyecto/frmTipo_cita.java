@@ -6,7 +6,7 @@
 package ptcproyecto;
 
 import clases.Tipocita;
-import clases.Conexion;
+import clases.Conexion;   
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;

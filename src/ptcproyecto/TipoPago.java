@@ -311,11 +311,9 @@ public class TipoPago extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnMostrarTipoPagoActionPerformed
 
     private void btnGuardarTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoPagoActionPerformed
-        if ((txtTipoPago == null) || (txtTipoPago.equals("")))
-        {
-            JOptionPane.showMessageDialog(this, "Por favor no dejar campos Vacíos", "Datos incompletos", JOptionPane.ERROR_MESSAGE);
-        }
-        else
+       if  (txtTipoPago.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        } else
         {
             CrudTipoPago obj = new CrudTipoPago();
             String TipoPago = (txtTipoPago.getText());
@@ -422,6 +420,9 @@ public class TipoPago extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
+        { if  (txtTipoPago.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        } else
         {
             m = (DefaultTableModel)jTableTipoPago.getModel();
             IDTipoPago = jTableTipoPago.getValueAt(fsel, 0).toString();
@@ -444,6 +445,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
                JOptionPane.showMessageDialog(null,"Error al modificar los datos");
             }
         }
+         }
     }//GEN-LAST:event_btnModificarTipoPago1ActionPerformed
 
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed

@@ -34,8 +34,8 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
     public tipo_empleado() {
         initComponents();
         ListarTiUsuario();
-        
-                Login ventana = new Login();
+        jTextField1.setVisible(false);
+        Login ventana = new Login();
         jLabel3.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
         jLabel3.setVisible(false);
@@ -62,6 +62,8 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         btnImprimir2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtTempleado2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTempleado = new javax.swing.JTable();
 
@@ -149,17 +151,14 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Tipo empleado:");
 
+        jLabel3.setText("jLabel5");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(jLabel4)
-                        .addGap(39, 39, 39)
-                        .addComponent(txtTempleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,16 +169,31 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnLimpiar2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnImprimir2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnImprimir2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(146, 146, 146))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(135, 135, 135)))
+                        .addComponent(jLabel4)
+                        .addGap(39, 39, 39)
+                        .addComponent(txtTempleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtTempleado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTempleado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnImprimir2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,7 +274,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         obj.CargarTusuario(tblTempleado);
     }    
     public void Limpiar(){
-        txtTempleado.setText("");
+        txtTempleado2.setText("");
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -295,10 +309,10 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         }else{
             m = (DefaultTableModel)tblTempleado.getModel();
             ID = tblTempleado.getValueAt(fsel, 0).toString();
-            txtTempleado2.setText(ID);
+            jTextField1.setText(ID);
 
             TipoUsuario obj = new TipoUsuario();
-            obj.setID_tipoUsuarios(Integer.parseInt(txtTempleado2.getText()));
+            obj.setID_tipoUsuarios(Integer.parseInt(jTextField1.getText()));
             clases.Bitacora Bit = new clases.Bitacora();
             Bit.setID(Integer.parseInt(jLabel3.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
@@ -317,7 +331,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        txtTempleado.setText("");
+        txtTempleado2.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -328,17 +342,18 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
                 JOptionPane.WARNING_MESSAGE);
         }else{
+            if  (txtTempleado2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else{
             m = (DefaultTableModel)tblTempleado.getModel();
             ID_tipoUsuarios = tblTempleado.getValueAt(fsel, 0).toString();
-            txtTempleado2.setText(ID_tipoUsuarios);
+            jTextField1.setText(ID_tipoUsuarios);
 
             TipoUsuario u = new TipoUsuario();
-            int empleado = Integer.parseInt(txtTempleado2.getText());
-            u.setID_tipoUsuarios(empleado);
-
-            u.settipo_empleado(txtTempleado.getText());
+            u.setID_tipoUsuarios(Integer.parseInt(jTextField1.getText()));
+            u.settipo_empleado(txtTempleado2.getText());
             clases.Bitacora Bit = new clases.Bitacora();
-            Bit.setID(Integer.parseInt(jLabel3.getText()));
+            Bit.setID(Integer.parseInt(jTextField1.getText()));
             if (u.modificar()) {
                 JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
                 ListarTiUsuario();
@@ -347,13 +362,17 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
             }else{
                 JOptionPane.showMessageDialog(null,"Error al modificar los datos");
             }
+             }
         }
 
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if  (txtTempleado2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else{
         TipoUsuario obj = new TipoUsuario();
-        obj.settipo_empleado(txtTempleado.getText());
+        obj.settipo_empleado(txtTempleado2.getText());
         clases.Bitacora Bit = new clases.Bitacora();
         Bit.setID(Integer.parseInt(jLabel3.getText()));
         if (obj.Guardar()) {
@@ -362,6 +381,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
             Bit.BitacoraCreateTEm();
         }else{
             JOptionPane.showMessageDialog(this,"Error al guardar datos");
+        }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -379,7 +399,7 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
 
             while(rs.next()){
 
-                txtTempleado.setText(rs.getString("tipo_empleado"));
+                txtTempleado2.setText(rs.getString("tipo_empleado"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
@@ -389,35 +409,21 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnEliminar1;
     private javax.swing.JButton btnEliminar2;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnGuardar2;
-    private javax.swing.JButton btnImprimir;
-    private javax.swing.JButton btnImprimir1;
     private javax.swing.JButton btnImprimir2;
-    private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton btnLimpiar1;
     private javax.swing.JButton btnLimpiar2;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnModificar1;
     private javax.swing.JButton btnModificar2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JTable tblTempleado;
-    private javax.swing.JTextField txtTempleado;
-    private javax.swing.JTextField txtTempleado1;
     private javax.swing.JTextField txtTempleado2;
     // End of variables declaration//GEN-END:variables
 
