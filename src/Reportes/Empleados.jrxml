@@ -52,9 +52,9 @@ ORDER BY Tipo_usuarios."tipo_empleado"]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="76" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="47" width="124" height="20" uuid="24fc109c-eceb-4103-b5e6-073fb56b1595"/>
+				<reportElement x="0" y="47" width="171" height="20" uuid="24fc109c-eceb-4103-b5e6-073fb56b1595"/>
 				<textElement>
 					<font fontName="Tahoma" size="14"/>
 				</textElement>
