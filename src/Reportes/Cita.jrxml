@@ -4,8 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[
-SELECT
+		<![CDATA[SELECT
      Citas."cita_fecha" AS
 Citas_cita_fecha,
      Citas."cita_hora" AS

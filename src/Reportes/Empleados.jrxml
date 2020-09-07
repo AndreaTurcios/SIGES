@@ -38,7 +38,7 @@ ORDER BY Tipo_usuarios."tipo_empleado"]]>
 				<textField>
 					<reportElement x="14" y="0" width="100" height="30" uuid="f3a861cc-0fb0-4d05-a817-d379b78d0016"/>
 					<textElement>
-						<font fontName="Garamond" size="18"/>
+						<font fontName="Tahoma" size="18"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></textFieldExpression>
 				</textField>
@@ -56,25 +56,28 @@ ORDER BY Tipo_usuarios."tipo_empleado"]]>
 			<staticText>
 				<reportElement x="0" y="47" width="124" height="20" uuid="24fc109c-eceb-4103-b5e6-073fb56b1595"/>
 				<textElement>
-					<font fontName="Garamond" size="14"/>
+					<font fontName="Tahoma" size="14"/>
 				</textElement>
 				<text><![CDATA[Reporte Tipo empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="378" y="0" width="64" height="20" forecolor="#01A3C9" uuid="2ee5742e-ec53-4f34-aa30-cf0d7d391a40"/>
 				<textElement>
-					<font fontName="Garamond" size="14" isBold="true"/>
+					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="442" y="0" width="113" height="20" uuid="fe4f4026-2785-4214-929f-3805fe121d76"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="2a0add81-fbc0-4579-a694-addd4f2ece47"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Garamond" size="34" isBold="true" isItalic="false"/>
+					<font fontName="Tahoma" size="34" isBold="true" isItalic="false" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[SIGES]]></text>
 			</staticText>
@@ -88,56 +91,71 @@ ORDER BY Tipo_usuarios."tipo_empleado"]]>
 			<staticText>
 				<reportElement x="103" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="3da6feb6-0d3f-44ec-8805-757c665949fe"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Garamond" size="16" isBold="false"/>
+					<font fontName="Tahoma" size="16" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="210" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="284265d3-07c5-4ca9-ac8d-a88e9fe21ab7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Garamond" size="16" isBold="false"/>
+					<font fontName="Tahoma" size="16" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Apellido]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="10ad2e92-055a-4118-8aed-55df9f548769"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Garamond" size="16" isBold="false"/>
+					<font fontName="Tahoma" size="16" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Usuario]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="321" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="05d39882-41cd-4447-a913-1e5883235363"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Garamond" size="16" isBold="false"/>
+					<font fontName="Tahoma" size="16" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Domicilio]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="124" y="20" width="75" height="20" uuid="af080222-71ca-44f6-8163-e9a633dd9c86"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Usuarios_nombre_usuario}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="227" y="20" width="64" height="20" uuid="e4d671de-9e77-446e-baf0-66f23b5f3528"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Usuarios_nombre_empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="341" y="20" width="76" height="20" uuid="261d2cdf-7d48-4536-98fc-3b1175c8af19"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Usuarios_empleado_apellidos}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="457" y="20" width="91" height="20" uuid="961dd0f2-080d-417f-843d-48f60bfa3f1f"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Usuarios_empleado_correo}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="442" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="cf8d8b89-db64-4cfa-9a78-7319c42aa22f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Garamond" size="16" isBold="false"/>
+					<font fontName="Tahoma" size="16" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Correo]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="14" y="20" width="55" height="20" uuid="afb5f8cf-bcb9-4b0e-8dc0-dff2bdece0f7"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Usuarios_nombre_usuario}]]></textFieldExpression>
 			</textField>
 		</band>

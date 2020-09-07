@@ -31,7 +31,7 @@ FROM
 				<textField>
 					<reportElement x="24" y="0" width="100" height="32" uuid="fb4416e7-307a-450f-8980-433eb1670d84"/>
 					<textElement>
-						<font fontName="Garamond" size="18"/>
+						<font fontName="Tahoma" size="18"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Tipo_producto_tipo_producto}]]></textFieldExpression>
 				</textField>
@@ -46,25 +46,28 @@ FROM
 			<staticText>
 				<reportElement x="378" y="0" width="64" height="20" forecolor="#01A3C9" uuid="9f5f8f82-5eb2-4b8a-99cc-72f5b0039668"/>
 				<textElement>
-					<font fontName="Garamond" size="14" isBold="true"/>
+					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="442" y="0" width="113" height="20" uuid="a121f760-e844-44cb-a9e1-103d5ee72221"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="47" width="124" height="20" uuid="09f48b71-fa63-4f30-9b0f-cafe4a47399e"/>
 				<textElement>
-					<font fontName="Garamond" size="14"/>
+					<font fontName="Tahoma" size="14"/>
 				</textElement>
 				<text><![CDATA[Reporte Preguntas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="29ae3ed0-692b-4dde-bd51-7854e4ad32c0"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Garamond" size="34" isBold="true" isItalic="false"/>
+					<font fontName="Tahoma" size="34" isBold="true" isItalic="false" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[SIGES]]></text>
 			</staticText>
@@ -78,42 +81,42 @@ FROM
 			<staticText>
 				<reportElement x="138" y="0" width="113" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="0538a4bf-2613-432d-9103-9285aa0c975a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Garamond" size="16" isBold="false"/>
+					<font fontName="Tahoma" size="16" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Codigo producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="307" y="0" width="105" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="a574f744-2766-443c-9e81-3e2828614dca"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Garamond" size="16" isBold="false"/>
+					<font fontName="Tahoma" size="16" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Costo producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="13" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="38f8b21c-7d25-4cf2-acef-8fc49d7cd408"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Garamond" size="16" isBold="false"/>
+					<font fontName="Tahoma" size="16" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Producto]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="13" y="34" width="125" height="20" uuid="5697a717-fac4-431d-a800-4b279f7e8a7b"/>
 				<textElement>
-					<font fontName="Garamond"/>
+					<font fontName="Tahoma"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Productos_producto}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="149" y="34" width="126" height="20" uuid="24b0ad1c-2180-4d0a-8725-5cafa436da43"/>
 				<textElement>
-					<font fontName="Garamond"/>
+					<font fontName="Tahoma"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Productos_codigo_producto}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="326" y="34" width="135" height="20" uuid="9ebc5cd6-e4b9-4535-9915-fb9f49baec64"/>
 				<textElement>
-					<font fontName="Garamond"/>
+					<font fontName="Tahoma"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Productos_costo_producto}]]></textFieldExpression>
 			</textField>
