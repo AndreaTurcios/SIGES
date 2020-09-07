@@ -51,8 +51,8 @@ public class Respuestas extends javax.swing.JInternalFrame {
     
     public void ListarPreguntas()
     {
-        controlPreguntas obj = new controlPreguntas();
-        obj.CargarP(cmbPregunta);
+        CrudRespuestas obj = new CrudRespuestas();
+        obj.consultarPreguntas(cmbPregunta);
     }
     
     public void LimpiarCampos()
@@ -101,7 +101,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Registros de Respuestas");
         kGradientPanel1.add(jLabel15);
-        jLabel15.setBounds(210, 10, 280, 32);
+        jLabel15.setBounds(210, 10, 280, 28);
 
         btnCerrar1.setBackground(new java.awt.Color(204, 204, 204));
         btnCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1487086345-cross_81577.png"))); // NOI18N
@@ -189,7 +189,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
 
         jTextField1.setBorder(null);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(370, 30, 20, 14);
+        jTextField1.setBounds(610, 20, 20, 10);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Pregunta:");
@@ -231,19 +231,23 @@ public class Respuestas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if ((txtRespuesta == null) || (txtRespuesta.equals("")))
-        {
-            JOptionPane.showMessageDialog(this, "Por favor no dejar campos Vacíos", "Datos incompletos", JOptionPane.ERROR_MESSAGE);
+        String opcion = cmbPregunta.getSelectedItem().toString();
+        if  (txtRespuesta.getText().isEmpty() ||opcion=="Preguntas" ){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
-        else
-        {
+        else {
             CrudRespuestas obj = new CrudRespuestas();
+            
             String Respuesta = (txtRespuesta.getText());
             obj.setRespuesta(Respuesta);
+            
             controlPreguntas ti = (controlPreguntas)cmbPregunta.getSelectedItem();
+            
             obj.setIDPregunta(ti.getID_pregunta());
+            
             clases.Bitacora Bit = new clases.Bitacora();
             Bit.setID(Integer.parseInt(jLabel1.getText()));
+            
             if (obj.GuardarRespuesta()) 
             {
                JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 

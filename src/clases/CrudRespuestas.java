@@ -21,14 +21,19 @@ import javax.swing.table.DefaultTableModel;
  * @author Nanos
  */
 public class CrudRespuestas 
-{
+{       
     private Connection cn;
     private Conexion conexion;
     private Integer IDRespuesta;
     private String Respuesta;
     private Integer IDPregunta;
     private Integer ID_usuario;
-
+    
+    public CrudRespuestas() {
+        //estableciendo la conexion 
+       clases.Conexion con = new clases.Conexion();
+       cn = con.conectar();
+       }
     public Integer getID_usuario() 
     {
         return ID_usuario;
@@ -94,11 +99,7 @@ public class CrudRespuestas
         this.IDPregunta = ID_Pregunta;
     }
     
-    public CrudRespuestas() 
-    {
-        Conexion con = new Conexion();
-        cn = con.conectar();
-    }
+    
     
     public boolean GuardarRespuesta ()
     {
@@ -124,7 +125,38 @@ public class CrudRespuestas
         }
         return resp;
     }
-    
+     Pool metodospool = new Pool();
+    public void consultarPreguntas(JComboBox cbox_preg) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_Pregunta, pregunta FROM preguntas ORDER BY ID_Pregunta";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_preg.addItem("Preguntas");
+            while (resultado.next()) {
+                controlPreguntas preg = new controlPreguntas();
+                preg.setID_pregunta(resultado.getInt("ID_Pregunta"));
+                preg.setPregunta(resultado.getString("pregunta"));
+                cbox_preg.addItem(preg);
+//                JOptionPane.showMessageDialog(null, "es "+user);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
     public boolean ModificarRespuesta () 
     {
         boolean resp = false;
