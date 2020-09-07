@@ -31,18 +31,18 @@ public class MtoInventario {
     
     public void listarProductos(Connection cn, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "Producto", "Codigo", "Fecha de entrada", "Costo", "Fecha de expiracion", "Tipo de producto"};
+        String [] columnas = {"ID", "Producto", "Codigo", "Fecha de entrada", "Costo", "Fecha de expiracion", "Tipo de producto", "Proveedor"};
         model = new DefaultTableModel(null, columnas);
         
-        String sql = "SELECT * FROM Inventario ORDER BY ID_inventario";
-        String [] filas = new String[7];
+        String sql = "SELECT ID_inventario, producto, codigo_producto, fecha_entrada, costo_producto, fecha_expiracion, t.tipo_producto, p.nombre_proveedor FROM Tipo_producto t,Inventario i, Proveedores p  WHERE i.ID_tipoProductos = t.ID_tipoProducto AND i.ID_proveedor = p.ID_proveedor ORDER BY ID_inventario";
+        String [] filas = new String[8];
         Statement st = null;
         ResultSet rs = null;
         try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i < 7; i++) {
+                for (int i = 0; i < 8; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);

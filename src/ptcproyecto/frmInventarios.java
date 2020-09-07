@@ -117,6 +117,11 @@ public class frmInventarios extends javax.swing.JInternalFrame {
 
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -278,6 +283,16 @@ public class frmInventarios extends javax.swing.JInternalFrame {
     private void JCBTIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBTIPOActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JCBTIPOActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int fila = jTable1.getSelectedRow();
+        JTProducto.setText(String.valueOf(jTable1.getValueAt(fila, 1)));
+        JTCodigo.setText(String.valueOf(jTable1.getValueAt(fila, 2)));
+        JTCosto.setText(String.valueOf(jTable1.getValueAt(fila, 4)));
+        JCBTIPO.setSelectedItem(String.valueOf(jTable1.getValueAt(fila, 6)));
+        JCBXProveedor.setSelectedItem(String.valueOf(jTable1.getValueAt(fila, 7)));
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
