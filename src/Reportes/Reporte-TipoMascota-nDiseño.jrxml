@@ -31,7 +31,7 @@ FROM
 	<title>
 		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="0" width="115" height="46" forecolor="#015E7A" uuid="95d86278-d80b-4c1e-a3c7-8614c2b410c5"/>
+				<reportElement x="10" y="0" width="115" height="46" forecolor="#01A3C9" uuid="95d86278-d80b-4c1e-a3c7-8614c2b410c5"/>
 				<textElement>
 					<font fontName="Tahoma" size="34" isBold="true"/>
 				</textElement>
@@ -45,7 +45,7 @@ FROM
 				<text><![CDATA[Reporte de  tipo mascota]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="541" y="30" width="72" height="27" forecolor="#015E7A" uuid="802ac76b-0854-44a5-a6b6-50705269f63d"/>
+				<reportElement x="541" y="30" width="72" height="27" forecolor="#01A3C9" uuid="802ac76b-0854-44a5-a6b6-50705269f63d"/>
 				<textElement>
 					<font fontName="Tahoma" size="20" isBold="true"/>
 				</textElement>
@@ -69,10 +69,10 @@ FROM
 	<detail>
 		<band height="389" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="49" width="821" height="30" backcolor="#013163" uuid="0ae5e5c5-4e2e-48ca-b680-5176e532d304"/>
+				<reportElement x="0" y="49" width="821" height="30" backcolor="#01A3C9" uuid="0ae5e5c5-4e2e-48ca-b680-5176e532d304"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Opaque" x="9" y="11" width="156" height="27" backcolor="#C5BBCC" uuid="7940f1a2-5696-41c1-a576-3ff32490e3fe"/>
+				<reportElement mode="Opaque" x="9" y="11" width="156" height="27" backcolor="#99CCFF" uuid="7940f1a2-5696-41c1-a576-3ff32490e3fe"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Serif" size="18"/>
 				</textElement>
