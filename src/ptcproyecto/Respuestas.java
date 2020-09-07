@@ -125,7 +125,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        btnGuardar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar ");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +143,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         jPanel2.add(cmbPregunta);
         cmbPregunta.setBounds(90, 30, 500, 20);
 
-        btnLimpiar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnLimpiar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +153,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         jPanel2.add(btnLimpiar);
         btnLimpiar.setBounds(370, 170, 110, 50);
 
-        btnImprimir.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnImprimir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnImprimir.setText("Imprimir");
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +167,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         jPanel2.add(txtI);
         txtI.setBounds(590, 10, 30, 22);
 
-        btnEliminar.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +177,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         jPanel2.add(btnEliminar);
         btnEliminar.setBounds(30, 170, 100, 50);
 
-        btnModificar1.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
+        btnModificar1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnModificar1.setText("Modificar");
         btnModificar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,17 +237,12 @@ public class Respuestas extends javax.swing.JInternalFrame {
         }
         else {
             CrudRespuestas obj = new CrudRespuestas();
-            
             String Respuesta = (txtRespuesta.getText());
             obj.setRespuesta(Respuesta);
-            
             controlPreguntas ti = (controlPreguntas)cmbPregunta.getSelectedItem();
-            
             obj.setIDPregunta(ti.getID_pregunta());
-            
             clases.Bitacora Bit = new clases.Bitacora();
             Bit.setID(Integer.parseInt(jLabel1.getText()));
-            
             if (obj.GuardarRespuesta()) 
             {
                JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
@@ -330,6 +325,11 @@ public class Respuestas extends javax.swing.JInternalFrame {
         }
         else
         {
+            String opcion = cmbPregunta.getSelectedItem().toString();
+            if  (txtRespuesta.getText().isEmpty() ||opcion=="Preguntas" ){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
             m = (DefaultTableModel)jTableRespuestas.getModel();
             IDRespuesta = jTableRespuestas.getValueAt(fsel, 0).toString();
             txtI.setText(IDRespuesta);
@@ -352,6 +352,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
             {
                JOptionPane.showMessageDialog(null,"Error al modificar los datos");
             }
+        }
         }
     }//GEN-LAST:event_btnModificar1ActionPerformed
 

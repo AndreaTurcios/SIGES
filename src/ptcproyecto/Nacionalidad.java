@@ -297,7 +297,7 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
         //Tomando los datos del formulario y pasandolos a los atributos de la clase
         if (txtnacionalidad.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacíos.");
         }
         else
         {
@@ -354,16 +354,17 @@ public class Nacionalidad extends javax.swing.JInternalFrame {
        String ID;
         int fsel = tb_Nacionalidad.getSelectedRow();
         if (fsel==-1) {
-
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
                 JOptionPane.WARNING_MESSAGE);
         }else{
             m = (DefaultTableModel)tb_Nacionalidad.getModel();
             ID = tb_Nacionalidad.getValueAt(fsel, 0).toString();
             txtID.setText(ID);
-
+            
+            
             controlNacionalidad obj = new controlNacionalidad();
             obj.setID_nacionalidad(Integer.parseInt(txtID.getText()));
+            
             clases.Bitacora Bit = new clases.Bitacora();
             Bit.setID(Integer.parseInt(jLabel1.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
