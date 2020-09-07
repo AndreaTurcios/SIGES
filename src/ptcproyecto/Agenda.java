@@ -267,7 +267,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         jScrollPane4.setViewportView(jTable4);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Consultas programadas");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -333,7 +332,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         jScrollPane5.setViewportView(jTable5);
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Consultas completadas");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -402,7 +400,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         jScrollPane6.setViewportView(jTable6);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Consultas canceladas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

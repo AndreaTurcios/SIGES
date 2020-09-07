@@ -272,6 +272,9 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
+        if  (jtfTipocita.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else{
         Tipocita obj = new Tipocita();
         obj.settipo_cita(jtfTipocita.getText());
         clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR 
@@ -281,6 +284,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
             Bit.BitacoraCreateTipoCita();//NO TOCAR 
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+        }
         }
     }//GEN-LAST:event_jtbGuardarActionPerformed
 

@@ -129,7 +129,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +250,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -400,9 +400,9 @@ public class tipoclientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if ((txtTipoCliente == null) || (txtTipoCliente.equals("")))
+        if ((txtTipoCliente.getText().isEmpty()))
         {
-            JOptionPane.showMessageDialog(this, "Por favor no dejar campos Vacíos", "Datos incompletos", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else
         {
@@ -437,6 +437,7 @@ public class tipoclientes extends javax.swing.JInternalFrame {
     private void txtTipoClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoClienteKeyPressed
         if((evt.getKeyCode() < 64 || evt.getKeyCode() > 90) && (evt.getKeyCode() < 97 || evt.getKeyCode() > 122) && (evt.getKeyCode() < 48 || evt.getKeyCode() > 57) && evt.getKeyCode() != 164 && evt.getKeyCode() != 165 && evt.getKeyCode() != 44 && evt.getKeyCode() != 46 && evt.getKeyCode() != 127)
         {
+            JOptionPane.showMessageDialog(this,"No se pueden ingresar más de 64 carácteres"); 
             evt.consume();
         }
     }//GEN-LAST:event_txtTipoClienteKeyPressed

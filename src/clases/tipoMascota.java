@@ -152,7 +152,6 @@ public class tipoMascota {
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, e);
             JOptionPane.showMessageDialog(null, "No se puede cargar la tabla del registro, Error en el CrudTipoPago.java - EjecutarTipoConsulta ERROR:" + e);        
         }
     }
