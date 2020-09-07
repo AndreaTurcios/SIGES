@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="R.pregunta" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b33bd7ad-7781-4e90-933b-1f495b0faccf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     preguntas."pregunta" AS
+preguntas_pregunta,
+     Usuarios."nombre_empleado" AS
+Usuarios_nombre_empleado,
+     Usuarios."empleado_apellidos" AS
+Usuarios_empleado_apellidos,
+     Usuarios."nombre_empleado"
+Usuarios_nombre_empleado,
+     Tipo_usuarios."tipo_empleado" AS
+Tipo_usuarios_tipo_empleado
+
+
+
+FROM
+     "dbo"."preguntas" preguntas
+ INNER JOIN "dbo"."Usuarios" Usuarios  ON  preguntas."ID_Pregunta" = Usuarios."ID_usuario"
+INNER JOIN  "dbo"."Tipo_usuarios" Tipo_usuarios ON preguntas."ID_Pregunta" = Tipo_usuarios."ID_tipoUsuarios"
+Order by Tipo_usuarios."tipo_empleado"]]>
+	</queryString>
+	<field name="preguntas_pregunta" class="java.lang.String"/>
+	<field name="Usuarios_nombre_empleado" class="java.lang.String"/>
+	<field name="Usuarios_empleado_apellidos" class="java.lang.String"/>
+	<field name="Tipo_usuarios_tipo_empleado" class="java.lang.String"/>
+	<group name="Pregunta">
+		<groupExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></groupExpression>
+	</group>
+	<group name="pregunta">
+		<groupExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<rectangle>
+					<reportElement x="0" y="0" width="138" height="20" forecolor="#99CCFF" backcolor="#99CCFF" uuid="a9e398aa-d1a2-41f6-9286-97d0538835ce"/>
+				</rectangle>
+				<textField>
+					<reportElement x="8" y="0" width="100" height="20" uuid="1ccfb467-6ce3-4a2f-9fee-e6163640f8b5"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="6a695cfe-e5e5-4fce-92d3-8f37d7f2072c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Tahoma" size="34" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="25" width="64" height="20" forecolor="#01A3C9" uuid="59a7cfac-6aa2-48dc-84b3-fd8983c0765c"/>
+				<textElement>
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="138" height="20" forecolor="#015E7A" uuid="06e3054c-c5a5-4f20-bdf1-606610446667"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporte Preguntas]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="428" y="27" width="127" height="20" uuid="ad16cc0b-767b-4662-9001-ce339652386d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" forecolor="#01A3C9" backcolor="#01A3C9" uuid="66276691-6e64-4208-aea2-69484617ef27"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="176" y="0" width="146" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="b1204785-374d-43f4-ba07-a21fe13cea9e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="0" width="135" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="1b84f5fd-25ce-4f21-b25d-7a6ee004bcac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Apellido empleado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="8" y="30" width="185" height="20" uuid="a5c153b8-f9f3-48ea-bd83-9a10252dd652"/>
+				<textFieldExpression><![CDATA[$F{preguntas_pregunta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="30" width="185" height="20" uuid="48c0f29d-6640-43c5-888a-422124bef1ee"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="30" width="185" height="20" uuid="b0360ccb-3856-4018-9064-28cd7220ff49"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_empleado_apellidos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="c15561c2-36c4-4065-a389-a58476b55f21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pregunta]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="R.tipo_producto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dbe44e75-d945-4eb9-a28f-2a1c6cd35ae5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Tipo_producto."tipo_producto" AS            Tipo_producto_tipo_producto,
+     Productos."producto" AS
+Productos_producto,
+     Productos."codigo_producto" AS
+Productos_codigo_producto,
+     Productos."costo_producto" AS
+Productos_costo_producto
+
+FROM
+     "dbo"."Tipo_producto" Tipo_producto
+ INNER JOIN  "dbo"."Productos" Productos ON Tipo_producto."ID_tipoProducto" = Productos."ID_producto"
+ORDER BY Tipo_producto.tipo_producto]]>
+	</queryString>
+	<field name="Tipo_producto_tipo_producto" class="java.lang.String"/>
+	<field name="Productos_producto" class="java.lang.String"/>
+	<field name="Productos_codigo_producto" class="java.lang.String"/>
+	<field name="Productos_costo_producto" class="java.lang.String"/>
+	<group name="tipo_producto">
+		<groupExpression><![CDATA[$F{Tipo_producto_tipo_producto}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<rectangle>
+					<reportElement x="0" y="0" width="138" height="20" forecolor="#99CCFF" backcolor="#99CCFF" uuid="2c092a9c-48a8-4ba0-9849-9c4a1728bde3"/>
+				</rectangle>
+				<textField>
+					<reportElement x="13" y="0" width="100" height="20" uuid="6a01f00f-3213-409d-8935-0fcc115fb2b0"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Tipo_producto_tipo_producto}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="743a8c0a-16b9-4b89-bf3e-8d8bb52902aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Tahoma" size="34" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="164" height="20" forecolor="#015E7A" uuid="ceb050c9-e854-4a09-a60b-33b1433ddba4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporte tipo producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="25" width="64" height="20" forecolor="#01A3C9" uuid="32995e52-6767-42ce-8c3a-72ccbc0651e4"/>
+				<textElement>
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="428" y="27" width="127" height="20" uuid="52cd77ba-edf3-4dc4-8a2d-cf7f2f0c8518"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" forecolor="#01A3C9" backcolor="#01A3C9" uuid="288b90b2-aba7-4d8f-adbc-4b04b0f39dcf"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="13" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="2c863826-f9df-4dc9-823e-393bd9c4d5f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="0" width="113" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="e1ca3c07-700d-4335-abbf-27ba3c3a2db6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Codigo producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="0" width="105" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="a796f291-6e98-4a21-9afa-1ddf0f189773"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Costo producto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="30" width="185" height="20" uuid="2eb4e3e4-b17f-491b-9f5d-59ea6988fe26"/>
+				<textFieldExpression><![CDATA[$F{Productos_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="30" width="185" height="20" uuid="e7044170-1a8e-44b3-a881-783dd17acac6"/>
+				<textFieldExpression><![CDATA[$F{Productos_codigo_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="30" width="185" height="20" uuid="69a124bf-93f8-4c77-9dc5-a38515086481"/>
+				<textFieldExpression><![CDATA[$F{Productos_costo_producto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

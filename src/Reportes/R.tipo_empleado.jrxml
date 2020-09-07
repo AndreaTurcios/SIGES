@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="R.tipo_empleado" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2ddf08b-cee8-4c16-8148-f89710628409">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     Tipo_usuarios."tipo_empleado" AS
+Tipo_usuarios_tipo_empleado,
+     Usuarios."nombre_usuario" AS
+Usuarios_nombre_usuario,
+      Usuarios."nombre_empleado" AS
+Usuarios_nombre_empleado,
+      Usuarios."empleado_apellidos" AS
+Usuarios_empleado_apellidos,
+      Usuarios."empleado_correo" AS
+Usuarios_empleado_correo
+
+FROM
+ "dbo".Tipo_usuarios"Tipo_usuarios"
+INNER JOIN "dbo"."Usuarios" Usuarios ON
+Tipo_usuarios."ID_tipoUsuarios"= Usuarios."ID_usuario"
+ORDER BY
+Tipo_usuarios."tipo_empleado"]]>
+	</queryString>
+	<field name="Tipo_usuarios_tipo_empleado" class="java.lang.String"/>
+	<field name="Usuarios_nombre_usuario" class="java.lang.String"/>
+	<field name="Usuarios_nombre_empleado" class="java.lang.String"/>
+	<field name="Usuarios_empleado_apellidos" class="java.lang.String"/>
+	<field name="Usuarios_empleado_correo" class="java.lang.String"/>
+	<group name="Templeaod">
+		<groupExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<rectangle>
+					<reportElement x="0" y="0" width="138" height="20" forecolor="#99CCFF" backcolor="#99CCFF" uuid="c5cb92f4-fe93-4603-8e23-837bbbb6bfb4"/>
+				</rectangle>
+				<textField>
+					<reportElement x="13" y="0" width="100" height="20" uuid="1740ab6d-06a7-4dd4-9d89-c40578a3fb0a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Tipo_usuarios_tipo_empleado}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="0b9b6dfc-1e8b-4b03-ba0f-d2a5a207f780"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Tahoma" size="34" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="428" y="27" width="127" height="20" uuid="6195c6cb-2076-4f8a-8a4d-d6680a04b3ff"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="47" width="164" height="20" forecolor="#015E7A" uuid="35ef1a54-3bae-411a-b47e-c37d1c658317"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporte tipo empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="25" width="64" height="20" forecolor="#01A3C9" uuid="5ad7861a-6c50-49a4-8611-11cdf6a43cca"/>
+				<textElement>
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" forecolor="#01A3C9" backcolor="#01A3C9" uuid="dd779071-d7f1-4601-bf5e-99bb2dc902da"/>
+			</rectangle>
+			<textField>
+				<reportElement x="13" y="31" width="138" height="20" uuid="41df104f-004c-4bbd-94fd-91b9dfd8aa4d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_nombre_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="31" width="138" height="20" uuid="e5b1d199-f4f9-4185-a395-301403eb5f4c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="31" width="138" height="20" uuid="ab4aec69-0246-45ae-a411-85ccda445650"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_empleado_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="31" width="138" height="20" uuid="e4123fc6-9b15-48f6-b69c-6e6e179cedf2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Usuarios_empleado_correo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="135" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="20670113-eea6-471c-8490-cb20382d04f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="687a7f2f-f2b5-478f-a7c3-d2af3dc602a6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="2c85cf06-07c6-4805-b775-6740adcbfbad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="6a45d519-0dc1-4efe-8c84-ee6c14623499"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
