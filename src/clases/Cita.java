@@ -234,7 +234,7 @@ public class Cita {
      public void listarCitas(Connection cn, JTable tabla){
         cn = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "Fecha","Hora","Estado","Tipo cita", "DUI", "ID Mascota"};
+        String [] columnas = {"ID", "Fecha","Hora","Estado","Tipo cita", "DUI", "Nombre nascota"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT\n" +
 "     Citas.\"ID_cita\" AS Consulta_ID_consulta,\n" +
