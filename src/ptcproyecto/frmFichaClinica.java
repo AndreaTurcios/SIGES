@@ -581,7 +581,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
 //            Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-Ficha-nDiseño.jasper";
+            String path = "src\\Reportes\\Reporte Ficha - 100%.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             

@@ -10,8 +10,8 @@ public class Conexion {
         try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            con = DriverManager.getConnection("jdbc:sqlserver://LAPTOP-1ABIBEI5\\SQLEXPRESS;"
-                    + "databaseName=SIGES;User=SIGES;Password=2020SIGES");
+            con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-NJOINKB\\SQLEXPRESS;"
+                    + "databaseName=SIGES;User=SIGES;Password=2020");
             System.out.println("Conecion " + con.getMetaData() );
         return  con;
         }

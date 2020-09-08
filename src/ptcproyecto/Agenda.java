@@ -558,7 +558,7 @@ public class Agenda extends javax.swing.JInternalFrame {
 //            Connection conn = con.getConection();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-Agenda-nDiseño.jasper";
+            String path = "src\\Reportes\\Reporte Agenda - 100%.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             

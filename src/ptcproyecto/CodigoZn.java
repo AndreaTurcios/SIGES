@@ -365,7 +365,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
             Connection con = Conexion.conectar();
 
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-CodigoZona-nDiseño.jasper";
+            String path = "src\\Reportes\\Reporte Czona - 100%.jasper";
 
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
 
