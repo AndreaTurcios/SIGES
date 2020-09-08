@@ -5,6 +5,7 @@
  */
 package ptcproyecto;
 
+import clases.Conexion;
 import clases.CrudRespuestas;
 import clases.Usuario;
 import clases.controlPreguntas;
@@ -16,6 +17,14 @@ import javax.swing.InputMap;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -263,12 +272,12 @@ public class Respuestas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        /*
+      
         try
         {
             java.sql.Connection con = Conexion.conectar();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\Reporte-preguntas(D).jasper";
+            String path = "src\\Reportes\\Reportes-Respuestas-SIGES.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint, false);
@@ -279,7 +288,7 @@ public class Respuestas extends javax.swing.JInternalFrame {
         {
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
+        
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
