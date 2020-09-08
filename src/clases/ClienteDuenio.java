@@ -405,7 +405,23 @@ public class ClienteDuenio {
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID", "nombre","apellidos","telefono","domicilio", "correo", "DUI Expiracion", "nacionalidad", "codigo zona","tipoCliente"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT * FROM Cliente_duenio ORDER BY ID_DUI";
+        String sql = "SELECT\n" +
+"     Cliente_duenio.\"ID_DUI\" AS Cliente_duenio_ID_DUI,\n" +
+"     Cliente_duenio.\"duenio_nombre\" AS Cliente_duenio_duenio_nombre,\n" +
+"     Cliente_duenio.\"duenio_apellidos\" AS Cliente_duenio_duenio_apellidos,\n" +
+"     Cliente_duenio.\"duenio_telefono\" AS Cliente_duenio_duenio_telefono,\n" +
+"     Cliente_duenio.\"duenio_domicilio\" AS Cliente_duenio_duenio_domicilio,\n" +
+"     Cliente_duenio.\"duenio_correo\" AS Cliente_duenio_duenio_correo,\n" + 
+                "     Cliente_duenio.\"Fecha_e_DUI\" AS Cliente_duenio_Fecha_e_DUI,\n" +
+                "     nacionalidad.\"nacionalidad\" AS nacionalidad_nacionalidad,\n" +
+"     codigo_zona.\"codigo_zona\" AS codigo_zona_codigo_zona,\n" +
+"     Tipo_cliente.\"tipo_cliente\" AS Tipo_cliente_tipo_cliente,\n" +
+"     Cliente_duenio.\"ID_tipoCliente\" AS Cliente_duenio_ID_tipoCliente\n" +
+"FROM\n" +
+"     \"dbo\".\"codigo_zona\" codigo_zona INNER JOIN \"dbo\".\"Cliente_duenio\" Cliente_duenio ON codigo_zona.\"ID_codigo\" = Cliente_duenio.\"codigo_zona\"\n" +
+"     INNER JOIN \"dbo\".\"nacionalidad\" nacionalidad ON Cliente_duenio.\"nacionalidad\" = nacionalidad.\"ID_nacionalidad\"\n" +
+"     INNER JOIN \"dbo\".\"Tipo_cliente\" Tipo_cliente ON Cliente_duenio.\"ID_tipoCliente\" = Tipo_cliente.\"ID_tipoCliente\"\n" +
+"ORDER BY Cliente_duenio.\"ID_DUI\" ASC";
         String [] filas = new String[10];
         Statement st = null;
         ResultSet rs = null;
