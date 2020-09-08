@@ -236,7 +236,21 @@ public class Cita {
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID", "Fecha","Hora","Estado","Tipo cita", "DUI", "ID Mascota"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT * FROM Citas ORDER BY ID_cita";
+        String sql = "SELECT\n" +
+"     Citas.\"ID_cita\" AS Consulta_ID_consulta,\n" +
+"     Citas.\"cita_fecha\" AS Consulta_consulta_fecha,\n" +
+"     Citas.\"cita_hora\" AS Consulta_consulta_hora,\n" +
+"     tipo_estado.\"estado\" AS tipo_estado_estado,\n" +
+"	 Tipo_consulta.\"tipo_consulta\" AS Tipo_consulta_tipo_consulta,\n" +
+"     Cliente_duenio.\"ID_DUI\" AS Cliente_duenio_ID_DUI,\n" +
+"     Mascota.\"nombre_mascota\" AS Mascota_nombre_mascota\n" +
+"FROM\n" +
+"     \"dbo\".\"tipo_estado\" tipo_estado INNER JOIN \"dbo\".\"Citas\" Citas ON tipo_estado.\"ID_estado\" = Citas.\"ID_estado\"\n" +
+"     INNER JOIN \"dbo\".\"Cliente_duenio\" Cliente_duenio ON Citas.\"ID_DUI\" = Cliente_duenio.\"ID_DUI\"\n" +
+"     INNER JOIN \"dbo\".\"Tipo_consulta\" Tipo_consulta ON Citas.\"ID_tipoCita\" = Tipo_consulta.\"ID_tipoConsulta\"\n" +
+"     INNER JOIN \"dbo\".\"Mascota\" Mascota ON Citas.\"ID_mascota\" = Mascota.\"ID_mascota\"\n" +
+"     AND Cliente_duenio.\"ID_DUI\" = Mascota.\"ID_DUI\"\n" +
+"ORDER BY Citas.\"ID_cita\" ASC";
         String [] filas = new String[7];
         Statement st = null;
         ResultSet rs = null;
