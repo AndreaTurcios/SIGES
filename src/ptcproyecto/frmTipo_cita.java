@@ -34,6 +34,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
         jLabel2.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
         jLabel2.setVisible(false);
+        ListarTipoCita();
     }
 
     /**
@@ -270,7 +271,11 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public void ListarTipoCita()
+    {
+        Tipocita obj = new Tipocita();
+        obj.CargarTipoCita(jTable1);
+    }  
     private void jtbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbGuardarActionPerformed
         if  (jtfTipocita.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");

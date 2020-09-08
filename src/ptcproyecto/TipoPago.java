@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ptcproyecto;
-
+                 
 import clases.*;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
@@ -445,7 +445,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
                JOptionPane.showMessageDialog(null,"Error al modificar los datos");
             }
         }
-         }
+      }
     }//GEN-LAST:event_btnModificarTipoPago1ActionPerformed
 
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed

@@ -10,8 +10,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Tipocita {
@@ -134,6 +137,42 @@ private String tipo_Cita;
             System.out.println(e.toString());
         }
         return resp;
+    }
+    public void EjecutarTipoCita(Connection cn, JTable tabla)
+    {
+        cn = Conexion.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+        String [] columnas = {"ID_tipoCita","tipo_cita"};
+        model = new DefaultTableModel(null, columnas);
+        String sql = "SELECT * FROM Tipo_citas ORDER BY ID_tipoCita";
+        String [] filas = new String[2];
+        Statement st = null;
+        ResultSet rs = null;
+        try
+        {
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            System.out.println("datos obtenidos "+rs);
+            while (rs.next())
+            {
+                filas[0] = rs.getString("ID_tipoCita");
+                filas[1] = rs.getString("Tipo_citas");
+                model.addRow(filas);
+            }
+            rs.close();
+            tabla.setModel(model);
+            cn.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "No se puede cargar la tabla del registro, Error en el crud_tipo_pago.java - Ejecutar_Tipo_Pago ERROR:" + e);        
+        }
+    }   
+    
+    public void CargarTipoCita(JTable tabla) 
+    {
+        EjecutarTipoCita(cn ,tabla);
     }
     Pool metodospool = new Pool();
     public void consultarCitas(JComboBox cbox_mascotat) {

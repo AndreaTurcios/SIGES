@@ -3,12 +3,13 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
      Tipo_pago."ID_tipoPago" AS Tipo_pago_ID_tipoPago,
      Tipo_pago."tipo_pago" AS Tipo_pago_tipo_pago
 FROM
-     "dbo"."Tipo_pago" Tipo_pago]]>
+     "dbo"."Tipo_pago" Tipo_pago
+ORDER BY Tipo_pago."ID_tipoPago" ASC]]>
 	</queryString>
 	<field name="Tipo_pago_ID_tipoPago" class="java.lang.Integer"/>
 	<field name="Tipo_pago_tipo_pago" class="java.lang.String"/>
@@ -17,96 +18,76 @@ FROM
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<rectangle>
-				<reportElement x="0" y="0" width="572" height="79" backcolor="#3F679A" uuid="649bfc3a-76f2-4724-916a-0728909fb403"/>
-			</rectangle>
 			<staticText>
-				<reportElement mode="Opaque" x="338" y="0" width="234" height="30" forecolor="#FFFFFF" backcolor="#999999" uuid="7c58095b-65f0-453d-ad6a-69a26ef72bfb"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
+				<reportElement x="1" y="46" width="331" height="33" forecolor="#015E7A" uuid="5094728f-1159-4af9-b94a-08c19de54656"/>
+				<textElement>
+					<font fontName="Tahoma" size="20" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fecha:]]></text>
+				<text><![CDATA[Reporte de los tipos de pagos]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy h.mm a">
-				<reportElement x="388" y="0" width="184" height="30" forecolor="#FFFFFF" uuid="5df1a240-2b34-412a-a27c-39bb68a371c5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
+				<reportElement x="404" y="0" width="169" height="30" uuid="52fa9147-d429-471d-b17d-edc55dc5c21d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="18" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="12" y="5" width="93" height="36" forecolor="#FFFF00" uuid="3140e1ab-c3ba-458f-8663-3f20f9155add"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="24" isBold="true"/>
+				<reportElement x="1" y="0" width="115" height="46" forecolor="#01A3C9" uuid="5f7531ae-85d5-4139-b999-0428d13ca79d"/>
+				<textElement>
+					<font fontName="Tahoma" size="34" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SIGES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="41" width="163" height="31" forecolor="#FFFFFF" uuid="ecd5c43c-ec6a-436c-b153-b01e0f29aa9a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="16" isBold="true"/>
+				<reportElement x="332" y="0" width="72" height="30" forecolor="#01A3C9" uuid="fa5497b8-4ef3-4667-860c-78f301641a1f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Reporte Tipo Pago]]></text>
+				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 		</band>
 	</title>
-	<pageHeader>
-		<band height="15" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="30" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="293" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="09fe0f12-e3bb-48ff-a389-03c65c6c348a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="433" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="4beed11d-aa11-493a-8178-b68fc9a8233a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="1" y="0" width="140" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="6e29deb9-ba3f-42b5-b7ba-9e66c8d28f8b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ID]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="141" y="0" width="152" height="30" forecolor="#FFFFFF" backcolor="#3F679A" uuid="53b5356e-7fda-4f4b-ba0c-761e574acbeb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Tipo Pago]]></text>
-			</staticText>
-		</band>
-	</columnHeader>
 	<detail>
-		<band height="41" splitType="Stretch">
-			<line>
-				<reportElement x="0" y="40" width="572" height="1" uuid="47bb2ccb-4457-48c7-bd18-e105d97f95ca"/>
-				<graphicElement>
-					<pen lineStyle="Dashed"/>
-				</graphicElement>
-			</line>
+		<band height="132" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="50" width="572" height="30" backcolor="#01A3C9" uuid="823f5d6d-0800-4dba-9de2-e1bed5d13e7e"/>
+			</rectangle>
 			<textField>
-				<reportElement x="1" y="5" width="140" height="30" uuid="211238a8-531a-404d-ae8e-76f4248fb844"/>
+				<reportElement x="1" y="80" width="140" height="40" uuid="211238a8-531a-404d-ae8e-76f4248fb844"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Tipo_pago_ID_tipoPago}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="141" y="5" width="152" height="30" uuid="95902335-cf0a-4180-bc95-e846ab075cb7"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
+				<reportElement x="143" y="80" width="428" height="40" uuid="95902335-cf0a-4180-bc95-e846ab075cb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Tipo_pago_tipo_pago}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="143" y="50" width="429" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="3cf6847c-1e23-467d-a67a-ab023a81bbda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tipo consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="11" width="156" height="27" backcolor="#99CCFF" uuid="9d036afc-de34-426e-b048-73748e59f483"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="18"/>
+				</textElement>
+				<text><![CDATA[Tipo Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="50" width="143" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="9916da13-d761-45aa-b4ae-e370709a33af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>

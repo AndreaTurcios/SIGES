@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1af9a09-62ae-482e-8ef7-90502c1eab86">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1af9a09-62ae-482e-8ef7-90502c1eab86">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -8,7 +8,8 @@
      Tipo_consulta."ID_tipoConsulta" AS Tipo_consulta_ID_tipoConsulta,
      Tipo_consulta."tipo_consulta" AS Tipo_consulta_tipo_consulta
 FROM
-     "dbo"."Tipo_consulta" Tipo_consulta]]>
+     "dbo"."Tipo_consulta" Tipo_consulta
+ORDER BY Tipo_consulta."ID_tipoConsulta" ASC]]>
 	</queryString>
 	<field name="Tipo_consulta_ID_tipoConsulta" class="java.lang.Integer"/>
 	<field name="Tipo_consulta_tipo_consulta" class="java.lang.String"/>
@@ -18,160 +19,88 @@ FROM
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="654" y="34" width="100" height="20" uuid="1c726c74-c518-4777-bc1b-226bf40a7ac9"/>
-				<text><![CDATA[Tipo_pago_ID_tipoPago]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="628" y="34" width="100" height="20" uuid="209bd83c-d1fc-4acc-880f-5895b9e1c8a0"/>
-				<text><![CDATA[Tipo_pago_tipo_pago]]></text>
-			</staticText>
-			<rectangle>
-				<reportElement x="0" y="0" width="802" height="79" backcolor="#6666FF" uuid="6468d5c6-787c-4bc1-8b07-6ceccb78397f"/>
-			</rectangle>
-			<staticText>
-				<reportElement x="18" y="19" width="476" height="47" forecolor="#FFFFFF" uuid="b864cc33-aa3f-4a79-888c-74b1feac2c9d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="24" isBold="true"/>
+				<reportElement x="0" y="0" width="115" height="46" forecolor="#01A3C9" uuid="ab79ee13-d6d9-4c9f-bbce-e094b7c44223"/>
+				<textElement>
+					<font fontName="Tahoma" size="34" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Registros de los tipos de consulta]]></text>
-			</staticText>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="40" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="f20e6e45-3a6a-42c5-a7e4-460173bd6f40"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Nombre de solicitante del registro:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="494" y="0" width="134" height="40" forecolor="#FFFFFF" backcolor="#999999" uuid="6f4dbd0e-397c-4ee3-9164-1f1f76966e03"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Fecha de emision del registro:]]></text>
+				<text><![CDATA[SIGES]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy h.mm a">
-				<reportElement x="628" y="0" width="174" height="40" uuid="f62c6a4a-840a-4f12-93af-3300eca999cc"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
+				<reportElement x="386" y="0" width="169" height="30" uuid="efabb1d8-9a88-46e4-a0bb-51e03dfea0f3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="18" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="50" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="78" y="0" width="72" height="50" backcolor="#3F67FB" uuid="a1b6c180-b181-4aa1-ba48-ff500a42ed83"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
+				<reportElement x="314" y="0" width="72" height="30" forecolor="#01A3C9" uuid="8df6a3f1-c63e-49b9-bec0-2337ce2948ac"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tipo de consulta]]></text>
+				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="726" y="0" width="72" height="50" backcolor="#3F67FB" uuid="ea202e7a-53ba-4b63-8480-a3d11329497e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
+				<reportElement x="0" y="46" width="338" height="33" forecolor="#015E7A" uuid="1b2b99ae-4aa0-4a3e-ad09-6b5264bf7a1f"/>
+				<textElement>
+					<font fontName="Tahoma" size="20" isBold="true"/>
 				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="6" y="0" width="72" height="50" backcolor="#3F67FB" uuid="2b7e60c9-cae2-4a02-917d-55b3be76c6c6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[N°]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="150" y="0" width="72" height="50" backcolor="#3F67FB" uuid="5cf8ed8e-a857-463c-b11c-5937670e9c24"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="654" y="0" width="72" height="50" backcolor="#3F67FB" uuid="f2bd4452-5a4f-415f-a202-70a8547be96a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="222" y="0" width="72" height="50" backcolor="#3F67FB" uuid="ebf6c260-66d0-4fee-9567-88c4f475bcc2"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="294" y="0" width="72" height="50" backcolor="#3F67FB" uuid="a2e16281-6ef8-4bbf-9b8d-f5ee2a6ee680"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="366" y="0" width="72" height="50" backcolor="#3F67FB" uuid="a2241a54-cce9-4fc7-86e0-6acb1d106266"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="438" y="0" width="72" height="50" backcolor="#3F67FB" uuid="cf952fa2-03cc-4c1a-bdfa-4e3869559340"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="510" y="0" width="72" height="50" backcolor="#3F67FB" uuid="50b16e75-2854-42b5-a706-3d0be41fcaab"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="582" y="0" width="72" height="50" backcolor="#3F67FB" uuid="a21a3a3e-51d7-4dd3-8588-45df1dbfafee"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
+				<text><![CDATA[Reporte de los tipos de consultas]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
-		<band height="80" splitType="Stretch">
+		<band height="132" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="49" width="555" height="30" backcolor="#01A3C9" uuid="bf062a56-db5f-4e90-828c-85d70d6b6d2a"/>
+			</rectangle>
 			<textField>
-				<reportElement x="6" y="9" width="72" height="50" uuid="b11eddaa-0995-4abf-9854-cfad2801e8b2"/>
+				<reportElement x="0" y="79" width="141" height="40" uuid="b11eddaa-0995-4abf-9854-cfad2801e8b2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Tipo_consulta_ID_tipoConsulta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="78" y="9" width="72" height="50" uuid="a7fbbe55-83b5-4770-aee4-ff20ffe2920b"/>
+				<reportElement x="143" y="79" width="412" height="40" uuid="a7fbbe55-83b5-4770-aee4-ff20ffe2920b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Tipo_consulta_tipo_consulta}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="49" width="143" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="afed87a0-2e70-4a62-a35d-8920b7f4d08d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="141" y="49" width="414" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="a1a5a481-33d1-4b46-b43a-84214f13d336"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tipo consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="10" width="156" height="27" backcolor="#99CCFF" uuid="70265c58-16a7-4217-9589-98e819e7e907"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="18"/>
+				</textElement>
+				<text><![CDATA[Tipo Consulta]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>
 		<band height="54" splitType="Stretch">
 			<textField>
-				<reportElement x="674" y="18" width="80" height="20" uuid="22b8f819-8cf7-47a8-882d-70b7ce0905bb"/>
+				<reportElement x="206" y="10" width="80" height="20" uuid="22b8f819-8cf7-47a8-882d-70b7ce0905bb"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="754" y="18" width="40" height="20" uuid="9d5d9c55-4540-4581-83cd-dd7e34485de4"/>
+				<reportElement x="286" y="10" width="40" height="20" uuid="9d5d9c55-4540-4581-83cd-dd7e34485de4"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="12"/>
 				</textElement>

@@ -3,148 +3,211 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
      Mascota."ID_mascota" AS Mascota_ID_mascota,
      Mascota."nombre_mascota" AS Mascota_nombre_mascota,
      Mascota."mascota_genero" AS Mascota_mascota_genero,
-     Mascota."mascota_razon" AS Mascota_mascota_razon,
-     Mascota."mascota_medicinas" AS Mascota_mascota_medicinas,
-     Mascota."mascota_horarioReserva" AS Mascota_mascota_horarioReserva,
-     Tipo_mascota."tipo_animal" AS Tipo_mascota_tipo_animal
+     Mascota."mascota_rescatada" AS Mascota_mascota_rescatada,
+     Mascota."ID_tipoMascota" AS Mascota_ID_tipoMascota,
+     Mascota."ID_DUI" AS Mascota_ID_DUI,
+     Tipo_mascota."tipo_animal" AS Tipo_mascota_tipo_animal,
+     Cliente_duenio."ID_DUI" AS Cliente_duenio_ID_DUI,
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos
 FROM
-     "dbo"."Tipo_mascota" Tipo_mascota INNER JOIN "dbo"."Mascota" Mascota ON Tipo_mascota."ID_tipoMascota" = Mascota."ID_tipoMascota"]]>
+     "dbo"."Tipo_mascota" Tipo_mascota INNER JOIN "dbo"."Mascota" Mascota ON Tipo_mascota."ID_tipoMascota" = Mascota."ID_tipoMascota"
+     INNER JOIN "dbo"."Cliente_duenio" Cliente_duenio ON Mascota."ID_DUI" = Cliente_duenio."ID_DUI"
+ORDER BY
+     Mascota."ID_mascota" ASC]]>
 	</queryString>
 	<field name="Mascota_ID_mascota" class="java.lang.Integer"/>
 	<field name="Mascota_nombre_mascota" class="java.lang.String"/>
 	<field name="Mascota_mascota_genero" class="java.lang.String"/>
-	<field name="Mascota_mascota_razon" class="java.lang.String"/>
-	<field name="Mascota_mascota_medicinas" class="java.lang.String"/>
-	<field name="Mascota_mascota_horarioReserva" class="java.lang.String"/>
+	<field name="Mascota_mascota_rescatada" class="java.lang.String"/>
+	<field name="Mascota_ID_tipoMascota" class="java.lang.Integer"/>
+	<field name="Mascota_ID_DUI" class="java.lang.Integer"/>
 	<field name="Tipo_mascota_tipo_animal" class="java.lang.String"/>
+	<field name="Cliente_duenio_ID_DUI" class="java.lang.Integer"/>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<group name="Dueño">
+		<groupExpression><![CDATA[$F{Mascota_ID_DUI}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<staticText>
+					<reportElement mode="Opaque" x="200" y="13" width="200" height="25" backcolor="#99CCFF" uuid="a4113e15-67ec-4c0e-b61f-e665e5b58a90"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="18"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="13" width="200" height="25" backcolor="#99CCFF" uuid="2f383003-016c-4eea-98bc-5b49d778e65a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="18"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="13" width="200" height="25" uuid="00a676fc-8854-4ce5-9e70-99a1413467ab"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="13" width="199" height="25" uuid="157beea8-2cb8-4ccf-95e7-7ab498f8726f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement x="611" y="31" width="100" height="20" uuid="1e956add-59f4-4bc6-9a21-22d3c6174fb0"/>
-				<text><![CDATA[Mascota_nombre_mascota]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="554" y="51" width="100" height="20" uuid="bbed69ce-9a30-4444-bd9c-61ec0cf57a9f"/>
-				<text><![CDATA[Mascota_mascota_genero]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="528" y="19" width="100" height="20" uuid="fe9be057-f9d0-4642-9550-7b75073bfb5e"/>
-				<text><![CDATA[Mascota_mascota_razon]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="674" y="51" width="100" height="20" uuid="b08fb441-7882-4400-b44d-7baae3f858e0"/>
-				<text><![CDATA[Mascota_mascota_medicinas]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="674" y="19" width="100" height="20" uuid="587f7a0d-6362-42e9-b8b7-b81c823f4140"/>
-				<text><![CDATA[Mascota_mascota_horarioReserva]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="601" y="0" width="100" height="20" uuid="0786492e-2a57-413c-9f84-e9c4725f028a"/>
-				<text><![CDATA[Tipo_mascota_tipo_animal]]></text>
-			</staticText>
-			<rectangle>
-				<reportElement x="0" y="0" width="802" height="79" backcolor="#6666FF" uuid="9c5b0f6a-bd63-41f4-998d-0178f3a6e862"/>
-			</rectangle>
-			<staticText>
-				<reportElement x="198" y="19" width="476" height="47" forecolor="#FFFFFF" uuid="2c16a4be-08bc-48d2-a99c-f9b909380d11"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="24" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Registros de las mascotas]]></text>
-			</staticText>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="40" splitType="Stretch">
 			<textField pattern="dd/MM/yyyy h.mm a">
-				<reportElement x="628" y="0" width="174" height="40" uuid="da8a1dda-02a3-43d2-9ca9-5fff82a41644"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
+				<reportElement x="632" y="0" width="169" height="30" uuid="431f2374-36b5-4aa2-8e9f-6ddca6f836fb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="18" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="46" width="260" height="33" forecolor="#015E7A" uuid="4867afe6-0315-4e6f-a8b4-ba570735fdcd"/>
+				<textElement>
+					<font fontName="Tahoma" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de las mascotas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="115" height="46" forecolor="#01A3C9" uuid="24815a46-2b61-444d-a031-4f146cd46c4a"/>
+				<textElement>
+					<font fontName="Tahoma" size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="560" y="0" width="72" height="30" forecolor="#01A3C9" uuid="e950e531-fcee-4dc2-94ee-ca1fcb802d5b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
 		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="50" splitType="Stretch">
+	</title>
+	<detail>
+		<band height="84" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="30" backcolor="#01A3C9" uuid="3b99431a-ba67-40f5-b4b0-460b9b1315e0"/>
+			</rectangle>
 			<staticText>
-				<reportElement mode="Opaque" x="654" y="0" width="72" height="50" backcolor="#3F67FB" uuid="6648d555-2972-4776-9aff-d00e01267a47"/>
+				<reportElement mode="Transparent" x="266" y="0" width="133" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="27ba0c61-b650-4410-8b74-66faedd1124b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Género]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="133" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="61d4154e-310c-4da4-80cc-f66414f80ba4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="133" y="0" width="133" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="e3f4b69f-977b-426b-b346-58e19260de69"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="399" y="0" width="136" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="47a36e8a-3400-4490-9a9c-73a394ac1390"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[]]></text>
+				<text><![CDATA[Adoptada o rescatada]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="78" y="0" width="72" height="50" backcolor="#3F67FB" uuid="5fd9f80b-1cc1-4b60-b203-8481f6638f43"/>
+				<reportElement mode="Transparent" x="535" y="0" width="133" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="cbe9f8b0-2114-457a-8a28-ef3fe4e0d067"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[Nombre de la mascota]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="726" y="0" width="72" height="50" backcolor="#3F67FB" uuid="f78f1ebf-241f-4281-9dd9-e508157f147d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="510" y="0" width="72" height="50" backcolor="#3F67FB" uuid="ef631d77-ddad-46c5-9156-94ae55d45bc9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[Horario de la consulta]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="366" y="0" width="144" height="50" backcolor="#3F67FB" uuid="73015f17-8eac-40cb-93fc-adc74e72c027"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[Medicamento recetado]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="222" y="0" width="144" height="50" backcolor="#3F67FB" uuid="a8b3bb27-8e8d-46b1-8242-b5d10776dc6e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
-				</textElement>
-				<text><![CDATA[Razon de la consulta]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="582" y="0" width="72" height="50" backcolor="#3F67FB" uuid="e03d334c-881e-4102-bbc9-2138e7149c77"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Tipo de mascota]]></text>
 			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="150" y="0" width="72" height="50" backcolor="#3F67FB" uuid="4ab0e4c8-82a5-43b3-9006-f88a752d7206"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
+			<textField>
+				<reportElement x="0" y="30" width="133" height="40" uuid="3d7d5393-666f-4ac4-a035-08b66234a0ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
 				</textElement>
-				<text><![CDATA[Genero]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="6" y="0" width="72" height="50" backcolor="#3F67FB" uuid="faae8a71-46b3-471b-bedc-c27a57164296"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
-					<font fontName="Arial" size="11"/>
+				<textFieldExpression><![CDATA[$F{Mascota_ID_mascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="30" width="133" height="40" uuid="9a349ec0-a19b-4306-9710-16fc744e909c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
 				</textElement>
-				<text><![CDATA[N°]]></text>
+				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="266" y="30" width="133" height="40" uuid="412087de-5ab0-4b6f-b54b-3212a63355eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_mascota_genero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="30" width="136" height="40" uuid="b6812f57-a94b-47f8-afac-cc47f1d23a56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_mascota_rescatada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="535" y="30" width="133" height="40" uuid="bd4e0426-d49b-4f30-8239-e7294bc0d38f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tipo_mascota_tipo_animal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="668" y="30" width="133" height="40" uuid="940da436-69f3-4ed8-b3ba-ae949c78a61c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_ID_DUI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="668" y="0" width="133" height="30" forecolor="#FFFFFF" backcolor="#3F67FB" uuid="88685efb-1b9e-4216-8d42-7de10dcc2a24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DUI del dueño]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
-	<detail>
-		<band height="80" splitType="Stretch"/>
 	</detail>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="346" y="11" width="80" height="20" uuid="8a648bd9-7dbd-4709-88db-9f5cdb7a6e63"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="426" y="11" width="40" height="20" uuid="92a9e6bc-bc46-48cd-9937-559fc0240970"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 </jasperReport>
