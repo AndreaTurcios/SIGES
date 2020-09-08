@@ -121,9 +121,24 @@ public class Mascota {
     }
     public void CargarMascota(Connection cn, JTable tabla){
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID_mascota", "nombre_mascota", "mascota_genero", "mascota_rescatada", "ID_tipoMascota", "ID_DUI"};
+        String [] columnas = {"ID_mascota", "nombre mascota", "mascota genero", "mascota rescatada", "Tipo mascota", "DUI"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT * FROM Mascota ORDER BY ID_mascota";
+        String sql = "SELECT\n" +
+"     Mascota.\"ID_mascota\" AS Mascota_ID_mascota,\n" +
+"     Mascota.\"nombre_mascota\" AS Mascota_nombre_mascota,\n" +
+"     Mascota.\"mascota_genero\" AS Mascota_mascota_genero,\n" +
+"     Mascota.\"mascota_rescatada\" AS Mascota_mascota_rescatada,\n" +
+"	Tipo_mascota.\"tipo_animal\" AS Tipo_mascota_tipo_animal,\n" +
+"     Mascota.\"ID_DUI\" AS Mascota_ID_DUI,\n" +
+"     \n" +
+"     Cliente_duenio.\"ID_DUI\" AS Cliente_duenio_ID_DUI,\n" +
+"     Cliente_duenio.\"duenio_nombre\" AS Cliente_duenio_duenio_nombre,\n" +
+"     Cliente_duenio.\"duenio_apellidos\" AS Cliente_duenio_duenio_apellidos\n" +
+"FROM\n" +
+"     \"dbo\".\"Tipo_mascota\" Tipo_mascota INNER JOIN \"dbo\".\"Mascota\" Mascota ON Tipo_mascota.\"ID_tipoMascota\" = Mascota.\"ID_tipoMascota\"\n" +
+"     INNER JOIN \"dbo\".\"Cliente_duenio\" Cliente_duenio ON Mascota.\"ID_DUI\" = Cliente_duenio.\"ID_DUI\"\n" +
+"ORDER BY\n" +
+"     Mascota.\"ID_mascota\" ASC";
         String [] filas = new String[6];
         Statement st = null;
         

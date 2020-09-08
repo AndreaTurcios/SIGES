@@ -452,7 +452,17 @@ public class ClienteDuenio {
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID", "Tratamiento","Dosis","Frecuencia","DUI", "ID mascota"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT * FROM Ficha_clinica ORDER BY ID_Ficha";
+        String sql = "SELECT\n" +
+"	Ficha_clinica.\"ID_Ficha\" AS Ficha_clinica_ID,\n" +
+"	 Ficha_clinica.\"Tratamiento\" AS Ficha_clinica_Tratamiento,\n" +
+"	 Ficha_clinica.\"Dosis\" AS Ficha_clinica_Dosis,\n" +
+"     Ficha_clinica.\"Frecuencia\" AS Ficha_clinica_Frecuencia,\n" +
+"     Cliente_duenio.\"ID_DUI\" AS Cliente_duenio_ID_DUI,\n" +
+"     Mascota.\"nombre_mascota\" AS Mascota_nombre_mascota\n" +
+"FROM\n" +
+"     \"dbo\".\"Cliente_duenio\" Cliente_duenio INNER JOIN \"dbo\".\"Mascota\" Mascota ON Cliente_duenio.\"ID_DUI\" = Mascota.\"ID_DUI\"\n" +
+"     INNER JOIN \"dbo\".\"Ficha_clinica\" Ficha_clinica ON Cliente_duenio.\"ID_DUI\" = Ficha_clinica.\"ID_DUI\"\n" +
+"     AND Mascota.\"ID_mascota\" = Ficha_clinica.\"ID_Mascota\"";
         String [] filas = new String[6];
         Statement st = null;
         ResultSet rs = null;
