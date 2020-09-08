@@ -54,7 +54,7 @@ ORDER BY Tipo_usuarios."tipo_empleado"]]>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="364" y="26" width="64" height="20" forecolor="#01A3C9" uuid="7b08b2a7-2be1-4c0a-a898-7fbd6a3f0848"/>
+				<reportElement x="377" y="27" width="64" height="20" forecolor="#01A3C9" uuid="7b08b2a7-2be1-4c0a-a898-7fbd6a3f0848"/>
 				<textElement>
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
@@ -65,23 +65,23 @@ ORDER BY Tipo_usuarios."tipo_empleado"]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="48" width="164" height="20" forecolor="#015E7A" uuid="2c0ac84b-489c-463f-9bd8-db786814cb3f"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="14" isBold="false"/>
+				<reportElement x="0" y="59" width="164" height="20" forecolor="#015E7A" uuid="2c0ac84b-489c-463f-9bd8-db786814cb3f"/>
+				<textElement>
+					<font fontName="Tahoma" size="14" isBold="true" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[Reporte tipo empleado]]></text>
+				<text><![CDATA[Reporte empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="1" width="124" height="47" forecolor="#01A3C9" uuid="e8eba563-ac69-4dec-96a3-7033142ce33d"/>
+				<reportElement x="0" y="0" width="164" height="59" forecolor="#01A3C9" uuid="87da3a74-455f-47b7-9d5b-2c8cf1e8e41f"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Tahoma" size="34" isBold="true" isItalic="false"/>
+					<font fontName="Tahoma" size="48" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[SIGES]]></text>
 			</staticText>
 		</band>
 	</title>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="55" splitType="Stretch">
 			<rectangle>
 				<reportElement x="0" y="0" width="555" height="20" forecolor="#01A3C9" backcolor="#01A3C9" uuid="f990830a-c7ad-48cf-9b8d-1de60dfdbd74"/>
 			</rectangle>

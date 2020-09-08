@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="R.tipo_producto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dbe44e75-d945-4eb9-a28f-2a1c6cd35ae5">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="26"/>
 	<queryString>
 		<![CDATA[SELECT
      Tipo_producto."tipo_producto" AS            Tipo_producto_tipo_producto,
@@ -48,21 +48,14 @@ ORDER BY Tipo_producto.tipo_producto]]>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="743a8c0a-16b9-4b89-bf3e-8d8bb52902aa"/>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Tahoma" size="34" isBold="true" isItalic="false"/>
-				</textElement>
-				<text><![CDATA[SIGES]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="47" width="164" height="20" forecolor="#015E7A" uuid="ceb050c9-e854-4a09-a60b-33b1433ddba4"/>
+				<reportElement x="0" y="59" width="164" height="20" forecolor="#015E7A" uuid="ceb050c9-e854-4a09-a60b-33b1433ddba4"/>
 				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="14" isBold="false"/>
+					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte tipo producto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="364" y="25" width="64" height="20" forecolor="#01A3C9" uuid="32995e52-6767-42ce-8c3a-72ccbc0651e4"/>
+				<reportElement x="382" y="27" width="64" height="20" forecolor="#01A3C9" uuid="32995e52-6767-42ce-8c3a-72ccbc0651e4"/>
 				<textElement>
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
@@ -72,10 +65,17 @@ ORDER BY Tipo_producto.tipo_producto]]>
 				<reportElement x="428" y="27" width="127" height="20" uuid="52cd77ba-edf3-4dc4-8a2d-cf7f2f0c8518"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="164" height="59" forecolor="#01A3C9" uuid="98d47499-8ad0-482a-9788-f3ff63b5af36"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Tahoma" size="48" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
 		</band>
 	</title>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="56" splitType="Stretch">
 			<rectangle>
 				<reportElement x="0" y="0" width="555" height="20" forecolor="#01A3C9" backcolor="#01A3C9" uuid="288b90b2-aba7-4d8f-adbc-4b04b0f39dcf"/>
 			</rectangle>

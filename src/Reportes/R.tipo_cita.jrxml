@@ -5,43 +5,33 @@
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT
-     Tipo_citas."tipo_cita" AS
-Tipo_citas_tipo_cita,
-     Citas."cita_fecha" AS
-Citas_cita_fecha,
-     Citas."cita_hora" AS
-Citas_cita_hora,
-     Cliente_duenio."duenio_nombre" AS
-Cliente_duenio_duenio_nombre,
-      Cliente_duenio."duenio_apellidos" AS
-Cliente_duenio_duenio_apellidos,
-      Tipo_cliente."tipo_cliente" AS
-Tipo_cliente_tipo_cliente
-
+     Citas."cita_fecha" AS Citas_cita_fecha,
+     Citas."cita_hora" AS Citas_cita_hora,
+     Tipo_cliente."tipo_cliente" AS Tipo_cliente_tipo_cliente,
+     Tipo_citas."tipo_cita" AS Tipo_citas_tipo_cita,
+Mascota."nombre_mascota" AS Mascota_nombre_mascota
 FROM
      "dbo"."Tipo_citas" Tipo_citas
 INNER JOIN "dbo"."Citas" Citas ON Tipo_citas."ID_tipoCita" = Citas."ID_cita"
-INNER JOIN "dbo"."Cliente_duenio" Cliente_duenio ON Tipo_citas."ID_tipoCita" = Cliente_duenio."ID_DUI"
-INNER JOIN "dbo"."Tipo_cliente" Tipo_cliente ON Tipo_citas."ID_tipoCita" = Tipo_cliente."ID_tipoCliente"
-Order by
-     Tipo_citas."tipo_cita"]]>
+ INNER JOIN "dbo"."Mascota" Mascota ON Tipo_citas."ID_tipoCita" = Mascota."ID_mascota"                                                                                            INNER JOIN "dbo"."Tipo_cliente" Tipo_cliente ON Tipo_citas."ID_tipoCita" =  Tipo_cliente."ID_tipoCliente"
+ORDER BY
+     Tipo_citas."tipo_cita" ASC]]>
 	</queryString>
-	<field name="Tipo_citas_tipo_cita" class="java.lang.String"/>
 	<field name="Citas_cita_fecha" class="java.sql.Date"/>
 	<field name="Citas_cita_hora" class="java.sql.Time"/>
-	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
-	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
 	<field name="Tipo_cliente_tipo_cliente" class="java.lang.String"/>
+	<field name="Tipo_citas_tipo_cita" class="java.lang.String"/>
+	<field name="Mascota_nombre_mascota" class="java.lang.String"/>
 	<group name="tipo_cita">
 		<groupExpression><![CDATA[$F{Tipo_citas_tipo_cita}]]></groupExpression>
 		<groupHeader>
-			<band height="50">
+			<band height="53">
 				<rectangle>
 					<reportElement x="0" y="0" width="138" height="20" forecolor="#99CCFF" backcolor="#99CCFF" uuid="ae6ae212-34bd-45fc-a54b-08241c646b61"/>
 				</rectangle>
 				<textField>
-					<reportElement x="24" y="0" width="100" height="20" uuid="9cb3f57c-cb73-48e0-9563-0701ece74b14"/>
-					<textElement textAlignment="Center">
+					<reportElement x="18" y="0" width="100" height="20" uuid="8082c24b-e05e-400d-bf75-2a24cdcdb3d1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Tahoma" size="14"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Tipo_citas_tipo_cita}]]></textFieldExpression>
@@ -62,87 +52,88 @@ Order by
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="47" width="164" height="20" forecolor="#015E7A" uuid="dc0c4517-2290-49ef-9f7c-e304eaa2185d"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="14" isBold="false"/>
+				<reportElement x="0" y="59" width="164" height="20" forecolor="#015E7A" uuid="dc0c4517-2290-49ef-9f7c-e304eaa2185d"/>
+				<textElement>
+					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte tipo cita]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="364" y="25" width="64" height="20" forecolor="#01A3C9" uuid="fbcfe053-8040-4a1b-a90e-66cf5fbff13c"/>
+				<reportElement x="380" y="25" width="64" height="20" forecolor="#01A3C9" uuid="fbcfe053-8040-4a1b-a90e-66cf5fbff13c"/>
 				<textElement>
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="e9ef9d3a-c3bb-41a9-ae66-b9dd46d027d2"/>
+				<reportElement x="1" y="0" width="164" height="59" forecolor="#01A3C9" uuid="653fd822-3b0e-4488-a8f8-558a61b4e891"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Tahoma" size="34" isBold="true" isItalic="false"/>
+					<font fontName="Tahoma" size="48" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[SIGES]]></text>
 			</staticText>
 		</band>
 	</title>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="43" splitType="Stretch">
 			<rectangle>
 				<reportElement x="0" y="0" width="555" height="20" forecolor="#01A3C9" backcolor="#01A3C9" uuid="d05e16f4-d85c-4951-bc6f-ce6f472f6cd3"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="433" y="0" width="113" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="1d68d46f-6072-42ab-ab44-7c9938cee151"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="291" y="0" width="113" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="1d68d46f-6072-42ab-ab44-7c9938cee151"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Tipo cliente]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="3" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="548efe6e-d172-4228-8b60-9863739ccb7c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="187" y="0" width="107" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="556f3863-236e-4511-874f-ca53e139ead4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Cliente nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="312" y="0" width="109" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="ab8ed1bd-1cfc-46e6-8606-57eeb5a6873c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="14" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Cliente apellido]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="84" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="a9964775-5c40-4324-b75f-a944149de886"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="153" y="0" width="81" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="a9964775-5c40-4324-b75f-a944149de886"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Hora]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="3" y="20" width="111" height="20" uuid="f411d7f6-385f-4463-ad8f-4008b8268572"/>
+				<reportElement x="1" y="20" width="117" height="20" uuid="3a247bb3-35e5-4d23-9fe5-3e732bd939cc"/>
+				<textElement>
+					<font fontName="Tahoma" size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Citas_cita_fecha}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="20" width="111" height="20" uuid="6b245fa0-b319-4f46-9715-ef94dda3c65f"/>
+				<reportElement x="153" y="20" width="94" height="20" uuid="511fb82e-7c4a-400a-a161-85c2f1c18ad1"/>
+				<textElement>
+					<font fontName="Tahoma" size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Citas_cita_hora}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="222" y="20" width="111" height="20" uuid="7730d5d9-15ae-4ff7-b6ee-7e6ea94707e2"/>
-				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="333" y="20" width="111" height="20" uuid="7909e851-83c7-4dbc-ae6b-0acb5a0503a1"/>
-				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="444" y="20" width="111" height="20" uuid="b7d6d051-b421-4c58-86e0-6eb5fb458955"/>
+				<reportElement x="294" y="20" width="91" height="20" uuid="9af013f4-27f9-453d-b445-981d3a182d0a"/>
+				<textElement>
+					<font fontName="Tahoma" size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Tipo_cliente_tipo_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="431" y="0" width="113" height="20" forecolor="#F0F0F0" backcolor="#000000" uuid="b534d677-7e0c-411e-8dba-610b62018377"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Mascota]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="444" y="20" width="100" height="20" uuid="cc694bb2-c557-4ef1-9483-35f9444b2525"/>
+				<textElement>
+					<font fontName="Tahoma" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

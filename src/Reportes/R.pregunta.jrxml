@@ -57,23 +57,16 @@ Order by Tipo_usuarios."tipo_empleado"]]>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="124" height="47" forecolor="#01A3C9" uuid="6a695cfe-e5e5-4fce-92d3-8f37d7f2072c"/>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Tahoma" size="34" isBold="true" isItalic="false"/>
-				</textElement>
-				<text><![CDATA[SIGES]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="364" y="25" width="64" height="20" forecolor="#01A3C9" uuid="59a7cfac-6aa2-48dc-84b3-fd8983c0765c"/>
+				<reportElement x="378" y="25" width="64" height="20" forecolor="#01A3C9" uuid="59a7cfac-6aa2-48dc-84b3-fd8983c0765c"/>
 				<textElement>
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="47" width="138" height="20" forecolor="#015E7A" uuid="06e3054c-c5a5-4f20-bdf1-606610446667"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="14" isBold="false"/>
+				<reportElement x="0" y="59" width="138" height="20" forecolor="#015E7A" uuid="06e3054c-c5a5-4f20-bdf1-606610446667"/>
+				<textElement>
+					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte Preguntas]]></text>
 			</staticText>
@@ -81,10 +74,17 @@ Order by Tipo_usuarios."tipo_empleado"]]>
 				<reportElement x="428" y="27" width="127" height="20" uuid="ad16cc0b-767b-4662-9001-ce339652386d"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="164" height="59" forecolor="#01A3C9" uuid="b29f7074-f13e-4fd7-b431-9d3d8c39536c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Tahoma" size="48" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
 		</band>
 	</title>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="53" splitType="Stretch">
 			<rectangle>
 				<reportElement x="0" y="0" width="555" height="20" forecolor="#01A3C9" backcolor="#01A3C9" uuid="66276691-6e64-4208-aea2-69484617ef27"/>
 			</rectangle>
