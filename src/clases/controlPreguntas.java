@@ -62,9 +62,19 @@ public class controlPreguntas {
      public void listarPreguntas(Connection cn, JTable tabla){
         cn = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID Pregunta","pregunta", "ID usuario"};
+        String [] columnas = {"ID Pregunta","pregunta", "Usuario"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT * FROM preguntas ORDER BY ID_Pregunta";
+        String sql = "SELECT\n" +
+"preguntas.\"ID_Pregunta\" AS\n" +
+"preguntas_id,\n" +
+"     preguntas.\"pregunta\" AS\n" +
+"preguntas_pregunta,\n" +
+"     Usuarios.\"nombre_usuario\" AS\n" +
+"Usuarios_nombre_usuario\n" +
+"\n" +
+"FROM\n" +
+"     \"dbo\".\"preguntas\" preguntas\n" +
+" INNER JOIN \"dbo\".\"Usuarios\" Usuarios  ON  preguntas.\"ID_Pregunta\" = Usuarios.\"ID_usuario\"";
         String [] filas = new String[3];
         Statement st = null;
         ResultSet rs = null;

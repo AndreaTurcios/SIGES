@@ -550,7 +550,7 @@ public class frmFichaClinica extends javax.swing.JInternalFrame {
     public void ListarDuenios(){
         ClienteDuenio obj = new ClienteDuenio();
         obj.CargarDuenio(jTable1dialog);
-    }
+    } 
     
     public void ListarDueniosD(){
         ClienteDuenio obj = new ClienteDuenio();
