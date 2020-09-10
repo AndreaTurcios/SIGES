@@ -19,10 +19,6 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author 15-CW0001la
- */
 public class TipoMascota extends javax.swing.JInternalFrame {
     
    
@@ -42,7 +38,6 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     }
     
     DefaultTableModel m;
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -389,6 +389,11 @@ public class CodigoZn extends javax.swing.JInternalFrame {
             evt.consume();
             JOptionPane.showMessageDialog(null,"Solo se pueden ingresar números");
         }
+        int limit=3;
+        if (txtCZona.getText().length()== limit) {
+            JOptionPane.showMessageDialog(null,"No se pueden ingresar más de tres números");
+            evt.consume(); 
+    }
     }//GEN-LAST:event_txtCZonaKeyTyped
 
 
