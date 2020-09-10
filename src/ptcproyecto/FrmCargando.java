@@ -1,8 +1,10 @@
 package ptcproyecto;
+import clases.LoginMetodo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import javax.swing.Timer;
+import javax.swing.Timer;    
+import static ptcproyecto.Login.res;
 
 public class FrmCargando extends javax.swing.JFrame {
     private Timer t;
@@ -19,9 +21,7 @@ public class FrmCargando extends javax.swing.JFrame {
                 if (barraprogreso1.getValue()==100) {
                 dispose();
                 t.stop();
-                Login llamar = new Login();
-        llamar.setVisible(true);
-        llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                ValidarE();
             }
             }
         };
@@ -110,6 +110,28 @@ public class FrmCargando extends javax.swing.JFrame {
             }
         });
     }
+    static void ValidarE(){ 
+    res=LoginMetodo.Consulta("if Exists(Select ID_usuario from INFORMATION_SCHEMA.COLUMNS, Usuarios where TABLE_NAME='Usuarios' and Column_name ='ID_usuario')\n" +
+    "begin\n" +
+    "Select * from Usuarios\n" +
+    "End");
+        System.out.println("Deberia mostrar primer uso " + res);
+        try{                    
+        if(res==null) {
+        System.out.println("entrando al if");
+        JOptionPane.showMessageDialog(null,"Se ha detectado el primer uso del sistema");
+        primerUso config = new primerUso();
+        config.setVisible(true);
+        config.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }else{
+        Login llamar = new Login();
+        llamar.setVisible(true);
+        llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         }
+        }catch(Exception e){
+            System.out.println("error "+e);
+        }
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar barraprogreso1;

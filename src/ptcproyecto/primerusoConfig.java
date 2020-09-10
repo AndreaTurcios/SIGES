@@ -6,7 +6,7 @@
 package ptcproyecto;
 
 import clases.LoginMetodo;
-import javax.swing.JFrame;
+import javax.swing.JFrame;                                          
 import javax.swing.JOptionPane;
 import clases.usuarios;
 import java.awt.event.KeyEvent;

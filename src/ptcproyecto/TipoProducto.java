@@ -4,7 +4,7 @@ package ptcproyecto;
 import clases.tipoProductos;
 import clases.Conexion;
 import clases.LoginMetodo;
-import java.sql.ResultSet;
+import java.sql.ResultSet;                                                      
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;

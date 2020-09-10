@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.Scene;
@@ -21,12 +22,14 @@ import javafx.stage.Stage;
 public class Login extends javax.swing.JFrame {
     Conexion cc =new Conexion();
     Connection con = cc.conectar();
-    public Login() {
+    LoginMetodo log = new LoginMetodo();
+    static ResultSet res;
+    
+    public Login() { 
         initComponents();
         this.setLocationRelativeTo(null);
         jTextField1.setVisible(false);
-        
-    }
+  }
     public static String texto = "";
     public static Integer ID;
 //    public static String texto1 = "";
@@ -412,7 +415,7 @@ public class Login extends javax.swing.JFrame {
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
-
+   
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         
         texto = txtUsuario.getText();

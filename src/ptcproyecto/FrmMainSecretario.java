@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author 15-CW0001la
- */
+ */       
 public class FrmMainSecretario extends javax.swing.JFrame {
     int clicked = 0;
     /**
      * Creates new form FrmMain
-     */
+     */                                     
     public FrmMainSecretario() {
         initComponents();
         this.setLocationRelativeTo(null);

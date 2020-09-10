@@ -11,6 +11,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import ptcproyecto.FrmMain;
 import clases.Conexion;
+import static clases.Conexion.conectar;
+import java.sql.Statement;
 
 
 public class LoginMetodo {
@@ -397,6 +399,18 @@ public class LoginMetodo {
            
        }
     return null;
+    }
+     public static ResultSet Consulta(String consulta){
+      Connection con = conectar();
+      Statement declara;
+      try{
+            declara= con.createStatement();
+            ResultSet respuesta = declara.executeQuery(consulta);
+            return respuesta;
+      }catch(Exception e){
+         System.out.println(e.getMessage());
+     }
+      return null;
     }
 
     /**

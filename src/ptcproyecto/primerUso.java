@@ -59,7 +59,6 @@ public class primerUso extends javax.swing.JFrame {
         jtfEmail = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jtbGuardar = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         BtnCerrar = new javax.swing.JButton();
@@ -238,33 +237,20 @@ public class primerUso extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setText("Regresar al login");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(203, Short.MAX_VALUE)
                 .addComponent(jtbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addGap(198, 198, 198))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtbGuardar)
-                    .addComponent(jButton1))
+                .addComponent(jtbGuardar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -456,14 +442,6 @@ public boolean isEmail(String correo) {
         xy=evt.getY();
     }//GEN-LAST:event_kGradientPanel1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Login llamar = new Login();
-        llamar.setVisible(true);
-        llamar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jtfUsuario.setText("");
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void JCBcargoEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBcargoEActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JCBcargoEActionPerformed
@@ -532,7 +510,6 @@ public boolean isEmail(String correo) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JComboBox<String> JCBcargoE;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;

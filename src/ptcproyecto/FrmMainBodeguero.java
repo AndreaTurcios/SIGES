@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author 15-CW0001la
- */
+ */                
 public class FrmMainBodeguero extends javax.swing.JFrame {
     int clicked = 0;
     /**
