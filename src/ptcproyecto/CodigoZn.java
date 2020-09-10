@@ -381,7 +381,6 @@ public class CodigoZn extends javax.swing.JInternalFrame {
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnreporteActionPerformed
-
     private void txtCZonaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCZonaKeyTyped
          char valida=evt.getKeyChar();
         if (Character.isLetter(valida)) {
@@ -393,7 +392,7 @@ public class CodigoZn extends javax.swing.JInternalFrame {
         if (txtCZona.getText().length()== limit) {
             JOptionPane.showMessageDialog(null,"No se pueden ingresar más de tres números");
             evt.consume(); 
-    }
+      }
     }//GEN-LAST:event_txtCZonaKeyTyped
 
 
