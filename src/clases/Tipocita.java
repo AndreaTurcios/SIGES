@@ -94,7 +94,27 @@ private String tipo_Cita;
         }
         return resp;
     }
-
+    public boolean EliminarTipoCita ()
+    {
+        boolean resp = false;
+        try 
+        {
+            String sql = "DELETE FROM Tipo_mascota WHERE ID_tipoMascota=?;";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            cmd.setInt(1, ID_tipoCita);
+            if (!cmd.execute()) 
+            {
+                resp = true;
+            }
+            cmd.close();
+            cn.close();
+        } 
+        catch (Exception ex) 
+        {
+            System.out.println("Error exception es "+ex.toString());
+        }
+        return resp;
+    }
     public boolean modificar() {
          boolean resp = false;
         try {String sql = "UPDATE SET Tipo_citas , ID_tipoCita = ?, tipo_cita = ?";

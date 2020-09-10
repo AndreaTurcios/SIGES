@@ -526,7 +526,7 @@ DefaultTableModel m;
         String ID;
         int fsel = jTable1.getSelectedRow();
          if (fsel==-1) {
-        JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
+        JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia", 
         JOptionPane.WARNING_MESSAGE);
          }else{
          m = (DefaultTableModel)jTable1.getModel();

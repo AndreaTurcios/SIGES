@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ptcproyecto;
 
 import clases.Tipocita;
 import clases.Conexion;   
+import clases.CrudTipoConsulta;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -24,7 +21,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author estef
  */
 public class frmTipo_cita extends javax.swing.JInternalFrame {
-
+DefaultTableModel m;
     /**
      * Creates new form frmTipo_cita
      */
@@ -34,6 +31,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
         jLabel2.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
         jLabel2.setVisible(false);
+        txtID.setVisible(false);
         ListarTipoCita();
     }
 
@@ -54,6 +52,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jtfTipocita = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jtbGuardar = new javax.swing.JToggleButton();
         jtbConsultar = new javax.swing.JToggleButton();
@@ -99,6 +98,11 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
                 jtfTipocitaActionPerformed(evt);
             }
         });
+        jtfTipocita.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfTipocitaKeyTyped(evt);
+            }
+        });
 
         jLabel1.setText("Tipo de cita:");
 
@@ -107,11 +111,13 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(30, 30, 30)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtfTipocita, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,6 +127,10 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
                     .addComponent(jtfTipocita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(68, 68, 68))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtbGuardar.setText("Guardar");
@@ -130,7 +140,7 @@ public class frmTipo_cita extends javax.swing.JInternalFrame {
             }
         });
 
-        jtbConsultar.setText("Consultar");
+        jtbConsultar.setText("Eliminar");
         jtbConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbConsultarActionPerformed(evt);
@@ -298,23 +308,45 @@ public void ListarTipoCita()
         obj.settipo_cita(jtfTipocita.getText());
         clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR 
         Bit.setID(Integer.parseInt(jLabel2.getText())); //NO TOCAR 
+          if  (jtfTipocita.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else{
         if (obj.modificar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
             Bit.BitacoraUpdateTipoCita();//NO TOCAR 
         }else{
             JOptionPane.showMessageDialog(this, "Error al modificar los datos");
         }
+        }
     }//GEN-LAST:event_jtbModificarActionPerformed
 
     private void jtbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbConsultarActionPerformed
-        Tipocita obj = new Tipocita();
-        clases.Bitacora Bit = new clases.Bitacora(); //NO TOCAR
-        Bit.setID(Integer.parseInt(jLabel2.getText())); //NO TOCAR 
-        if (obj.Consultar()) {
-           obj.settipo_cita(jtfTipocita.getText());
-           Bit.BitacoraReadTipoCita(); //NO TOCAR
+         String ID;
+        int fsel = jTable1.getSelectedRow();
+        if (fsel==-1) {
+
+            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(this, "Los datos consultados no han sido encontrados");
+            m = (DefaultTableModel)jTable1.getModel();
+            ID = jTable1.getValueAt(fsel, 0).toString();
+            txtID.setText(ID);
+            Tipocita obj = new Tipocita();
+            obj.setID_tipoCita(Integer.parseInt(txtID.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText())); 
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (eliminar == 0) {
+
+                if (obj.EliminarTipoCita()) {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    ListarTipoCita();
+                    Bit.BitacoraDeleteTipoConsulta();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Error al eliminar");
+                }
+            }
         }
     }//GEN-LAST:event_jtbConsultarActionPerformed
 
@@ -349,6 +381,15 @@ public void ListarTipoCita()
         this.dispose ();
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
+    private void jtfTipocitaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfTipocitaKeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_jtfTipocitaKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
@@ -367,5 +408,6 @@ public void ListarTipoCita()
     private javax.swing.JToggleButton jtbModificar;
     private javax.swing.JTextField jtfTipocita;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
 }

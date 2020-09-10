@@ -72,6 +72,12 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("Tipo mascota:");
 
+        txtTipomascota.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTipomascotaKeyTyped(evt);
+            }
+        });
+
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,14 +154,15 @@ public class TipoMascota extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtTipomascota, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)))
+                        .addGap(26, 26, 26))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(4, Short.MAX_VALUE))
         );
 
@@ -268,7 +275,10 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         String tipo_animal = txtTipomascota.getText();
-
+        if  (txtTipomascota.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
         try {
             Connection cn = Conexion.conectar();
             PreparedStatement ps = cn.prepareStatement("INSERT INTO Tipo_mascota (tipo_animal) VALUES(?)");
@@ -283,7 +293,8 @@ public class TipoMascota extends javax.swing.JInternalFrame {
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
-
+  
+        }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -316,7 +327,10 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
-        {
+        {    if  (txtTipomascota.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
             m = (DefaultTableModel)tblTipomascota.getModel();
             IDmascota = tblTipomascota.getValueAt(fsel, 0).toString();
             txtID.setText(IDmascota);
@@ -336,8 +350,9 @@ public class TipoMascota extends javax.swing.JInternalFrame {
             else
             {
                JOptionPane.showMessageDialog(null,"Error al modificar los datos");
-            }
+            }  
          }
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -345,7 +360,7 @@ public class TipoMascota extends javax.swing.JInternalFrame {
         int fsel = tblTipomascota.getSelectedRow();
         if (fsel==-1) {
 
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia",
                 JOptionPane.WARNING_MESSAGE);
         }else{
             m = (DefaultTableModel)tblTipomascota.getModel();
@@ -401,6 +416,15 @@ public class TipoMascota extends javax.swing.JInternalFrame {
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         this.dispose ();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
+
+    private void txtTipomascotaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipomascotaKeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_txtTipomascotaKeyTyped
 
     private void limpiar() {
         txtTipomascota.setText("");

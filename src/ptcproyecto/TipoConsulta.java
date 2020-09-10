@@ -102,6 +102,12 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
+
+        txtNombreTipoConsulta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreTipoConsultaKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtNombreTipoConsulta);
         txtNombreTipoConsulta.setBounds(170, 60, 290, 20);
 
@@ -296,7 +302,10 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
 
     private void btnGuardarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoConsultaActionPerformed
         String Tipoconsulta = txtNombreTipoConsulta.getText();
-        
+         if  (txtNombreTipoConsulta.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
         try{
             Connection con = Conexion.conectar();
             PreparedStatement ps = con.prepareStatement("INSERT INTO Tipo_consulta(tipo_consulta) VALUES(?)");
@@ -311,6 +320,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, e.toString());
         
         }
+         }
     }//GEN-LAST:event_btnGuardarTipoConsultaActionPerformed
 
     private void btnEliminarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoConsultaActionPerformed
@@ -352,7 +362,10 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         else
-        {
+        {if  (txtNombreTipoConsulta.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
             m = (DefaultTableModel)tblconsulta.getModel();
             IDTipoPago = tblconsulta.getValueAt(fsel, 0).toString();
             txtID.setText(IDTipoPago);
@@ -374,6 +387,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
                JOptionPane.showMessageDialog(null,"Error al modificar los datos");
             }
          }
+        }
     }//GEN-LAST:event_btnModificarTipoConsultaActionPerformed
 
     private void btnTipoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoPagoActionPerformed
@@ -456,6 +470,15 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         this.dispose ();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
+
+    private void txtNombreTipoConsultaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreTipoConsultaKeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_txtNombreTipoConsultaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
