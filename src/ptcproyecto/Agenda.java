@@ -75,7 +75,7 @@ public class Agenda extends javax.swing.JInternalFrame {
         int fsel = JTableDialog.getSelectedRow();
         String ID;
         if (fsel==-1) {
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
          m = (DefaultTableModel)JTableDialog.getModel();
          ID = JTableDialog.getValueAt(fsel, 0).toString();
@@ -434,6 +434,11 @@ public class Agenda extends javax.swing.JInternalFrame {
         );
 
         JTDUI.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        JTDUI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTDUIActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("Ingrese DUI:");
@@ -583,17 +588,14 @@ public class Agenda extends javax.swing.JInternalFrame {
         Bit.setID(Integer.parseInt(jLabel2.getText()));
         Bit.BitacoraReadAgenda();
         
-//        if (JTDUI.getText().isEmpty() ) {
-//            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
-//        }
-//        else {
-//                clases.Agenda obj = new clases.Agenda();
-//                
-//                obj.setDUI(Integer.parseInt(JTDUI.getText()));
-//
-//                Buscar();
-//                           
-//            }
+        if (JTDUI.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
+                clases.Agenda obj = new clases.Agenda();
+                obj.setDUI(Integer.parseInt(JTDUI.getText()));
+                           
+            }
     }//GEN-LAST:event_JBBuscarActionPerformed
 
     private void tfdialogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfdialogoMouseClicked
@@ -612,18 +614,7 @@ public class Agenda extends javax.swing.JInternalFrame {
         }else{
             clases.Agenda dui = new clases.Agenda();
             JTableDialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
-            //            ClienteDuenio obj = new ClienteDuenio();
-            //            int fse = jTable1dialog.getSelectedRow();
-            //            String dato = tfdialogo.getText();
-            //            String b = jTable1dialog.getValueAt(fse, 0).toString();
-            //
-            //            if (dato==b) {
-                //                try {
-                    //                    obj.BuscarDuenio(Integer.parseInt(jTable1dialog.getValueAt(fse, 0).toString()));
-                    //                } catch (SQLException ex) {
-                    //                    Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
-                    //                }
-                //            }
+                        
         }
     }//GEN-LAST:event_JBBuscarDActionPerformed
 
@@ -632,7 +623,7 @@ public class Agenda extends javax.swing.JInternalFrame {
         int fsel = JTableDialog.getSelectedRow();
         String ID;
         if (fsel==-1) {
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
             m = (DefaultTableModel)JTableDialog.getModel();
            ID = JTableDialog.getValueAt(fsel, 4).toString();
@@ -662,6 +653,10 @@ public class Agenda extends javax.swing.JInternalFrame {
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         this.dispose ();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
+
+    private void JTDUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTDUIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTDUIActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

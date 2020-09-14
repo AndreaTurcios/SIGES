@@ -47,7 +47,7 @@ public class Agenda {
         modelo.addColumn("Estado");
         modelo.addColumn("Dui del cliente");
         try {
-            String sql = "SELECT c.ID_cita, c.cita_fecha, c.cita_hora, e.estado, c.ID_DUI FROM Citas c, Tipo_estado e \n" +
+            String sql = "SELECT c.ID_consulta, c.consulta_fecha, c.consulta_hora, e.estado, c.ID_DUI FROM Consulta c, Tipo_estado e \n" +
             "WHERE c.ID_estado = e.ID_estado \n"
             + "and ID_DUI = ?";
             Conexion con = new Conexion();
