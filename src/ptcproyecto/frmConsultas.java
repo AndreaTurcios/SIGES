@@ -169,7 +169,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         jLabel11.setText("Minuto:");
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel12.setText("ID de la mascota:");
+        jLabel12.setText("Nombre de la mascota:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -304,7 +304,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
                 .addComponent(JBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JBModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(JBImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,6 +333,11 @@ public class frmConsultas extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbConsultasMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbConsultas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -376,7 +381,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addGap(249, 249, 249)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -527,6 +532,10 @@ public class frmConsultas extends javax.swing.JInternalFrame {
                     }
 
                     else {
+                    if (calendar.getDatoFecha() == null) {
+                    JOptionPane.showMessageDialog(this,"Favor de no dejar opciones sin seleccionar  ");            
+                    }    
+                    else  {
                 m = (DefaultTableModel)tbConsultas.getModel();
                 ID_Consulta = tbConsultas.getValueAt(fsel, 0).toString();
                 
@@ -563,6 +572,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
                 }     
                 }
                 }
+                }
                 
     }//GEN-LAST:event_JBModificarActionPerformed
 
@@ -571,7 +581,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         int fsel = tbConsultas.getSelectedRow();
         String ID;
         if (fsel==-1) {
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
             m = (DefaultTableModel)tbConsultas.getModel();
             ID = tbConsultas.getValueAt(fsel, 0).toString();
@@ -600,6 +610,16 @@ public class frmConsultas extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_JBEliminarActionPerformed
+
+    private void tbConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbConsultasMouseClicked
+        int fila = tbConsultas.getSelectedRow();
+        JCBXEstado.setSelectedItem(String.valueOf(tbConsultas.getValueAt(fila, 4)));
+        jcbDUI.setSelectedItem(String.valueOf(tbConsultas.getValueAt(fila, 5)));
+        CmbTipo_Consulta.setSelectedItem(String.valueOf(tbConsultas.getValueAt(fila, 3)));
+        jcbMascota.setSelectedItem(String.valueOf(tbConsultas.getValueAt(fila, 6)));
+        JBModificar.setEnabled(true);
+        JBEliminar.setEnabled(true);
+    }//GEN-LAST:event_tbConsultasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

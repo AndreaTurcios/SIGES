@@ -159,19 +159,19 @@ public class MtoConsulta {
 
         
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID", "Fecha", "Hora", "Tipo de consulta", "Dui del cliente", "ID de la mascota"};
+        String [] columnas = {"ID", "Fecha", "Hora", "Tipo de consulta", "Estado", "Dui del cliente", "Nombre de la mascota"};
         model = new DefaultTableModel(null, columnas);
 
-        String sql = "SELECT c.ID_consulta, c.consulta_fecha, c.consulta_hora, c.ID_tipoConsulta ,c.ID_DUI, c.ID_mascota FROM Consulta c";
+        String sql = "SELECT c.ID_consulta, c.consulta_fecha, c.consulta_hora, ti.tipo_consulta, t.estado ,c.ID_DUI, m.nombre_mascota FROM Consulta c, Mascota m, tipo_estado t, Tipo_consulta ti WHERE c.ID_DUI = m.ID_DUI AND c.ID_estado = t.ID_estado AND c.ID_tipoConsulta = ti.ID_tipoConsulta";
 
-        String [] filas = new String[6];
+        String [] filas = new String[7];
         Statement st = null;
         ResultSet rs = null;
         try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()){
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 7; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
