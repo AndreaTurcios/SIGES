@@ -8,6 +8,8 @@ package clases;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -18,17 +20,27 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MtoBitacora {
     private Connection cn;
+    private String Fecha;
     
     public MtoBitacora(){
         Conexion con = new Conexion();
         cn = con.conectar();
+        Calendar fecha = new GregorianCalendar();
+        int año = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH);
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);  
+        String Ahora = año + "-" + (mes+1) + "-" + dia;
+        Fecha = Ahora;
     }
     public void listarBitacora(Connection cn, JTable tabla){
+        
         DefaultTableModel model = new DefaultTableModel();
         String [] columnas = {"ID", "Accion", "Instruccion", "Fecha y Hora", "ID_usuario"};
         model = new DefaultTableModel(null, columnas);
         
         String sql = "SELECT ID_bitacora, accion, instruccion, fecha, ID_usuario FROM bitacora";
+//                + "WHERE fecha = '" + Fecha + "'";
+                
         String [] filas = new String[5];
         Statement st = null;
         ResultSet rs = null;
