@@ -481,7 +481,8 @@ import javax.swing.table.DefaultTableModel;
         if (obj.Guardar()) 
         {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
-           CargarF();
+           CargarF();   
+         
            Bit.BitacoraCreateFactura();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
