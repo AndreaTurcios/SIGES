@@ -375,10 +375,17 @@ DefaultTableModel m;
 
     private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarActionPerformed
         //Tomando los datos del formulario y pasandolos a los atributos de la clase
-        if (JTProducto.getText().isEmpty() || JTCodigo.getText().isEmpty() || calendar.getDatoFecha() == null || calendar1.getDatoFecha() == null) {
+        if (JTProducto.getText().isEmpty() || JTCodigo.getText().isEmpty() || JTCosto.getText().isEmpty() || calendar.getDatoFecha() == null || calendar1.getDatoFecha() == null) {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else {
+            int jcb1 = JCBTIPO.getSelectedIndex();
+            
+            if (jcb1==0) {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar una entidad federativa", "Verificar", JOptionPane.WARNING_MESSAGE);
+                    }
+
+            else {
             MtoProductos obj = new MtoProductos();
             obj.setProducto(JTProducto.getText());
             obj.setCodigo(Integer.parseInt(JTCodigo.getText()));
@@ -400,6 +407,7 @@ DefaultTableModel m;
                 JOptionPane.showMessageDialog(this, "Error al guardar datos");
             }
         }
+        }
 
     }//GEN-LAST:event_JBGuardarActionPerformed
 
@@ -408,6 +416,13 @@ DefaultTableModel m;
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }
         else{
+            int jcb1 = JCBTIPO.getSelectedIndex();
+            
+            if (jcb1==0) {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar una entidad federativa", "Verificar", JOptionPane.WARNING_MESSAGE);
+                    }
+
+            else {
             String ID;
             int fsel = jTable2.getSelectedRow();
              if (fsel==-1) {
@@ -439,6 +454,7 @@ DefaultTableModel m;
                 JOptionPane.showMessageDialog(this, "Error al modificar datos");
             }
              }
+        }
         }
     }//GEN-LAST:event_JBModificarActionPerformed
 

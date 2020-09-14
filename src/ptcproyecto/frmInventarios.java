@@ -6,13 +6,17 @@
 package ptcproyecto;
 
 import clases.MtoInventario;
+import clases.MtoProductos;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author 15-CW0001la
  */
 public class frmInventarios extends javax.swing.JInternalFrame {
-
+DefaultTableModel m;
     /**
      * Creates new form frmInventarios
      */
@@ -20,6 +24,12 @@ public class frmInventarios extends javax.swing.JInternalFrame {
         initComponents();
         cargarInventario();
         cargarCombos();
+        JBModificar.setEnabled(false);
+        JBEliminar.setEnabled(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
     
     public void cargarCombos(){
@@ -31,6 +41,16 @@ public class frmInventarios extends javax.swing.JInternalFrame {
     public void cargarInventario(){
         MtoInventario ob = new MtoInventario();
         ob.CargarProductos(jTable1);
+    }
+    
+    public void limpiar(){
+        JTProducto.setText("");
+        JTCodigo.setText("");
+        JTCosto.setText("");
+        JBModificar.setEnabled(false);
+        JBEliminar.setEnabled(false);
+        JCBTIPO.setSelectedIndex(0);
+        JCBXProveedor.setSelectedIndex(0);
     }
 
     /**
@@ -46,6 +66,7 @@ public class frmInventarios extends javax.swing.JInternalFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -87,12 +108,16 @@ public class frmInventarios extends javax.swing.JInternalFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Inventario");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(262, 262, 262)
                 .addComponent(btnCerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -102,7 +127,9 @@ public class frmInventarios extends javax.swing.JInternalFrame {
             .addComponent(btnCerrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel13))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -133,6 +160,11 @@ public class frmInventarios extends javax.swing.JInternalFrame {
         jLabel4.setText("Código del producto:");
 
         JTCodigo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        JTCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTCodigoKeyTyped(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("Tipo de producto:");
@@ -147,6 +179,11 @@ public class frmInventarios extends javax.swing.JInternalFrame {
         jLabel5.setText("Costo($):");
 
         JTCosto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        JTCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTCostoKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Fecha de expiracion:");
@@ -159,15 +196,35 @@ public class frmInventarios extends javax.swing.JInternalFrame {
 
         JBModificar.setBackground(new java.awt.Color(153, 204, 255));
         JBModificar.setText("Modificar");
+        JBModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBModificarActionPerformed(evt);
+            }
+        });
 
         JBEliminar.setBackground(new java.awt.Color(153, 204, 255));
         JBEliminar.setText("Eliminar");
+        JBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBEliminarActionPerformed(evt);
+            }
+        });
 
         JBLimpiar.setBackground(new java.awt.Color(153, 204, 255));
         JBLimpiar.setText("Limpiar");
+        JBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBLimpiarActionPerformed(evt);
+            }
+        });
 
         JBIngresar.setBackground(new java.awt.Color(153, 204, 255));
         JBIngresar.setText("Ingresar");
+        JBIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBIngresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -287,12 +344,151 @@ public class frmInventarios extends javax.swing.JInternalFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int fila = jTable1.getSelectedRow();
         JTProducto.setText(String.valueOf(jTable1.getValueAt(fila, 1)));
-        JTCodigo.setText(String.valueOf(jTable1.getValueAt(fila, 2)));
+//        JTCodigo.setText(String.valueOf(jTable1.getValueAt(fila, 2)));
         JTCosto.setText(String.valueOf(jTable1.getValueAt(fila, 4)));
         JCBTIPO.setSelectedItem(String.valueOf(jTable1.getValueAt(fila, 6)));
         JCBXProveedor.setSelectedItem(String.valueOf(jTable1.getValueAt(fila, 7)));
-        
+        JBModificar.setEnabled(true);
+        JBEliminar.setEnabled(true);
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void JBIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBIngresarActionPerformed
+        if (JTProducto.getText().isEmpty() || JTCodigo.getText().isEmpty() || JTCosto.getText().isEmpty() || calendar.getDatoFecha() == null || calendar1.getDatoFecha() == null) {
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
+            int jcb1 = JCBTIPO.getSelectedIndex();
+            int jcb2 = JCBXProveedor.getSelectedIndex();
+            
+            if (jcb1==0||jcb2==0) {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar una entidad federativa", "Verificar", JOptionPane.WARNING_MESSAGE);
+                    }
+
+            else {
+            MtoInventario obj = new MtoInventario();
+            obj.setProducto(JTProducto.getText());
+            obj.setCodigo(Integer.parseInt(JTCodigo.getText()));
+
+            obj.setCosto(JTCosto.getText());
+            obj.setFechaE(new java.sql.Date(calendar.getDatoFecha().getTime()));
+            obj.setFechaEx(new java.sql.Date(calendar1.getDatoFecha().getTime()));
+            int Tipo = JCBTIPO.getSelectedIndex();
+            obj.setTipo_producto(Tipo);
+            int Proveedor = JCBXProveedor.getSelectedIndex();
+            obj.setProveedor(Proveedor);
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
+            if (obj.guardar()) {
+                JOptionPane.showMessageDialog(this, "Datos guardados");
+                cargarInventario();
+                limpiar();
+                Bit.BitacoraCreateInventario();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Error al guardar datos");
+            }
+        }
+        }
+    }//GEN-LAST:event_JBIngresarActionPerformed
+
+    private void JBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_JBLimpiarActionPerformed
+
+    private void JBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarActionPerformed
+
+        if (JTProducto.getText().isEmpty() || JTCodigo.getText().isEmpty() || JTCosto.getText().isEmpty() || calendar.getDatoFecha() == null || calendar1.getDatoFecha() == null) {
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else {
+            int jcb1 = JCBTIPO.getSelectedIndex();
+            int jcb2 = JCBXProveedor.getSelectedIndex();
+            
+            if (jcb1==0||jcb2==0) {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar una entidad federativa", "Verificar", JOptionPane.WARNING_MESSAGE);
+                    }
+
+            else {
+                String ID;
+            int fsel = jTable1.getSelectedRow();
+             if (fsel==-1) {
+
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
+            }else{
+             m = (DefaultTableModel)jTable1.getModel();
+            ID = jTable1.getValueAt(fsel, 0).toString();
+            MtoInventario obj = new MtoInventario();
+            obj.setID_inventario(Integer.parseInt(ID));
+            obj.setProducto(JTProducto.getText());
+            obj.setCodigo(Integer.parseInt(JTCodigo.getText()));
+
+            obj.setCosto(JTCosto.getText());
+            obj.setFechaE(new java.sql.Date(calendar.getDatoFecha().getTime()));
+            obj.setFechaEx(new java.sql.Date(calendar1.getDatoFecha().getTime()));
+            int Tipo = JCBTIPO.getSelectedIndex();
+            obj.setTipo_producto(Tipo);
+            int Proveedor = JCBXProveedor.getSelectedIndex();
+            obj.setProveedor(Proveedor);
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
+            if (obj.modificar()) {
+                JOptionPane.showMessageDialog(this, "Datos modificados");
+                cargarInventario();
+                limpiar();
+                Bit.BitacoraUpdateInventario();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Error al modificar datos");
+            }
+            }
+        }
+        }
+    }//GEN-LAST:event_JBModificarActionPerformed
+
+    private void JBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEliminarActionPerformed
+        MtoInventario obj = new MtoInventario();
+        int fsel = jTable1.getSelectedRow();
+        String ID;
+        if (fsel==-1) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }else{
+            m = (DefaultTableModel)jTable1.getModel();
+            ID = jTable1.getValueAt(fsel, 0).toString();
+            
+            
+            
+            obj.setID_inventario(Integer.parseInt(ID));
+            
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText())); 
+            
+            int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
+            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);    
+            if (eliminar == 0) {
+                if (obj.eliminar()) {
+                    JOptionPane.showMessageDialog(this, "Datos eliminados");
+                    cargarInventario();
+                    Bit.BitacoraDeleteInventario();
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Error al eliminar datos");
+                }
+            }
+        }
+    }//GEN-LAST:event_JBEliminarActionPerformed
+
+    private void JTCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTCodigoKeyTyped
+    char ValiCod = evt.getKeyChar();
+    if(ValiCod < '0' || ValiCod > '9' ){
+        evt.consume();
+        getToolkit().beep();
+    }
+    }//GEN-LAST:event_JTCodigoKeyTyped
+
+    private void JTCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTCostoKeyTyped
+        
+    }//GEN-LAST:event_JTCostoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -308,6 +504,7 @@ public class frmInventarios extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCerrar1;
     private rojeru_san.componentes.RSDateChooser calendar;
     private rojeru_san.componentes.RSDateChooser calendar1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

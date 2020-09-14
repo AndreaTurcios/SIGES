@@ -6,6 +6,7 @@
 package clases;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,6 +22,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MtoInventario {
     private Connection cn;
+    private Integer ID_inventario;
+    private String Producto;
+    private Integer Codigo;
+    private Date FechaE;
+    private String Costo;
+    private Date FechaEx;
+    private Integer Tipo_producto;
+    private Integer Proveedor;
     
     public MtoInventario(){
         Conexion con = new Conexion();
@@ -114,7 +123,89 @@ public class MtoInventario {
             }
         }
     }
+    
+    public boolean guardar(){
+        boolean resp  = false;
+        try{
+            //Realizar consulta INSERT
+            String sql = "INSERT INTO Inventario (producto, codigo_producto , fecha_entrada, costo_producto, fecha_expiracion, ID_tipoProductos, ID_proveedor) "
+            + "VALUES( ?, ?, ?, ?, ?, ?, ?)";//Se pasan por referencia por seguridad        
+            //Pide importar clase PreparedStateMent
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            //Llenar los parametros de la clase, se coloca en el orden de la tabla 
+            cmd.setString(1, Producto);//codigo es como se definio en la clase aunque en la base se llama correlativo
+            cmd.setInt(2, Codigo);
+            cmd.setDate(3, FechaE);
+            cmd.setString(4, Costo);
+            cmd.setDate(5, FechaEx);
+            cmd.setInt(6, Tipo_producto);
+            cmd.setInt(7, Proveedor);
+            //si da error devuelve 1, caso contrario 0
+            //Tomar en cuenta el "!" de negacion
+            
+            if (!cmd.execute()) {
+                resp = true;
+            }
+            //cerrando conexion
+            cmd.close();
+            cn.close();            
+        }
+    catch(Exception e){
+        System.out.println(e.toString());
+    }
+        return resp;    
+    } 
+    
+    public boolean modificar(){
+        boolean resp = false;
+        try{
+            //Realizar consulta UPDATE 
+            String sql = "UPDATE Inventario SET producto = ? , codigo_producto = ?, fecha_entrada = ?, costo_producto = ?, fecha_expiracion = ?, ID_tipoProductos = ?, ID_proveedor = ? WHERE ID_inventario = ?;";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            //Llenar los parametros como esta en la clase 
+            cmd.setString(1, Producto);
+            cmd.setInt(2, Codigo);
+            cmd.setDate(3, FechaE);
+            cmd.setString(4, Costo);
+            cmd.setDate(5, FechaEx);
+            cmd.setInt(6, Tipo_producto);
+            cmd.setInt(7, Proveedor);
+            cmd.setInt(8, ID_inventario);
+            //Si da error devuelve 1, caso contrario 0
+            //Tomar en cuenta el "!" de negacion
+            
+            if (!cmd.execute()) {
+                resp = true;
+            }
+            cmd.close();
+            cn.close();           
+        }
+        catch(Exception e){
+            System.out.println(e.toString());
+        }
+        return resp;
+    }
+    
+    public boolean eliminar(){
+         boolean resp = false;
+          try {
+              String sql = "DELETE FROM Inventario WHERE ID_inventario = ?";
+              PreparedStatement cmd = cn.prepareStatement(sql);
+              
+              cmd.setInt(1, ID_inventario);
 
+              if (!cmd.execute()) {
+                resp = true;
+                }
+                
+                cmd.close();
+                cn.close();
+          } catch (Exception e) {
+              System.out.println(e.toString());
+          }
+         return resp;
+      }    
+    
     /**
      * @return the cn
      */
@@ -128,4 +219,117 @@ public class MtoInventario {
     public void setCn(Connection cn) {
         this.cn = cn;
     }
+
+    /**
+     * @return the ID_inventario
+     */
+    public Integer getID_inventario() {
+        return ID_inventario;
+    }
+
+    /**
+     * @param ID_inventario the ID_inventario to set
+     */
+    public void setID_inventario(Integer ID_inventario) {
+        this.ID_inventario = ID_inventario;
+    }
+
+    /**
+     * @return the Producto
+     */
+    public String getProducto() {
+        return Producto;
+    }
+
+    /**
+     * @param Producto the Producto to set
+     */
+    public void setProducto(String Producto) {
+        this.Producto = Producto;
+    }
+
+    /**
+     * @return the Codigo
+     */
+    public Integer getCodigo() {
+        return Codigo;
+    }
+
+    /**
+     * @param Codigo the Codigo to set
+     */
+    public void setCodigo(Integer Codigo) {
+        this.Codigo = Codigo;
+    }
+
+    /**
+     * @return the FechaE
+     */
+    public Date getFechaE() {
+        return FechaE;
+    }
+
+    /**
+     * @param FechaE the FechaE to set
+     */
+    public void setFechaE(Date FechaE) {
+        this.FechaE = FechaE;
+    }
+
+    /**
+     * @return the Costo
+     */
+    public String getCosto() {
+        return Costo;
+    }
+
+    /**
+     * @param Costo the Costo to set
+     */
+    public void setCosto(String Costo) {
+        this.Costo = Costo;
+    }
+
+    /**
+     * @return the FechaEx
+     */
+    public Date getFechaEx() {
+        return FechaEx;
+    }
+
+    /**
+     * @param FechaEx the FechaEx to set
+     */
+    public void setFechaEx(Date FechaEx) {
+        this.FechaEx = FechaEx;
+    }
+
+    /**
+     * @return the Tipo_producto
+     */
+    public Integer getTipo_producto() {
+        return Tipo_producto;
+    }
+
+    /**
+     * @param Tipo_producto the Tipo_producto to set
+     */
+    public void setTipo_producto(Integer Tipo_producto) {
+        this.Tipo_producto = Tipo_producto;
+    }
+
+    /**
+     * @return the Proveedor
+     */
+    public Integer getProveedor() {
+        return Proveedor;
+    }
+
+    /**
+     * @param Proveedor the Proveedor to set
+     */
+    public void setProveedor(Integer Proveedor) {
+        this.Proveedor = Proveedor;
+    }
+
 }

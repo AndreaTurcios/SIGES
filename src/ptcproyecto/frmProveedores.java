@@ -34,6 +34,10 @@ DefaultTableModel m;
         initComponents();
         ListarProveedor();
         jTextField2.setVisible(false);
+        Login ventana = new Login();
+        jLabel1.setText(ventana.ID.toString());
+        System.out.println(ventana.ID);
+        jLabel1.setVisible(false);
     }
 
     /**
@@ -48,6 +52,7 @@ DefaultTableModel m;
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel12 = new javax.swing.JLabel();
         BtnCerrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -86,12 +91,16 @@ DefaultTableModel m;
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(257, 257, 257)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(213, 213, 213)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
                 .addComponent(BtnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -99,7 +108,9 @@ DefaultTableModel m;
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(BtnCerrar)
-            .addComponent(jLabel12)
+            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel1)
+                .addComponent(jLabel12))
         );
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -368,10 +379,13 @@ DefaultTableModel m;
     obj.setDireccion(tfDomicilio.getText());
     obj.setCorreo(tfCorreo.getText());
     obj.setSitio_web(tfSitio.getText());
+    clases.Bitacora Bit = new clases.Bitacora();
+    Bit.setID(Integer.parseInt(jLabel1.getText()));
     
     if (obj.guardarProveedor(obj)) {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            ListarProveedor();
+           Bit.BitacoraCreateProveedor();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar los datos"); 
            ListarProveedor();
@@ -404,10 +418,13 @@ DefaultTableModel m;
          u.setDireccion(tfDomicilio.getText());
          u.setCorreo(tfCorreo.getText());
          u.setSitio_web(tfSitio.getText());
+         clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
          
          if (u.modificar()) {
             JOptionPane.showMessageDialog(null,"Datos modificados correctamente");
              ListarProveedor();
+             Bit.BitacoraUpdateProveedor();
         }else{
            JOptionPane.showMessageDialog(null,"Error al modificar los datos");
            }
@@ -454,6 +471,8 @@ DefaultTableModel m;
 
             ControlProveedores obj = new ControlProveedores();
             obj.setID_proveedor(Integer.parseInt(jTextField2.getText()));
+            clases.Bitacora Bit = new clases.Bitacora();
+            Bit.setID(Integer.parseInt(jLabel1.getText()));
             int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eliminar == 0) {
@@ -461,6 +480,7 @@ DefaultTableModel m;
                 if (obj.Eliminar()) {
                     JOptionPane.showMessageDialog(this, "Datos eliminados");
                     ListarProveedor();
+                    Bit.BitacoraDeleteProveedor();
                 }else{
                     JOptionPane.showMessageDialog(this, "Error al eliminar");
                 }
@@ -498,6 +518,7 @@ DefaultTableModel m;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
