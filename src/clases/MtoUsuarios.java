@@ -200,18 +200,18 @@ public class MtoUsuarios {
         boolean resp = false;
         try{
             //Realizar consulta UPDATE 
-            String sql = "UPDATE Usuarios SET nombre_usuario = ?, contrasenia_usuario = ?, nombre_empleado = ?, empleado_apellidos = ?, empleado_domicilio = ?, empleado_correo = ?, ID_tipoUsuarios = ? WHERE ID_usuario = ?;";
+            String sql = "UPDATE Usuarios SET nombre_usuario = ?, nombre_empleado = ?, empleado_apellidos = ?, empleado_domicilio = ?, empleado_correo = ?, ID_tipoUsuarios = ? WHERE ID_usuario = ?;";
             PreparedStatement cmd = cn.prepareStatement(sql);
             //Llenar los parametros como esta en la clase 
             cmd.setString(1, nombre_usuario);
-            cmd.setString(2, contrasenia_usuario);
-            cmd.setString(3,  nombre_empleado);
-            cmd.setString(4,empleado_apellidos );
-            cmd.setString(5, empleado_domicilio);
-            cmd.setString(6, empleado_correo);
-            cmd.setInt(7, ID_tipoUsuarios);
+            
+            cmd.setString(2,  nombre_empleado);
+            cmd.setString(3,empleado_apellidos );
+            cmd.setString(4, empleado_domicilio);
+            cmd.setString(5, empleado_correo);
+            cmd.setInt(6, ID_tipoUsuarios);
             System.out.println(ID_tipoUsuarios);
-            cmd.setInt(8, ID_usuario);
+            cmd.setInt(7, ID_usuario);
             //Si da error devuelve 1, caso contrario 0
             //Tomar en cuenta el "!" de negacion
             
