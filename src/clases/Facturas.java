@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -27,6 +28,7 @@ public class Facturas {
     private Integer ID_detalle;
     private Integer ID_consulta;
     private Integer ID_producto;
+    private Integer ID_tipoPago;
 
     public Connection getCn() {
         return Cn;
@@ -84,6 +86,14 @@ public class Facturas {
         this.ID_producto = ID_producto;
     }
     
+     public Integer getID_tipoPago() {
+        return ID_tipoPago;
+    }
+
+    public void setID_tipoPago(Integer ID_tipoPago) {
+        this.ID_tipoPago = ID_tipoPago;
+    }
+    
     public Pool getMetodospool(){
         return metodospool;
     }
@@ -99,13 +109,14 @@ public class Facturas {
         try {
             boolean resp = false;
             Cn = Conexion.conectar();
-            String sql = "INSERT INTO Factura (nombre_pagador, ID_detalle, ID_consulta, ID_producto)"+"VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO Factura (nombre_pagador, ID_detalle, ID_consulta, ID_producto ,ID_tipoPago)"+"VALUES(?, ?, ?, ?, ?)";
             PreparedStatement cmd = Cn.prepareStatement(sql);
 
             cmd.setString(1, nombre_pagador);
             cmd.setInt(2, ID_detalle);
             cmd.setInt(3, ID_consulta);
             cmd.setInt(4, ID_producto);
+            cmd.setInt(5, ID_tipoPago);
             
             if (!cmd.execute()) {
                 resp = true;
@@ -143,6 +154,8 @@ public class Facturas {
             return false;
         }
         }
+    
+    
     public boolean Eliminar() {
         boolean resp = false;
         Cn = Conexion.conectar();
@@ -188,4 +201,126 @@ public class Facturas {
     public void CargarF (JTable tabla) {
         listarFactura(Cn ,tabla);
     }
+    
+    public void consultarProductos(JComboBox cbox_producto) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT producto FROM Productos ORDER BY ID_producto";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_producto.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                cbox_producto.addItem(resultado.getString("Producto"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+     }
+    
+        public void consultarconsulta(JComboBox cbox_consulta) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT consulta_fecha FROM Consulta ORDER BY ID_consulta";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_consulta.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                cbox_consulta.addItem(resultado.getString("Consulta"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
     }
+        
+        public void consultartipoPago(JComboBox cbox_tPago) {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+
+        String SSQL = "SELECT tipo_pago FROM Tipo_pago ORDER BY ID_tipoPago";
+        try {
+            cn = metodospool.dataSource.getConnection();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_tPago.addItem("Seleccione una opción");
+            while (resultado.next()) {
+                cbox_tPago.addItem(resultado.getString("Tipo_pago"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        public boolean modificarTpago() {
+
+        try {
+            boolean resp = false;
+            Cn = Conexion.conectar();
+            String sql = "UPDATE Detalle_factura SET monto_pagar = ?, fecha_emision = ?, ID_tipoPago = ?WHERE ID_tipoPago = ?";
+            PreparedStatement cmd = Cn.prepareStatement(sql);
+
+            cmd.setString(1, nombre_pagador);
+            cmd.setInt(2, ID_detalle);
+            cmd.setInt(3, ID_consulta);
+            cmd.setInt(4, ID_producto);
+            cmd.setInt(5, ID_factura);
+            
+            if (!cmd.execute()) {
+                resp = true;
+            }
+            cmd.close();
+            Cn.close();
+            return resp;
+        } catch (SQLException ex) {
+            System.err.println("Error guardar tipo empleado " + ex);
+            return false;
+        }
+        }
+}
