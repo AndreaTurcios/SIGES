@@ -19,6 +19,9 @@ DefaultTableModel m;
     /**
      * Creates new form DetalleFactura
      */
+     
+     String Item = "";
+
     public DetalleFactura() {
         initComponents();
         CargarTipoP();
@@ -270,7 +273,32 @@ public void CargarTipoP(){
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        DetalleFacturas obj = new DetalleFacturas();
+        Item = jComboBox1.getSelectedItem().toString();
+        if (Item.equals("Tarjeta")) 
+        {
+            DetalleFacturas obj = new DetalleFacturas();
+          double monto= Double.parseDouble(jTextField1.getText());
+          double Descuento = monto * 0.10;
+          obj.setMonto_pagar(monto - Descuento);
+          
+        DetalleFacturas ti = (DetalleFacturas)jComboBox1.getSelectedItem();
+        obj.setID_tipoPago(ti.getID_tipoPago());
+         
+        obj.setFecha_emision(new java.sql.Date(calendar.getDatoFecha().getTime())); 
+         
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
+        if (obj.guardarDetalle()) {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           ListarDetalle();
+           Bit.BitacoraCreateDetalleFactura();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+        }
+        }
+        else
+        {
+            DetalleFacturas obj = new DetalleFacturas();
           double monto= Double.parseDouble(jTextField1.getText());
           obj.setMonto_pagar(monto);
           
@@ -287,6 +315,7 @@ public void CargarTipoP(){
            Bit.BitacoraCreateDetalleFactura();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+        }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
