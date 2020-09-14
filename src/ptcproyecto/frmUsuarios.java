@@ -30,7 +30,7 @@ DefaultTableModel m;
         jLabel1.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
         jLabel1.setVisible(false);
-        jtfContraseña.setEnabled(false);
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -448,7 +448,7 @@ DefaultTableModel m;
                 jtfUsuario.setText(obj.getNombre_usuario());
                 jtfEmail.setText(obj.getEmpleado_correo());
                 jtfContraseña.setText(obj.getContrasenia_usuario());
-                
+                jtfContraseña.setEnabled(false);
                 JOptionPane.showMessageDialog(this, "Datos Consultados exitosamente");
                 Bit.BitacoraReadUsuario();
             }
