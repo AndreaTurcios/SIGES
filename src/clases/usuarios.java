@@ -234,10 +234,10 @@ public class usuarios {
     public void CargarUsuarios(Connection cn, JTable tabla){
         cn = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID_usuario", "usuario","contrasenia","nombre","apellidos", "domicilio", "correo", "tipo usuario","id consulta", "id cita"};
+        String [] columnas = {"ID_usuario", "usuario","contrasenia","nombre","apellidos", "domicilio", "correo", "tipo usuario"};
         model = new DefaultTableModel(null, columnas);
-        String sql = "SELECT * FROM Usuarios ORDER BY ID_usuario";
-        String [] filas = new String[11];
+        String sql = "SELECT u.ID_usuario, u.nombre_usuario, u.contrasenia_usuario, u.nombre_empleado, u.empleado_apellidos, u.empleado_domicilio, u.empleado_correo, tu.tipo_empleado FROM Usuarios u, Tipo_usuarios tu WHERE u.ID_tipoUsuarios = tu.ID_tipoUsuarios ORDER BY ID_usuario";
+        String [] filas = new String[8];
         Statement st = null;
         ResultSet rs = null;     
         try{
@@ -245,7 +245,7 @@ public class usuarios {
             rs = st.executeQuery(sql);
             System.out.println("datos obtenidos "+rs);
             while (rs.next()){
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 8; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);

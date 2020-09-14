@@ -30,6 +30,7 @@ DefaultTableModel m;
         jLabel1.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
         jLabel1.setVisible(false);
+        jtfContraseña.setEnabled(false);
     }
     
     @SuppressWarnings("unchecked")
@@ -171,6 +172,11 @@ DefaultTableModel m;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jtbGuardar.setBackground(new java.awt.Color(204, 204, 204));
@@ -324,6 +330,16 @@ DefaultTableModel m;
         obj.CargarUsuario(jTable1);
     }
     
+    public void Limpiar(){
+        jtfNombre.setText("");
+        jtfApellido.setText("");
+        jtfEmail.setText("");
+        jtfDireccion.setText("");
+        jtfUsuario.setText("");
+        jtfContraseña.setText("");
+        JCBcargoE.setSelectedIndex(0);
+    }
+    
     public void CargarCargos(){
         usuarios obj = new usuarios();
         obj.consultarCargos(JCBcargoE);
@@ -357,6 +373,7 @@ DefaultTableModel m;
             if (obj.guardar()) {
                 JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
                 ListarUsuarios();
+                Limpiar();
                 Bit.BitacoraCreateUsuario();
             }else{
                 JOptionPane.showMessageDialog(this, "Error al guardar los datos");
@@ -400,6 +417,7 @@ DefaultTableModel m;
             if (obj.modificar()) {
                 JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
                 ListarUsuarios();
+                Limpiar();
                 Bit.BitacoraUpdateUsuario();
             }else{
                 JOptionPane.showMessageDialog(this, "Error al modificar los datos");
@@ -430,6 +448,7 @@ DefaultTableModel m;
                 jtfUsuario.setText(obj.getNombre_usuario());
                 jtfEmail.setText(obj.getEmpleado_correo());
                 jtfContraseña.setText(obj.getContrasenia_usuario());
+                
                 JOptionPane.showMessageDialog(this, "Datos Consultados exitosamente");
                 Bit.BitacoraReadUsuario();
             }
@@ -497,6 +516,12 @@ DefaultTableModel m;
             Logger.getLogger(frmFichaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jtbImprimirActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int fila = jTable1.getSelectedRow();
+        
+        JCBcargoE.setSelectedItem(String.valueOf(jTable1.getValueAt(fila, 7)));
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
