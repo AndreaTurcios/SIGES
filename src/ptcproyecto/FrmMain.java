@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  * @author 15-CW0001la
  */                               
 public class FrmMain extends javax.swing.JFrame {
-    int clicked = 0;
+    public static int clicked = 00;
     /**
      * Creates new form FrmMain
      */
@@ -755,6 +755,7 @@ public class FrmMain extends javax.swing.JFrame {
         tipoclientes fich= new tipoclientes();
         panelArriba.add(fich);
         fich.show();
+        clicked++;
     }//GEN-LAST:event_btntipoClienteMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -783,6 +784,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         panelArriba.removeAll();
         Agenda fich= new Agenda();
         panelArriba.add(fich);
@@ -815,6 +817,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         panelArriba.removeAll();
         Productos fich= new Productos();
         panelArriba.add(fich);
@@ -847,6 +850,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         panelArriba.removeAll();
         Citas fich= new Citas();
         panelArriba.add(fich);
@@ -879,6 +883,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         panelArriba.removeAll();
         frmConsultas fich =new frmConsultas();
         panelArriba.add(fich);
@@ -911,6 +916,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Dueños fich= new Dueños();
@@ -945,6 +951,7 @@ public class FrmMain extends javax.swing.JFrame {
          jLabel22.setForeground(Color.WHITE);
          jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
          lblLogo.setVisible(false);
          panelArriba.removeAll();
         Mascotas fich= new Mascotas();
@@ -978,6 +985,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmUsuarios fich= new frmUsuarios();
@@ -1011,6 +1019,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         FrmPreguntas fich= new FrmPreguntas();
@@ -1045,6 +1054,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoMascota fich= new TipoMascota();
@@ -1078,6 +1088,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoProducto fich= new TipoProducto();
@@ -1111,6 +1122,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Nacionalidad fich = new Nacionalidad();
@@ -1144,6 +1156,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoPago fich= new TipoPago ();
@@ -1177,6 +1190,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         tipo_empleado fich= new tipo_empleado ();
@@ -1210,6 +1224,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         CodigoZn fich= new CodigoZn ();
@@ -1243,6 +1258,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmTipo_cita fich= new frmTipo_cita ();
@@ -1276,6 +1292,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmFichaClinica fich= new frmFichaClinica ();
@@ -1309,6 +1326,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoConsulta fich= new TipoConsulta();
@@ -1382,6 +1400,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         panelArriba.removeAll();
         lblLogo.setVisible(false);
         DetalleFactura fich= new DetalleFactura ();
@@ -1415,6 +1434,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         TipoEstado fich= new TipoEstado ();
@@ -1448,6 +1468,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Respuestas fich= new Respuestas ();
@@ -1481,6 +1502,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Factura fich= new Factura ();
@@ -1514,6 +1536,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.BLACK);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.WHITE);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         Bitacora fich= new Bitacora ();
@@ -1546,6 +1569,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel21.setForeground(Color.WHITE);
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.BLACK);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmInventarios fich= new frmInventarios ();
@@ -1579,6 +1603,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel22.setForeground(Color.WHITE);
         jLabel23.setForeground(Color.WHITE);
         jLabel24.setForeground(Color.BLACK);
+        clicked++;
         lblLogo.setVisible(false);
         panelArriba.removeAll();
         frmProveedores fich= new frmProveedores ();

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -153,6 +154,40 @@ public class MtoProductos {
     }   
     public void CargarProductos(JTable tabla){
         listarProductos(getCn(), tabla);
+    }
+    
+    public DefaultTableModel BuscarTabla(String busqueda) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID_producto");
+        modelo.addColumn("producto");
+        modelo.addColumn("codigo_producto");
+        modelo.addColumn("fecha_entrada");
+        modelo.addColumn("costo_producto");
+        modelo.addColumn("fecha_expiracion");
+        modelo.addColumn("ID_tipoPoductos");
+        try {
+            String sql = "SELECT * FROM Productos WHERE codigo_producto=?";
+            Conexion con = new Conexion();
+            cn = con.conectar();
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setString(1, busqueda);
+            ResultSet rs = ps.executeQuery();
+            Object[] cas = new Object[7];
+            while (rs.next()) {
+                cas[0] = rs.getInt(1);
+                cas[1] = rs.getString(2);
+                cas[2] = rs.getString(3);
+                cas[3] = rs.getString(4);
+                cas[4] = rs.getString(5);
+                cas[5] = rs.getString(6);
+                cas[6] = rs.getInt(7);
+                modelo.addRow(cas);
+            }
+            cn.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return modelo;
     }
 
     /**
