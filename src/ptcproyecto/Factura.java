@@ -1161,7 +1161,7 @@ import javax.swing.table.DefaultTableModel;
         jTextField4.setText(masiva);  
         txtTotal.setText(sumas);  
         }
-        if (jTextField2.getText().isEmpty()) {
+        else if (jTextField2.getText().isEmpty()) {
         String sub = txtServicio.getText();
         double value = Double.parseDouble(sub);
         double iva = 0.13;
@@ -1174,12 +1174,24 @@ import javax.swing.table.DefaultTableModel;
         txtSubTotal.setText("N/A");
         txtSubtotal2.setText(sub);
         }
-        if (jTextField2.getText().isEmpty() && txtServicio.getText().isEmpty()) {
+        else if (jTextField2.getText().isEmpty() && txtServicio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this,"No se pueden calcular datos no ingresados");
-        }
-        if(txtServicio.getText().length()==1 && jTextField2.getText().length()==1){
+        }else{
          System.out.println("Cita y producto");
-         
+         String subservicio = txtServicio.getText();
+         double subtotalservicio = Double.parseDouble(subservicio);
+         String subprodu = txtSubTotal.getText();
+         double subproducto = Double.parseDouble(subprodu);
+         double subtotalg = subproducto+subtotalservicio;
+         String subtotal = String.valueOf(subtotalg); 
+         txtSubtotal2.setText(subtotal);
+         double iva = 0.13;
+         double e = subtotalg*iva;
+         String ivag = String.valueOf(e); 
+         jTextField4.setText(ivag);
+         double totalfinal = e+subtotalg;
+         String total = String.valueOf(totalfinal); 
+         txtTotal.setText(total);
 }
 //        double iva = 0.13;
 //        String div = txtSubTotal.getText();
