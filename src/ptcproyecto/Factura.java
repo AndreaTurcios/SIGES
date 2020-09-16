@@ -518,6 +518,12 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
+        txtServicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtServicioKeyTyped(evt);
+            }
+        });
+
         lblPrecioS.setText("Precio:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1112,7 +1118,8 @@ import javax.swing.table.DefaultTableModel;
             costoi = jTable1dialog1.getValueAt(fsel, 4).toString();
             jTextField2.setText(nombrep);
             txtSubTotal.setText(costoi);
-
+            jTextField5.setText(ID);
+            
             jDialog2.setVisible(false);
             }
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -1201,6 +1208,15 @@ import javax.swing.table.DefaultTableModel;
 //        jTextField4.setText(resultadoi);   
 //        txtTotal.setText(resultadoi); 
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void txtServicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtServicioKeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isLetter(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar números");
+        }
+    }//GEN-LAST:event_txtServicioKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
