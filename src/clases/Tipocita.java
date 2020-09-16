@@ -76,12 +76,11 @@ private String tipo_Cita;
 
     public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO Tipo_cita(ID_tipoCita, )"+" VALUES (?, ?)";
+        try {String sql = "INSERT INTO Tipo_cita(tipo_Cita)"+" VALUES (?)";
         
         PreparedStatement cmd = cn.prepareStatement(sql);
         
-       cmd.setInt(1, ID_tipoCita);
-       cmd.setString(2, tipo_Cita);
+       cmd.setString(1, tipo_Cita);
     
         
         if (!cmd.execute()) {
@@ -176,7 +175,7 @@ private String tipo_Cita;
             while (rs.next())
             {
                 filas[0] = rs.getString("ID_tipoCita");
-                filas[1] = rs.getString("Tipo_citas");
+                filas[1] = rs.getString("tipo_cita");
                 model.addRow(filas);
             }
             rs.close();
