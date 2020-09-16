@@ -223,6 +223,11 @@ DefaultTableModel m;
         jLabel4.setText("Código del producto:");
 
         JTCodigo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        JTCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTCodigoKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Fecha de entrada:");
@@ -335,7 +340,7 @@ DefaultTableModel m;
                                 .addComponent(JBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(JBConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 3, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -517,6 +522,15 @@ DefaultTableModel m;
             
             }
     }//GEN-LAST:event_JBConsultarActionPerformed
+
+    private void JTCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTCodigoKeyTyped
+        char ValiCod = evt.getKeyChar();
+    if(ValiCod < '0' || ValiCod > '9' ){
+        evt.consume();
+        getToolkit().beep();
+        JOptionPane.showMessageDialog(this, "Solo se pueden ingresar numeros.");
+    }
+    }//GEN-LAST:event_JTCodigoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

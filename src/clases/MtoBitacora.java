@@ -31,6 +31,7 @@ public class MtoBitacora {
         int dia = fecha.get(Calendar.DAY_OF_MONTH);  
         String Ahora = año + "-" + (mes+1) + "-" + dia;
         Fecha = Ahora;
+        System.out.println(Fecha);
     }
     public void listarBitacora(Connection cn, JTable tabla){
         
@@ -38,8 +39,8 @@ public class MtoBitacora {
         String [] columnas = {"ID", "Accion", "Instruccion", "Fecha y Hora", "ID_usuario"};
         model = new DefaultTableModel(null, columnas);
         
-        String sql = "SELECT ID_bitacora, accion, instruccion, fecha, ID_usuario FROM bitacora";
-//                + "WHERE fecha = '" + Fecha + "'";
+        String sql = "SELECT ID_bitacora, accion, instruccion, fecha, ID_usuario FROM bitacora "; 
+//WHERE fecha = '" + Fecha + "'"
                 
         String [] filas = new String[5];
         Statement st = null;
