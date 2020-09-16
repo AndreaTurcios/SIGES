@@ -47,7 +47,7 @@ import javax.swing.table.DefaultTableModel;
         lblPrecioS.setVisible(false);
         txtSubTotal.setEnabled(false);
         ListarDuenios();
-        jComboBox1.setEnabled(false);
+        cbxServicio.setEnabled(false);
         ListarProductos();
         jLabel1.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
@@ -102,14 +102,14 @@ import javax.swing.table.DefaultTableModel;
         cldFecha = new rojeru_san.componentes.RSDateChooser();
         jLabel15 = new javax.swing.JLabel();
         btnCliente = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        txtProducto = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtDUI = new javax.swing.JTextField();
         jsCantidada = new javax.swing.JSpinner();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxServicio = new javax.swing.JComboBox<>();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jButton10 = new javax.swing.JButton();
@@ -467,11 +467,11 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jTextField1.setEditable(false);
-        jTextField1.setEnabled(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.setEditable(false);
+        txtNombre.setEnabled(false);
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
 
@@ -482,22 +482,22 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jTextField2.setEditable(false);
+        txtProducto.setEditable(false);
 
         jLabel16.setText("Fecha:");
 
         jLabel17.setText("DUI:");
 
-        jTextField3.setEditable(false);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtDUI.setEditable(false);
+        txtDUI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtDUIActionPerformed(evt);
             }
         });
 
         jsCantidada.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cita", "Consulta" }));
+        cbxServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cita", "Consulta" }));
 
         jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -541,16 +541,16 @@ import javax.swing.table.DefaultTableModel;
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField3)
+                            .addComponent(txtNombre)
+                            .addComponent(txtDUI)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jCheckBox1)
                                     .addComponent(jCheckBox2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, 146, Short.MAX_VALUE))))
+                                    .addComponent(txtProducto, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cbxServicio, javax.swing.GroupLayout.Alignment.TRAILING, 0, 146, Short.MAX_VALUE))))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -598,7 +598,7 @@ import javax.swing.table.DefaultTableModel;
                     .addComponent(txtFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDUI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,14 +608,14 @@ import javax.swing.table.DefaultTableModel;
                                 .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel2)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(lblPrecioS))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox1)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel4)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbxServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(cldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -626,7 +626,7 @@ import javax.swing.table.DefaultTableModel;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2)
                         .addComponent(jLabel8)
                         .addComponent(jsCantidada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -797,7 +797,7 @@ import javax.swing.table.DefaultTableModel;
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
@@ -877,22 +877,18 @@ import javax.swing.table.DefaultTableModel;
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-         Facturas obj = new Facturas();
-//         String cs = cmbConsulta.getSelectedItem().toString();
-//         String pr = cmbProducto.getSelectedItem().toString();
-         String fp = cmbFormaPago.getSelectedItem().toString();
-         
-        int cant = (Integer)jsCantidada.getValue();
+        Facturas obj = new Facturas();
+        int DUI= Integer.parseInt(txtDUI.getText());
+        obj.setID_DUI(DUI);
+        obj.setnombre_pagador(txtNombre.getText());
+        int producto = Integer.parseInt(txtProducto.getText());
+        obj.setID_producto(producto);
+        MtoConsulta c = (MtoConsulta)cbxServicio.getSelectedItem();
         
         
-//        MtoConsulta c = (MtoConsulta)cmbConsulta.getSelectedItem();
-//        obj.setID_consulta(c.getID());
+    
+    
         
-//        MtoProductos p = (MtoProductos)cmbProducto.getSelectedItem();
-//        p.setID_producto(p.getID_producto());
-        
-        CrudTipoPago d = (CrudTipoPago)cmbFormaPago.getSelectedItem();
-        d.setIDtipoPago(d.getIDtipoPago());
         
         clases.Bitacora Bit = new clases.Bitacora();
         Bit.setID(Integer.parseInt(jLabel1.getText()));
@@ -987,13 +983,13 @@ import javax.swing.table.DefaultTableModel;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtdeacripcionActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtDUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDUIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtDUIActionPerformed
 
     private void tfdialogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfdialogoMouseClicked
         tfdialogo.setText(" ");
@@ -1021,8 +1017,8 @@ import javax.swing.table.DefaultTableModel;
             nombre = jTable1dialog.getValueAt(fsel, 1).toString();
             apellidos = jTable1dialog.getValueAt(fsel, 2).toString();
 
-            jTextField3.setText(ID);
-            jTextField1.setText(nombre+" "+apellidos);
+            txtDUI.setText(ID);
+            txtNombre.setText(nombre+" "+apellidos);
 
             jDialog1.setVisible(false);
 
@@ -1063,13 +1059,13 @@ import javax.swing.table.DefaultTableModel;
 
     private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
          if (jCheckBox1.isSelected()) {
-            jComboBox1.setEnabled(true);
+            cbxServicio.setEnabled(true);
             lblPrecioS.setVisible(true);
             txtServicio.setVisible(true);
             jButton10.setEnabled(true);
         } else{
-            jComboBox1.setEnabled(false);
-            jComboBox1.setSelectedIndex(0);
+            cbxServicio.setEnabled(false);
+            cbxServicio.setSelectedIndex(0);
             txtServicio.setVisible(false);
             lblPrecioS.setVisible(false);
             jButton10.setEnabled(false);
@@ -1091,7 +1087,7 @@ import javax.swing.table.DefaultTableModel;
             SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
             modeloSpinner.setMinimum(0);
             jsCantidada.setModel(modeloSpinner);
-            jTextField2.setText("");
+            txtProducto.setText("");
             jButton10.setEnabled(false);
         } 
     }//GEN-LAST:event_jCheckBox2MouseClicked
@@ -1116,7 +1112,7 @@ import javax.swing.table.DefaultTableModel;
             ID = jTable1dialog1.getValueAt(fsel, 0).toString();
             nombrep = jTable1dialog1.getValueAt(fsel,1).toString();
             costoi = jTable1dialog1.getValueAt(fsel, 4).toString();
-            jTextField2.setText(nombrep);
+            txtProducto.setText(nombrep);
             txtSubTotal.setText(costoi);
             jTextField5.setText(ID);
             
@@ -1168,7 +1164,7 @@ import javax.swing.table.DefaultTableModel;
         jTextField4.setText(masiva);  
         txtTotal.setText(sumas);  
         }
-        else if (jTextField2.getText().isEmpty()) {
+        else if (txtProducto.getText().isEmpty()) {
         String sub = txtServicio.getText();
         double value = Double.parseDouble(sub);
         double iva = 0.13;
@@ -1181,7 +1177,7 @@ import javax.swing.table.DefaultTableModel;
         txtSubTotal.setText("N/A");
         txtSubtotal2.setText(sub);
         }
-        else if (jTextField2.getText().isEmpty() && txtServicio.getText().isEmpty()) {
+        else if (txtProducto.getText().isEmpty() && txtServicio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this,"No se pueden calcular datos no ingresados");
         }else{
          System.out.println("Cita y producto");
@@ -1226,6 +1222,7 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JComboBox<String> cbxServicio;
     private rojeru_san.componentes.RSDateChooser cldFecha;
     private javax.swing.JComboBox<String> cmbFormaPago;
     private javax.swing.JButton jButton1;
@@ -1240,7 +1237,6 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
@@ -1273,9 +1269,6 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JTable jTable1dialog;
     private javax.swing.JTable jTable1dialog1;
     private javax.swing.JTable jTableFactura;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JSpinner jsCantidada;
@@ -1285,7 +1278,10 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JLabel lblPrecioS;
     private javax.swing.JTextField tfdialogo;
     private javax.swing.JTextField tfdialogo1;
+    private javax.swing.JTextField txtDUI;
     private javax.swing.JTextField txtFactura;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtProducto;
     private javax.swing.JTextField txtServicio;
     private javax.swing.JTextField txtSubTotal;
     private javax.swing.JTextField txtSubtotal2;

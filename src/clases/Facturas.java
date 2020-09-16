@@ -30,6 +30,7 @@ public class Facturas
     private Integer ID_consulta;
     private Integer ID_producto;
     private Integer ID_tipoPago;
+    private Integer ID_DUI;
 
     public Connection getCn() 
     {
@@ -110,6 +111,18 @@ public class Facturas
     {
         this.ID_tipoPago = ID_tipoPago;
     }
+    
+    public Integer getID_DUI() 
+    {
+        return ID_DUI;
+    }
+
+    public void setID_DUI(Integer ID_tipoPago) 
+    {
+        this.ID_DUI = ID_DUI;
+    }
+    
+    
     
     public Pool getMetodospool()
     {
