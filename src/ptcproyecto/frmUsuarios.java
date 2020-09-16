@@ -6,6 +6,8 @@ import clases.Conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
@@ -339,6 +341,18 @@ DefaultTableModel m;
         jtfContraseña.setText("");
         JCBcargoE.setSelectedIndex(0);
     }
+     public boolean isEmail(String correo) {
+        Pattern pat = null;
+        Matcher mat = null;        
+        pat = Pattern.compile("^([0-9a-zA-Z]([_.w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-w]*[0-9a-zA-Z].)+([a-zA-Z]{2,9}.)+[a-zA-Z]{2,3})$");
+        mat = pat.matcher(correo);
+        if (mat.find()) {
+            System.out.println("[" + mat.group() + "]");
+            return true;
+        }else{
+            return false;
+        }        
+    }
     
     public void CargarCargos(){
         usuarios obj = new usuarios();
@@ -357,26 +371,32 @@ DefaultTableModel m;
         if (jtfNombre.getText().isEmpty() || jtfApellido.getText().isEmpty() || jtfEmail.getText().isEmpty() || jtfDireccion.getText().isEmpty()|| jtfUsuario.getText().isEmpty() || jtfContraseña.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }else   {   
-            MtoUsuarios obj = new MtoUsuarios();
-            clases.Bitacora Bit = new clases.Bitacora();
-            Bit.setID(Integer.parseInt(jLabel1.getText()));
-            obj.setNombre_empleado(jtfNombre.getText());
-            obj.setEmpleado_apellidos(jtfApellido.getText());
-            obj.setEmpleado_correo(jtfEmail.getText());
-            obj.setEmpleado_domicilio(jtfDireccion.getText());
-            obj.setNombre_usuario(jtfUsuario.getText());
-            usuarios u = new usuarios();
-            String password = jtfContraseña.getText();
-            obj.setContrasenia_usuario(u.md5(password));
-            int Tipo = JCBcargoE.getSelectedIndex();
-            obj.setID_tipoUsuarios(Tipo);
-            if (obj.guardar()) {
-                JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
-                ListarUsuarios();
-                Limpiar();
-                Bit.BitacoraCreateUsuario();
-            }else{
-                JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+            String cor = jtfEmail.getText(); 
+            if (isEmail(cor)) {
+                MtoUsuarios obj = new MtoUsuarios();
+                clases.Bitacora Bit = new clases.Bitacora();
+                Bit.setID(Integer.parseInt(jLabel1.getText()));
+                obj.setNombre_empleado(jtfNombre.getText());
+                obj.setEmpleado_apellidos(jtfApellido.getText());
+                obj.setEmpleado_correo(jtfEmail.getText());
+                obj.setEmpleado_domicilio(jtfDireccion.getText());
+                obj.setNombre_usuario(jtfUsuario.getText());
+                usuarios u = new usuarios();
+                String password = jtfContraseña.getText();
+                obj.setContrasenia_usuario(u.md5(password));
+                int Tipo = JCBcargoE.getSelectedIndex();
+                obj.setID_tipoUsuarios(Tipo);
+                if (obj.guardar()) {
+                    JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
+                    ListarUsuarios();
+                    Limpiar();
+                    Bit.BitacoraCreateUsuario();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Favor de ingresar un correo valido.");
             }
         }
             
@@ -389,7 +409,7 @@ DefaultTableModel m;
         String ID;
             int fsel = jTable1.getSelectedRow();
              if (fsel==-1) {
-
+                 
             JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
             JOptionPane.WARNING_MESSAGE);
             }else{
@@ -401,6 +421,8 @@ DefaultTableModel m;
             if (jtfNombre.getText().isEmpty() || jtfApellido.getText().isEmpty() || jtfEmail.getText().isEmpty() || jtfDireccion.getText().isEmpty()|| jtfUsuario.getText().isEmpty() || jtfContraseña.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
             }else   {
+                String cor = jtfEmail.getText(); 
+            if (isEmail(cor)) {
             Bit.setID(Integer.parseInt(jLabel1.getText()));
             obj.setID_usuario(Integer.parseInt(ID));
             obj.setNombre_empleado(jtfNombre.getText());
@@ -422,6 +444,10 @@ DefaultTableModel m;
             }else{
                 JOptionPane.showMessageDialog(this, "Error al modificar los datos");
             }
+            }else {
+                JOptionPane.showMessageDialog(this, "Favor de ingresar un correo valido.");
+            }
+            
             }
             }
         
@@ -449,6 +475,7 @@ DefaultTableModel m;
                 jtfEmail.setText(obj.getEmpleado_correo());
                 jtfContraseña.setText(obj.getContrasenia_usuario());
                 jtfContraseña.setEnabled(false);
+                JCBcargoE.setSelectedIndex(obj.getID_tipoUsuarios());
                 JOptionPane.showMessageDialog(this, "Datos Consultados exitosamente");
                 Bit.BitacoraReadUsuario();
             }

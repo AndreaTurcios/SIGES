@@ -230,7 +230,7 @@ public class MtoUsuarios {
     public boolean consultar() {
         boolean resp = false;
         try {//realizando consulta insert
-            String sql = "SELECT nombre_usuario, contrasenia_usuario, nombre_empleado , empleado_apellidos , empleado_domicilio , empleado_correo FROM Usuarios WHERE ID_usuario = ?";
+            String sql = "SELECT nombre_usuario, contrasenia_usuario, nombre_empleado , empleado_apellidos , empleado_domicilio , empleado_correo, ID_tipoUsuarios FROM Usuarios WHERE ID_usuario = ?";
             PreparedStatement cmd = cn.prepareStatement(sql);
             cmd.setInt(1, ID_usuario);
             System.out.println(ID_usuario);
@@ -243,7 +243,7 @@ public class MtoUsuarios {
                 empleado_apellidos = rs.getString(4);
                 empleado_domicilio = rs.getString(5);
                 empleado_correo = rs.getString(6);
-                
+                ID_tipoUsuarios = rs.getInt(7);
             }
             cmd.close();
             cn.close();
