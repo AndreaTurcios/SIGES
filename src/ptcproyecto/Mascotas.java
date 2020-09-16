@@ -591,7 +591,7 @@ public class Mascotas extends javax.swing.JInternalFrame {
      obj.setNombre_mascota(tfNombre.getText());
     String mascotr = String.valueOf(cmbResc.getSelectedItem());
     obj.setARescatado(mascotr);
-     tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
+    tipoMascota tima = (tipoMascota)tipo_mascota.getSelectedItem();
     obj.setID_tipoMascota(tima.getID_tipoMascota());
     String mascot = String.valueOf(cmbGenero.getSelectedItem());
     obj.setMascota_genero(mascot);

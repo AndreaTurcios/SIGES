@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Nanos
  */
 public class CrudTipoPago 
-{
+{ 
     private Connection cn;
     private Conexion conexion;
     private Integer IDtipoPago;
@@ -76,6 +76,7 @@ public class CrudTipoPago
         Conexion con = new Conexion();
         cn = con.conectar();
     }
+    
     
     public boolean GuardarTipoPago ()
     {
@@ -272,4 +273,5 @@ public class CrudTipoPago
             }
         }
     }
+    
 }

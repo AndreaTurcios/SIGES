@@ -15,7 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
+import java.sql.Date;
 /**
  *
  * @author estef
@@ -24,13 +24,72 @@ public class Facturas
 {
     private Connection Cn;
     private Conexion conexion;
+    private Date fecha_emision;
+    private Integer ID_tipoPago;
     private Integer ID_factura;
     private String nombre_pagador;
-    private Integer ID_detalle;
-    private Integer ID_consulta;
     private Integer ID_producto;
-    private Integer ID_tipoPago;
+    private String Tipo_servicio;
+    private Integer ID_detalle;
+    private String descripcion;
+    private Double monto_pagar;
     private Integer ID_DUI;
+
+    public Date getFecha_emision() {
+        return fecha_emision;
+    }
+
+    public void setFecha_emision(Date fecha_emision) {
+        this.fecha_emision = fecha_emision;
+    }
+
+    public Integer getID_detalle() {
+        return ID_detalle;
+    }
+
+    public void setID_detalle(Integer ID_detalle) {
+        this.ID_detalle = ID_detalle;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Double getMonto_pagar() {
+        return monto_pagar;
+    }
+
+    public void setMonto_pagar(Double monto_pagar) {
+        this.monto_pagar = monto_pagar;
+    }
+
+    public Conexion getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(Conexion conexion) {
+        this.conexion = conexion;
+    }
+
+    public String getNombre_pagador() {
+        return nombre_pagador;
+    }
+
+    public void setNombre_pagador(String nombre_pagador) {
+        this.nombre_pagador = nombre_pagador;
+    }
+
+    public String getTipo_servicio() {
+        return Tipo_servicio;
+    }
+
+    public void setTipo_servicio(String Tipo_servicio) {
+        this.Tipo_servicio = Tipo_servicio;
+    }
 
     public Connection getCn() 
     {
@@ -66,31 +125,34 @@ public class Facturas
     {
         return nombre_pagador;
     }
+    public Integer getID_tipoPago() {
+        return ID_tipoPago;
+    }
 
     public void setnombre_pagador(String nombre_pagador) 
     {
         this.nombre_pagador = nombre_pagador;
     }
     
-    public Integer getID_detalle() 
-    {
-        return ID_detalle;
-    }
-
-    public void setID_detalle(Integer ID_detalle) 
-    {
-        this.ID_detalle = ID_detalle;
-    }
-    
-    public Integer getID_consulta() 
-    {
-        return ID_consulta;
-    }
-
-    public void setID_consulta(Integer ID_consulta) 
-    {
-        this.ID_consulta = ID_consulta;
-    }
+//    public Integer getID_detalle() 
+//    {
+//        return ID_detalle;
+//    }
+//
+//    public void setID_detalle(Integer ID_detalle) 
+//    {
+//        this.ID_detalle = ID_detalle;
+//    }
+//    
+//    public Integer getID_consulta() 
+//    {
+//        return ID_consulta;
+//    }
+//
+//    public void setID_consulta(Integer ID_consulta) 
+//    {
+//        this.ID_consulta = ID_consulta;
+//    }
     
     public Integer getID_producto() 
     {
@@ -102,10 +164,6 @@ public class Facturas
         this.ID_producto = ID_producto;
     }
     
-    public Integer getID_tipoPago() 
-    {
-        return ID_tipoPago;
-    }
 
     public void setID_tipoPago(Integer ID_tipoPago) 
     {
@@ -135,20 +193,44 @@ public class Facturas
     }
     
     Pool metodospool = new Pool();
-    
+     public boolean GuardarDetalle()
+    {
+        try 
+        {
+            boolean resp = false;
+            Cn = Conexion.conectar();
+            String sql = "INSERT INTO Detalle_factura (fecha_emision, ID_DUI, ID_producto ,ID_tipoPago, Tipo_servicio)"+"VALUES(?, ?, ?, ?, ?, ?)";
+            PreparedStatement cmd = Cn.prepareStatement(sql);
+            cmd.setDate(1, fecha_emision);
+            cmd.setInt(5, ID_tipoPago);
+            cmd.setString(6, Tipo_servicio);
+            if (!cmd.execute()) 
+            {
+                resp = true;
+            }
+            cmd.close();
+            Cn.close();
+            return resp;
+        } 
+        catch (SQLException ex) 
+        {
+            System.err.println("Error guardar Factura " + ex);
+            return false;
+        }
+    }
     public boolean Guardar()
     {
         try 
         {
             boolean resp = false;
             Cn = Conexion.conectar();
-            String sql = "INSERT INTO Factura (nombre_pagador, ID_detalle, ID_consulta, ID_producto ,ID_tipoPago)"+"VALUES(?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Factura (nombre_pagador, ID_DUI, ID_producto, Tipo_servicio)"+"VALUES(?, ?, ?, ?, ?, ?)";
             PreparedStatement cmd = Cn.prepareStatement(sql);
             cmd.setString(1, nombre_pagador);
             cmd.setInt(2, ID_detalle);
-            cmd.setInt(3, ID_consulta);
+            cmd.setInt(3, ID_DUI);
             cmd.setInt(4, ID_producto);
-            cmd.setInt(5, ID_tipoPago);
+            cmd.setString(5, Tipo_servicio);
             if (!cmd.execute()) 
             {
                 resp = true;
@@ -173,10 +255,10 @@ public class Facturas
             String sql = "UPDATE Factura SET nombre_pagador = ?, ID_detalle = ?, ID_consulta = ?, ID_producto = ? WHERE ID_factura = ?";
             PreparedStatement cmd = Cn.prepareStatement(sql);
             cmd.setString(1, nombre_pagador);
-            cmd.setInt(2, ID_detalle);
-            cmd.setInt(3, ID_consulta);
+            cmd.setInt(2, ID_DUI);
             cmd.setInt(4, ID_producto);
-            cmd.setInt(5, ID_factura);            
+            cmd.setInt(5, ID_tipoPago);
+            cmd.setString(6, Tipo_servicio);          
             if (!cmd.execute()) 
             {
                 resp = true;
@@ -375,8 +457,8 @@ public class Facturas
             String sql = "UPDATE Detalle_factura SET monto_pagar = ?, fecha_emision = ?, ID_tipoPago = ?WHERE ID_tipoPago = ?";
             PreparedStatement cmd = Cn.prepareStatement(sql);
             cmd.setString(1, nombre_pagador);
-            cmd.setInt(2, ID_detalle);
-            cmd.setInt(3, ID_consulta);
+//            cmd.setInt(2, ID_detalle);
+//            cmd.setInt(3, ID_consulta);
             cmd.setInt(4, ID_producto);
             cmd.setInt(5, ID_factura);
             if (!cmd.execute()) 

@@ -8,6 +8,7 @@ import clases.DetalleFacturas;
 import clases.Facturas; 
 import clases.MtoConsulta;
 import clases.MtoProductos;
+import clases.tipoMascota;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -877,29 +878,41 @@ import javax.swing.table.DefaultTableModel;
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        Facturas obj = new Facturas();
+    //tabla detalle
+     Facturas obj = new Facturas();
+     double monto= Double.parseDouble(txtTotal.getText());
+     obj.setMonto_pagar(monto);
+     CrudTipoPago ti = (CrudTipoPago)cmbFormaPago.getSelectedItem();
+     obj.setID_tipoPago(ti.getIDtipoPago()); 
+     obj.setFecha_emision(new java.sql.Date(cldFecha.getDatoFecha().getTime())); 
+     String desc = txtdeacripcion.getText();
+     obj.setDescripcion(desc);
+    //tabla factura
         int DUI= Integer.parseInt(txtDUI.getText());
         obj.setID_DUI(DUI);
         obj.setnombre_pagador(txtNombre.getText());
-        int producto = Integer.parseInt(txtProducto.getText());
+        int producto = Integer.parseInt(jTextField5.getText());
         obj.setID_producto(producto);
-        MtoConsulta c = (MtoConsulta)cbxServicio.getSelectedItem();
-        
-        
-    
-    
-        
-        
+        String servicio = cbxServicio.getSelectedItem().toString();
+        obj.setTipo_servicio(servicio);
         clases.Bitacora Bit = new clases.Bitacora();
         Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.Guardar()) 
         {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            CargarF();   
+           Bit.BitacoraCreateFactura();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error guardar datos factura"); 
+        }
+        if (obj.GuardarDetalle()) 
+        {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           CargarF();   
          
            Bit.BitacoraCreateFactura();
            }else{ 
-           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
+           JOptionPane.showMessageDialog(this,"Error guardar datos detalle factura"); 
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -953,7 +966,7 @@ import javax.swing.table.DefaultTableModel;
          txtFactura.setText(ID_factura);
          
          Facturas obj = new Facturas ();
-         obj.setID_detalle(Integer.parseInt(txtFactura.getText()));
+//         obj.setID_detalle(Integer.parseInt(txtFactura.getText()));
          clases.Bitacora Bit = new clases.Bitacora();
         Bit.setID(Integer.parseInt(jLabel1.getText()));
         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?",
