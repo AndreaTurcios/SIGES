@@ -89,6 +89,11 @@ DefaultTableModel m;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -288,15 +293,15 @@ public void ListarTipoCita()
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
         }else{
         Tipocita obj = new Tipocita();
-        String tipoc = jtfTipocita.getText();
-        obj.settipo_cita(tipoc);
-        System.err.println("dato "+tipoc);
+        obj.setTipo_Cita(jtfTipocita.getText());
+        
         
         clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR 
         Bit.setID(Integer.parseInt(jLabel2.getText())); //NO TOCAR 
         if (obj.guardar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
             Bit.BitacoraCreateTipoCita();//NO TOCAR 
+            ListarTipoCita();
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos");
         }
@@ -305,7 +310,7 @@ public void ListarTipoCita()
 
     private void jtbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbModificarActionPerformed
         Tipocita obj = new Tipocita();
-        obj.settipo_cita(jtfTipocita.getText());
+        obj.setTipo_Cita(jtfTipocita.getText());
         clases.Bitacora Bit = new clases.Bitacora();//NO TOCAR 
         Bit.setID(Integer.parseInt(jLabel2.getText())); //NO TOCAR 
           if  (jtfTipocita.getText().isEmpty()){
@@ -314,6 +319,7 @@ public void ListarTipoCita()
         if (obj.modificar()) {
             JOptionPane.showMessageDialog(this, "Los datos han sido modificados");
             Bit.BitacoraUpdateTipoCita();//NO TOCAR 
+            ListarTipoCita();
         }else{
             JOptionPane.showMessageDialog(this, "Error al modificar los datos");
         }
@@ -325,7 +331,7 @@ public void ListarTipoCita()
         int fsel = jTable1.getSelectedRow();
         if (fsel==-1) {
 
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia",
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia",
                 JOptionPane.WARNING_MESSAGE);
         }else{
             m = (DefaultTableModel)jTable1.getModel();
@@ -389,6 +395,11 @@ public void ListarTipoCita()
             JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
         }
     }//GEN-LAST:event_jtfTipocitaKeyTyped
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int fila = jTable1.getSelectedRow();
+        jtfTipocita.setText(String.valueOf(jTable1.getValueAt(fila, 1)));
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -23,21 +23,7 @@ private Connection cn;
 private Integer ID_tipoCita;
 private String tipo_Cita;
 
-    public Connection getCn() {
-        return cn;
-    }
 
-    public void setCn(Connection cn) {
-        this.cn = cn;
-    }
-
-    public String getTipo_Cita() {
-        return tipo_Cita;
-    }
-
-    public void setTipo_Cita(String tipo_Cita) {
-        this.tipo_Cita = tipo_Cita;
-    }
 
     public Pool getMetodospool() {
         return metodospool;
@@ -46,48 +32,30 @@ private String tipo_Cita;
     public void setMetodospool(Pool metodospool) {
         this.metodospool = metodospool;
     }
+    public Tipocita() {
+        //estableciendo la conexion
+       Conexion con = new Conexion();
+       cn = con.conectar();
+    }
 
 
- public Connection getcn(){
-        return cn;
-    }
-    
-    public void setcn(Connection cn){
-        this.cn = cn;
-    }
-    
-    public Integer getID_tipoCita(){
-        return ID_tipoCita;
-    }
-    
-    public void setID_tipoCita(Integer ID_tipoCita){
-        this.ID_tipoCita = ID_tipoCita;
-    }
-    
-    public String gettipo_cita(){
-        return tipo_Cita;
-    }
-    
-    public void settipo_cita(String tipo_cita){
-        this.tipo_Cita = tipo_cita;
-    }
 
     
 
     public boolean guardar() {
         boolean resp = false;
-        try {String sql = "INSERT INTO Tipo_cita(tipo_Cita)"+" VALUES (?)";
+//        String encriptada = md5(contrasenia_usuario);
+        try {String sql = "INSERT INTO Tipo_citas (tipo_cita)"+"VALUES (?)";
         
-        PreparedStatement cmd = cn.prepareStatement(sql);
+        PreparedStatement cmd = getCn().prepareStatement(sql);
         
-       cmd.setString(1, tipo_Cita);
-    
+        cmd.setString(1, getTipo_Cita());
         
         if (!cmd.execute()) {
             resp = true;
         }
         cmd.close();
-        cn.close();
+            getCn().close();
         }catch(Exception e) {
             System.out.println(e.toString());
         }
@@ -98,15 +66,15 @@ private String tipo_Cita;
         boolean resp = false;
         try 
         {
-            String sql = "DELETE FROM Tipo_mascota WHERE ID_tipoMascota=?;";
-            PreparedStatement cmd = cn.prepareStatement(sql);
-            cmd.setInt(1, ID_tipoCita);
+            String sql = "DELETE FROM Tipo_citas WHERE ID_tipoCita=?;";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_tipoCita());
             if (!cmd.execute()) 
             {
                 resp = true;
             }
             cmd.close();
-            cn.close();
+            getCn().close();
         } 
         catch (Exception ex) 
         {
@@ -116,19 +84,20 @@ private String tipo_Cita;
     }
     public boolean modificar() {
          boolean resp = false;
-        try {String sql = "UPDATE SET Tipo_citas , ID_tipoCita = ?, tipo_cita = ?";
+        try {String sql = "UPDATE Tipo_citas SET  tipo_cita = ? WHERE ID_tipoCita = ?";
         
-        PreparedStatement cmd = cn.prepareStatement(sql);
-       
-        cmd.setInt(1, ID_tipoCita);
-        cmd.setString(2, tipo_Cita);
+        PreparedStatement cmd = getCn().prepareStatement(sql);
+        
+        cmd.setString(1, getTipo_Cita());
+        cmd.setInt(2, getID_tipoCita());
+        
     
         
         if (!cmd.execute()) {
             resp = true;
         }
         cmd.close();
-        cn.close();
+            getCn().close();
         }catch(Exception e) {
             System.out.println(e.toString());
         }
@@ -139,19 +108,19 @@ private String tipo_Cita;
         boolean resp = false;
         try {String sql = "SELECT ID_tipoCita, tipo_cita FROM Tipo_cita WERE ID_tipoCita = ? ";
         
-        PreparedStatement cmd = cn.prepareStatement(sql);
-        cmd.setInt(1, ID_tipoCita);
+        PreparedStatement cmd = getCn().prepareStatement(sql);
+        cmd.setInt(1, getID_tipoCita());
         
         ResultSet rs = cmd.executeQuery();
         
         if (rs.next()) {
             resp = true;
-             ID_tipoCita = rs.getInt(1);
-             tipo_Cita = rs.getString(2);
+                setID_tipoCita((Integer) rs.getInt(1));
+                setTipo_Cita(rs.getString(2));
              
         }
         cmd.close();
-        cn.close();
+            getCn().close();
         }catch(Exception e) {
             System.out.println(e.toString());
         }
@@ -191,7 +160,7 @@ private String tipo_Cita;
     
     public void CargarTipoCita(JTable tabla) 
     {
-        EjecutarTipoCita(cn ,tabla);
+        EjecutarTipoCita(getCn(),tabla);
     }
     Pool metodospool = new Pool();
     public void consultarCitas(JComboBox cbox_mascotat) {
@@ -226,14 +195,53 @@ private String tipo_Cita;
             }
         }
     }
-    public String tipo_Cita() {
-        int ID_tipoCita = this.ID_tipoCita;
-    return null;
-    }
+    
 
     @Override
     public String toString() {
-        return tipo_Cita ;
+        return getTipo_Cita() ;
+    }
+
+    /**
+     * @return the cn
+     */
+    public Connection getCn() {
+        return cn;
+    }
+
+    /**
+     * @param cn the cn to set
+     */
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    /**
+     * @return the ID_tipoCita
+     */
+    public Integer getID_tipoCita() {
+        return ID_tipoCita;
+    }
+
+    /**
+     * @param ID_tipoCita the ID_tipoCita to set
+     */
+    public void setID_tipoCita(Integer ID_tipoCita) {
+        this.ID_tipoCita = ID_tipoCita;
+    }
+
+    /**
+     * @return the tipo_Cita
+     */
+    public String getTipo_Cita() {
+        return tipo_Cita;
+    }
+
+    /**
+     * @param tipo_Cita the tipo_Cita to set
+     */
+    public void setTipo_Cita(String tipo_Cita) {
+        this.tipo_Cita = tipo_Cita;
     }
     
     
