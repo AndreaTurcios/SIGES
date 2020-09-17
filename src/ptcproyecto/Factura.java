@@ -118,6 +118,7 @@ import javax.swing.table.DefaultTableModel;
         txtServicio = new javax.swing.JTextField();
         lblPrecioS = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
@@ -564,24 +565,26 @@ import javax.swing.table.DefaultTableModel;
                                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtServicio))))))
                 .addGap(59, 59, 59)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(102, 102, 102)
-                                .addComponent(jsCantidada, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel6))
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmbFormaPago, 0, 130, Short.MAX_VALUE)
-                            .addComponent(cldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(txtFactura))))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton10))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addGap(102, 102, 102)
+                            .addComponent(jsCantidada, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel16)
+                                .addComponent(jLabel6))
+                            .addGap(37, 37, 37)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cmbFormaPago, 0, 130, Short.MAX_VALUE)
+                                .addComponent(cldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(txtFactura)))))
                 .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
@@ -643,8 +646,10 @@ import javax.swing.table.DefaultTableModel;
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton10)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -858,7 +863,7 @@ import javax.swing.table.DefaultTableModel;
         pack();
     }// </editor-fold>//GEN-END:initComponents
      public void cargarcombox(){
-     Facturas ob = new Facturas();
+     CrudTipoPago ob = new CrudTipoPago();
      ob.consultartipoPago(cmbFormaPago);
  }
       public void ListarProductos(){
@@ -885,17 +890,26 @@ import javax.swing.table.DefaultTableModel;
      obj.setMonto_pagar(monto);
      CrudTipoPago ti = (CrudTipoPago)cmbFormaPago.getSelectedItem();
      obj.setID_tipoPago(ti.getIDtipoPago()); 
+     //obj.setcita_fecha(new java.sql.Date(calendar.getDatoFecha().getTime())); 
      obj.setFecha_emision(new java.sql.Date(cldFecha.getDatoFecha().getTime())); 
+     System.err.println("Fecha " + cldFecha.getDatoFecha().getTime());
      String desc = txtdeacripcion.getText();
      obj.setDescripcion(desc);
+     
     //tabla factura
         int DUI= Integer.parseInt(txtDUI.getText());
+        System.out.println("DUI " + DUI );
         obj.setID_DUI(DUI);
         obj.setnombre_pagador(txtNombre.getText());
         int producto = Integer.parseInt(jTextField5.getText());
         obj.setID_producto(producto);
         String servicio = cbxServicio.getSelectedItem().toString();
         obj.setTipo_servicio(servicio);
+        
+        String iddetalle = jTextField1.getText();
+        int i = Integer.parseInt(iddetalle);
+        obj.setID_detalle(i);
+        
         clases.Bitacora Bit = new clases.Bitacora();
         Bit.setID(Integer.parseInt(jLabel1.getText()));
         if (obj.Guardar()) 
@@ -1283,6 +1297,7 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JTable jTable1dialog;
     private javax.swing.JTable jTable1dialog1;
     private javax.swing.JTable jTableFactura;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JSpinner jsCantidada;

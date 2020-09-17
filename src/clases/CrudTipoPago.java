@@ -229,7 +229,53 @@ public class CrudTipoPago
             }
         }
     }
-    
+     public void consultartipoPago(JComboBox cbox_tPago) 
+    {
+        java.sql.Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet resultado = null;
+        String SSQL = "SELECT ID_tipoPago,tipo_pago FROM Tipo_pago ORDER BY ID_tipoPago";
+//        java.sql.Connection cn = null;
+//        PreparedStatement st = null;
+//        ResultSet resultado = null;
+//        String SSQL = "SELECT tipo_pago FROM Tipo_pago ORDER BY ID_tipoPago";
+        try 
+        {
+            cn = conexion.conectar();
+            st = cn.prepareStatement(SSQL);
+            resultado = st.executeQuery();
+            cbox_tPago.addItem("Seleccione una opción");
+            while (resultado.next()) 
+            {
+                CrudTipoPago tipoPago = new CrudTipoPago();
+                tipoPago.setIDtipoPago(resultado.getInt("ID_tipoPago"));
+                tipoPago.settipopago(resultado.getString("Tipo_pago"));
+                //cbox_tPago.addItem(resultado.getString("Tipo_pago"));
+                cbox_tPago.addItem(tipoPago);
+            }
+
+        } 
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, e);
+        } 
+        finally 
+        {
+            if (cn != null) 
+            {
+                try 
+                {
+                    cn.close();
+                    resultado.close();
+                    resultado = null;
+                } 
+                catch (SQLException ex) 
+                {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
+    }
     public void ConsultarPregunta(JComboBox cmbPregunta) 
     {
         java.sql.Connection cn = null;

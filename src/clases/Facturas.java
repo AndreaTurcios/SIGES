@@ -175,7 +175,7 @@ public class Facturas
         return ID_DUI;
     }
 
-    public void setID_DUI(Integer ID_tipoPago) 
+    public void setID_DUI(Integer ID_DUI) 
     {
         this.ID_DUI = ID_DUI;
     }
@@ -199,11 +199,12 @@ public class Facturas
         {
             boolean resp = false;
             Cn = Conexion.conectar();
-            String sql = "INSERT INTO Detalle_factura (fecha_emision, ID_DUI, ID_producto ,ID_tipoPago, Tipo_servicio)"+"VALUES(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Detalle_factura (fecha_emision, ID_tipoPago, descripcion ,monto_pagar)"+"VALUES(?, ?, ?, ?)";
             PreparedStatement cmd = Cn.prepareStatement(sql);
             cmd.setDate(1, fecha_emision);
-            cmd.setInt(5, ID_tipoPago);
-            cmd.setString(6, Tipo_servicio);
+            cmd.setInt(2, ID_tipoPago);
+            cmd.setString(3, descripcion);
+            cmd.setDouble(4, monto_pagar);
             if (!cmd.execute()) 
             {
                 resp = true;
@@ -224,10 +225,12 @@ public class Facturas
         {
             boolean resp = false;
             Cn = Conexion.conectar();
-            String sql = "INSERT INTO Factura (nombre_pagador, ID_DUI, ID_producto, Tipo_servicio)"+"VALUES(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Factura (nombre_pagador, ID_detalle, ID_DUI, ID_producto, Tipo_servicio)"+"VALUES(?, ?, ?, ?, ?)";
             PreparedStatement cmd = Cn.prepareStatement(sql);
             cmd.setString(1, nombre_pagador);
+            System.out.println("id DETALLE en metodo guardar  " + ID_detalle);
             cmd.setInt(2, ID_detalle);
+            System.out.println("Dui en metodo guardar  " + ID_DUI);
             cmd.setInt(3, ID_DUI);
             cmd.setInt(4, ID_producto);
             cmd.setString(5, Tipo_servicio);
@@ -424,7 +427,9 @@ public class Facturas
             while (resultado.next()) 
             {
                 cbox_tPago.addItem(resultado.getString("Tipo_pago"));
+                //cbox_tPago.addItem(resultado.);
             }
+
         } 
         catch (SQLException e) 
         {
