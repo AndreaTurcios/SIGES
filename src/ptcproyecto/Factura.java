@@ -41,6 +41,7 @@ import javax.swing.table.DefaultTableModel;
         jsCantidada.setModel(modeloSpinner);
         jLabel1.setVisible(false);
         jButton2.setEnabled(false);
+        jTextField5.setVisible(false);
         txtSubtotal2.setEnabled(false);
         jTextField4.setEnabled(false);
         txtTotal.setEnabled(false);

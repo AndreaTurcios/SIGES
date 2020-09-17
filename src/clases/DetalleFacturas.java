@@ -104,13 +104,13 @@ public class DetalleFacturas {
             boolean resp = false;
             cn = conexion.conectar();
             System.err.println("Estado " + cn.getClientInfo());
-            String sql = "INSERT INTO Detalle_factura (monto_pagar, fecha_emision, ID_tipoPago)"+"VALUES(?,?,?)";
+            String sql = "INSERT INTO Detalle_factura (fecha_emision, ID_tipoPago, monto_pagar)"+"VALUES(?,?,?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
             System.out.println("preparada" + cmd);
 //            cmd.setInt(1, ID_detalle);
-            cmd.setDouble(1, monto_pagar);
-            cmd.setDate(2, fecha_emision);
-            cmd.setInt(3, ID_tipoPago);
+            cmd.setDate(1, fecha_emision);
+            cmd.setInt(2, ID_tipoPago);
+            cmd.setDouble(3, monto_pagar);
             System.out.println("fecha" + fecha_emision);
             
             System.out.println("veamos " + cmd);

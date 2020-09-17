@@ -375,10 +375,10 @@ public class ClienteDuenio {
      public void listarDetalleFactura(Connection cn, JTable tabla){
         cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID_detalle","monto pagar", "fecha emision","ID_tipoPago"};
+        String [] columnas = {"ID_detalle","fecha emision", "ID_tipoPago","descripcion", "monto_pagar"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM Detalle_factura ORDER BY ID_detalle";
-        String [] filas = new String[4];
+        String [] filas = new String[5];
         Statement st = null;
         ResultSet rs = null;
         try{
@@ -386,7 +386,7 @@ public class ClienteDuenio {
             rs = st.executeQuery(sql);
             System.out.println("datos obtenidos "+rs);
             while (rs.next()){
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 5; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);

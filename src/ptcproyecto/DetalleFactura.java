@@ -281,10 +281,12 @@ public void CargarTipoP(){
           double Descuento = monto * 0.10;
           obj.setMonto_pagar(monto - Descuento);
           
+          obj.setFecha_emision(new java.sql.Date(calendar.getDatoFecha().getTime())); 
+          
         DetalleFacturas ti = (DetalleFacturas)jComboBox1.getSelectedItem();
         obj.setID_tipoPago(ti.getID_tipoPago());
          
-        obj.setFecha_emision(new java.sql.Date(calendar.getDatoFecha().getTime())); 
+        
          
         clases.Bitacora Bit = new clases.Bitacora();
         Bit.setID(Integer.parseInt(jLabel1.getText()));
