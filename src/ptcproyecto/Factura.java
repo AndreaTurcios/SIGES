@@ -38,6 +38,7 @@ import javax.swing.table.DefaultTableModel;
         Login ventana = new Login();
         cargarcombox();  
         CargarDF();
+        btnGuardar.setEnabled(false);
         jsCantidada.setEnabled(false);
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setValue(0);
@@ -689,6 +690,11 @@ import javax.swing.table.DefaultTableModel;
         });
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -904,9 +910,21 @@ import javax.swing.table.DefaultTableModel;
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
-private JComboBox combo;
+
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-    //tabla detalle
+         String opcion = cmbFormaPago.getSelectedItem().toString();
+         String opcion1 = cbxServicio.getSelectedItem().toString();
+        if (opcion=="Seleccione una opción") {
+             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }
+        else if  (txtDUI.getText().isEmpty() || txtNombre.getText().isEmpty()||cldFecha.getDatoFecha() == null){
+            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacíos.");
+        }else if  (txtProducto.getText().isEmpty() && opcion1=="Seleccione"){
+            JOptionPane.showMessageDialog(this, "Se debe escoger un producto o un servicio para poder facturar");
+        }
+        else {    
+//tabla detalle
+    
      Facturas obj = new Facturas();
      double monto= Double.parseDouble(txtTotal.getText());
      obj.setMonto_pagar(monto);
@@ -940,7 +958,7 @@ private JComboBox combo;
         obj.setTipo_servicio(servicio);
          String idd = jComboBox1.getSelectedItem().toString();
         int iTest = Integer.parseInt(idd);   
-        obj.setID_detalle(iTest);
+        obj.setID_detalle(iTest);  
         if (obj.Guardar()) 
         {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
@@ -952,7 +970,7 @@ private JComboBox combo;
       }else{ 
            JOptionPane.showMessageDialog(this,"Error guardar datos detalle factura"); 
         }
-        
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -1057,7 +1075,7 @@ private JComboBox combo;
         //        jTextField3.setEnabled(true);
         //        jTextField1.setEnabled(true);
         //        jComboBox1.setEnabled(true);
-        jButton2.setEnabled(true);
+        
         btnLimpiar.setEnabled(true);
         int fsel = jTable1dialog.getSelectedRow();
         String ID, nombre, apellidos;
@@ -1200,6 +1218,7 @@ private JComboBox combo;
     }//GEN-LAST:event_jTextField4PropertyChange
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+       btnGuardar.setEnabled(true);
         if (txtServicio.getText().isEmpty()) {
         String sub = txtSubTotal.getText();
         double value = Double.parseDouble(sub);
@@ -1265,6 +1284,10 @@ private JComboBox combo;
             JOptionPane.showMessageDialog(null,"Solo se pueden ingresar números");
         }
     }//GEN-LAST:event_txtServicioKeyTyped
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1344,7 +1367,38 @@ private JComboBox combo;
     // End of variables declaration//GEN-END:variables
 
     private void limpiar() {
+       txtDUI.setText("");
+       txtNombre.setText("");
+       txtProducto.setText("");
        txtdeacripcion.setText("");
+       txtSubTotal.setText("");
+       txtSubtotal2.setText("");
+       jTextField4.setText("");
+       txtTotal.setText("");
+       cmbFormaPago.setSelectedIndex(0);
+       cbxServicio.setSelectedIndex(0);
+       btnGuardar.setEnabled(false);
+        jsCantidada.setEnabled(false);
+        SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
+        modeloSpinner.setValue(0);
+        jsCantidada.setModel(modeloSpinner);
+        jLabel1.setVisible(false);
+        jButton2.setEnabled(false);
+        txtSubtotal2.setEnabled(false);
+        jTextField4.setEnabled(false);
+        txtTotal.setEnabled(false);
+        txtServicio.setVisible(false);
+        lblPrecioS.setVisible(false);
+        txtSubTotal.setEnabled(false);
+        cbxServicio.setEnabled(false);
+        jButton10.setEnabled(false);
+       jComboBox1.removeAllItems();
+        String [] conjunto = {"01","02","03","04","05","06","07","08","09","010" ,"011","012","013", "014","015","016","017","018","018","020","021","022","023", "024","025","026", "027","028","029","030","031","032","033","034","035","036", "037","038","039","040","041","042","043","044","045","046", "047","048","049","050","051","052"};
+        int numRandon = (int) Math.round(Math.random() * 52 ) ;
+        System.out.println( conjunto[numRandon] );
+        FrmMain main = new FrmMain();
+        System.out.println("Esto es el primer valor de factura "+String.valueOf(main.clicked));
+        txtFactura.setText("0"+String.valueOf(main.clicked)+conjunto[numRandon]);
     }
 
     
