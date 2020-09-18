@@ -35,6 +35,7 @@ import javax.swing.table.DefaultTableModel;
         CargarF();
         Login ventana = new Login();
         cargarcombox();
+        CargarDF();
         jsCantidada.setEnabled(false);
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setValue(0);
@@ -90,6 +91,8 @@ import javax.swing.table.DefaultTableModel;
         jButton8 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtFactura = new javax.swing.JTextField();
@@ -124,6 +127,7 @@ import javax.swing.table.DefaultTableModel;
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableFactura = new javax.swing.JTable();
         kGradientPanel1 = new keeptoo.KGradientPanel();
@@ -138,6 +142,8 @@ import javax.swing.table.DefaultTableModel;
         txtSubTotal = new javax.swing.JTextField();
         txtSubtotal2 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         kGradientPanel2.setkEndColor(new java.awt.Color(113, 186, 133));
         kGradientPanel2.setkGradientFocus(600);
@@ -429,6 +435,19 @@ import javax.swing.table.DefaultTableModel;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable1);
+
         setBorder(null);
         setMinimumSize(new java.awt.Dimension(675, 591));
         setPreferredSize(new java.awt.Dimension(675, 591));
@@ -653,7 +672,7 @@ import javax.swing.table.DefaultTableModel;
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        btnGuardar.setText("Guardar");
+        btnGuardar.setText("Guardar detalle");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -676,13 +695,22 @@ import javax.swing.table.DefaultTableModel;
 
         btnLimpiar.setText("Limpiar");
 
+        jButton11.setText("Guardar factura");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(39, 39, 39)
                 .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -696,11 +724,15 @@ import javax.swing.table.DefaultTableModel;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(btnGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton11)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTableFactura.setModel(new javax.swing.table.DefaultTableModel(
@@ -796,6 +828,19 @@ import javax.swing.table.DefaultTableModel;
 
         jLabel12.setText("Valor por producto:");
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable2);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -822,8 +867,9 @@ import javax.swing.table.DefaultTableModel;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 51, Short.MAX_VALUE))
+                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -845,8 +891,10 @@ import javax.swing.table.DefaultTableModel;
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -879,6 +927,10 @@ import javax.swing.table.DefaultTableModel;
         obj.CargarF(jTableFactura);
     }
     
+    public void CargarDF(){
+        Facturas obj = new Facturas();
+        obj.CargarDF(jTable2);
+    }
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
@@ -896,45 +948,24 @@ import javax.swing.table.DefaultTableModel;
      String desc = txtdeacripcion.getText();
      obj.setDescripcion(desc);
      
-    //tabla factura
-        int DUI= Integer.parseInt(txtDUI.getText());
-        System.out.println("DUI " + DUI );
-        obj.setID_DUI(DUI);
-        obj.setnombre_pagador(txtNombre.getText());
-        int producto = Integer.parseInt(jTextField5.getText());
-        obj.setID_producto(producto);
-        String servicio = cbxServicio.getSelectedItem().toString();
-        obj.setTipo_servicio(servicio);
-        
-        String iddetalle = jTextField1.getText();
-        int i = Integer.parseInt(iddetalle);
-        obj.setID_detalle(i);
-        
+   
         clases.Bitacora Bit = new clases.Bitacora();
         Bit.setID(Integer.parseInt(jLabel1.getText()));
-        if (obj.Guardar()) 
-        {
-           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
-           CargarF();   
-           Bit.BitacoraCreateFactura();
-           }else{ 
-           JOptionPane.showMessageDialog(this,"Error guardar datos factura"); 
-        }
         if (obj.GuardarDetalle()) 
         {
-           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente, seleccione el ID de la segunda tabla para almacenar su detalle con la factura correspondiente"); 
            CargarF();   
-         
+           CargarDF();
            Bit.BitacoraCreateFactura();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error guardar datos detalle factura"); 
         }
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
        String ID_factura;
         int fsel = jTableFactura.getSelectedRow();
-        
         if (fsel==-1) {
         JOptionPane.showMessageDialog(null, "debe seleccionar una fila", "Advertencia", 
                 JOptionPane.WARNING_MESSAGE);
@@ -1242,6 +1273,39 @@ import javax.swing.table.DefaultTableModel;
         }
     }//GEN-LAST:event_txtServicioKeyTyped
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+ Facturas obj = new Facturas();   
+ //tabla factura
+        int DUI= Integer.parseInt(txtDUI.getText());
+        System.out.println("DUI " + DUI );
+        obj.setID_DUI(DUI);
+        obj.setnombre_pagador(txtNombre.getText());
+        int producto = Integer.parseInt(jTextField5.getText());
+        obj.setID_producto(producto);
+        String servicio = cbxServicio.getSelectedItem().toString();
+        obj.setTipo_servicio(servicio);
+         
+ int filaseleccionada;
+           String fses;
+           filaseleccionada= jTable2.getSelectedRow(); 
+           fses = jTable2.getValueAt(filaseleccionada, 0).toString();
+           jTextField1.setText(fses);
+           String iddetalle = jTextField1.getText();
+            int i = Integer.parseInt(iddetalle);
+            obj.setID_detalle(i);
+            System.out.println("Fila seleccionada, debería ser detalle factura" + fses );
+            System.out.println("Fila seleccionada, debería ser detalle factura" + fses );
+        if (obj.Guardar()) 
+        {
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           CargarF();   
+           clases.Bitacora Bit = new clases.Bitacora();
+           Bit.BitacoraCreateFactura();
+           }else{ 
+           JOptionPane.showMessageDialog(this,"Error guardar datos factura"); 
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
@@ -1255,6 +1319,7 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JComboBox<String> cmbFormaPago;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1294,8 +1359,12 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable1dialog;
     private javax.swing.JTable jTable1dialog1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTableFactura;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
