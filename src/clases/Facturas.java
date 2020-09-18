@@ -255,13 +255,16 @@ public class Facturas
         {
             boolean resp = false;
             Cn = Conexion.conectar();
-            String sql = "UPDATE Factura SET nombre_pagador = ?, ID_detalle = ?, ID_consulta = ?, ID_producto = ? WHERE ID_factura = ?";
+            String sql = "UPDATE Factura SET nombre_pagador = ?, ID_detalle = ?, ID_DUI = ?, producto = ?, Tipo_servicio = ? WHERE ID_factura = ?";
             PreparedStatement cmd = Cn.prepareStatement(sql);
             cmd.setString(1, nombre_pagador);
-            cmd.setInt(2, ID_DUI);
+            System.out.println("id DETALLE en metodo guardar  " + ID_detalle);
+            cmd.setInt(2, ID_detalle);
+            System.out.println("Dui en metodo guardar  " + ID_DUI);
+            cmd.setInt(3, ID_DUI);
             cmd.setString(4, producto);
-            cmd.setInt(5, ID_tipoPago);
-            cmd.setString(6, Tipo_servicio);          
+            cmd.setString(5, Tipo_servicio);  
+            cmd.setInt(6, ID_factura);  
             if (!cmd.execute()) 
             {
                 resp = true;
@@ -276,7 +279,55 @@ public class Facturas
             return false;
         }
     }
-    
+    public boolean modificarD() 
+    {
+        try 
+        {
+            boolean resp = false;
+            Cn = Conexion.conectar();
+            String sql = "UPDATE Detalle_factura SET fecha_emision = ?, ID_tipoPago = ?, descripcion = ?, monto_pagar = ? WHERE ID_detalle = ?";
+            PreparedStatement cmd = Cn.prepareStatement(sql);
+            cmd.setDate(1, fecha_emision);
+            cmd.setInt(2, ID_tipoPago);
+            cmd.setString(3, descripcion);
+            cmd.setDouble(4, monto_pagar);    
+            cmd.setInt(5, ID_detalle);  
+            if (!cmd.execute()) 
+            {
+                resp = true;
+            }
+            cmd.close();
+            Cn.close();
+            return resp;
+        } 
+        catch (SQLException ex) 
+        {
+            System.err.println("Error modificar tipo empleado " + ex);
+            return false;
+        }
+    }
+    public boolean EliminarD() 
+    {
+        boolean resp = false;
+        Cn = Conexion.conectar();
+        try 
+        {//realizando consulta insert
+            String sql = "DELETE FROM Detalle_factura WHERE ID_detalle =?;";
+            PreparedStatement cmd = Cn.prepareStatement(sql);
+            cmd.setInt(1, ID_detalle);
+            if (!cmd.execute()) 
+            {
+                resp = true;
+            }
+            cmd.close();
+            Cn.close();
+        } 
+        catch (Exception ex) 
+        {
+            System.out.println("Error exception es"+ex.toString());
+        }
+        return resp;
+    }   
     public boolean Eliminar() 
     {
         boolean resp = false;
