@@ -502,6 +502,8 @@ DefaultTableModel m;
         tfDUeñonombre.setText(" ");
         tfApellidos.setText(" ");
         tfCorreo.setText(" ");
+//        tfDUI.setValue(" ");
+//        tfTelefono.setValue(" ");
         ListarDuenios();
         cmbNacionalidad.setSelectedIndex(0);
         cmbZona.setSelectedIndex(0);

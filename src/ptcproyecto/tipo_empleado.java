@@ -151,6 +151,15 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Tipo empleado:");
 
+        txtTempleado2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTempleado2KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTempleado2KeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -406,6 +415,19 @@ public class tipo_empleado extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_tblTempleadoMouseClicked
+
+    private void txtTempleado2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTempleado2KeyPressed
+
+    }//GEN-LAST:event_txtTempleado2KeyPressed
+
+    private void txtTempleado2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTempleado2KeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_txtTempleado2KeyTyped
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

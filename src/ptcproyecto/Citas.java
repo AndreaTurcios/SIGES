@@ -271,13 +271,13 @@ DefaultTableModel m;
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Seleccione el tipo de cita:");
 
-        jLabel5.setText("DUI:");
+        jLabel5.setText("DUI del solicitante de la cita:");
 
         jSHora.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
 
         jLabel6.setText("Hora:");
 
-        jSMinuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 5));
+        jSMinuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 3));
 
         jLabel7.setText("Minuto:");
 
@@ -338,7 +338,7 @@ DefaultTableModel m;
         });
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel10.setText("Seleccione la mascota::");
+        jLabel10.setText("Seleccione la mascota:");
 
         javax.swing.GroupLayout JPIngresoCitasLayout = new javax.swing.GroupLayout(JPIngresoCitas);
         JPIngresoCitas.setLayout(JPIngresoCitasLayout);
@@ -358,14 +358,14 @@ DefaultTableModel m;
                         .addGap(0, 58, Short.MAX_VALUE))
                     .addGroup(JPIngresoCitasLayout.createSequentialGroup()
                         .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2)
-                                .addComponent(calendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(JPIngresoCitasLayout.createSequentialGroup()
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3)))
+                            .addComponent(jLabel2)
+                            .addComponent(calendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3))
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jcbDUI1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -426,8 +426,8 @@ DefaultTableModel m;
                             .addComponent(jSMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(80, 80, 80))
                     .addGroup(JPIngresoCitasLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(8, 8, 8)
+                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -463,7 +463,7 @@ DefaultTableModel m;
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 630, 210));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 630, 240));
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 204, 204));
         kGradientPanel1.setkGradientFocus(600);

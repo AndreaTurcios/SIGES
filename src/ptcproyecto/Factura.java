@@ -36,7 +36,7 @@ import javax.swing.table.DefaultTableModel;
         jComboBox1.setVisible(false);
         CargarF();
         Login ventana = new Login();
-        cargarcombox();
+        cargarcombox();  
         CargarDF();
         jsCantidada.setEnabled(false);
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
@@ -44,7 +44,7 @@ import javax.swing.table.DefaultTableModel;
         jsCantidada.setModel(modeloSpinner);
         jLabel1.setVisible(false);
         jButton2.setEnabled(false);
-        jTextField5.setVisible(false);
+//        jTextField5.setVisible(false);
         txtSubtotal2.setEnabled(false);
         jTextField4.setEnabled(false);
         txtTotal.setEnabled(false);
@@ -122,7 +122,6 @@ import javax.swing.table.DefaultTableModel;
         jButton10 = new javax.swing.JButton();
         txtServicio = new javax.swing.JTextField();
         lblPrecioS = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
@@ -609,9 +608,7 @@ import javax.swing.table.DefaultTableModel;
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtdeacripcion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
+                .addGap(330, 330, 330))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,8 +657,7 @@ import javax.swing.table.DefaultTableModel;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(txtdeacripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtdeacripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1170,7 +1166,7 @@ private JComboBox combo;
             costoi = jTable1dialog1.getValueAt(fsel, 4).toString();
             txtProducto.setText(nombrep);
             txtSubTotal.setText(costoi);
-            jTextField5.setText(ID);
+//            jTextField5.setText(ID);
             
             jDialog2.setVisible(false);
             }
@@ -1329,7 +1325,6 @@ private JComboBox combo;
     private javax.swing.JTable jTable1dialog1;
     private javax.swing.JTable jTableFactura;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JSpinner jsCantidada;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;

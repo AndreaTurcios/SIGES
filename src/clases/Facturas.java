@@ -304,10 +304,10 @@ public class Facturas
     {
         Cn = conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String [] columnas = {"ID_factura"," nombre_pagador", "ID_detalle", "ID_consulta", "ID_producto"};
+        String [] columnas = {"ID_factura"," nombre_pagador", "Tipo servicio", "producto", "DUI", "ID_detalle"};
         model = new DefaultTableModel(null, columnas);
         String sql = "SELECT * FROM Factura ORDER BY ID_factura";
-        String [] filas = new String[5];
+        String [] filas = new String[6];
         Statement st = null;
         ResultSet rs = null;
         try
@@ -317,7 +317,7 @@ public class Facturas
             System.out.println("datos obtenidos "+rs);
             while (rs.next())
             {
-                for (int i = 0; i < 5; i++) 
+                for (int i = 0; i < 6; i++) 
                 {
                     filas[i] = rs.getString(i+1);
                 }

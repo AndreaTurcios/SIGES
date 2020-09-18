@@ -215,6 +215,9 @@ public class TipoPago extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtTipoPagoKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTipoPagoKeyTyped(evt);
+            }
         });
         jPanel2.add(txtTipoPago);
         txtTipoPago.setBounds(190, 60, 290, 20);
@@ -301,7 +304,7 @@ public class TipoPago extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(kGradientPanel1);
-        kGradientPanel1.setBounds(0, 0, 680, 54);
+        kGradientPanel1.setBounds(0, 0, 680, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -458,6 +461,15 @@ public class TipoPago extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtTipoPagoKeyPressed
+
+    private void txtTipoPagoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoPagoKeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_txtTipoPagoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

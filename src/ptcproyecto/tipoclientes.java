@@ -185,6 +185,9 @@ public class tipoclientes extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtTipoClienteKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTipoClienteKeyTyped(evt);
+            }
         });
 
         jLabel1.setText("Tipo cliente:");
@@ -449,6 +452,15 @@ public class tipoclientes extends javax.swing.JInternalFrame {
     private void txtIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDKeyPressed
+
+    private void txtTipoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoClienteKeyTyped
+       char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_txtTipoClienteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
