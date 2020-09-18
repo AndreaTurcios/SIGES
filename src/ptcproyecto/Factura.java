@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
@@ -670,7 +671,7 @@ import javax.swing.table.DefaultTableModel;
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        btnGuardar.setText("Guardar detalle");
+        btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -907,7 +908,7 @@ import javax.swing.table.DefaultTableModel;
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
-
+private JComboBox combo;
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
     //tabla detalle
      Facturas obj = new Facturas();
@@ -935,8 +936,10 @@ import javax.swing.table.DefaultTableModel;
         System.out.println("DUI " + DUI );
         obj.setID_DUI(DUI);
         obj.setnombre_pagador(txtNombre.getText());
-        int producto = Integer.parseInt(jTextField5.getText());
-        obj.setID_producto(producto);
+        
+        String producto = txtProducto.getText();
+        obj.setProducto(producto);
+        
         String servicio = cbxServicio.getSelectedItem().toString();
         obj.setTipo_servicio(servicio);
          String idd = jComboBox1.getSelectedItem().toString();
@@ -946,7 +949,7 @@ import javax.swing.table.DefaultTableModel;
         {
            JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
            CargarF();   
-           jComboBox1.setSelectedIndex(-1);
+           jComboBox1.removeAllItems();
            }else{ 
            JOptionPane.showMessageDialog(this,"Error guardar datos factura"); 
         }

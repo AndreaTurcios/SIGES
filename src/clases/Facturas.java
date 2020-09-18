@@ -28,12 +28,20 @@ public class Facturas
     private Integer ID_tipoPago;
     private Integer ID_factura;
     private String nombre_pagador;
-    private Integer ID_producto;
+    private String producto;
     private String Tipo_servicio;
     private Integer ID_detalle;
     private String descripcion;
     private Double monto_pagar;
     private Integer ID_DUI;
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
 
     public Date getFecha_emision() {
         return fecha_emision;
@@ -154,15 +162,7 @@ public class Facturas
 //        this.ID_consulta = ID_consulta;
 //    }
     
-    public Integer getID_producto() 
-    {
-        return ID_producto;
-    }
-
-    public void setID_producto(Integer ID_producto) 
-    {
-        this.ID_producto = ID_producto;
-    }
+    
     
 
     public void setID_tipoPago(Integer ID_tipoPago) 
@@ -225,14 +225,14 @@ public class Facturas
         {
             boolean resp = false;
             Cn = Conexion.conectar();
-            String sql = "INSERT INTO Factura (nombre_pagador, ID_detalle, ID_DUI, ID_producto, Tipo_servicio)"+"VALUES(?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Factura (nombre_pagador, ID_detalle, ID_DUI, producto,Tipo_servicio)"+"VALUES(?, ?, ?, ?, ?)";
             PreparedStatement cmd = Cn.prepareStatement(sql);
             cmd.setString(1, nombre_pagador);
             System.out.println("id DETALLE en metodo guardar  " + ID_detalle);
             cmd.setInt(2, ID_detalle);
             System.out.println("Dui en metodo guardar  " + ID_DUI);
             cmd.setInt(3, ID_DUI);
-            cmd.setInt(4, ID_producto);
+            cmd.setString(4, producto);
             cmd.setString(5, Tipo_servicio);
             if (!cmd.execute()) 
             {
@@ -259,7 +259,7 @@ public class Facturas
             PreparedStatement cmd = Cn.prepareStatement(sql);
             cmd.setString(1, nombre_pagador);
             cmd.setInt(2, ID_DUI);
-            cmd.setInt(4, ID_producto);
+            cmd.setString(4, producto);
             cmd.setInt(5, ID_tipoPago);
             cmd.setString(6, Tipo_servicio);          
             if (!cmd.execute()) 
@@ -519,7 +519,7 @@ public class Facturas
             cmd.setString(1, nombre_pagador);
 //            cmd.setInt(2, ID_detalle);
 //            cmd.setInt(3, ID_consulta);
-            cmd.setInt(4, ID_producto);
+            cmd.setString(4, producto);
             cmd.setInt(5, ID_factura);
             if (!cmd.execute()) 
             {
