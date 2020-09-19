@@ -3,6 +3,7 @@ package ptcproyecto;
 import clases.*;
 import clases.Usuario;
 import clases.Conexion;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -79,6 +80,11 @@ DefaultTableModel m;
                 jtfNombrejTextField4ActionPerformed(evt);
             }
         });
+        jtfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfNombreKeyTyped(evt);
+            }
+        });
 
         jLabel34.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         jLabel34.setText("Apellido:");
@@ -144,6 +150,11 @@ DefaultTableModel m;
         jtfApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfApellidojTextField4ActionPerformed(evt);
+            }
+        });
+        jtfApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfApellidoKeyTyped(evt);
             }
         });
 
@@ -331,6 +342,8 @@ DefaultTableModel m;
         usuarios obj = new usuarios();
         obj.CargarUsuario(jTable1);
     }
+    
+    
     
     public void Limpiar(){
         jtfNombre.setText("");
@@ -549,6 +562,24 @@ DefaultTableModel m;
         
         JCBcargoE.setSelectedItem(String.valueOf(jTable1.getValueAt(fila, 7)));
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jtfNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfNombreKeyTyped
+    char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_jtfNombreKeyTyped
+
+    private void jtfApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfApellidoKeyTyped
+        char valida=evt.getKeyChar();
+        if (Character.isDigit(valida)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se pueden ingresar letras");
+        }
+    }//GEN-LAST:event_jtfApellidoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

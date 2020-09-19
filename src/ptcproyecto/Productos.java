@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import clases.CargarTipoProducto;
 import clases.MtoProductos;
 import clases.Conexion;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,6 +55,9 @@ DefaultTableModel m;
         JTProducto.setText("");
         JTCodigo.setText("");
         JTCosto.setText("");
+        JCBTIPO.setSelectedIndex(0);
+        JBModificar.setEnabled(false);
+        JBGuardar.setEnabled(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -105,6 +109,11 @@ DefaultTableModel m;
 
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -236,6 +245,11 @@ DefaultTableModel m;
         jLabel5.setText("Costo($):");
 
         JTCosto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        JTCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTCostoKeyTyped(evt);
+            }
+        });
 
         btnReporte.setText("Reporte");
         btnReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -509,9 +523,12 @@ DefaultTableModel m;
             clases.Bitacora Bit = new clases.Bitacora();
             Bit.setID(Integer.parseInt(jLabel1.getText()));
             if (obj.consultar()) {
+                JCBTIPO.setSelectedIndex(obj.getTipo_producto());
                 JTProducto.setText(obj.getProducto());
                 JTCodigo.setText(obj.getCodigo().toString());
                 JTCosto.setText(obj.getCosto());
+                JBModificar.setEnabled(true);
+                JBGuardar.setEnabled(false);
                 JOptionPane.showMessageDialog(this, "Datos Consultados exitosamente");
                 Bit.BitacoraReadProductos();
             }
@@ -531,6 +548,19 @@ DefaultTableModel m;
         JOptionPane.showMessageDialog(this, "Solo se pueden ingresar numeros.");
     }
     }//GEN-LAST:event_JTCodigoKeyTyped
+
+    private void JTCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTCostoKeyTyped
+       char ValiCod = evt.getKeyChar();
+    if (((ValiCod < '0') || (ValiCod > '9')) 
+        && (ValiCod != KeyEvent.VK_BACK_SPACE)
+        && (ValiCod != '.' || JTCosto.getText().contains(".")) ) {
+            evt.consume();
+}
+    }//GEN-LAST:event_JTCostoKeyTyped
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+
+    }//GEN-LAST:event_jTable2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

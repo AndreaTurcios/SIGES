@@ -80,7 +80,7 @@ public class Agenda extends javax.swing.JInternalFrame {
          m = (DefaultTableModel)JTableDialog.getModel();
          ID = JTableDialog.getValueAt(fsel, 0).toString();
          
-        JTDUI.setText(ID);
+//        JTDUI.setText(ID);
          
          jDialog1.setVisible(false);
     }
@@ -100,7 +100,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         tfdialogo = new javax.swing.JTextField();
         JBBuscarD = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        JBAgregar = new javax.swing.JButton();
         JBBusqueda = new javax.swing.JButton();
         JBSalir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -124,8 +123,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        JTDUI = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         JBBuscar = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
         kGradientPanel1 = new keeptoo.KGradientPanel();
@@ -169,13 +166,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Buscar:");
 
-        JBAgregar.setText("AGREGAR");
-        JBAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBAgregarActionPerformed(evt);
-            }
-        });
-
         JBBusqueda.setText("NUEVA BUSQUEDA");
         JBBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,8 +189,6 @@ public class Agenda extends javax.swing.JInternalFrame {
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane8)
                     .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addComponent(JBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(JBBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,7 +213,6 @@ public class Agenda extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -282,7 +269,7 @@ public class Agenda extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(0, 194, Short.MAX_VALUE))
+                        .addGap(0, 174, Short.MAX_VALUE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -428,25 +415,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        JTDUI.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        JTDUI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTDUIActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel8.setText("Ingrese DUI:");
-
         JBBuscar.setBackground(new java.awt.Color(0, 153, 153));
         JBBuscar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         JBBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        JBBuscar.setText("Buscar");
+        JBBuscar.setText("Buscador");
         JBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBBuscarActionPerformed(evt);
@@ -519,12 +496,8 @@ public class Agenda extends javax.swing.JInternalFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel8)
-                        .addGap(27, 27, 27)
-                        .addComponent(JTDUI, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JBBuscar)
+                        .addGap(189, 189, 189)
+                        .addComponent(JBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -533,8 +506,6 @@ public class Agenda extends javax.swing.JInternalFrame {
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(JTDUI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -588,14 +559,14 @@ public class Agenda extends javax.swing.JInternalFrame {
         Bit.setID(Integer.parseInt(jLabel2.getText()));
         Bit.BitacoraReadAgenda();
         
-        if (JTDUI.getText().isEmpty() ) {
-            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
-        }
-        else {
-                clases.Agenda obj = new clases.Agenda();
-                obj.setDUI(Integer.parseInt(JTDUI.getText()));
-                           
-            }
+//        if (JTDUI.getText().isEmpty() ) {
+//            JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+//        }
+//        else {
+//                clases.Agenda obj = new clases.Agenda();
+//                obj.setDUI(Integer.parseInt(JTDUI.getText()));
+//                           
+//            }
     }//GEN-LAST:event_JBBuscarActionPerformed
 
     private void tfdialogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfdialogoMouseClicked
@@ -618,29 +589,6 @@ public class Agenda extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_JBBuscarDActionPerformed
 
-    private void JBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAgregarActionPerformed
-        JTDUI.setEnabled(true);
-        int fsel = JTableDialog.getSelectedRow();
-        String ID;
-        if (fsel==-1) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }else{
-            m = (DefaultTableModel)JTableDialog.getModel();
-           ID = JTableDialog.getValueAt(fsel, 4).toString();
-
-            JTDUI.setText(ID);
-
-            jDialog1.setVisible(false);
-
-            //         if (tfdialogo.getText().isEmpty()) {
-                //            JOptionPane.showMessageDialog(this,"No dejar campos vacíos");
-                //        }else{
-                //            ClienteDuenio dui = new ClienteDuenio();
-                //            jTable1dialog.setModel(dui.BuscarTabla(tfdialogo.getText()));
-                //            }
-        }
-    }//GEN-LAST:event_JBAgregarActionPerformed
-
     private void JBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBusquedaActionPerformed
         tfdialogo.setText("                                                 INGRESE EL DUI DEL DUEÑO ");
         listarCitas();
@@ -654,18 +602,12 @@ public class Agenda extends javax.swing.JInternalFrame {
         this.dispose ();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
 
-    private void JTDUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTDUIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTDUIActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBAgregar;
     private javax.swing.JButton JBBuscar;
     private javax.swing.JButton JBBuscarD;
     private javax.swing.JButton JBBusqueda;
     private javax.swing.JButton JBSalir;
-    private javax.swing.JTextField JTDUI;
     private javax.swing.JTable JTableDialog;
     private javax.swing.JButton btnCerrar1;
     private javax.swing.JButton btnReporte;
@@ -679,7 +621,6 @@ public class Agenda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

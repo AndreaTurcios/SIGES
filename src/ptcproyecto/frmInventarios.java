@@ -7,6 +7,7 @@ package ptcproyecto;
 
 import clases.MtoInventario;
 import clases.MtoProductos;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -483,11 +484,18 @@ DefaultTableModel m;
     if(ValiCod < '0' || ValiCod > '9' ){
         evt.consume();
         getToolkit().beep();
+        JOptionPane.showMessageDialog(this, "Solo se pueden ingresar numeros.");
     }
     }//GEN-LAST:event_JTCodigoKeyTyped
 
     private void JTCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTCostoKeyTyped
-        
+    
+        char ValiCod = evt.getKeyChar();
+    if (((ValiCod < '0') || (ValiCod > '9')) 
+        && (ValiCod != KeyEvent.VK_BACK_SPACE)
+        && (ValiCod != '.' || JTCosto.getText().contains(".")) ) {
+            evt.consume();
+}
     }//GEN-LAST:event_JTCostoKeyTyped
 
 
