@@ -33,13 +33,14 @@ DefaultTableModel m;
         jLabel1.setText(ventana.ID.toString());
         System.out.println(ventana.ID);
         jLabel1.setVisible(false);
-        
+//        jTextField1.setVisible(false);
     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jtfNombre = new javax.swing.JTextField();
@@ -66,6 +67,8 @@ DefaultTableModel m;
         btnCerrar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+
+        jButton1.setText("jButton1");
 
         setBackground(new java.awt.Color(204, 204, 204));
 
@@ -353,6 +356,7 @@ DefaultTableModel m;
         jtfUsuario.setText("");
         jtfContraseña.setText("");
         JCBcargoE.setSelectedIndex(0);
+        jtbGuardar.setEnabled(false);
     }
      public boolean isEmail(String correo) {
         Pattern pat = null;
@@ -386,27 +390,46 @@ DefaultTableModel m;
         }else   {   
             String cor = jtfEmail.getText(); 
             if (isEmail(cor)) {
-                MtoUsuarios obj = new MtoUsuarios();
-                clases.Bitacora Bit = new clases.Bitacora();
-                Bit.setID(Integer.parseInt(jLabel1.getText()));
-                obj.setNombre_empleado(jtfNombre.getText());
-                obj.setEmpleado_apellidos(jtfApellido.getText());
-                obj.setEmpleado_correo(jtfEmail.getText());
-                obj.setEmpleado_domicilio(jtfDireccion.getText());
-                obj.setNombre_usuario(jtfUsuario.getText());
-                usuarios u = new usuarios();
-                String password = jtfContraseña.getText();
-                obj.setContrasenia_usuario(u.md5(password));
-                int Tipo = JCBcargoE.getSelectedIndex();
-                obj.setID_tipoUsuarios(Tipo);
-                if (obj.guardar()) {
-                    JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
-                    ListarUsuarios();
-                    Limpiar();
-                    Bit.BitacoraCreateUsuario();
-                }else{
-                    JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+                Verificacion ve = new Verificacion();
+//                String ve1 = jtfUsuario.getText();
+//                ve.setUsuario(ve1);
+                
+                if(ve.consultar(jtfUsuario.getText())){
+//                    veri.setText(ve.getUsuario());
+//                    String ve2 = veri.getText();
+//                    System.out.println(ve2);
+//                    System.out.println(ve1);
+//                    if (ve2 != ve1) {
+//                        
+                        JOptionPane.showMessageDialog(this, "Lo sentimos, pero este usuario ya existe");
                 }
+                else {
+                        JOptionPane.showMessageDialog(this, "El usuario no existe");
+                          MtoUsuarios obj = new MtoUsuarios();
+                        clases.Bitacora Bit = new clases.Bitacora();
+                        Bit.setID(Integer.parseInt(jLabel1.getText()));
+                        obj.setNombre_empleado(jtfNombre.getText());
+                        obj.setEmpleado_apellidos(jtfApellido.getText());
+                        obj.setEmpleado_correo(jtfEmail.getText());
+                        obj.setEmpleado_domicilio(jtfDireccion.getText());
+                        obj.setNombre_usuario(jtfUsuario.getText());
+                        usuarios u = new usuarios();
+                        String password = jtfContraseña.getText();
+                        obj.setContrasenia_usuario(u.md5(password));
+                        int Tipo = JCBcargoE.getSelectedIndex();
+                        obj.setID_tipoUsuarios(Tipo);
+
+                        if (obj.guardar()) {
+
+                            JOptionPane.showMessageDialog(this, "Los datos han sido guardados");
+                            ListarUsuarios();
+                            Limpiar();
+                            Bit.BitacoraCreateUsuario();
+                        }else{
+                            JOptionPane.showMessageDialog(this, "Error al guardar los datos");
+                        }
+                }
+                
             }
             else {
                 JOptionPane.showMessageDialog(this, "Favor de ingresar un correo valido.");
@@ -478,8 +501,10 @@ DefaultTableModel m;
             ID = jTable1.getValueAt(fsel, 0).toString();
             clases.Bitacora Bit = new clases.Bitacora();
             MtoUsuarios obj = new MtoUsuarios();
+            
             Bit.setID(Integer.parseInt(jLabel1.getText()));
             obj.setID_usuario(Integer.parseInt(ID));
+            
             if (obj.consultar()) {
                 jtfNombre.setText(obj.getNombre_empleado());
                 jtfApellido.setText(obj.getEmpleado_apellidos());
@@ -585,6 +610,7 @@ DefaultTableModel m;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> JCBcargoE;
     private javax.swing.JButton btnCerrar1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel33;

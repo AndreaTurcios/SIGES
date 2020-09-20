@@ -798,6 +798,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
 
     private void tbConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbConsultasMouseClicked
         int fila = tbConsultas.getSelectedRow();
+        jcbDUI.setText(String.valueOf(tbConsultas.getValueAt(fila, 0)));
         JCBXEstado.setSelectedItem(String.valueOf(tbConsultas.getValueAt(fila, 4)));
 //        jcbDUI.setSelectedItem(String.valueOf(tbConsultas.getValueAt(fila, 5)));
         CmbTipo_Consulta.setSelectedItem(String.valueOf(tbConsultas.getValueAt(fila, 3)));
