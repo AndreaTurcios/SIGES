@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte dueños - 100%" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6dd5be7d-12c6-449b-bb20-e440de5a9180">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FECHA" class="java.sql.Time">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Cliente_duenio."ID_DUI" AS Cliente_duenio_ID_DUI,
+     Cliente_duenio."duenio_nombre" AS Cliente_duenio_duenio_nombre,
+     Cliente_duenio."duenio_apellidos" AS Cliente_duenio_duenio_apellidos,
+     Cliente_duenio."duenio_correo" AS Cliente_duenio_duenio_correo,
+     Mascota."nombre_mascota" AS Mascota_nombre_mascota,
+     Mascota."mascota_genero" AS Mascota_mascota_genero
+FROM
+     "dbo"."Cliente_duenio" Cliente_duenio INNER JOIN "dbo"."Mascota" Mascota ON Cliente_duenio."ID_DUI" = Mascota."ID_DUI"
+
+ORDER BY
+ Cliente_duenio."ID_DUI"
+]]>
+	</queryString>
+	<field name="Cliente_duenio_ID_DUI" class="java.lang.Integer"/>
+	<field name="Cliente_duenio_duenio_nombre" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_apellidos" class="java.lang.String"/>
+	<field name="Cliente_duenio_duenio_correo" class="java.lang.String"/>
+	<field name="Mascota_nombre_mascota" class="java.lang.String"/>
+	<field name="Mascota_mascota_genero" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="115" height="46" forecolor="#01A3C9" uuid="a6c2f0d7-2368-4fdd-b375-cbba7c0246e6"/>
+				<textElement>
+					<font fontName="Tahoma" size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIGES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="49" width="196" height="30" forecolor="#015E7A" uuid="0d82f4a7-dd03-43ef-bc90-b55b89f13465"/>
+				<textElement>
+					<font fontName="Tahoma" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de  Encargados]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="416" y="26" width="139" height="20" uuid="fddf9d61-1125-4eef-a40d-be6f4a578f0e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="309" y="21" width="72" height="27" forecolor="#01A3C9" uuid="cb766022-972d-4a69-b90e-47720adcf74f"/>
+				<textElement>
+					<font fontName="Tahoma" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="10" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="5" width="87" height="27" backcolor="#99CCFF" uuid="1954ddfd-36bd-428c-a5d3-c3ab5f6806b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="18"/>
+				</textElement>
+				<text><![CDATA[Encargado]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="32" width="555" height="30" backcolor="#01A3C9" uuid="d75c6888-6e7f-4c79-ba62-7b2fdc4c692e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="32" width="64" height="30" forecolor="#FFFFFF" uuid="7bc5f12f-42eb-48f4-8ab7-a558c2278d6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="6" y="62" width="54" height="20" uuid="dc4c0b40-2d6f-4beb-961a-865ae20068b8"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="32" width="64" height="30" forecolor="#FFFFFF" uuid="00dfe2e4-9f12-41f6-85bd-15ffc6eb7d4b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="62" width="50" height="20" uuid="55fd7a1d-cc9f-4f9c-9e82-582e036bb3a3"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_duenio_apellidos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="158" y="32" width="53" height="30" forecolor="#FFFFFF" uuid="b5bea6d9-fc9c-40de-a19b-b85e0568cbc7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[DUI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="62" width="81" height="20" uuid="95ed4a2c-77f5-4dce-a263-4b574ca166b4"/>
+				<textFieldExpression><![CDATA[$F{Cliente_duenio_ID_DUI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="266" y="32" width="53" height="30" forecolor="#FFFFFF" uuid="eaa93587-8b14-4488-9b65-2bdf876ed1a7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Mascota]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="266" y="62" width="66" height="20" uuid="9678fcbe-19fa-4c9d-86ee-3ece41a064b8"/>
+				<textFieldExpression><![CDATA[$F{Mascota_nombre_mascota}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="32" width="98" height="30" forecolor="#FFFFFF" uuid="ae38d454-573a-447c-8d2f-3315464f460e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Mascota Genero]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="399" y="62" width="100" height="20" uuid="2093feb7-3cc6-4a01-9383-5b46a673ae47"/>
+				<textFieldExpression><![CDATA[$F{Mascota_mascota_genero}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
