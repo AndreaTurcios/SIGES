@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  * @author 15-CW0001la
  */                                  
 public class FrmMainRecepcionista extends javax.swing.JFrame {
-    int clicked = 0;
+public static int clicked = 00;
     /**
      * Creates new form FrmMain
      */
@@ -382,7 +382,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -471,6 +471,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         Agenda fich= new Agenda();
         panelArriba.add(fich);
         fich.show();
+         clicked++;
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -488,6 +489,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         Citas fich= new Citas();
         panelArriba.add(fich);
         fich.show();    
+         clicked++;
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -505,6 +507,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         frmConsultas fich =new frmConsultas();
         panelArriba.add(fich);
         fich.show();  
+         clicked++;
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -523,7 +526,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         Dueños fich= new Dueños();
         panelArriba.add(fich);
         fich.show();
-        
+         clicked++;
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -542,6 +545,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         Mascotas fich= new Mascotas();
         panelArriba.add(fich);
         fich.show();
+         clicked++;
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
@@ -560,7 +564,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         FrmPreguntas fich= new FrmPreguntas();
         panelArriba.add(fich);
         fich.show();
-       
+        clicked++;
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -579,6 +583,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         TipoMascota fich= new TipoMascota();
         panelArriba.add(fich);
         fich.show();
+         clicked++;
     }//GEN-LAST:event_jLabel8MouseClicked
  int xx,xy;
     private void kGradientPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MousePressed
@@ -637,6 +642,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         DetalleFactura fich= new DetalleFactura ();
         panelArriba.add(fich);
         fich.show();
+         clicked++;
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
@@ -655,6 +661,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         Respuestas fich= new Respuestas ();
         panelArriba.add(fich);
         fich.show();
+         clicked++;
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
@@ -673,6 +680,7 @@ public class FrmMainRecepcionista extends javax.swing.JFrame {
         Factura fich= new Factura ();
         panelArriba.add(fich);
         fich.show();
+        clicked++;
     }//GEN-LAST:event_jLabel21MouseClicked
         
         

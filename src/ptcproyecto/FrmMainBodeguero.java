@@ -48,6 +48,8 @@ public class FrmMainBodeguero extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -194,13 +196,41 @@ public class FrmMainBodeguero extends javax.swing.JFrame {
             }
         });
 
+        jLabel24.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("                        Proveedores");
+        jLabel24.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jLabel24.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel24.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel24.setPreferredSize(new java.awt.Dimension(159, 20));
+        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel24MouseClicked(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("                           Inventario");
+        jLabel23.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jLabel23.setMaximumSize(new java.awt.Dimension(159, 20));
+        jLabel23.setMinimumSize(new java.awt.Dimension(159, 20));
+        jLabel23.setPreferredSize(new java.awt.Dimension(159, 20));
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +243,7 @@ public class FrmMainBodeguero extends javax.swing.JFrame {
                                     .addComponent(lblUsuario)))
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -232,8 +262,12 @@ public class FrmMainBodeguero extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(84, 84, 84)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -365,6 +399,30 @@ public class FrmMainBodeguero extends javax.swing.JFrame {
        
        this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_panelArribaMouseDragged
+
+    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+        jLabel3.setForeground(Color.WHITE);
+        jLabel13.setForeground(Color.WHITE);
+        jLabel24.setForeground(Color.BLACK);
+        clicked++;
+        lblLogo.setVisible(false);
+        panelArriba.removeAll();
+        frmProveedores fich= new frmProveedores ();
+        panelArriba.add(fich);
+        fich.show();
+    }//GEN-LAST:event_jLabel24MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        jLabel3.setForeground(Color.WHITE);
+        jLabel13.setForeground(Color.WHITE);
+        jLabel23.setForeground(Color.BLACK);
+        clicked++;
+        lblLogo.setVisible(false);
+        panelArriba.removeAll();
+        frmInventarios fich= new frmInventarios ();
+        panelArriba.add(fich);
+        fich.show();
+    }//GEN-LAST:event_jLabel23MouseClicked
         
         
     /**
@@ -409,6 +467,8 @@ public class FrmMainBodeguero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel01;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private keeptoo.KGradientPanel kGradientPanel1;
