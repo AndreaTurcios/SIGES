@@ -301,26 +301,23 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnMostrarTipoConsultaActionPerformed
 
     private void btnGuardarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoConsultaActionPerformed
-        String Tipoconsulta = txtNombreTipoConsulta.getText();
-         if  (txtNombreTipoConsulta.getText().isEmpty()){
+        if  (txtNombreTipoConsulta.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Favor de no dejar datos vacios.");
+        }else{
+        tipoConsultas tc = new tipoConsultas();
+        String tic = txtNombreTipoConsulta.getText();
+        tc.setTipo_consulta(tic);
+        clases.Bitacora Bit = new clases.Bitacora();
+        Bit.setID(Integer.parseInt(jLabel1.getText()));
+        if (tc.guardar()) {   
+           JOptionPane.showMessageDialog(this,"Datos ingresados correctamente"); 
+           cargarTabla();
+           Bit.BitacoraCreatePreguntas();
+           }else{ 
+           cargarTabla();
+           JOptionPane.showMessageDialog(this,"Error al guardar datos"); 
         }
-        else {
-        try{
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO Tipo_consulta(tipo_consulta) VALUES(?)");
-            ps.setString(1,Tipoconsulta);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Registro Guardado");
-            cargarTabla();
-            clases.Bitacora Bit = new clases.Bitacora();
-            Bit.setID(Integer.parseInt(jLabel1.getText()));  
-            Bit.BitacoraCreateTipoConsulta();
-        } catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e.toString());
-        
-        }
-         }
+       }
     }//GEN-LAST:event_btnGuardarTipoConsultaActionPerformed
 
     private void btnEliminarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoConsultaActionPerformed
@@ -355,7 +352,7 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarTipoConsultaActionPerformed
 
     private void btnModificarTipoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTipoConsultaActionPerformed
-        String IDTipoPago;
+        String IDTipoConsulta;
         int fsel = tblconsulta.getSelectedRow();
         if (fsel==-1) 
         {
@@ -367,13 +364,14 @@ public class TipoConsulta extends javax.swing.JInternalFrame {
         }
         else {
             m = (DefaultTableModel)tblconsulta.getModel();
-            IDTipoPago = tblconsulta.getValueAt(fsel, 0).toString();
-            txtID.setText(IDTipoPago);
-            CrudTipoConsulta obj = new CrudTipoConsulta();
+            IDTipoConsulta = tblconsulta.getValueAt(fsel, 0).toString();
+            txtID.setText(IDTipoConsulta);
+            tipoConsultas obj = new tipoConsultas();
             int ID = Integer.parseInt(txtID.getText());
-            obj.setIDTipoConsulta(ID);
+            obj.setID_tipoConsulta(ID);
 //            System.out.println("LLega ID "+ obj.getIDTipoConsulta());
-            obj.setTipoConsulta(txtNombreTipoConsulta.getText());
+            
+            obj.setTipo_consulta(txtNombreTipoConsulta.getText());
             clases.Bitacora Bit = new clases.Bitacora();
             Bit.setID(Integer.parseInt(jLabel1.getText())); 
             if (obj.ModificarTipoConsulta()) 

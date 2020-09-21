@@ -32,7 +32,6 @@ public class frmConsultas extends javax.swing.JInternalFrame {
         initComponents();
         this.setPreferredSize(new Dimension(760,714));
         listarConsultas();
-       
         LlenarComboBox();
         jcbDUI.setEnabled(false);
         CmbTipo_Consulta.setEnabled(false);
@@ -583,7 +582,7 @@ public class frmConsultas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
