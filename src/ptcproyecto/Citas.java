@@ -375,27 +375,27 @@ DefaultTableModel m;
                                     .addComponent(cbTipoCita, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cmbMascota, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(67, 67, 67))
-                            .addGroup(JPIngresoCitasLayout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
-                                        .addComponent(jSHora, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPIngresoCitasLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(JbtnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(43, 43, 43))))
+                                .addGap(43, 43, 43))
+                            .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                                .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(JPIngresoCitasLayout.createSequentialGroup()
+                                                .addComponent(jSHora, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(JPIngresoCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jSMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(JPIngresoCitasLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(JbtnModificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -557,7 +557,14 @@ DefaultTableModel m;
         obj.CargarDuenio(jTable1dialog);
     }
     private void JbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtGuardarActionPerformed
-       Cita obj = new Cita();
+      String opcion = jcbDUI1.getSelectedItem().toString();
+        String opcion1 = cbTipoCita.getSelectedItem().toString();
+        String opcion2 = cmbMascota.getSelectedItem().toString();
+        if (calendar.getDatoFecha() == null ||jTextField1.getText().isEmpty() ||opcion == "Seleccione una opción"||opcion1 == "Seleccione una opción"||opcion2 == "Seleccione una opción") {
+           JOptionPane.showMessageDialog(this,"Favor de no dejar opciones sin seleccionar ni datos vacíos");            
+        }    
+        else  {  
+        Cita obj = new Cita();
        int hora = (Integer)jSHora.getValue();
        int minuto = (Integer)jSMinuto.getValue();
 //       String turno = (String)jComboBox1.getSelectedItem();
@@ -594,6 +601,7 @@ DefaultTableModel m;
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar los datos");
         }
+       }
     }//GEN-LAST:event_JbtGuardarActionPerformed
 
     private void JbtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnConsultarActionPerformed
